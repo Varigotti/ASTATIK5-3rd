@@ -11,7 +11,7 @@ A_{1,2} = A_{2,1}\,.
 \end{align}
 {\em Die Arbeiten, die die Lasten des Systems 1 auf den Wegen des Systems 2 leisten, $A_{1,2} $, sind genauso gro{\ss} wie die Arbeiten, die die Lasten des Systems 2 auf den Wegen des Systems 1 leisten, $A_{2,1} $\/}.
 
-Dieser Satz beruht auf der zweiten Greenschen Identit\"{a}t $\text{\normalfont\calligra B\,\,}(w,\hat{w})$. Sie erh\"{a}lt man durch Spiegelung der ersten Greenschen Identit\"{a}t und Vertauschung der Reihenfolge von $w$ und $\hat{w}$
+Dieser Satz beruht auf der zweiten Greenschen Identit\"{a}t $\text{\normalfont\calligra B\,\,}(w,\hat{w})$. Sie erh\"{a}lt man durch Spiegelung der ersten Greenschen Identit\"{a}t an sich selbst und Vertauschung der Reihenfolge von $w$ und $\hat{w}$
 \begin{align}
 \text{\normalfont\calligra B\,\,}(w,\textcolor{chapterTitleBlue}{\hat{w}}) = \text{\normalfont\calligra G\,\,}(w,\textcolor{chapterTitleBlue}{\hat{w}}) - \text{\normalfont\calligra G\,\,}(\textcolor{chapterTitleBlue}{\hat{w}}, w) = 0 - 0 = 0\,,
 \end{align}
@@ -35,7 +35,7 @@ Man kann sich das auch so vorstellen, dass man mit dem Arbeitsintegral
 \begin{align}
 \int_0^{\,l} EI\,w_1^{IV}(x)\,\textcolor{chapterTitleBlue}{w_2(x)}\,dx
 \end{align}
-startet, und dann mittels partieller Integration die Ableitungen von $w_1$ vollst\"{a}ndig auf $\textcolor{chapterTitleBlue}{w_2} $ \"{u}berw\"{a}lzt und so am Schluss das Spiegelbild des Ausgangsintegrals erh\"{a}lt.
+beginnt, und dann mittels partieller Integration die Ableitungen von $w_1$ vollst\"{a}ndig auf $\textcolor{chapterTitleBlue}{w_2} $ \"{u}berw\"{a}lzt und so am Schluss das Spiegelbild des Ausgangsintegrals erh\"{a}lt.
 
 Differentialgleichungen, bei denen auf diesem Weg das Spiegelbild entsteht, hei{\ss}en {\em selbstadjungiert\/}. Alle linearen Differentialgleichungen gerader Ordnung sind selbstadjungiert.
 
@@ -68,7 +68,7 @@ aber ihre reziproken \"{a}u{\ss}eren Arbeiten, also die Arbeiten \glq \"{u}ber K
 \end{figure}%
 %----------------------------------------------------------------------------------------------------------
 
-In den Statikb\"{u}chern wird der {\em Satz von Betti\/} auf Systeme beschr\"{a}nkt, die im Gleichgewicht sind. Dieser Hinweis ist notwendig, weil die Autoren nicht mit der voll ausgeschriebenen zweiten Greenschen Identit\"{a}t beginnen, Glg. (\ref{Eq57}), und daraus alles weitere ableiten, sondern sie  beginnen den {\em Satz von Betti\/} gleich mit Glg. (\ref{Eq35}). Dies setzt aber eben voraus, dass die beiden Biegelinien den Differentialgleichungen $EI\,w_1^{IV} = p_1$ bzw. $EI\,w_2^{IV} = p_2$ und den Randbedingungen gen\"{u}gen.
+In den Statikb\"{u}chern wird der {\em Satz von Betti\/} auf Systeme beschr\"{a}nkt, die im Gleichgewicht sind. Dieser Hinweis ist notwendig, weil die Autoren nicht mit der voll ausgeschriebenen zweiten Greenschen Identit\"{a}t beginnen, Glg. (\ref{Eq57}), und daraus alles weitere ableiten, sondern sie  beginnen den {\em Satz von Betti\/} gleich mit Glg. (\ref{Eq35}). Dann muss man aber dazu sagen, dass die beiden Biegelinien den Differentialgleichungen $EI\,w_1^{IV} = p_1$ bzw. $EI\,w_2^{IV} = p_2$ und den Randbedingungen gen\"{u}gen m\"{u}ssen, damit (\ref{Eq35}) richtig ist.
 
 Der {\em Satz von Betti\/} gilt im \"{u}brigen auch dann, wenn die beiden Balken unterschiedlich gelagert sind, wie in Abb. \ref{U211}, denn
 \begin{align}
@@ -122,7 +122,7 @@ G_3(y,x) &= - EI\,\frac{d^3}{dx^3} G_0(y,x) &&= \text{Einflussfunktion f\"{u}r $
 \end{subequations}\index{$G_0$}\index{$G_1$}\index{$G_2$}\index{$G_3$}
 Wir bezeichnen die Einflussfunktionen mit dem Buchstaben $G$, weil in der Mathematik Einflussfunktionen {\em Greensche Funktionen\/}\index{Greensche Funktion} hei{\ss}en, und weil die Durchbiegung die nullte Ableitung ist, schreiben wir ihre Einflussfunktion $G_0 $ mit einem Index $0$.
 
-Eigentlich m\"{u}sste man immer sauber trennen zwischen {\em Kern\/}\index{Kern einer Einflussfunktion} und Einflussfunktion. Die Greenschen Funktionen $G_i(y,x)$ sind die Kerne und die Integrale wie (\ref{Eq37}) sind die Einflussfunktionen, aber oft bezeichnet man auch schon die Kerne als Einflussfunktionen.
+Eigentlich m\"{u}sste man immer sauber trennen zwischen {\em Kern\/}\index{Kern einer Einflussfunktion} und Einflussfunktion. Die Greenschen Funktionen $G_i(y,x)$ sind die Kerne und die Integrale wie (\ref{Eq37}) sind die Einflussfunktionen, aber f\"{u}r Ingenieure sind die Kerne die Einflussfunktionen.
 
 %----------------------------------------------------------------------------------------------------------
 \begin{figure}[tbp]
@@ -224,9 +224,9 @@ Bei der Berechnung von Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en geht man -
 
 Erst macht man die Schnittgr\"{o}{\ss}e durch den Einbau eines entsprechenden Gelenkes zu einer \"{a}u{\ss}eren Kraftgr\"{o}{\ss}e, s. Abb. \ref{U164A}, und dann bewegt man die beiden Gelenkh\"{a}lften so, dass die beiden Schnittgr\"{o}{\ss}en, links und rechts  vom Gelenk, insgesamt den Weg $-1$ zur\"{u}cklegen.
 
-In der Statik hei{\ss}t dies der {\em Satz von Land\/}\index{Satz von Land}, der aber im Grunde doch nur abliest, was im {\em Satz von Betti\/} seht. Man sucht in der zweiten Greenschen Identit\"{a}t nach der Kraftgr\"{o}{\ss}e, schaut auf ihren Partner, also die Weggr\"{o}{\ss}e, mit der die Kraftgr\"{o}{\ss}e gepaart ist, und wei{\ss} dann, dass man diese Weggr\"{o}{\ss}e um Eins springen lassen muss, damit bei der Addition, s. (\ref{Eq6}), die Kraftgr\"{o}{\ss}e \glq ans Licht kommt\grq{}.
+In der Statik hei{\ss}t dies der {\em Satz von Land\/}\index{Satz von Land}, der aber im Grunde doch nur das wiederholt, was im {\em Satz von Betti\/} seht. Man sucht in der zweiten Greenschen Identit\"{a}t nach der Kraftgr\"{o}{\ss}e, schaut auf ihren Partner, also die Weggr\"{o}{\ss}e, mit der die Kraftgr\"{o}{\ss}e gepaart ist, und wei{\ss} dann, dass man diese Weggr\"{o}{\ss}e um Eins springen lassen muss, damit bei der Addition, s. (\ref{Eq6}), die Kraftgr\"{o}{\ss}e \glq ans Licht kommt\grq{}.
 
-Man unterscheidet, s. Abb. \ref{U30}, zwischen $M-$, $N-$ und $V-$Gelenken. Ist das Tragwerk statisch bestimmt, dann wird aus dem Tragwerk durch den Einbau des Gelenkes ein {\em Getriebe\/} und dann sind keine Kr\"{a}fte n\"{o}tig, um die beiden Gelenkh\"{a}lften zu spreizen.
+Man unterscheidet, s. Abb. \ref{U30}, zwischen $M-$, $N-$ und $V-$ Gelenken. Ist das Tragwerk statisch bestimmt, dann wird aus dem Tragwerk durch den Einbau des Gelenkes ein {\em Getriebe\/} und dann sind keine Kr\"{a}fte n\"{o}tig, um die beiden Gelenkh\"{a}lften zu spreizen.
 
 Ist das Tragwerk statisch unbestimmt, dann ben\"{o}tigt man daf\"{u}r Kr\"{a}fte. Praktisch geht man dabei so vor, dass  man zun\"{a}chst auf beiden Seiten des Gelenkes eine Kraftgr\"{o}{\ss}e $X = \pm 1$ wirken l\"{a}sst, die dadurch verursachte Spreizung des Gelenks ausrechnet, und dann das Paar $\pm X$ so normiert, dass die Spreizung sich genau zu Eins ergibt.
 
