@@ -1798,11 +1798,11 @@ Deswegen nennt man $ a(w,\delta w) $ eine {\em symmetrische Bilinearform\/}\inde
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\textcolor{sectionTitleBlue}{\section{Gleichgewicht}}}\index{Gleichgewicht}
 
-An einem freigeschnittenen Balken herrscht Gleichgewicht, wenn die \"{a}u{\ss}eren Kr\"{a}fte ($p$ + Lagerkr\"{a}fte) orthogonal sind zu allen  Funktionen $\textcolor{red}{\delta w}$, deren Momente null sind, denn dann ist
+Am freigeschnittenen Balken herrscht Gleichgewicht, wenn die \"{a}u{\ss}eren Kr\"{a}fte ($p$ + Lagerkr\"{a}fte) orthogonal sind zu allen  Funktionen $\textcolor{red}{\delta w}$, deren Momente null sind, denn dann ist
 \begin{align}
 a(w,\textcolor{red}{\delta w}) = \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = 0\,,
 \end{align}
-und in der ersten Greenschen Identit\"{a}t bleiben nur die Arbeit der \"{a}u{\ss}eren Kr\"{a}fte \"{u}brig und die ist null
+und in der ersten Greenschen Identit\"{a}t bleiben nur die Arbeiten der \"{a}u{\ss}eren Kr\"{a}fte \"{u}brig und die sind null
 \begin{align}\label{Eq114}
 \text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \int_0^{l} p\,\textcolor{red}{\delta w}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l} = 0\,.
 \end{align}
@@ -1810,7 +1810,7 @@ Beim Balken sind die \glq Null-Energie\grq{}-Funktionen die Starrk\"{o}rperbeweg
 \begin{align}
 \textcolor{red}{\delta w(x) = a + b\,x}\,.
 \end{align}
-Dies ist die Stelle, wo die {\em Pseudodrehungen\/}\index{Pseudodrehungen} in die Statik hinein kommen. Im Unterschied zu echten Drehungen bleiben die Punkte nicht auf dem Drehkreis, sondern sie folgen der Tangente an den Drehkreis, s. Abb. \ref{U65},
+Hier ist die Stelle, wo die {\em Pseudodrehungen\/}\index{Pseudodrehungen} in die Statik hinein kommen. Im Unterschied zu echten Drehungen bleiben die Punkte nicht auf dem Drehkreis, sondern sie folgen der Tangente an den Drehkreis, s. Abb. \ref{U65},
 \begin{align}
 \tan\,\Np = \frac{y}{x}\,.
 \end{align}
@@ -1933,13 +1933,13 @@ Es ist daher theoretisch auch nicht m\"{o}glich, das Gleichgewicht eines Rahmens
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\textcolor{sectionTitleBlue}{\section{Quellen und Senken}}}\index{Quellen und Senken}
-Aus der Sicht der Physik sind die Gleichgewichtsbedingungen Erhaltungss\"{a}tze. Das, was aus einer Platte $\Omega$ am Rande herausflie{\ss}t, also die Lagerkr\"{a}fte auf dem Rand $\Gamma$, der Kirchhoffschub $v_n$, muss in der Summe gleich der aufgebrachten Belastung sein\footnote{Die Eckkr\"{a}fte haben wir weggelassen.}
+Aus der Sicht der Physik sind die Gleichgewichtsbedingungen Erhaltungss\"{a}tze. Das, was aus einer Platte $\Omega$ am Rande herausflie{\ss}t, also die Lagerkr\"{a}fte auf dem Rand $\Gamma$, das ist der Kirchhoffschub $v_n$, muss in der Summe gleich der aufgebrachten Belastung sein\footnote{Die Eckkr\"{a}fte haben wir weggelassen.}
 \begin{align}
 \text{\normalfont\calligra G\,\,}(w,1) = \int_{\Omega} p \,d\Omega + \int_{\Gamma} v_n\,ds = 0\,.
 \end{align}
 Die Temperaturverteilung $T(\vek x)$ in einem Zimmer, das von einer Fu{\ss}bodenheizung $p$ (= Quellen) erw\"{a}rmt wird und dessen W\"{a}nde konstant auf null Grad gehalten werden, gen\"{u}gt der Gleichung
 \begin{align}
-- \Delta T = p \qquad T = 0 \qquad \text{auf $\Gamma$}\,.
+- \Delta T = p \qquad T = 0 \qquad \text{am Rand $\Gamma$}\,.
 \end{align}
 Aus der ersten Greenschen Identit\"{a}t des Laplace-Operators,
 \begin{align}\label{Eq90}
@@ -1949,7 +1949,7 @@ in der Formulierung
 \begin{align}
 \text{\normalfont\calligra G\,\,}(T,1) = \int_{\Omega} p \,d\Omega + \int_{\Gamma} \frac{\partial T}{\partial n}\,ds = 0\,,
 \end{align}
-folgt: Was an W\"{a}rme aus dem Zimmer $\Omega$ herausflie{\ss}t, das ist das Integral des Flu{\ss} $\partial T/\partial n$, muss gleich der im Zimmer produzierten W\"{a}rme sein.
+folgt: Was an W\"{a}rme am Rand $\Gamma$ wegflie{\ss}t, das ist das Integral des Flu{\ss} $\partial T/\partial n$, muss gleich der im Zimmer produzierten W\"{a}rme sein.
 
 Fachwerkst\"{a}be sind frei von Quellen (keine Streckenlast zwischen den Stabenden) und daher m\"{u}ssen sich die Normalkr\"{a}fte am Anfang und am Ende in der Summe aufheben, was an Kraft hineinflie{\ss}t muss auch wieder herausflie{\ss}en
 \begin{align}
@@ -2013,7 +2013,7 @@ und so, weil die Auslenkung $ u $ der Feder dem Federgesetz $k\,u = f $ gen\"{u}
 
 Die interessante Beobachtung ist nun, siehe Abb. \ref{U208}, dass der Punkt $u$, in dem sich die \"{a}u{\ss}ere und innere Arbeit schneiden,  auch genau der Punkt $u$ ist, in dem die potentielle Energie ihr Minimum hat.
 
-Wie man im Abb. \ref{U208} sieht, steigt am Anfang die \"{a}u{\ss}ere Arbeit schneller als die innere Energie, aber dann passieren die beiden Kurven einen Punkt, von dem ab die innere Energie schneller w\"{a}chst als die \"{a}u{\ss}ere Arbeit. { Dieser Schnittpunkt ist der Gleichgewichtspunkt}. Nur in diesem Punkt gilt $A_a = A_i$.
+Wie man im Abb. \ref{U208} sieht, steigt am Anfang die \"{a}u{\ss}ere Arbeit schneller als die innere Energie, aber dann passieren die beiden Kurven einen Punkt, von dem ab die innere Energie schneller w\"{a}chst als die \"{a}u{\ss}ere Arbeit. {\em Dieser Schnittpunkt ist der Gleichgewichtspunkt}. Nur in diesem Punkt gilt $A_a = A_i$.
 
 W\"{u}rde von Anfang an die innere Energie schneller steigen als die \"{a}u{\ss}ere Arbeit, dann w\"{u}rde sich die Feder \"{u}berhaupt nicht bewegen, dann w\"{a}re schon im Nullpunkt der Wettlauf zu Ende.
 
@@ -2060,7 +2060,7 @@ Nun ist aber die Auslenkung $ u $ der Sieger in dem Wettbewerb, die potentielle 
 \end{figure}%
 %----------------------------------------------------------------------------------------------------------
 
-Wir interpretieren das Prinzip in der Regel so, wie es die Wortwahl (anscheinend)  suggeriert, mit m\"{o}glichst wenig Anstrengung zum Ziel kommen, die potentielle Energie m\"{o}glichst klein machen, m\"{o}glichst nahe an null zu r\"{u}cken, w\"{a}hrend die wahre (?) Bedeutung genau das Gegenteil ist, s. Abb. \ref{U209}. Je gr\"{o}{\ss}er $\mathcal{V}$ ist, je weniger Fesseln es gibt, desto negativer wird die potentielle Energie bei demselbe $p$, desto weiter r\"{u}ckt $|\Pi(w)|$ von null ab, s. Abb. \ref{U367}.
+Wir interpretieren das Prinzip in der Regel so, wie es die Wortwahl (anscheinend)  suggeriert, mit m\"{o}glichst wenig Anstrengung zum Ziel kommen, die potentielle Energie m\"{o}glichst klein machen, m\"{o}glichst nahe an null zu r\"{u}cken, w\"{a}hrend die wahre Bedeutung genau das Gegenteil ist, s. Abb. \ref{U209}. Je gr\"{o}{\ss}er $\mathcal{V}$ ist, je weniger Fesseln es gibt, desto negativer wird die potentielle Energie bei demselbe $p$, desto weiter r\"{u}ckt $|\Pi(w)|$ von null ab, s. Abb. \ref{U367}.
 %-----------------------------------------------------------------
 \begin{figure}[tbp]
 \centering
@@ -2084,7 +2084,7 @@ Betrachten wir nun dagegen einen LF $\Delta$ wie in Abb. \ref{U305}. Wegen der f
 \begin{align}
 \Pi(w)= \frac{1}{2}\,a(w,w) = \frac{1}{2}\, \int_0^{\,l} \frac{M^2}{EI}\,dx\,.
 \end{align}
-In einem LF $\Delta$ ist die potentielle Energie also positiv, {\em liegt sie rechts vom Nullpunkt\/}, und wenn man jetzt die potentielle Energie minimiert, dann sucht man den Verformungszustand $ u $ oder $w$, der die potentielle Energie m\"{o}glichst nahe an null r\"{u}ckt, s. Abb. \ref{U209}. In dieser Situation hat das Prinzip vom Minimum der potentiellen Energie die Bedeutung, die wir ihm normalerweise unterlegen. Das Tragwerk versucht mit m\"{o}glichst wenig Widerstand, sprich mit m\"{o}glichst wenig innerer Energie, die Verformungen zu ertragen, die ihm aufgezwungen werden.
+In einem LF $\Delta$ ist die potentielle Energie also positiv, {\em liegt sie rechts vom Nullpunkt\/}, und wenn man jetzt die potentielle Energie minimiert, dann sucht man die Verformung $ u $ oder $w$, die die potentielle Energie m\"{o}glichst nahe an null r\"{u}ckt, s. Abb. \ref{U209}. In dieser Situation hat das Prinzip vom Minimum der potentiellen Energie die Bedeutung, die wir ihm normalerweise unterlegen. Das Tragwerk versucht mit m\"{o}glichst wenig Widerstand, sprich mit m\"{o}glichst wenig innerer Energie, die Verformungen zu ertragen, die ihm aufgezwungen werden.
 %----------------------------------------------------------------------------------------------------------
 \begin{figure}[tbp]
 \centering
@@ -2136,7 +2136,7 @@ Das Prinzip vom Minimum der potentiellen Energie kann auch erkl\"{a}ren, warum d
 
 Wenn das Bauteil rei{\ss}t, m\"{u}ssen die Verschiebungen auf den Flanken des Risses nicht mehr gleich sein, wie das der Fall war, solange die Flanke noch im Inneren des ungerissenen Bauteils lag. {\em Risse bewirken also, dass der Ansatzraum $\mathcal{V}$ gr\"{o}{\ss}er wird\/}, weil mehr Funktionen an der Konkurrenz um das Minimum teilnehmen k\"{o}nnen. Damit rutscht das Minimum aber noch weiter weg vom Nullpunkt, wird es dem Betrage nach gr\"{o}{\ss}er, und das bedeutet, dass die potentielle Energie und damit die Spannungen in dem Bauteil steigen.
 
-Wenn sich ein Lager senkt, haben Risse den gegenteiligen Effekt, die Spannungen sinken, weil $\Pi(\vek u) > 0$ jetzt n\"{a}her an null rutschen kann; wieder weil der Ansatzraum $\mathcal{V}_h$ durch die Risse gr\"{o}{\ss}er wird.
+Wenn sich ein Lager senkt, haben Risse den gegenteiligen Effekt, die Spannungen sinken, weil $\Pi(\vek u) > 0$ jetzt n\"{a}her an null rutschen kann; wieder weil der Ansatzraum $\mathcal{V}$ durch die Risse gr\"{o}{\ss}er wird.
 %----------------------------------------------------------------------------------------------------------
 \begin{figure}[tbp]
 \centering
@@ -2149,7 +2149,7 @@ Wenn sich ein Lager senkt, haben Risse den gegenteiligen Effekt, die Spannungen 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\textcolor{sectionTitleBlue}{\subsection{Wenn Lager entfallen}}}
-Dieselbe Logik gilt auch bei Durchlauftr\"{a}gern, bei denen die Zahl der Lager sozusagen der Gr\"{o}{\ss}e des Ansatzraums $\mathcal{V}$ entspricht, auf dem das Minimum der potentiellen Energie gesucht wird, s. Abb. \ref{U287}. Je mehr Lager vorhanden sind, um so kleiner ist der Ansatzraum, weil die wachsende Anzahl von Zwangspunkten, $w(x) = 0$, die Konkurrenz immer kleiner werden l\"{a}sst, $\mathcal{V}$ also schrumpft, und das bedeutet, dass die potentielle Energie in einem LF $p$ dem Betrage nach kleiner wird.
+Dieselbe Logik gilt auch bei Durchlauftr\"{a}gern, bei denen die Zahl der Lager sozusagen der Gr\"{o}{\ss}e des Ansatzraums $\mathcal{V}$ entspricht, auf dem das Minimum der potentiellen Energie gesucht wird, s. Abb. \ref{U287}. Je mehr Lager vorhanden sind, um so kleiner ist der Ansatzraum, weil die wachsende Anzahl von Zwangspunkten, $w(x) = 0$, die Zahl der Konkurrenten immer kleiner werden l\"{a}sst, $\mathcal{V}$ also schrumpft, und das bedeutet, dass die potentielle Energie in einem LF $p$ dem Betrage nach kleiner wird.
 
 Gerade bei Einzelkr\"{a}ften kann man das direkt an den Verformungen ablesen, denn bei diesen ist die potentielle Energie proportional zur Durchbiegung unter der Einzelkraft
 \begin{align}
