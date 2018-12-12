@@ -1,0 +1,34 @@
+\preface
+{\em Die neue Statik ist die alte Statik\\
+und im Grunde ist sie heute m\"{a}chtiger\\
+als je zuvor.\/}\\
+
+Einflussfunktionen sind ein klassisches Werkzeug der Statik. Sie verkn\"{u}p\-fen Statik mit Anschauung, denn mit ein paar geschickten Skizzen -- wenn es sein muss auf einem Bierdeckel -- kann man leicht dem Tragverhalten einer Struktur nachsp\"{u}ren und so Klarheit \"{u}ber kritische Punkte finden.
+
+Leider ist aber die Anwendung der Einflussfunktionen etwas in den Hinterland getreten, denn in Zweifelsf\"{a}llen spielt man dann doch lieber Varianten mit dem Computer durch und umgeht so die M\"{u}he, nach dem warum und wieso zu fragen und tiefer in das Verst\"{a}ndnis des Tragverhaltens einzudringen.
+
+Neue Ergebnisse haben jedoch das Interesse an den Einflussfunktionen wieder belebt, denn es ist nun klar, dass finite Elemente mit Einflussfunktionen rechnen. Das gleicht einer Rolle r\"{u}ckw\"{a}rts. Man dachte, man sei der klassischen Rechenverfahren ledig, und pl\"{o}tzlich sieht man, dass sie in den finiten Elementen wieder auferstanden sind.
+
+In der klassischen Statik beschr\"{a}nkt sich das Thema Einflussfunktionen auf den {\em Satz von Land\/} und seine Modifikationen und man verliert bald das Interesse, weil sich die Einflussfunktionen so schwer berechnen lassen.
+
+Heute benutzen wir finite Elemente und bei finiten Elementen ist der Begriff viel weiter gefasst. Das Stichwort hei{\ss}t {\em Funktionale\/}. Die Durchbiegung in der Feldmitte, das Moment \"{u}ber der St\"{u}tze, die Kraft im Lager, all dies sind Funktionale. Alles, was man berechnen kann, ist f\"{u}r die finiten Elemente ein Funktional. Und zu jedem linearen Funktional geh\"{o}rt eine Greensche Funktion, eine Einflussfunktion.
+
+Nun sind Einflussfunktionen aber Biegelinien, also Verformungen und das wird mit finiten Elementen zum Problem, denn FE-Netze besitzen nur eine eingeschr\"{a}nkte Kinematik. Es gibt ja nur einen beschr\"{a}nkten Vorrat an Ansatzfunktionen ({\em shape functions\/}), um Verformungen darzustellen. Und das ist der Grund, warum FE-Ergebnisse in der Regel nur N\"{a}herungen sind, denn das FE-Programm kann mit der eingeschr\"{a}nkten Kinematik eines Netzes die exakten Einflussfunktionen nicht generieren, es \"{u}berlagert daher gezwungenerma{\ss}en gen\"{a}herte Einflussfunktionen mit der Belastung und so sind die Ergebnisse auch nur N\"{a}herungen.
+
+Die Einflussfunktionen sind demnach die eigentlichen, die wahren {\em shape functions\/}, die {\em physikalischen shape functions\/}. Diese muss das FE-Programm  m\"{o}glichst gut ann\"{a}hern. Wenn das gelingt, dann sind auch die FE-Ergebnisse gut.
+
+In der Computerstatik geht das Thema Einflussfunktionen also weit \"{u}ber den {\em Satz von Land\/} hinaus und um diesem Umfang einigerma{\ss}en gerecht zu werden, haben wir dieses Buch geschrieben.
+
+Es ist kein Buch f\"{u}r Erstsemester, der Leser sollte mit dem Thema Einflussfunktionen schon etwas vertraut sein, dem Thema in den Statik- oder Mechanikvorlesungen schon begegnet sein.
+
+Wir behandeln das Thema auch scheinbar mit einem sehr spitzen Bleistift. Das ist aber im Grunde Notwehr, weil sich in der Statik doch viele Dinge  im Laufe der Zeit eingeschliffen haben und der mathematische Hintergrund der Formeln nicht immer offenkundig und evident ist.
+
+\begin{flushright}\noindent
+Kassel  {\hfill {\it Friedel Hartmann, Peter Jahn}}\\\vspace{0.1cm}
+Fr\"{u}hjahr 2016   {\hfill {hartmann@be-statik.de, PJahn@uni-kassel.de}}\\
+\end{flushright}
+
+
+\vspace{1.7cm}
+PS. Urspr\"{u}nglich sollte der Titel nur {\em Einflussfunktionen --- vom modernen Standpunkt aus\/} hei{\ss}en. Im Zeitalter der Suchmaschinen schien es uns jedoch sinnvoll, das Wort {\em Statik\/} mit in den Titel aufzunehmen. Es war nicht unsere Absicht einen (nicht existierenden) Gegensatz zwischen alter und neuer Statik zu konstruieren. Nur der Blickwinkel auf die Einflussfunktionen hat sich mit dem Computer ge\"{a}ndert.\\
+

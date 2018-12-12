@@ -1,0 +1,203 @@
+\documentclass[graybox,envcountchap,sectrefs]{svmono}
+%\documentclass[12pt]{article}
+\usepackage{latexsym}
+\usepackage{ifpdf}
+\oddsidemargin0.12cm \evensidemargin0.12cm \topmargin-1.2cm \headheight0.7cm \headsep 0cm
+\textwidth16.5cm
+\parindent0cm
+\textheight25cm
+
+\ifpdf
+\newcommand{\Fpath}{d:/astatikbilder/pdf}
+%\newcommand{\Fpath}{C:/Users/Friedel/OneDrive/Dokumente/ASTATIK3/Pdf}
+\else
+\newcommand{\Fpath}{d:/astatikbilder/pictures}
+%\newcommand{\Fpath}{C:/Users/Friedel/OneDrive/Dokumente/ASTATIK3/Pictures}
+\fi
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{calligra}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{blindtext}
+\usepackage{german}
+\usepackage{deutengi}
+\usepackage{float}
+\usepackage[]{graphicx}        % standard LaTeX graphics tool
+\input{macrofh}
+\input{ebild}
+\begin{document}
+\pagestyle{empty}
+6.2.4 (2): Gl. 6.10:\\
+Widerstand Normalkraft\\
+\begin{align}
+N_{c,Rd} = \frac{A \cdot f_y }{\gamma_{M0}} \nn
+\end{align}
+\begin{align}
+N_{c,Rd} = 8091\,\text{kN} \nn
+\end{align}
+\begin{align}
+n = N_{Ed} / N_{c,Rd} = 0.618\nn
+\end{align}
+
+6.2.5 (2): Gl. 6.13: \\
+Widerstand Moment\\
+\begin{align}
+M_{y,Rd} = \frac{W_{y,pl} \cdot f_y}{\gamma_{M0}}\nn
+\end{align}
+\begin{align}
+W_{y,pl} = 7094.2\, \text{cm}^3\nn
+\end{align}
+\begin{align}
+M_{y,Rd} = 1667\,\text{kNm}\quad \frac{M_{Ed}}{M_{y,Rd}} = 0.270\nn
+\end{align}
+
+6.2.6 (2): Gl. 6.18 \\
+Widerstand Querkraft \\
+
+\begin{align}
+V_{z,Rd} = \frac{A_{Vz \cdot f_y}}{\sqrt{3} \cdot \gamma_{M0}} \nn
+\end{align}
+
+\begin{align}
+V_{z,Rd} = 1757\,\text{kN} \nn
+\end{align}
+\begin{align}
+V_{z,Ed}/V_{z,Rd} = 0.797
+\end{align}
+
+6.2.6 (3)a: Die wirksame\\ Schubfl\"{a}che darf f\"{u}r\\ gewalzte Profile mit\\ I- und H-Querschnitten, \\ Lastrichtung parallel\\
+ zum Steg\\
+
+ \begin{align}
+ A_{Vz} = A - 2\,b \cdot t_f + (t_w + 2 \cdot r) \cdot t_f \nn
+ \end{align}
+
+ aber mindestens $\eta \cdot h_w \cdot t_w$\\
+
+ \begin{align}
+  A_{Vz} = 344.3 - 2 \cdot 30.6 \cdot 4 = 99.5\,\text{cm}^2 \nn
+ \end{align}
+ \begin{align}
+ a = 99.5/344.3 = 0.289\nn
+ \end{align}
+
+ 6.2.10 (3) Die \\
+ Momententragf\"{a}higkeit\\
+  f\"{u}r auf Biegung und\\
+ Normalkraft\\
+  beanspruchte\\
+   Querschnitte ist mit einer\\
+    abgeminderten\\
+Streckgrenze: f\"{u}r die\\
+ wirksamen Schubfl\"{a}chen\\
+  zu ermitteln.\\
+
+\begin{align}
+\rho = \bigg[ \frac{2 \cdot V_{Ed}}{V_{p,Rd,z}} - 1 \bigg]^2\nn
+\end{align}
+\begin{align}
+\Rightarrow \,N_{V,Rd} = N_{c,Rd} \cdot (1 - a_{Vz} \cdot \rho)\nn
+\end{align}
+
+\begin{align}
+\rho = \bigg[\frac{ 2 \cdot 1400}{1757} - 1 \bigg]^2 = 0.352 \nn
+\end{align}
+\begin{align}
+\Rightarrow \,N_{V,Rd} = 8091 \cdot (1 - 0.376 \cdot 0.352) = 7020\,\text{kN}\nn
+\end{align}
+\begin{align}
+n = \frac{N_{Ed}}{N_{V,Rd}} = \frac{5000}{7020} = 0.712 \nn
+\end{align}
+
+
+6 2.8 	Gl. 6 30: Bei l-\\
+Querschnitten mit\\
+ gleichen Flanschen\\
+  und einachsiger\\
+   Biegung um die\\
+    Hauptachse
+
+\begin{align}
+M_{y,V,Rd} = \bigg[ W_{pl,y} - \frac{\rho \cdot A_w^2}{4 \cdot t_w} \bigg] \cdot f_y \nn
+\end{align}
+\begin{align}
+A_w = h_w \cdot t_w\,;\quad  \frac{A_w^2}{t_w} = A_w \cdot h_w \nn
+\end{align}
+\begin{align}
+M_{y,V,Rd} = \bigg[ 7094 - \frac{0.352 \cdot 93.24^2}{4 \cdot 2.1} \bigg] \cdot f_y \nn
+\end{align}
+\begin{align}
+M_{y,V,Rd} = 1581\,\text{kNm}\nn
+\end{align}
+
+Das ist die Reduktion der Stegfl\"{a}che\\
+
+\begin{align}
+M_{y,NV,Rd} = \text{min}\bigg[1, \frac{ 1 - n}{1 - 0.5 \cdot a} \bigg] \cdot M_{y,V,Rd}\nn
+\end{align}
+\begin{align}
+a = \text{min} [0.5, (A - 2 \cdot b \cdot t)/A] \nn
+\end{align}
+\begin{align}
+M_{y,NV,Rd} = \frac{ 1 - 0.712}{1 - 0.5 \cdot 0.289} \cdot 1581 = 531\,\text{kNm}\nn
+\end{align}
+\begin{align}
+a = (344.3 - 2 \cdot 30.6 \cdot 4) /344.3 = 0.289\nn
+\end{align}
+\begin{align}
+\frac{M_Ed}{M_{y,Nv,Rd}} = \frac{450}{531} = 0.846 \nn
+\end{align}
+\end{document}
+
+
+\hspace*{-12pt}\colorbox{hellgrau}{\parbox{0.98\textwidth}{...}}\\
+
+{\textcolor{blue}{\subsubsection*{Modellfehler}}}
+
+{\textcolor{blue}{\section{Mengenlehre}}}
+
+\textbf{ a)}
+
+\text{\normalfont\calligra G\,\,}(\Np_i,\Np_j)
+
+\pageref{SecAdaptiveVerfeinerung}
+
+\begin{subequations}
+
+\textcolor{red}{\delta w}
+
+\overset{?}{=}
+
+\backmatter
+
+\text{\normalfont\calligra B\,\,}(w,\textcolor{red}{\delta w}) =  A_{1,2} - A_{2,1} = 0
+
+ (\ref{Eq92:SubEq3})
+
+ %%% mondgr\"{u}n  sand
+ \barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r @{\hspace{2mm}} r} 1 & -1 & 0 & 0 \\ -1 & 1 & 0 & 0 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & -1 & 1 \\ \earr \right] \left[ \barr{cc} u_1^a \\ u_2^a \\ u_1^b \\ u_2^b \earr \right] = \vek K_E\,\vek u_E\,.
+
+ \boxed{O_c - O = -\frac{\Delta\,EI}{EI}\int_{x_a}^{\,x_b} \frac{M_c\,M_G}{EI_c}\,dy}
+
+\allowdisplaybreaks{4}
+
+CMYK 20 0 60 0
+
+\glq fast alles\grq\
+
+kurz nachtragen, warum
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u_h,\Np_i) = 0 \quad i = 1,2,\ldots, n
+\end{align}
+die Grundgleichung der FEM ist, s. S. \pageref{Eq190}.
+
+
+
+@{\hspace{2mm}}
+
+$^\circ$ 

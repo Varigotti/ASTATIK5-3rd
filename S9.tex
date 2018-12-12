@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{blau2}{\chapter{Nachwort }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Der Gedanke, ein solches Buch zu schreiben, besch\"{a}ftigte uns schon l\"{a}ngere Zeit, aber den endg\"{u}ltigen Ausschlag gab dann ein eher zuf\"{a}lliger Blick in ein Statikskriptum, in dem der Autor die Einflussfunktion f\"{u}r ein Biegemoment herleitete und dies auf eine (aus mathematischer Sicht) eher wunderliche Weise.
+
+Um Balkenstatik und Anschauung unter einen Hut zu bringen, musste er, f\"{u}r unser Empfinden, die Anschauung schon arg strapazieren.
+
+Unsere Kritik und unser Standpunkt wird sicherlich nicht von allen Kollegen geteilt, deswegen haben wir sie auch hier in den Anhang verbannt, weil wir hier mehr Raum haben, unsere Sicht der Dinge darzulegen und wir hoffen zumindest Verst\"{a}ndnis f\"{u}r unseren Standpunkt zu wecken. Diese Diskussion mag im Nachhinein auch unseren etwas axiomatischen Zugang rechtfertigen. Wir wollten Klarheit!
+
+{\em Virtuelle Arbeit ist ein Begriff der Analytischen Mechanik bzw. der Technischen Mechanik und bezeichnet die Arbeit, die eine Kraft an einem System bei einer virtuellen Verschiebung verrichtet. Unter einer virtuellen Verschiebung versteht man eine Gestalt- oder Lage\"{a}nderung des Systems, die mit den Bindungen (z. B. Lager) vertr\"{a}glich und \glq instantan\grq{}, sonst aber willk\"{u}rlich und au{\ss}erdem infinitesimal klein ist. Das Prinzip der virtuellen Arbeit wird zur Berechnung des Gleichgewichts in der Statik und zum Aufstellen von Bewegungsgleichungen (d'Alembertsches Prinzip) verwendet.\/}
+
+So wird in {\em Wikipedia\/} der Begriff der virtuellen Arbeit eingef\"{u}hrt, \cite{VA}. In \"{a}hnlichen S\"{a}tzen wird das {\em Prinzip der virtuellen Verr\"{u}ckungen\/}, der {\em Energieerhaltungssatz\/} und das {\em Prinzip der virtuellen Kr\"{a}fte\/} beschrieben.
+
+Aber was ist bitte {\em \glq infinitesimal klein\grq{}\/}? Und wie passt zu dieser Forderung, dass die folgende Gleichung, die ja doch angeblich auf dem {\em Prinzip der virtuellen Verr\"{u}ckungen\/} beruht\footnote{Ein gelenkig gelagerter Tr\"{a}ger unter Gleichlast $p$}
+\begin{align}\label{Eq82}
+\delta A_a = \int_0^{\,l} p\,\delta w\,dx = \int_0^{\,l} \frac{M\,\delta M}{EI} \,dx = \delta A_i,
+\end{align}
+auch f\"{u}r eine virtuelle Verr\"{u}ckung wie $\delta w = \sin (\pi x/l)$ richtig ist, die, mit einer Amplitude von 1 m nun sicherlich nicht mehr klein ist. Ja die Amplitude k\"{o}nnte beliebig gro{\ss} sein, weil sie sich einfach herausk\"{u}rzt.
+
+Und wieso kann man -- das ist eigentlich das Problem -- mathematische Resultate, wie die Gleichheit der beiden obigen Integrale, mit Prinzipien der Mechanik beweisen? Nur wenige Ingenieure verstehen \"{u}berhaupt, dass diese Frage doch berechtigt ist.
+
+Man kann S\"{a}tze in einem Gebiet $A$ (der Mathematik) nicht mit S\"{a}tzen aus einem Gebiet $B$ (der Mechanik) beweisen. Das geht logisch nicht, wenn auch Ingenieure immer wieder dazu tendieren, weil ihnen die Arbeits- und Energieprinzipe der Statik lieb und teuer sind, wie das folgende Zitat aus einer Korrespondenz mit einem Kollegen belegen mag:
+
+{\em \glq Die Energie- und  Arbeitss\"{a}tze sind Naturgesetze und daher fundamental. Denn wenn der Energieerhaltungssatz nicht gelten w\"{u}rde, k\"{o}nnte man bei jeder Form\"{a}nderung eines Tragwerks Arbeit bzw. Energie gewinnen: ein perpetuum mobile! Diese S\"{a}tze haben also zuerst einmal nichts mit der Mathematik zu tun, sondern bestehen an sich.'\/}
+
+Und weil sie nichts mit der Mathematik zu tun haben, kann man mit ihnen kein mathematisches Ergebnis beweisen.
+
+Die Eleganz der Mechanik, ihre Geschlossenheit, ihr innerer Reichtum, der ja nirgends so sichtbar wird, wie bei der mathematischen Formulierung, verf\"{u}hrt Ingenieure dazu, mathematische Resultate aus mechanischen Prinzipien \glq herzuleiten\grq{}, was aber nicht geht.
+
+Unsere Bem\"{u}hungen um ein besseres Verst\"{a}ndnis der Grundlagen quittierte ein Kollege einmal mit dem Satz: \glq {\em Den Satz von Land kennt jeder Ingenieur, aber die zweite Greensche Identit\"{a}t?'\/} Was doch eigentlich nur beweist, dass der Kollege noch nie versucht hat, den Satz von Land herzuleiten, denn der Satz von Land beruht auf der zweiten Greenschen Identit\"{a}t.
+
+Die Gr\"{u}ndungsv\"{a}ter der Statik m\"{u}ssen sehr gut Mathematik gekonnt haben, denn es gab ja noch keinen {\em Mohr\/}, keinen {\em Engesser\/}, dem man h\"{a}tte \"{u}ber die Schulter schauen k\"{o}nnen. Man musste alles selbst herleiten und das ging nur auf mathematischem Wege, \cite{Ku}.
+
+Nachdem aber das Grundger\"{u}st stand, entdeckte man, wie sich fast spielerisch aus der Integralform des Gleichgewichts
+\begin{align}
+\int_0^{\,l} EI\,w^{IV}\,\delta w\,dx = \int_0^{\,l} p\,\delta w\,dx
+\end{align}
+Integrals\"{a}tze ergaben, die wir heute das {\em Prinzip der virtuellen Verr\"{u}ckungen\/}, das {\em Prinzip der virtuellen Kr\"{a}fte\/} und den {\em Energieerhaltungssatz\/} nennen. Und das passte alles so wunderbar zueinander, dass diese Prinzipe heute nach Meinung der Ingenieure das Fundament der Statik darstellen. Wenn der Ingenieur eine Gleichung auf das {\em Prinzip der virtuellen Verr\"{u}ckungen\/} zur\"{u}ckgef\"{u}hrt hat, dann hat er seiner Meinung nach die Gleichung bewiesen.
+
+Die Schieflage,  in die die Statik und die Mechanik auf diese Art und Weise gekommen sind, erkennt man am besten an dem Thema virtuelle Verr\"{u}ckungen. {\em \glq Virtuelle Verr\"{u}ckungen m\"{u}ssen klein sein, oder, besser noch, infinitesimal klein sein\grq{}\/}. Wir haben auch schon gelesen, dass virtuelle Kr\"{a}fte angeblich klein sein m\"{u}ssen.
+
+Zu welchen \glq Umwegen\grq{} das teilweise f\"{u}hrt, m\"{o}ge das folgende Beispiel aus einem Statikskript belegen, in dem die Einflussfunktion f\"{u}r ein Moment hergeleitet wird.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U120}
+\caption{Einflussfunktion f\"{u}r ein Moment} \label{U120}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Der Autor baut hierzu ein Momentengelenk ein, f\"{u}gt zum besseren Verst\"{a}ndnis eine Zeichnung hinzu, s. Abb. \ref{U120}, in der er die durch eine  Spreizung \glq $\Delta \Np = 1$\grq{} ausgel\"{o}ste virtuelle Verr\"{u}ckung antr\"{a}gt, aber gleich darauf aufmerksam macht, dass die Zeichnung die Situation so darstelle, \glq wie man sie durch eine Lupe\grq{} sehe, denn in Wirklichkeit seien die Verr\"{u}ckungen infinitesimal klein. Seine Analyse f\"{u}hrt ihn dann auf das Ergebnis
+\begin{align}
+A_{1,2} = M \cdot \Delta \Np + P\cdot \delta w(x) = 0
+\end{align}
+oder aufgel\"{o}st nach $M$
+\begin{align}
+M = - P\,\cdot \frac{\delta w(x)}{- 1}\,,
+\end{align}
+womit sich also
+\begin{align}
+\beta(x) = \frac{\delta w(x)}{1}
+\end{align}
+als die gesuchte Einflussfunktion ergibt. Hierzu bemerkt der Autor: \glq Zwar ist $\delta w(x)$ infinitesimal klein, aber der Quotient $\beta$ ist endlich gro{\ss}, da sich die virtuellen Verr\"{u}ckungen bei der Division herausk\"{u}rzen.\grq{}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U247}
+\caption{{\em Satz von Betti\/}---Einflussfunktion f\"{u}r ein Moment \textbf{ a)} Tr\"{a}ger mit Belastung \textbf{ b)} dasselbe System unbelastet aber mit einer Spreizung $\tan \Np_l + \tan \Np_r = 1$ des Gelenks} \label{U247A}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Nun lautet die mathematische Definition der Spreizung \glq $\Delta \Np = 1$\grq{}
+\begin{align} \label{Eq77}
+\Delta \Np = \tan\,\Np_l + \tan\,\Np_r = 1\,,
+\end{align}
+und wenn man die Endtangenten derart verdreht, dann ist $\delta w(x)$ nicht mehr \glq klein\grq{}, und auch nicht beliebig skalierbar,  weil es doch nur  eine Kurve $\delta w(x)$ gibt, die die Bedingung (\ref{Eq77}) erf\"{u}llt und gleichzeitig die Lagerbedingungen des Tr\"{a}gers einh\"{a}lt!
+
+Was der Autor wahrscheinlich meint ist, dass man das Gelenk beliebig spreizen kann, solange man nicht vergisst,  die dadurch ausgel\"{o}ste Verr\"{u}ckung des Balkens  $\delta w(x)$ durch die Gr\"{o}{\ss}e der Spreizung $\Delta \Np =  \tan\,\Np_l + \tan\,\Np_r$ zu dividieren. Dann bleibt das Ergebnis $\beta(x)$ immer gleich
+\begin{align}
+\beta(x) = \frac{\delta w(x)}{\Delta\,\Np}\,,
+\end{align}
+weil die Balkengleichung $EI\,w^{IV}(x)$ linear ist und dann kann $\delta w$ beliebig gro{\ss} oder klein sein.
+
+Es geht aber auch einfacher. In den Tr\"{a}ger wird ein Gelenk eingebaut, s. Abb. \ref{U247A}, um das innere Moment $M(x)$ \glq sichtbar\grq{} zu machen und der Tr\"{a}ger wird darunter noch einmal angezeichnet -- ohne Belastung -- aber so verschoben, dass die Spreizung im Gelenk genau $\tan \Np_l + \tan \Np_r = 1$ betr\"{a}gt.
+
+Nach dem {\em Satz von Betti\/} gilt $\text{\normalfont\calligra B\,\,}(w_1,w_2) = A_{1,2} - A_{2,1} = 0 $ und weil die nicht vorhandenen Kr\"{a}fte am Tr\"{a}ger 2 null Ar\-beit auf den Wegen $w_1(x)$ leisten, $A_{2,1} = 0$, ist die Ar\-beit der Kr\"{a}fte am Tr\"{a}ger 1 auf den Wegen $w_2(x)$ somit ebenso null
+\begin{align}
+A_{1,2} = -M_l\,\tan\,\Np_l - M_r\,\tan\,\Np_r + P \cdot w_2(x) = - M \cdot 1 + P\cdot w_2(x) = 0
+\end{align}
+oder
+\begin{align}
+M = P\cdot w_2(x)\,,
+\end{align}
+was bedeutet, dass $w_2(x)$ die Einflussfunktion f\"{u}r $M(x)$ ist.\\
+
+\hspace*{-12pt}\colorbox{hellgrau}{\parbox{0.95\textwidth}{Das Grundproblem ist die Interpretation der Gleichungen. Geht es um die statische Bedeutung oder um den mathematischen Gehalt?}}\\
+
+Bei einer Diskussion mit einem Kollegen hatte der zweite Autor einmal vorgeschlagen, man k\"{o}nnte ja die Gleichung, \"{u}ber die diskutiert wurde, mit einer beliebigen Zahl multiplizieren. Worauf der Kollege den Kopf zur Seite neigte, die Augen zur Zimmerdecke richtete und einwand: {\em \glq Das k\"{o}nnen Sie nicht, die Zahl muss sehr klein sein, eben eine virtuelle Verr\"{u}ckung, ... ansons\-ten kann man das nicht!'\/} Der Kollege hat die Mechanik hinter der Gleichung gesehen, aber nicht die Mathematik.\label{Korrektur30}
+
+Statische Probleme werden mit mathematischen Hilfsmitteln gel\"{o}st. Aber anders als der Mathematiker, der nie den Kreis seiner abstrakten Symbole verl\"{a}sst, muss der Ingenieur diese Grenze \"{u}berschreiten und die Mathematik auf reale Probleme anwenden. Das ist ein schwieriger Prozess, aber die Belohnung ist immens. Dass es m\"{o}glich ist, mit Mathematik reale Probleme zu l\"{o}sen, ist ein Wunder, wie Eugene Wigner erstaunt bemerkt hat, \cite{Wigner}.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.6\textwidth]{\Fpath/UE359A}
+\caption{Der {\em cosinus\/} des Winkels $\gamma$ ist f\"{u}r die Effekte der speziellen Relativit\"{a}tstheorie verantwortlich} \label{UE359}
+\end{figure}%%
+%----------------------------------------------------------------------------------------------------------
+
+Euler fand die Knicklast einer St\"{u}tze
+\begin{align}
+P_{krit} = \frac{\pi^2\,EI}{l^2}\,,
+\end{align}
+indem er den kleinsten Eigenwert $\lambda > 0$ einer Differentialgleichung bestimmte, aber es ist dann der Ingenieur, der den Mut haben muss, dieses mathematische Ergebnis auf die Wirklichkeit zu \"{u}bertragen, St\"{u}tzen danach zu dimensionieren.
+
+Aus mathematischer Sicht ist {\em Heisenbergs Unsch\"{a}rferelation\/} eine Eigenschaft der {\em Fouriertransformation\/}, aber das wahre Wunder ist, dass sie in der Welt um uns herum, in der Quantenwelt, gilt und die vielen Diskussionen, die die neue Quantenmechanik ausgel\"{o}st hat, sind ein Hinweis, dass die Frage nach dem {\em Sein\/}, dem \glq {\em Was ist?\/}\grq{} -- die in der Mathematik nie vorkommt(!) -- von fundamentaler Bedeutung f\"{u}r den Physiker und auch f\"{u}r den Ingenieur ist.
+
+Angenommen man erfindet spielerisch einen Satz von Regeln (Axiomen) und man wei{\ss} nicht, ob diese Regeln vollst\"{a}ndig und widerspruchsfrei sind und pl\"{o}tzlich entdeckt man physikalische Objekte, die sich genau an diese Regeln halten. W\"{u}rde das ein Mathematiker als ein Beweis f\"{u}r Konsistenz und Vollst\"{a}ndigkeit gelten lassen?
+
+Die Abtriebskraft an einem Hang ist eine Funktion des {\em sinus\/} des Hangwinkels $\Np$
+\begin{align}
+F = m \cdot g \cdot \sin \Np
+\end{align}
+und so kommt es, dass eine mathematische (nichtlineare) Funktion, $\sin \Np$, die Erosion der H\"{a}nge in den Gebirgen bestimmt\footnote{Der Laie nimmt in der Regel an, dass die Erosion linear vom Winkel abh\"{a}ngt}.
+
+Oder man nehme die {\em Lorentz Kontraktion\/} $l \to l'$ eines Objektes, das sich mit der Geschwindigkeit ($v$) bewegt
+\begin{align}
+l' = l \cdot \sqrt{1 - \frac{v^2}{c^2}} = l \cdot \cos\,\gamma
+\end{align}
+und die {\em Zeitdehnung\/} $t \to t'$, die dazu geh\"{o}rt
+\begin{align}
+t' = t \cdot \frac{1}{\cos \gamma}\,.
+\end{align}
+Beide Ausdr\"{u}cke h\"{a}ngen von dem {\em cosinus\/} des Winkels $\gamma$ ab, s. Abb. \ref{UE359},
+\begin{align}
+\cos \gamma = 1 - \frac{\gamma^2}{2!} + \frac{\gamma^4}{4!} - \frac{\gamma^6}{6!} + \ldots
+\end{align}
+Was hat Trigonometrie mit spezieller Relativit\"{a}tstheorie zu tun? Die Physiker erkl\"{a}ren uns, dass die Genauigkeit des GPS-Systems von diesen Korrekturen abh\"{a}ngt.
+
+Es ist dieses enge Wechselspiel zwischen Physik und Mathematik, das es dem Ingenieur schwer macht, beides sauber zu trennen.
+
+%Der Ingenieur verl\"{a}sst sich auf seinen 'Instinkt'. Die Energieprinzipe und das Prinz der virtuellen Verr\"{u}ckungen,  $\delta A_i = \delta A_a$, stehen auf seiner Werteskala ganz oben, denn nirgendwo ist man der Statik so nahe, wie wenn man diese Prinzipe verstanden hat.
+
+Aber gute Mechanik hat gute Mathematik n\"{o}tig. Wie oft sind wir nicht gezwungen anzuerkennen, dass mathematische Fehler entsprechende Fehler in den Berechnungen zur Folge haben. {\em Garbage in, garbage out\/}, wie man im englischen sagt. Anscheinend existiert eine unterirdische Verbindung zwischen den Computern und der Mathematik. Computer honorieren gute Mathematik.
+
+Um diese enge Verbindung zwischen Mathematik und Statik sichtbar zu machen, haben wir in den ersten Kapiteln dieses Buches mit einem relativ spitzen Bleistift geschrieben. Unsere Absicht war dabei nicht, die Statik zu einem Zweig der Mathematik zu machen, sondern das Ziel war, die Grundlagen der Statik besser zu verstehen.
+
+{\textcolor{blau2}{\subsubsection*{Der Satz von Castigliano}}}
+Wie sich Mathematik und Anschauung in die Quere kommen k\"{o}nnen, macht in einer exemplarischen Weise der Satz von Castigliano deutlich. {\em Wikipedia\/} schreibt \"{u}ber den Satz von Castigliano\index{Satz von Castigliano}, \cite{Ca}:
+
+{\em Die partielle Ableitung der in einem linear elastischen K\"{o}rper gespeicherten Form\"{a}nderungsenergie nach der \"{a}u{\ss}eren Kraft ergibt die Verschiebung $v_k$ des Kraftangriffspunktes in Richtung dieser Kraft\/}.
+
+Aber die Form\"{a}nderungsenergie eines elastischen K\"{o}rpers, der eine Einzelkraft tr\"{a}gt, ist unendlich gro{\ss}, und daher kann man keine Ableitung berechnen und auch die Verschiebung $v_k$ des Kraftangriffspunktes ist unendlich gro{\ss}, wie man an {\em Sobolevs Einbettungssatz\/} ablesen kann. Der Satz von Castigliano gilt zwar f\"{u}r Stabtragwerke, aber f\"{u}r 2-D und 3-D Probleme, wozu auch elastische K\"{o}rper geh\"{o}ren, gilt er, mit Ausnahme der Kirchhoff-Platte, nicht. Der Nachsatz {\em\glq wenn die Energie endlich ist\grq{}\/} w\"{u}rde als Korrektur ausreichen. (Sinngem\"{a}{\ss} dasselbe gilt f\"{u}r den {\em Satz von Menabrea\/} und den {\em Satz von Engesser\/}).\index{Satz von Engesser}\index{Satz von Menabrea}
+
+Castigliano hat den nach ihm benannten Satz zun\"{a}chst f\"{u}r Fachwerke aufgestellt und dann auf elastische K\"{o}rper verallgemeinert, weil er sich einen solchen K\"{o}rper als ein Fachwerk mit unendlich vielen St\"{a}ben dachte.
+
+Nat\"{u}rlich klingt der Satz von Castigliano so sch\"{o}n, dass man ihn allein schon deswegen f\"{u}r richtig h\"{a}lt, aber Castigliano's Schluss vom Fachwerk auf elastische K\"{o}rper ist eben voreilig. Man kann nicht mathematische Ergebnisse aus S\"{a}tzen der Mechanik herleiten!
+
+Auch dann nicht, wenn die S\"{a}tze {\em Energieerhaltungssatz\/} oder {\em Prinzip der virtuellen Verr\"{u}ckungen\/} hei{\ss}en. Diese S\"{a}tze haben keine Autorit\"{a}t im Gebiet der Mathematik. Und das {\em Rechnen\/} in der Statik ist doch angewandte Mathematik. Hinter jeder Zahl im Ausdruck oder auf dem Bildschirm steht ein mathematisches Gesetz. Welche F\"{u}lle von statischen Details erschlie{\ss}t die Mathematik nicht in den H\"{a}nden eines geschickten Ingenieurs, man lese nur die B\"{u}cher von {\em Christian Petersen\/} oder {\em Karl Girkmann\/}.
+
+Wir wollen mit einem Zitat von Robert Taylor, dem Co-Autor von O.C. Zienkiewicz schlie{\ss}en, \cite{Taylor}. Robert Taylor kann man sicherlich nicht vorwerfen die Mathematik ihrer selbst wegen zu pflegen, dazu ist er viel zu sehr Ingenieur, aber es war auf einer Tagung in den USA, wo er vor dem Plenum verk\"{u}ndete\\
+
+\hspace*{-12pt}\colorbox{hellgrau}{\parbox{0.98\textwidth}{The principle of virtual displacements is nothing else than integration by parts.}}\\
+
+Dass Robert Taylor den Mut hatte, das \glq vor versammelter Mannschaft\grq{} zu sagen und dass er meinte, es sagen zu m\"{u}ssen, hat uns wiederum Mut gemacht, dieses Buch zu schreiben.
+

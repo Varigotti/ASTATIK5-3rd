@@ -1,0 +1,631 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{chapterTitleBlue}{\chapter{Betti Extended}}
+
+In dem vorhergehenden Kapitel haben wir gesehen, dass die FE-L\"{o}sung  $u_h(x)$ die \"{U}berlagerung der gen\"{a}herten Einflussfunktion $G_h(y,x)$ mit der Belastung $p(y)$ ist
+\begin{align}\label{Eq96}
+u_h(x) = \int_0^{\,l} G_h(y,x)\,p(y)\,dy\,.
+\end{align}
+Diese f\"{u}r die finiten Elemente zentrale Gleichung beruht auf einem Satz, den wir {\em Betti extended\/} nennen. \\
+
+\begin{theorem}[Betti extended]\index{Betti extended}
+Man darf in dem {\em Satz von Betti\/} -- bei unver\"{a}nderter Belastung -- die exakten L\"{o}sungen $u_1$ und $u_2$ durch ihre FE-L\"{o}sungen $u_{1@h}$ und $u_{2@h}$ ersetzen.
+\end{theorem}
+
+Wenn also die Gleichung
+\begin{align}
+A_{1,2} = \int_0^{\,l} p_1\,\underset{\uparrow}{u_2}\,dx = \int_0^{\,l} p_2\,\underset{\uparrow}{u_1}\,dx = A_{2,1}
+\end{align}
+richtig ist, dann ist auch die Gleichung
+\begin{align}
+A_{1,2}^h  = \int_0^{\,l} p_1\,\underset{\uparrow}{u_{2@h}}\,dx = \int_0^{\,l} p_2\,\underset{\uparrow}{u_{1@h}}\,dx= A_{2,1}^h
+\end{align}
+richtig.
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U128}
+\caption{Der Satz von Maxwell} \label{U128}
+\end{figure}%%
+%----------------------------------------------------------
+
+Wir behaupten nicht, dass $A_{1,2} = A_{1,2}^h$ ist, sondern nur, dass wenn $A_{1,2} = A_{2,1}$ gilt, dass dann auch $A_{1,2}^h = A_{2,1}^h$ richtig ist; knapp gesagt gilt also
+\begin{align}
+(p_1,u_2) = (p_2,u_1) \qquad \Rightarrow \qquad (p_1,u_{2@h}) = (p_2,u_{1@h})\,.
+\end{align}
+Was {\em Betti extended\/} bedeutet, macht man sich am einfachsten an Hand des {\em Satzes von Maxwell\/} klar, s. Abb. \ref{U128}, der ja nur eine spezielle Variante des {\em Satzes von Betti\/} ist
+\begin{align}
+P_1 \cdot w_2(x_1) = P_2 \cdot w_1(x_2)\,.
+\end{align}
+Wenn man die beiden Biegelinien $w_1(x)$ und $w_2(x)$ mit finiten Elementen berechnet, dann erh\"{a}lt man nicht die exakten Durchbiegungen in den beiden Punkten $x_1$ und $x_2$
+\begin{align}
+w_{1@h}(x_2) \neq w_1(x_2) \qquad w_{2@h}(x_1) \neq w_2(x_1)\,,
+\end{align}
+aber der {\em Satz von Maxwell\/}, das \glq \"{u}ber Kreuz gleich\grq{}, gilt gem\"{a}{\ss} {\em Betti extended\/} auch f\"{u}r diese N\"{a}herungen
+\begin{align}
+ P_1\cdot w_{2@ h}(x_1 ) = P_2\cdot w_{@1h}(x_2) \,.
+\end{align}
+Damit ist im \"{u}brigen auch gezeigt, dass der {\em Satz von Maxwell\/} auch f\"{u}r FE-L\"{o}sungen gilt, man setze $P_1 = P_2 = 1$, was ja nicht unbedingt selbstverst\"{a}ndlich ist. Dass er f\"{u}r die Knotenwerte gelten muss, war, wegen der Symmetrie der Steifigkeitsmatrizen, klar. {\em Betti extended\/} garantiert dies aber auch f\"{u}r alle Punkte dazwischen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Beweis}}}}
+
+Der Beweis f\"{u}r {\em Betti extended\/} beruht auf den beiden Gleichungen
+\begin{subequations}
+\begin{align}
+\int_{\Omega} p_{1@h}\,u_{2@h} \,d\Omega &= \int_{\Omega} p_1\,u_{2@h} \,d\Omega  \label{Eq91}\\
+\int_{\Omega} p_{2@h}\,u_{1@h} \,d\Omega &= \int_{\Omega} p_2\,u_{1@h} \,d\Omega\,,
+\end{align}
+\end{subequations}
+und dem {\em Satz von Betti\/}
+\beq
+\text{\normalfont\calligra B\,\,}(u_{1@h},u_{2@h}) = \int_{\Omega} p_{1@h}\,u_{2@h} \,d\Omega - \int_{\Omega} p_{2@h}\,u_{1@h} \,d\Omega = 0\,,
+\eeq
+so dass
+\beq
+  \int_{\Omega} p_1 \,u_{2@h} \,d\Omega = \int_{\Omega} p_{1@h}\, u_{2@h} \,d\Omega = \int_{\Omega} p_{2@h}\, u_{1@h} \,d\Omega = \int_{\Omega} p_2 \, u_{1@h}\,d\Omega\,,
+\eeq
+oder
+\begin{align}
+\int_{\Omega} p_1 \,u_{2@h} \,d\Omega = \int_{\Omega} p_2 \, u_{1@h}\,d\Omega\,,
+\end{align}
+was die Erweiterung von
+\begin{align}
+\int_{\Omega} p_1 \,u_2 \,d\Omega = \int_{\Omega} p_2 \, u_1\,d\Omega
+\end{align}
+auf die FE-L\"{o}sungen ist.
+
+Zu (\ref{Eq91}) kommt man wie folgt: Die {\em Galerkin-Orthogonalit\"{a}t\/} besagt, dass
+\begin{align}
+\delta A_i = a(u_1 - u_{1@h},\Np_i) = 0
+\end{align}
+oder, wenn man das mit \"{a}u{\ss}erer statt mit innerer Arbeit schreibt, $\delta A_i = \delta A_a$,
+\begin{align}
+\int_{\Omega} (p_1 - p_{1@h})\,\Np_i \,d\Omega = 0 \quad i = 1,2,\ldots n \quad \Rightarrow \quad \int_{\Omega}(p_1 - p_{1@h})\, u_{2@h}\,d\Omega = 0\,,
+\end{align}
+weil ja $u_{2@h} $ eine Linearkombination der $\Np_i$ ist. Sinngem\"{a}{\ss} gilt das auch f\"{u}r die zweite Gleichung.
+
+Mit {\em Betti extended\/} ist der Beweis
+der zentralen Gleichung (\ref{Eq96}) sehr einfach, denn in der Einflussfunktion f\"{u}r $u(x)$
+\begin{align}
+A_{1,2} = 1 \cdot u(x) = \int_0^{\,l} \delta(y-x)\,u(y)\,dy = \int_0^{\,l} G(y,x)\,p(y)\,dy = A_{2,1}
+\end{align}
+darf man $u$ und $G$ durch die beiden FE-L\"{o}sungen $u_h$ und $G_h$ ersetzen
+\begin{align}
+A_{1,2}^h = \int_0^{\,l} \delta(y-x)\,\underset{\uparrow}{u_h}(y)\,dy = \int_0^{\,l} \underset{\uparrow}{G_h}(y,x)\,p(y)\,dy = A_{2,1}^h
+\end{align}
+und somit gilt
+\begin{align}
+u_h(x) = \int_0^{\,l} G_h(y,x)\,p(y)\,dy \,.
+\end{align}
+Diese Substitutionen, $u \to u_h$ und $G \to G_h$, kann man bei allen linearen Funktionalen, also allen Integralen wie
+\begin{align}\label{Eq47}
+J(u) = \int_0^{\,l} \delta(y-y)\,u(y)\,dy = \int_0^{\,l} G(y,x)\,p(y)\,dy
+\end{align}
+vornehmen, d.h. man darf jederzeit $u$ und $G(y,x)$ durch ihre FE-N\"{a}herungen ersetzen und erh\"{a}lt so
+\begin{align}\label{Eq76}
+J(u_h) = \int_0^{\,l} \delta(y-y)\,u_h(y)\,dy = \int_0^{\,l} G_h(y,x)\,p(y)\,dy\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{In welchen Punkten ist die FE-L\"{o}sung exakt?}}
+Mit Hilfe von{\em Betti extended\/} haben wir nun auch Klarheit dar\"{u}ber, wann und wo FE-Ergebnisse exakt sind.
+
+Wir studieren diese Frage an einem vorgespannten Seil und, um mit der Standard-Notation der finiten Elemente konform zu gehen, bezeichnen wir die Durchbiegung des Seils im folgenden mit dem Buchstaben $u$.
+
+Die Einflussfunktion $G(y,x)$ f\"{u}r die Durchbiegung des Seils, s. Abb. \ref{U236}, in dem Punkt $x = 1.5$ ist die Antwort des Seils auf eine Einzelkraft $P = 1$, ein Dirac Delta $\delta(y-x)$.
+
+Die Einzelkraft zwischen den zwei Knoten kann das FE-Programm nicht darstellen und so setzt es statt dessen zwei halb so gro{\ss}e Einzelkr\"{a}fte in die beiden Nachbarknoten. Dies ist -- in unserer Notation -- der Lastfall $\delta_h(y,x)$ und die zugeh\"{o}rige Durchbiegung $G_h(y,x)$ ist die gen\"{a}herte Einflussfunktion.
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.8\textwidth]{\Fpath/U236}
+\caption{Einflussfunktion f\"{u}r die Durchbiegung im Punkt $x = 1.5$, \textbf{ a)} exakte Einflussfunktion, \textbf{ b)} gen\"{a}herte Einflussfunktion \textbf{ c)}
+FE-L\"{o}sung unter Gleichlast $p = 1$} \label{U236}
+\end{figure}%%
+%----------------------------------------------------------
+
+Es gibt also zwei Dirac Deltas, das exakte und das gen\"{a}herte
+\begin{align}
+\delta(y-x)  \quad \downarrow  \qquad \delta_h(y-x) \quad \frac{1}{2}\,\downarrow  + \frac{1}{2}\,\downarrow
+\end{align}
+und ebenso zwei Einflussfunktionen
+\begin{align} \label{Eq49}
+G(y,x) \quad \text{(ein Knick)} \qquad G_h(y,x) \quad \text{(zwei Knicke)} \,.
+\end{align}
+Mit finiten Elementen suchen wir eine N\"{a}herungsl\"{o}sung in dem LF $p$ (Streckenlast) f\"{u}r den Seildurchhang auf dem Raum $\mathcal{V}_h$, also all den Polygonz\"{u}gen (Seilecken), die mit den drei $\Np_i(x)$ dargestellt werden k\"{o}nnen. Spiegelbildlich zu diesem Raum gibt es einen Raum $\mathcal{V}_h^*$
+\index{$\mathcal{V}_h^*$}, der all die Knotenkr\"{a}fte $f_1, f_2, f_3$ enth\"{a}lt, die die Seilecke in $\mathcal{V}_h$ erzeugen.
+
+Es gilt nun: wenn eine Funktion $u_h $ in $\mathcal{V}_h $ liegt (also ein Seileck ist), dann ist das gen\"{a}herte Dirac Delta (2 halbe Einzelkr\"{a}fte) so gut, wie  das exakte Dirac Delta (eine Einzelkraft)
+\begin{align}\label{Eq94}
+u_h(x) = \int_0^{\,l} \delta(y-x)\,u_h(y)\,dy = \int_0^{\,l} \delta_h(y-x)\,u_h(y)\,dy\,.
+\end{align}
+Konkret hei{\ss}t das also hier
+\begin{align}
+1 \cdot u_h(x) = \frac{1}{2}\, \cdot u_h(x_1) + \frac{1}{2}\, \cdot u_h(x_2)\,,
+\end{align}
+was einleuchtet, weil der Wert einer Geraden zwischen zwei Knoten gerade der Mittelwert der Knotenwerte ist.
+
+Und weil der FE-Lastfall $p_h$ in $\mathcal{V}_h^*$ liegt, also aus drei Knotenkr\"{a}ften besteht, ist die gen\"{a}herte Einflussfunktion $G_h(y,x)$ so gut wie die exakte
+\begin{align}
+u_h(x) = \int_0^{\,l} G(y,x)\,p_h(y)\,dy = \int_0^{\,l} G_h(y,x)\,p_h(y)\,dy\,.
+\end{align}
+Auch das ist einfach zu verstehen. Weil die Lastf\"{a}lle $p_h$ nur aus Knotenlasten $f_i$ bestehen, wird bei der Auswertung der Einflussfunktion nicht integriert, sondern nur \"{u}ber die Knoten summiert
+\begin{align}\label{Eq195}
+u_h(x) = \int_0^{\,l} G_h(y,x)\,p_h(y)\,dy = \sum_{i = 1}^3\,G_h(y_i,x)\,f_i\,.
+\end{align}
+Die FE-Einflussfunktionen f\"{u}r die Durchbiegung der Knoten $y_i$ sind aber exakt, $G_h(y_i,x) = G(y_i,x)$ in jedem Punkt $x$, und das erkl\"{a}rt, warum die Formel f\"{u}r jeden Punkt $x$ genau den richtigen Wert $u_h(x)$ liefert.\\
+
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Auf $\mathcal{V}_h$ bzw. $\mathcal{V}_hh^*$ sind die Ergebnisse, die man mit den N\"{a}herungen $\delta_h(y,x)$ bzw. $G_h(y,x)$ erzielt, exakt.}}\\
+
+Um dieses Ergebnis richtig zu w\"{u}rdigen, muss man verstehen, dass mit $u_h$ hier nicht notwendig die FE-L\"{o}sung gemeint ist, sondern dass $u_h$ eine beliebige Funktion aus $\mathcal{V}_h$ sein kann.
+
+Das gen\"{a}herte Dirac Delta $\delta_h$ ist auf $\mathcal{V}_h$ also so gut, wie das exakte, denn (\ref{Eq94}) gilt f\"{u}r alle $u_h \in \mathcal{V}_h$. Und ist $p_h$ der Lastfall, der dem Seil die Gestalt $u_h$ gibt, dann kann man mit der gen\"{a}herten Einflussfunktion $G_h(y,x)$ den Wert $u_h(x)$ aus $p_h$ berechnen. Dies ist der Inhalt von (\ref{Eq195}).
+
+
+Es ist aber noch eine Steigerung m\"{o}glich. Das gen\"{a}hrte Dirac Delta, also die beiden \glq halben\grq{} Punktlasten in den Nachbarknoten, stellt ja ein eigenes Funktional
+\begin{align}
+J_h(u) = \int_0^{\,l} \delta_h(y-x)\,u(y)\,dy = \frac{1}{2}\,(u(x_1) + u(x_2))
+\end{align}
+dar, das man auf beliebige Funktionen anwenden kann -- nicht nur auf die Seilecke in $\mathcal{V}_h$.
+Angewandt auf $u(x)= \sin\,\pi\,x/4$ erh\"{a}lt man z.Bsp. den Wert
+\begin{align}
+J_h(u) = \frac{1}{2}\, (\sin \frac{1.0\,\pi}{4} + \sin \frac{2.0\,\pi}{4}) = 0.85
+\end{align}
+w\"{a}hrend $J(u) = \sin (1.5\,\pi/4) = 0.92$ ist. Es besteht also ein Unterschied im Ergebnis und damit zwischen $J$ und $J_h$.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U390A}
+\caption{Gelenkig gelagerte Platte mit zentrischer St\"{u}tze. Wenn man die vier R\"{a}der des SLW, LF $p$, auf die Einflussfl\"{a}che $G_h$ stellt, erh\"{a}lt man die St\"{u}tzenkraft $S_h$ der FE-L\"{o}sung. Dasselbe Ergebnis erh\"{a}lt man aber auch, wenn man die FE-Belastung $p_h$ (hier in einer symbolischen Darstellung als Blocklast) auf die exakte Einflussfl\"{a}che stellt. Ebenso gilt $S_h = (G_h,p) =  (G_h,p_h)$ Bild b und d} \label{U390}
+\end{figure}%%
+%----------------------------------------------------------
+
+Mit Blick auf die exakte L\"{o}sung $u(x)$ und die FE-N\"{a}herung $u_h(x)$ gilt jedoch die {\em $h$-Vertauschungsregel\/}\index{$h$-Vertauschungsregel}\index{Vertauschungsregel}
+\begin{align}\label{Eq56}
+\boxed{J_h(u) = J(u_h)}\,,
+\end{align}
+die wir im Falle des Seils auch leicht verifizieren k\"{o}nnen
+\begin{align}
+J_h(u) &= \frac{1}{2}\,(u(1.0) + u(2.0)  ) =  \frac{1}{2}\,(1.5 + 2.0) = 1.75 \\
+ J(u_h) &= u_h(1.5) = 1.75\,.
+\end{align}
+Das Funktional $J_h(u)$ misst $u$ in den beiden Punkten $x = 1.0$ und $x = 2.0$, w\"{a}hrend das Funktional $J(u_h)$ die Biegelinie $u_h$ nur im Aufpunkt $x = 1.5$ misst. Aber beide Messergebnisse sind gleich!
+
+Die Vertauschungsregel basiert auf der Tatsache, dass eine FE-L\"{o}sung auf sechs verschiedene Arten darstellbar ist
+\begin{align}
+\label{sixways}
+u_h(x) &= \int_0^{\,l}  G(y, x)\, p_h(y) \,dy = \int_0^{\,l}  G_h(y, x) \,p(y) \,dy\nn \\
+ &= \int_0^{\,l}  G_h(y, x)\, p_h(y) \,dy \nn \\
+  &= \int_0^{\,l}  \delta(y, x)\, u_h(y) \,dy =\int_0^{\,l}  \delta_h(y,x)\, u_h(y)\,dy \nn \\
+&=\int_0^{\,l}  \delta_h(y,x)\, u(y) \,dy\,,
+\end{align}
+und wenn wir noch die Formeln
+\beq
+u_h(x) = a(G,u_h) = a(G_h,u_h) = a(G_h,u)
+\eeq
+mitz\"{a}hlen, die im Grunde Varianten der Mohrschen Arbeitsgleichung sind, sind es sogar neun.
+
+Auf den ersten beiden Gleichungen
+\begin{align}
+J(u_h) = \int_0^{\,l} G(y, x) p_h(y) \,dy = \int_0^{\,l}  G_h(y, x) p(y) \,dy = J_h(u)
+\end{align}
+basiert die $h$-Vertauschungsregel, wobei wir gleich $u_h(x)$ zu $J(u_h)$ erweitert haben, denn (\ref{sixways}) gilt ja nicht nur f\"{u}r das Punktfunktional $J(u) = u(x)$, sondern f\"{u}r jedes lineare Funktional $J$.
+
+Ob man die exakte Einflussfunktion $G$ mit den FE-Lasten $p_h$ \"{u}berlagert, oder die gen\"{a}herte Einflussfunktion $G_h$ mit der Originalbelastung $p$, macht keinen Unterschied -- das Resultat ist dasselbe.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.65\textwidth]{\Fpath/U199}
+\caption{Wenn $w$ auf $l_e$ linear ist, ist das gen\"{a}herte Dirac Delta in Abb. \textbf{ b)}
+genauso gut, wie das exakte, in Abb. \textbf{ a)}, und wenn $w$ auf $l_e$ ein kubisches Polynom ist, gilt dasselbe f\"{u}r \textbf{ c)} und \textbf{ d)}. Die gen\"{a}herten Dirac Deltas sind die \"{a}quivalenten Knotenkr\"{a}fte (= Festhaltekr\"{a}fte $\times (-1)$) aus dem exakten Dirac Delta, wenn man sich also das Element $l_e$ links und rechts eingespannt denkt} \label{U199}
+\end{figure}%%
+%----------------------------------------------------------
+
+Abb. \ref{U390} demonstriert dies am Beispiel einer St\"{u}tze unter einer Platte, auf der ein Schwerlastwagen (SLW) steht. Dargestellt ist die exakte Einflussfl\"{a}che f\"{u}r die St\"{u}tzenkraft, Abb. \ref{U390} a, und die gen\"{a}herte, Abb. \ref{U390} b. Die Radlasten des SLW stellen den LF $p$ dar, und die Blocklast soll symbolisch f\"{u}r den FE-Lastfall $p_h$ stehen. Es gibt nur eine Formel f\"{u}r die exakte St\"{u}tzenkraft
+\begin{align}
+S = \int_{\Omega} G(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y}\,,
+\end{align}
+aber drei M\"{o}glichkeiten die N\"{a}herung $S_h$ zu berechnen
+\begin{align}
+S_h &= \int_{\Omega} G(\vek y,\vek x)\,p_h(\vek y)\,d\Omega_{\vek y} = \int_{\Omega} G_h(\vek y,\vek x)\,p_h(\vek y)\,d\Omega_{\vek y}\nn \\
+ &= \int_{\Omega} G_h(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y}\,.
+\end{align}
+\\
+
+\begin{remark}
+Wie Abb. \ref{U199} am Beispiel eines Seils bzw. eines Balkens illustriert, sind die \"{a}quivalenten Knotenkr\"{a}fte aus dem Dirac Delta, das sind die Kr\"{a}fte und Momente in Abb. \ref{U199} b und d, so gut, wie das exakte Dirac Delta, wenn die Biegelinie \"{u}ber die Elementl\"{a}nge $l_e$ linear verl\"{a}uft
+\begin{align}
+w(x) = \int_0^{\,l} \delta(y-x)\,w(y)\,dy = \frac{1}{2}\, (w(x_i) + w(x_{i + 1}))
+\end{align}
+bzw. dort kubisch ist
+\begin{align}
+w(x) = \int_0^{\,l} \delta(y-x)\,w(y)\,dy &= \frac{1}{2}\,w(x_i) + w'(x_i) \cdot \frac{l_e}{8}\nn \\
+&+ \frac{1}{2}\,w(x_{i+1}) -  w'(x_{i+1}) \cdot \frac{l_e}{8}\,.
+\end{align}
+Das ist die anschauliche Interpretation der $h$-Vertauschungsregel.
+
+Aus der Sicht des FE-Programms reichen die gen\"{a}herten Dirac Deltas $\delta_h$ vollkommen aus, weil sie ja auf $\mathcal{V}_h$ die exakten Werte liefern, $(\delta,\Np_i) = (\delta_h,\Np_i)$.
+
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Exakte Werte}}}
+Wir k\"{o}nnen nun auch sagen, wann die FE-L\"{o}sung
+in einem Punkt exakt ist.\\
+
+\begin{theorem}[Exakte Werte]\index{exakte Werte} \vspace{0.3cm}
+\\Hinreichende Bedingungen
+\begin{enumerate}
+  \item Wenn die Einflussfunktion $G$ eines Funktionals $J$ in $\mathcal{V}_h$ liegt, dann ist sie identisch mit der FE-N\"{a}herung, $G_h = G$, d.h. dann gilt
+\beq
+J_h(u) = J(u) \qquad \text{f\"{u}r alle}\,\,\,u \in V
+\eeq
+und daher auch
+\beq
+J(u_h) = J_h(u) = J(u)\,.
+\eeq
+  \item Wenn die exakte L\"{o}sung in $\mathcal{V}_h$ liegt, $u = u_h$ (die Projektion $u_h$ ist identisch mit $u$), dann ist der Fehler in jeder Einflussfunktion orthogonal zur rechten Seite $p$
+      \beq\label{Eq52}
+      J(u) - J(u_h) = \int_{\Omega}(G(\vek y, \vek x) - G_h(\vek y, \vek x))\,p(\vek y)\,d\Omega_{\vek y} = 0\,.
+      \eeq
+\end{enumerate}
+Notwendige Bedingung
+\begin{enumerate}
+  \item Wenn ein Wert exakt ist, $J(u_h) = J(u)$, dann muss der Fehler in der Einflussfunktion orthogonal sein zur rechten Seite $p$
+      \beq
+      J(u) - J(u_h) = \int_{\Omega}(G(\vek y, \vek x) - G_h(\vek y, \vek x))\,p(\vek y)\,d\Omega_{\vek y} = 0\,.
+      \eeq
+\end{enumerate}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Eindimensionale Probleme}}}
+Der obige Satz fasst im Grunde die ganze Theorie zusammen, aber vielleicht ist es sinnvoll, auf einzelne Aspekte doch noch n\"{a}her einzugehen.
+
+Es ist bekannt, dass bei eindimensionalen Problemen wie St\"{a}ben und Balken, die FE-L\"{o}sung mit der exakten L\"{o}sung in den Knoten \"{u}bereinstimmt. Dies liegt daran, wie wir jetzt wissen, dass die Einflussfunktionen f\"{u}r die Knotenwerte in dem Ansatzraum $\mathcal{V}_h$ liegen.
+
+Bei Differentialgleichungen zweiter Ordnung wie St\"{a}ben, Seilen, Schubtr\"{a}gern, etc. arbeitet man mit st\"{u}ckweise linearen Ansatzfunktionen. F\"{u}r die Darstellung der Einflussfunktionen der Knoten reichen diese Ans\"{a}tze jedoch aus, wie man zum Beispiel an dem Seil in Abb. \ref{U236} sieht, weil die Einflussfunktionen ja auch nur st\"{u}ckweise linear sind.
+
+Bei Differentialgleichungen vierter Ordnung, wie dem Biegebalken, basieren die finiten Elemente auf Hermite-Polynomen (kubische Ans\"{a}tze) mit denen man die Einflussfunktionen f\"{u}r die Durchbiegungen und Verdrehungen der Knoten exakt darstellen kann. Die FE-L\"{o}sung ist daher in den Knoten  exakt.
+%------------------------------------FIGURE-----------------------
+\begin{figure}
+\centering
+{\includegraphics[width=0.65\textwidth]{\Fpath/U130}}
+  \caption{Quadratische Elemente interpolieren die exakte L\"{o}sung nicht im Mittelknoten, sondern nur an den Endknoten des Elements, weil die {\em bubble function\/} des Mittelknotens zu glatt ist, \textbf{ a)} Ansatzfunktionen, \textbf{ b)} Punktlast im Mittelknoten und FE--L\"{o}sung, \textbf{ c)} Punktlast  am Endknoten und die FE-L\"{o}sung, die in diesem Falle exakt ist}
+  \label{U130}
+\end{figure}%
+%------------------------------------FIGURE-----------------------
+
+Das Ganze gilt nicht mehr, wenn die homogenen L\"{o}sungen der Differentialgleichungen aus diesem Raster herausfallen, wie im Fall eines in L\"{a}ngsrichtung gebetteten ($c$) Stabes
+\begin{align}
+- EA\,u''(x) + c\,u(x) = p_x\,,
+\end{align}
+wo die homogene L\"{o}sung die Gestalt
+\beq\label{Eq50}
+u(x) = c_1 \,e^{\alpha x } + c_2\, e^{-\alpha x} \qquad \alpha = \sqrt{\frac{c}{EA}}
+\eeq
+hat oder im Fall eines elastisch gelagerten Balkens,
+\begin{align}
+ EI\,w^{IV} + c\,w(x) = p_z\,,
+\end{align}
+wo die homogene L\"{o}sung die Gestalt
+\begin{align}\label{Eq51}
+\!\!\!\!\!\!\!\!w(x) &= e^{\beta\,x}(c_1\,\cos \beta\,x + c_2\, \sin \beta\,x) +
+e^{-\beta\,x}(c_3\,\cos \beta\,x + c_4\, \sin
+\beta\,x)\\
+\beta &= \sqrt[4]{\frac{c}{EI}}
+\end{align}
+hat.
+
+Denn alle Einflussfunktionen setzen sich st\"{u}ckweise aus den homogenen L\"{o}sungen der zu Grunde liegenden Differentialgleichung zusammen, aber normalerweise enth\"{a}lt der Ansatzraum $\mathcal{V}_h$ nicht solche \glq exotischen\grq{} Funktionen wie (\ref{Eq50}) und (\ref{Eq51}).
+
+Zu den Merkw\"{u}rdigkeiten geh\"{o}rt auch, dass man mit eigentlich besseren Ansatzfunktionen unter Umst\"{a}nden die F\"{a}higkeit verliert, die exakte L\"{o}sung in den Knoten zu interpolieren. Dies passiert, wenn man zum Beispiel eine Seillinie mit quadratischen Elementen ann\"{a}hert, s. Abb. \ref{U130}.
+
+In der Mitte des Elementes ist eine quadratische FE-L\"{o}sung glatt, dort regiert die {\em bubble function\/}\index{bubble function} des Mittenknotens. Was man aber br\"{a}uchte, w\"{a}re die M\"{o}glichkeit, dort einen Sprung in der ersten Ableitung darstellen zu k\"{o}nnen, damit man die Wirkung einer Einzelkraft in dem Mittenknoten wiedergeben kann. Die Ableitung der {\em bubble function\/} ist aber glatt, sie springt nicht, und deswegen stimmt z.B. die FE-L\"{o}sung des Problems
+\begin{align}
+- u''(x) = x \qquad u(0) = u(l) = 0\,,
+\end{align}
+nicht mit der exakten L\"{o}sung in den Mittenknoten \"{u}berein. Die Einflussfunktion f\"{u}r den Mittenknoten liegt nicht in $\mathcal{V}_h$\footnote{Wenn $u$ in $\mathcal{V}_h$ liegt, z.B. wenn $u$ quadratisch ist, dann ist der Fehler $u(x) - u_h(x) = 0$, weil in dem Fall der Fehler in der Einflussfunktion orthogonal zu $p$ ist.}.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.72\textwidth]{\Fpath/U158}
+\caption{Platte im LF $g$, \textbf{ a)} Einflussfunktion f\"{u}r $m_{xx}$ in Plattenmitte, \textbf{ b)} Momente $m_{xx}$ im L\"{a}ngsschnitt, \textbf{ c)} Momente $m_{xx}$ mit St\"{u}tze} \label{U158}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Ein FE-Programm muss also eine Balance finden zwischen der Regularit\"{a}t, die von der Wechselwirkungsenergie verlangt wird, damit man die Beitr\"{a}ge $k_{ij} = a(\Np_i,\Np_j) $ der Steifigkeitsmatrix berechnen kann und der \glq Nicht-Regularit\"{a}t\grq{}, die man braucht, um einen Sprung in der ersten Ableitung erzeugen zu k\"{o}nnen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Fl\"{a}chentragwerke}}}
+Wenn bei Fl\"{a}chentragwerken die Ergebnisse in einem Punkt $\vek x$ exakt sind, dann ist das in der Regel Zufall. Dann kann es nur so sein, dass der Fehler $G(\vek y,\vek x) - G_h(\vek y,\vek x)$ in der Einflussfunktion orthogonal zur Belastung $p$ ist,
+\begin{align}
+u(\vek x) - u_h(\vek x) = \int_{\Omega} (G(\vek y,\vek x) - G_h(\vek y,\vek x))\,p(y)\,\,d\Omega_{\vek y} = 0\,,
+\end{align}
+denn die exakten Einflussfunktionen liegen bei Fl\"{a}chentragwerken nicht in dem Ansatzraum $\mathcal{V}_h$ der finiten Elemente, weil die verwendeten {\em shape functions\/} keine homogenen L\"{o}sungen der Scheiben- bzw. Plattengleichung sind.
+
+%---------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U139}
+  \caption{3-D Darstellung der Momente $m_{xx}$ der Quadratplatte mit einer zentrischen St\"{u}tze im LF $g$}
+  \label{U139}
+\end{figure}
+%---------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U138}
+  \caption{Quadratplatte, 8 m $\times$ 8 m, mit Einzelst\"{u}tze in der Mitte, (dargestellt ist die untere H\"{a}lfte der Platte), Serie von Einflussfunktionen f\"{u}r $m_{xx}$ auf der $x$-Achse}
+  \label{U138}
+\end{figure}
+%---------------------------------------------------------------------------------
+Es ist aber auch klar, dass die Art der Belastung
+\begin{align}
+\text{{\em Gleichlast\/}} \qquad\text{{\em Linienlast\/}} \qquad \text{{\em Punktlast\/}}
+\end{align}
+einen Einfluss auf die Gr\"{o}{\ss}e des Fehlers hat. Je gleichm\"{a}{\ss}iger die Belastung verteilt ist, um so eher gleichen sich die Fehler in den Einflussfunktionen im Mittel aus, wie man am Beispiel einer gelenkig gelagerten Quadratplatte sehen kann.
+
+In Abb.  \ref{U158} a ist die Einflussfunktion f\"{u}r das Moment $m_{xx}$ in Plattenmitte dargestellt. Im Lastfall $g$ ist das Moment
+\begin{align}
+m_{xx}(\vek x) = \int_{\Omega} G_2(\vek y,\vek x)\,g\,\,d\Omega_{\vek y} = g \cdot \int_{\Omega} G_2(\vek y,\vek x)\,d\Omega_{\vek y} = g \cdot V
+\end{align}
+gleich dem Volumen $V$ von $G_2$ mal $g$. Und anscheinend kann das FE-Pro\-gramm das Volumen der Einflussfunktionen relativ gut bestimmen, die
+Momentenverteilung in Abb. \ref{U158} b wirkt \"{u}berzeugend.
+
+Eine Einzelkraft $ P$ aus einer St\"{u}tze, $\Omega_S = a \times b$, ist jedoch von einem anderen Kaliber, s. Abb. \ref{U139},
+\begin{align}\label{Eq134}
+m_{xx}(\vek x) = \int_{\Omega} G_2(\vek y,\vek x)\,g\,\,d\Omega_{\vek y} + \frac{P}{\Omega_S} \int_{\Omega_S} G_2(\vek y,\vek x)\,d\Omega_{\vek y}\,,
+\end{align}
+denn $G_2$ ist ja singul\"{a}r in der St\"{u}tzenmitte.
+
+Genau genommen rechnet das Programm zwar mit einer Ersatzlast $g_h(\vek y)$, die das Eigengewicht wie die St\"{u}tzenkraft \glq \"{a}quivalent\grq{} beinhaltet
+\begin{align}\label{Eq135}
+m_{xx}^h(\vek x) = \int_{\Omega} G_2^h(\vek y,\vek x)\,g_h(\vek y)\,\,d\Omega_{\vek y}\,,
+\end{align}
+aber auch diese Formel kommt an dem Grundproblem, $G_2(\vek x, \vek x) = \infty$, und dem scharfen Anstieg von $G_2$ zur St\"{u}tze hin nicht vorbei.
+
+Die Abb. \ref{U138} illustriert, wie sich die Einflussfunktion f\"{u}r $m_{xx}$ \"{a}ndert, wenn sich der Aufpunkt der St\"{u}tze n\"{a}hert. Im Grunde bleibt sie sich immer gleich, nur wird sie bei der Ann\"{a}herung an die St\"{u}tze nach oben geschoben. Und das Ma{\ss}, um wieviel sie nach oben geschoben werden muss, das ist umso schwerer zu bestimmen, je n\"{a}her der Aufpunkt der St\"{u}tze kommt.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Punktlager bei Scheiben und Platten und der Unterschied}}}
+Bei Scheiben liegen die Dinge \"{a}hnlich. Es gibt jedoch einen bemerkenswerten Unterschied zwischen Scheibe und Platte.
+
+Wenn eine Scheibe sich auf Punktlager abst\"{u}tzt, dann kennt man die Lagerkr\"{a}fte relativ genau (bei statisch bestimmter Lagerung sogar exakt), aber das hilft einem nicht bei der Eingrenzung der (mit dem Ingenieurverstand vertr\"{a}glichen) maximalen Spannungen in der N\"{a}he der Punktlager. Hier kann man sich aber so behelfen, dass man die Lagerkraft \"{u}ber eine gewisse Breite gleichm\"{a}{\ss}ig verteilt und die Scheibe f\"{u}r diese Spannungen bemisst, s. Abb. \ref{U133} a.
+
+%---------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.5\textwidth]{\Fpath/U133}
+  \caption{\textbf{ a)} Die Lagerkraft $R$ und die Lagerpressung bei einer Scheibe, \textbf{ b)} bei einem Balken kann man jedoch keine Beziehung zwischen dem St\"{u}tzmoment $M$ und der Lagerkraft $R$ herstellen}
+  \label{U133}
+\end{figure}
+%---------------------------------------------------------------------------------
+Bei einer Platte ist die Situation im Grunde dieselbe. Die Lagerkr\"{a}fte in den St\"{u}tzen sind bei einer FE-Berechnung relativ genau, aber das hilft einem nicht -- und das ist der Unterschied -- bei der Eingrenzung der maximalen Biegemomente \"{u}ber der St\"{u}tze, weil es keinen direkten Zusammenhang zwischen der St\"{u}tzenkraft und den Biegemomenten gibt; die Ausmitte $e$ bleibt unbekannt.
+
+Es reicht ein Zwischenlager eines Balkens zu betrachten, s. Abb. \ref{U133} b. Die Summe der Querkr\"{a}fte $V_l$ und $V_r$ muss gleich der Lagerkraft $R$ sein, aber es gelingt nicht, das St\"{u}tzmoment $M$ in irgendeiner Weise mit $R$ zu verkn\"{u}pfen.
+
+Es gibt ja eine Vielzahl von Tr\"{a}gern, die \"{u}ber einem Zwischenlager bei gleicher Lagerkraft ganz unterschiedliche Momente aufweisen. Dazu passt, dass Momente keine Arbeiten leisten, wenn man sie hebt oder senkt -- Kr\"{a}fte schon. Man m\"{u}sste die Platte neigen, um die Ausmitte $e$ zu finden. Die Wirkung eines Moments geht mit der Neigung der Einflussfunktion, Wirkung = $G' \cdot M$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Wenn die L\"{o}sung in $\mathcal{V}_h$ liegt}}}
+Wenn die L\"{o}sung in $\mathcal{V}_h$ liegt, weil zum Beispiel bilineare Ans\"{a}tze ausreichen, um die Verformungen einer Scheibe darzustellen, dann ist $\vek p_h = \vek p$, d.h. dann ist der FE-Lastfall identisch mit dem Originallastfall. Den FE-Lastfall $\vek p_h $ erh\"{a}lt man ja, indem man die FE-L\"{o}sung in die Originalgleichung einsetzt und dabei muss in diesem Falle gerade die Belastung $\vek p$ herauskommen, die man aufgebracht hat.
+%---------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U237}
+  \caption{FE-Einflussfunktionen f\"{u}r $\sigma_{xx}$. Diese \glq eckigen\grq{} Einflussfunktionen sind bestimmt nicht richtig, aber das Integral \"{u}ber den Lastrand ergibt in beiden F\"{a}llen, und in jedem anderen Fall auch, den korrekten Wert f\"{u}r $\sigma_{xx}$.}
+  \label{U237}
+\end{figure}
+%---------------------------------------------------------------------------------
+
+Es bleibt aber ein Problem. Ein FE-Programm berechnet alle Werte und also auch die Spannungen mit gen\"{a}herten Einflussfunktionen
+\begin{align}
+\sigma_{xx}^h(\vek x) = \int_{\Omega} \vek G_h(\vek y,\vek x)\dotprod \vek p(\vek y)\,d\Omega_{\vek y}\,.
+\end{align}
+Also m\"{u}ssten die FE-Spannungen doch nur N\"{a}herungswerte sein, warum sind sie aber exakt?
+
+Der Grund ist, dass der Fehler in den Einflussfunktionen orthogonal zu der Belastung ist, wenn die L\"{o}sung in $\mathcal{V}_h$ liegt,
+\begin{align}
+\sigma_{xx}(\vek x) - \sigma_{xx}^h(\vek x)= \int_{\Omega} (\underbrace{\vek G(\vek y,\vek x) - \vek G_h(\vek y,\vek x)}_{Fehler})\dotprod \vek p(\vek y)\,d\Omega_{\vek y} = 0\,.
+\end{align}
+Jedes solches $\vek p$ \glq neutralisiert\grq{} also den Fehler in den Einflussfunktionen.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Der Fehler in einer gen\"{a}herten Einflussfunktion ist orthogonal zu allen Lastf\"{a}llen $p$, die sich auf $\mathcal{V}_h$ exakt l\"{o}sen lassen}}\\
+
+Die Scheibe in Abb. \ref{U237} ist so gelagert, dass sich unter Zug ein gleichf\"{o}rmiger Spannungszustand aufbaut, den man mit bilinearen Elementen  exakt wiedergeben kann. Die  exakte L\"{o}sung liegt also in $\mathcal{V}_h $.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U129}
+\caption{Dirac Delta $\delta(\vek y- \vek x)$ und das gen\"{a}herte Dirac Delta $\delta_h(\vek y, \vek x)$ bei einer Scheibe, auf $\mathcal{V}_h$ liefern beide dasselbe Ergebnis } \label{U129}
+\end{figure}%%
+%----------------------------------------------------------
+
+Aber die Einflussfunktion f\"{u}r die horizontale Spannung $ \sigma_{xx} $, gleich welchen Punkt $\vek x$ man betrachtet, liegt nicht in $\mathcal{V}_h $, weil dazu Punktversetzungen n\"{o}tig sind, die sich mit bilinearen Elementen nicht erzeugen lassen, aber trotzdem sind die Ergebnisse exakt.
+
+Das geht nur so, dass die horizontalen Randverschiebungen der FE-Einflussfunktion in der Summe (dem Integral) genau den exakten Wert treffen, denn sonst w\"{a}re $\sigma_{xx}^h$ nicht gleich $\sigma_{xx}$
+\begin{align}
+\sigma_{xx}^h(\vek x) = \int_{\Gamma} \vek G_h(\vek y,\vek x) \dotprod \vek t(\vek y)\,ds_{\vek y} = \sigma_{xx}(\vek x)\,.
+\end{align}
+Hier ist $\Gamma$ der rechte Rand und $\vek t = \{t,0\}^T$ ist die Randlast.\\
+
+\begin{remark}
+Die Gleichung
+\begin{align}\label{Eq111}
+\int_{\Omega} (\vek G(\vek y,\vek x) - \vek G_h(\vek y,\vek x))\dotprod \vek p_h(\vek y)\,\,d\Omega_{\vek y} = 0
+\end{align}
+ist das Gegenst\"{u}ck zu der {\em Galerkin-Orthogonalit\"{a}t\/}, die ja besagt, dass die Abweichung des FE-Lastfalls $\vek p_h$ vom exakten Lastfall $\vek p$ orthogonal zu allen Ansatzfunktionen $\vek \Np_i$ ist
+\begin{align}
+\int_{\Omega} (\vek p(\vek x) - \vek p_h(\vek x))\dotprod \vek \Np_i(\vek x)\,d\Omega = 0\,.
+\end{align}
+Galerkin testet mit den Ansatzfunktionen, w\"{a}hrend der Test bei den Einflussfunktionen, (\ref{Eq111}), die Lastf\"{a}lle $\vek p_h$ sind, die man auf $\mathcal{V}_h$ exakt l\"{o}sen kann. F\"{u}r jedes solche $\vek p_h$ muss  die Differenz $\vek G - \vek G_h$ orthogonal zu $\vek p_h$ sein.
+
+Die {\em Galerkin-Orthogonalit\"{a}t\/} gilt auch f\"{u}r Punktlasten, s. Abb. \ref{U129}, und daher ist auf $\mathcal{V}_h$ kein Unterschied zwischen dem exakten und dem gen\"{a}herten Dirac Delta ($\Np_{i}^H$ = horizontale Komponente von $\vek \Np_i(\vek x)$ im Punkt $\vek x$)
+\begin{align}
+\Np_{i}^H(\vek x) = \int_{\Omega} \vek \delta(\vek y - \vek x) \dotprod \vek \Np_i(\vek y) \,d\Omega_{\vek y} = \int_{\Omega} \vek \delta_h(\vek y, \vek x) \dotprod \vek \Np_i(\vek y) \,d\Omega_{\vek y}\,.
+\end{align}
+\end{remark}
+%----------------------------------------------------------------------
+\begin{figure}[h]
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U533}
+\caption{Um das Netz an den richtigen Stellen zu verfeinern, muss man die exakte L\"{o}sung nicht kennen. Dort wo die Knicke in der FE-L\"{o}sung gro{\ss} sind, dort verfeinert man. In der Statik sind die Knicke die Spannungsspr\"{u}nge zwischen den Elementen}\label{U533}
+\end{figure}
+%----------------------------------------------------------------------
+\vspace{-0.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Patch-Test}}}\label{Patch-Test}\index{Patch-Test}
+Bei einem Patch-Test konstruiert man eine L\"{o}sung, die in $\mathcal{V}_h$ liegt, vorzugsweise sind das L\"{o}sungen mit einfachen Spannungsfeldern, und kontrolliert, ob sich die exakten Ergebnisse ergeben. Der Patch-Test lebt davon, dass der Fehler in den Einflussfunktionen orthogonal zur Belastung ist, wenn die L\"{o}sung $u$ in  $\mathcal{V}_h$ liegt, wenn also $p_h = p$ ist, denn mit (\ref{Eq92}) gilt
+\begin{align}
+\int_{\Omega} (G(\vek y,\vek x) - G_h(\vek y,\vek x))\,p(\vek y)\,d\Omega_{\vek y} = \int_{\Omega} G(\vek y,\vek x)\,(p(\vek y) - p_h(\vek y))d\Omega_{\vek y}\,,
+\end{align}
+und weil die rechte Seite null ist muss auch die linke Seite null sein. Tests, die garantiert schief gehen, sind Einzelkr\"{a}fte bei Fl\"{a}chentragwerken. Sie \"{u}berfordern jedes Netz. Kein $\mathcal{V}_h$ enth\"{a}lt die exakte L\"{o}sung.
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption[t] \fi
+\includegraphics[width=.7\textwidth]{\Fpath/U271}
+\caption{Adaptive Verfeinerung einer Scheibe in der Umgebung der kritischen Punkte} \label{U271}
+\end{figure}%%
+%----------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Adaptive Verfeinerung}}}\label{SecAdaptiveVerfeinerung}
+Den Fehler einer FE-L\"{o}sung kann man nicht direkt berechnen, denn man kennt weder die exakten Verschiebungen noch die exakten Spannungen. Man kann nur die Abweichung zwischen dem Originallastfall $\vek p$ und dem FE-Lastfall $\vek p_h$ messen und dann das Netz dort verfeinern, s. Abb. \ref{U271}, wo diese Differenzen am gr\"{o}{\ss}ten sind.
+
+Theoretisch geht es sogar noch einfacher, wie Abb. \ref{U533} demonstriert: Man achtet nur auf die 'Knicke' (= Spannungsspr\"{u}nge in der FE-L\"{o}sung) und verfeinert das Netz an diesen Stellen.
+
+Da es, wie so oft, nur auf die Algebra ankommt, wollen wir die Gleichungen skalar schreiben und die Biegefl\"{a}che $u(\vek x)$ einer Membran, die unter einem Druck $p$ steht, betrachten.
+
+Aus den Darstellungen
+\begin{align}
+u(\vek x)= \int_{\Omega} G(\vek y,\vek x)p(\vek y)\,d\Omega_{\vek y} \qquad u_h(\vek x)= \int_{\Omega} G_h(\vek y,\vek x)p(\vek y)\,d\Omega_{\vek y}
+\end{align}
+ergibt sich der Fehler der FE-L\"{o}sung zu
+\begin{align}
+u(\vek x) - u_h(\vek x) = \int_{\Omega} (G(\vek y,\vek x) - G_h(\vek y,\vek x))\,p(\vek y)\,d\Omega_{\vek y}\,.
+\end{align}
+Nun wissen wir aber auch, dass der Fehler einer FE-L\"{o}sung darauf beruht, dass ein FE-Programm den FE-Lastfall $p_h$ statt des exakten Lastfalls $p$ l\"{o}st
+\begin{align}
+u(\vek x) - u_h(\vek x) = \int_{\Omega} G(\vek y,\vek x)(p(\vek y) - p_h(\vek y))\,d\Omega_{\vek y}\,,
+\end{align}
+und somit gilt
+\begin{subequations}\label{Eq92}
+\begin{align}
+u(\vek x) - u_h(\vek x) &= \int_{\Omega} G(\vek y,\vek x)(p(\vek y) - p_h(\vek y))\,d\Omega_{\vek y} \label{Eq92:SubEq1} \\
+&= \int_{\Omega} (G(\vek y,\vek x) - G_h(\vek y,\vek x))\,p(\vek y)\,d\Omega_{\vek y} \label{Eq92:SubEq2} \\
+&= \int_{\Omega} (G(\vek y,\vek x) - G_h(\vek y,\vek x))\,(p(\vek y) - p_h(\vek y))\,d\Omega_{\vek y} \label{Eq92:SubEq3}\,.
+\end{align}
+\end{subequations}
+Den Schritt von der zweiten Gleichung zur dritten Gleichung macht die {\em Galerkin-Orthogonalit\"{a}t\/}
+\begin{align}
+\int_{\Omega} (G(\vek y,\vek x) - G_h(\vek y,\vek x))\,p_h(\vek y)\,d\Omega_{\vek y} = 0
+\end{align}
+m\"{o}glich; wir haben nur eine null addiert.
+
+Auf der ersten Gleichung (\ref{Eq92:SubEq1}) basiert die klassische adaptive Verfeinerung, bei der das Netz dort verfeinert wird, wo die Abweichungen zwischen $p$ und dem FE-Lastfall $p_h$ gro{\ss} sind.
+%----------------------------------------------------------------------------
+\begin{figure}[tbp] \centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/TOTTENHAM24}
+\caption{Bilineare Elemente, LF $g$, Berechnung von $\sigma_{xx}$ {\bf a)} Ausgangsnetz
+{\bf b)} halbe Elementl\"{a}nge {\bf c)} adaptive Verfeinerung {\bf d)} Verfeinerung mittels
+Dualit\"{a}tstechnik}\label{Tottenham}
+\end{figure}
+%----------------------------------------------------------------------------
+
+Die andere Strategie w\"{a}re es, den Fehler $G-G_h$ in der Einflussfunktion kleiner zu machen, wie dies (\ref{Eq92:SubEq2}) nahelegt.
+
+Dabei stellt sich die Frage, wie wir den Abstand $G - G_h$ messen wollen, denn wir kennen das exakte $G$ nicht. Dies Problem l\"{o}sen wir wie folgt: Zun\"{a}chst ersetzen wir die Einflussfunktion (\ref{Eq92:SubEq2}) durch ihre schwache Form
+\begin{align}\label{Eq180}
+u(\vek x) - u_h(\vek x) &= \int_{\Omega} (G(\vek y,\vek x) - G_h(\vek y,\vek x))\,p(\vek y)\,d\Omega_{\vek y} = a(G - G_h,u)
+\end{align}
+und schreiben diese Wechselwirkungsenergie \"{a}quivalent als \"{a}u{\ss}ere Arbeit\footnote{Das ist der Satz von Betti, (\ref{Eq180}) = $W_{12} = W_{21}$ = (\ref{Eq181})}
+\begin{align}\label{Eq181}
+u(\vek x) - u_h(\vek x) &=a(G - G_h,u) = \int_{\Omega} (\delta(\vek y -\vek x) - \delta_h(\vek y -\vek x))\,u(\vek y)\,d\Omega_{\vek y}\,,
+\end{align}
+und die Abweichung $\delta - \delta_h$ k\"{o}nnen wir messen, s. Abb. \ref{U129}. Nicht direkt, weil $\delta$ ja nur ein fl\"{u}chtiges Symbol ist, aber die Kr\"{a}fte $\delta_h$ k\"{o}nnen wir plotten und das Netz so verfeinern, dass sie weitgehend vom Bildschirm verschwinden, sich in einem Punkt zusammenschn\"{u}ren.
+
+Die dritte Variante ist die {\em zielorientierte adaptive Verfeinerung\/} ({\em goal oriented adaptive refinement)\/}. Bei dieser Technik wird der Fehler $G- G_h$ in der Einflussfunktion und gleichzeitig der Fehler $p - p_h$ in der Belastung kleiner gemacht. Sie basiert auf (\ref{Eq92:SubEq3}). Schreiben wir diese Gleichung in schwacher Form, dann lautet sie
+\begin{align}
+u(\vek x) - u_h(\vek x) &= a(\underbrace{G(\vek y,\vek x) - G_h(\vek y,\vek x)}_f, \underbrace{\vphantom{G(\vek y,\vek x)} u - u_h}_g) =: a(f,g)
+\end{align}
+und jetzt kann man die {\em Schwarzsche Ungleichung\/}\index{Schwarzsche Ungleichung} zu Hilfe nehmen,
+\begin{align}\label{Eq169}
+|u(\vek x) - u_h(\vek x)| = | a(f,g)|  \leq a(f,f)^{1/2} \cdot a(g,g)^{1/2} = \|f\| \cdot \|g\|\,,
+\end{align}
+um die linke Seite durch die Energienorm von $f$  und von $g$ abzusch\"{a}tzen.
+
+Theoretisch steht (\ref{Eq169}) auf \glq wackligen F\"{u}{\ss}en\grq{}, weil die Energienorm der Einflussfunktion ja in der Regel unendlich gro{\ss} ist, aber wenn wir das schlicht ignorieren -- der Erfolg gibt uns recht -- dann ist das die schnellste Art, den Fehler der FE-L\"{o}sung in einem Punkt klein zu machen.
+
+Technisch geht man bei der  zielorientierten adaptiven Verfeinerung so vor, dass man neben dem {\em primalen Problem\/} $- \Delta u = f$ noch das {\em duale Problem\/} $- \Delta G = \delta_0$ l\"{o}st und das Netz so optimiert, dass die Fehler in beiden L\"{o}sungen klein werden, wie bei der Scheibe in Abb. \ref{Tottenham}, wo es darum ging die Spannung $\sigma_{xx}$ in dem Aufpunkt m\"{o}glichst genau zu bestimmen.
+
+Man k\"{o}nnte nach diesen Bemerkungen nun vermuten, dass fehlende Spr\"{u}nge eine Garantie daf\"{u}r sind, dass die FE-L\"{o}sung \glq genau\grq{} ist, aber das ist nicht garantiert, \cite{Ha5}, denn Fernfeldfehler, Stichwort {\em pollution\/}, k\"{o}nnen zu einem {\em drift\/} der FE-L\"{o}sung f\"{u}hren, den man nicht registriert, wenn man nur auf die Spr\"{u}nge achtet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Pollution}}}
+Der englische Begriff {\em pollution\/}\index{pollution} meint das Ph\"{a}nomen, dass die L\"{o}sung in einem Teil $A$ des Tragwerks von Fehlerquellen, die in einem abliegenden Teil $B$ auftreten, negativ beeinflusst wird. Bei Fl\"{a}chentragwerken haben die Einflussfunktionen mit diesem Problem zu k\"{a}mpfen, s. Kapitel 6.10. Die Fehler in den Ecken strahlen ins Innere aus.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+{\includegraphics[width=1.0\textwidth]{\Fpath/1GreenF156}}
+\caption{Einflussfunktion f\"{u}r die Scherkraft $N_{yx}$ im Schnitt $A-A$, \textbf{ a)} Wandscheibe und FE-Netz, \textbf{ b)} FE-Einflussfunktion $G_h$, \textbf{ c)} verbessertes Modell, \textbf{ d)} verbesserte FE-L\"{o}sung $G_h$, \cite{Ha6}}
+\label{1GreenF156}%
+%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Die Wandscheibe in Abb. \ref{1GreenF156} illustriert dieses Ph\"{a}nomen sehr gut. Die Einflussfunktion f\"{u}r die Scherkraft $N_{yx}$ im horizontalen Schnitt $A-A$ ist eine Seitw\"{a}rtsbewegung des Teils oberhalb des Schnittes um einen Meter nach rechts.
+
+Auf einem FE-Netz kann man diese Bewegung aber nicht nachfahren, weil man dann die Elemente auseinander schneiden m\"{u}sste. So produziert ein FE-Programm, das bilineare Elemente benutzt, die Verformungsfigur in Abb. \ref{1GreenF156} b, bei der sich die Oberkante der Scheibe um 2.3 m nach rechts bewegt! Die Schwierigkeiten, die das FE-Programm hat, die Gleitbewegung im Schnitt $A-A$ darzustellen, f\"{u}hren also zu einem gro{\ss}en Fehler an einer anderen Stelle, der Oberkante der Scheibe. Die Konsequenz ist, dass von einer Belastung von 1 kN an der Oberkante der Scheibe das 2.3-fache im Schnitt $A-A$ ankommt, was wahrlich ein gro{\ss}er Fehler ist.
+
+Wie man in Abb. \ref{1GreenF156} d sieht, kann man durch eine adaptive Verfeinerung des Netz den Fehler in der oberen Auslenkung deutlich von 2.3 - 1.0 auf 1.2 - 1.0 verringern.\\
+%----------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi \label{Korrektur4}
+\includegraphics[width=1.0\textwidth]{\Fpath/U369}
+\caption{Zugstab mit sich ver\"{a}nderndem Querschnitt und Einflussfunktion f\"{u}r das Stab\-ende \textbf{ a)} System \textbf{ b)} Einflussfunktion f\"{u}r Verschiebung des Stabendes \textbf{ c)} dieselbe Figur kann man auch an einem Stab $EA = 1$ mit Hilfe von Kr\"{a}ften $j^+$ erzeugen, s. S. \pageref{jplus} } \label{U369}
+\end{figure}%
+%----------------------------------------------------------------------------
+Es gilt auch, dass, wenn man den Schnitt $A-A $ genau durch die {\em Mitte\/} der Elementreihe f\"{u}hrt, sich die Oberkante wirklich um 1 m nach rechts bewegt, also die Belastung an der Oberkante richtig im Schnitt $A-A$ ankommt. Die resultierende Scherkraft $N_{yx}$ in der Mitte des Elements ist dann also exakt.
+
+Wenn man das sogenannte {\em Wilson-Element\/}\index{Wilson-Element} benutzt, \cite{Ha5}, dann werden die Ergebnisse auch f\"{u}r einen Schnitt $A-A $ richtig, der nicht durch die Mitte der Elementreihe geht. Nur den Schnitt innerhalb des Elements selbst, die abrupte Scherbewegung, kann man auch mit dem Wilson-Element nur \glq gleitend\grq{} nachvollziehen.
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Ursachen}}}
+{\em Pollution\/} hat im wesentlichen drei Ursachen, \cite{Babuska5}:\\
+
+\begin{enumerate}
+  \item Unstetigkeiten in der Belastung, also zum Beispiel Spr\"{u}nge in der Verkehrslast einer Platte (ein mildes Problem)
+  \item Gro{\ss}e und kleine Elemente nebeneinander, also ein unausgewogenes Netz; andererseits gilt aber, dass man mit gradierten Netzen {\em pollution\/} d\"{a}mpfen kann
+  \item Nicht-glatte Einflussfunktionen, s. Abb. \ref{U369}
+\end{enumerate}
+Wenn die Koeffizienten in der Differentialgleichung springen, weil z.B. die Dicke $d$ der Platte springt, dann schl\"{a}gt das auf die Einflussfunktionen durch, d.h. die Regularit\"{a}t (\glq die Gl\"{a}tte\grq{}) der Einflussfunktionen nimmt ab, es treten Knicke auf wie in Abb. \ref{U369} b und damit vergr\"{o}{\ss}ert sich die {\em pollution\/}, weil das FE-Programm mehr M\"{u}he hat, solche Einflussfunktionen zu approximieren.
+
+Alle FE-L\"{o}sungen -- bis auf Stabtragwerke ($EA$ und $EI$ konstant) -- weisen einen globalen Fehler auf, k\"{a}mpfen mit {\em pollution\/}.
+
+Anschaulich \"{a}u{\ss}ert sich der Fehler als {\em drift\/}\index{drift} in den Knoten, \cite{Ha5}. Die exakte L\"{o}sung und die FE-L\"{o}sung sind in den Knoten nicht deckungsgleich. Das muss im Grunde auch so sein, es ist ein \glq Qualit\"{a}tsmerkmal\grq{}, weil die Interpolierende eine schlechtere L\"{o}sung als die FE-L\"{o}sung ist -- die Fehler in den Spannungen sind im Mittel gr\"{o}{\ss}er als bei der FE-L\"{o}sung.
+
+Nur bei Stabtragwerken fallen Interpolierende $u_I$ und FE-L\"{o}sung $u_h$ zusammen, ist der Fehler in den Spannungen der beiden L\"{o}sungen daher gleich. Dieser Fehler wird behoben, indem das FE-Programm stabweise die lokalen L\"{o}sungen zur FE-L\"{o}sung addiert und so auf die exakten Ergebnisse kommt. Vergisst man diesen Schritt, dann ist die FE-L\"{o}sung $u_h = u_I$ nicht besser als die Interpolierende und die \glq L\"{u}cken\grq{} $u - u_h$ (\glq B\"{o}gen\grq{}, die von Knoten zu Knoten spannen) sind die  {\em lokalen Fehler\/}\index{lokaler Fehler} der FE-L\"{o}sung.\\
+
+{\em Interpolierende:\/} \index{Interpolierende} Wenn man die exakte L\"{o}sung $u$ kennt und man interpoliert sie in den Knoten mit den {\em shape functions\/} aus $\mathcal{V}_h$, dann ist das die Interpolierende $u_I$ auf dem FE-Netz.
+
+Viele Fehlersch\"{a}tzer basieren auf der Tatsache, dass der Fehler der FE-L\"{o}sung $\|u - u_h\|$ (gemessen in der Energienorm $\sim$ Fehlerquadrat der Spannungen) kleiner als der Fehler $\|u - u_I\|$ der Interpolierenden ist. Netze, auf denen man Funktionen gut interpolieren kann, sind auch gute FE-Netze, weil die FE-L\"{o}sung immer noch eine Idee besser ist als die Interpolierende.
+
+
+
+

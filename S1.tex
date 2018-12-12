@@ -1,0 +1,2599 @@
+\textcolor{chapterTitleBlue}{\chapter{Grundlagen}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einf\"{u}hrung}}
+Zur Einleitung wollen wir kurz die Arbeits- und Energieprinzipe der Statik\\
+
+\begin{itemize}
+  \item das Prinzip der virtuellen Verr\"{u}ckungen
+  \item den Energieerhaltungssatz
+  \item das Prinzip der virtuellen Kr\"{a}fte
+  \item den Satz von Betti
+\end{itemize}
+
+in moderner Form herleiten, um das Thema Einflussfunktionen ausf\"{u}hrlich und pr\"{a}zise behandeln zu k\"{o}nnen.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.85\textwidth]{\Fpath/U536}
+\caption{ Virtuelle Verr\"{u}ckung \textbf{ a)} eines starren Stabes und \textbf{ b)} eines beidseitig festgehaltenen elastischen Stabes. Die beiden Integrale sind f\"{u}r jedes zul\"{a}ssige $\delta u $ gleich} \label{U536}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Partielle Integration }}
+Wir beginnen nicht gleich mit der Statik, sondern wir wollen zuvor noch an die partielle Integration erinnern
+\begin{align}
+\int_{0}^{l} u'\,\delta u\,dx = [u\,\delta u]_0^l - \int_{0}^{l} u\,\delta u'\,dx\,.
+\end{align}
+Schreiben wir das als \glq Null-Summe\grq{},
+\begin{align}\label{Eq183}
+\text{\normalfont\calligra I\,\,}(u, \delta u) = \int_0^{\,l} u'\,\delta u\,dx - [u\,\delta u]_{@0}^{@l} + \int_0^{\,l} u\,\delta u'\,dx = 0\,,
+\end{align}
+dann haben wir einen Ausdruck vor uns, der f\"{u}r {\em alle\/} Paare von Funktionen aus $C^1(0,l)$, wie $u = \sin(x)$ und $\delta u = \cos(x)$ null ist. Ein wie m\"{a}chtiges Resultat das ist, wird  verst\"{a}ndlich, wenn wir es mit Zahlen wiederholen. Eine Identit\"{a}t wie
+\begin{align}
+\text{\normalfont\calligra I\,\,}(a, b) = a \cdot b - b \cdot a = 0 \qquad \text{f\"{u}r alle Zahlen $a, b$}
+\end{align}
+scheint uns trivial, aber in (\ref{Eq183}) sind $u $ und $\delta u $  Funktionen, die ja unendlich viele Freiheitsgrade haben, und dann ist das Resultat, f\"{u}r uns zumindest, nicht mehr evident -- f\"{u}r Gau{\ss} war es das wahrscheinlich schon.
+
+So, wie alle geraden Zahlen durch zwei teilbar sind, so gen\"{u}gen {\em alle\/} $C^1$-Funktionen $u $ und $\delta u $ der \glq quecksilbergleichen\grq{} \footnote{weil es zu jedem $u$ unendlich viele $\delta u$ gibt f\"{u}r die die Identit\"{a}t gilt}  Identit\"{a}t (\ref{Eq183}).
+Mit dieser Gleichung kommt das \glq {\em f\"{u}r alle $u$\/}\grq{} und \glq {\em f\"{u}r alle $\delta u$\/}\/}\grq{} in die Welt, auf dem die Arbeits- und Energieprinzipe der Mechanik und Statik beruhen und daher haben wir gemeint, mit der partiellen Integration beginnen zu m\"{u}ssen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Das Prinzip der virtuellen Verr\"{u}ckungen }}
+Wenn an einem Stab zwei gegengleiche Kr\"{a}fte $\pm f$ ziehen wie in Abb. \ref{U536} a, also
+\begin{align}
+-f + f = 0\,,
+\end{align}
+dann kann man die Gleichung mit einer beliebigen Zahl $\textcolor{red}{\delta u}$ multiplizieren, ohne etwas an dem Ergebnis zu \"{a}ndern
+\begin{align}
+\textcolor{red}{\delta u} \cdot (-f + f) = - \textcolor{red}{\delta u}\cdot f + \textcolor{red}{\delta u} \cdot f = 0\,.
+\end{align}
+Statisch bedeutet dies, dass man den Stab beliebig verschieben kann $(\textcolor{red}{\delta u})$ und dass jedesmal die Arbeit der beiden Stabendkr\"{a}fte in der Summe null ist. Das ist das einfachste Beispiel des {\em Prinzips der virtuellen Verr\"{u}ckungen\/}.
+
+Formal beruht das Prinzip auf der einfachen Tatsache, dass, wenn eine Gleichung null ist
+\begin{align}
+Eq = 0\,,
+\end{align}
+dass dann auch das Produkt der Gleichung mit beliebigen Zahlen $\delta u$ null ist
+\begin{align}
+\textcolor{red}{\delta u} \cdot Eq = 0\,.
+\end{align}
+Was nat\"{u}rlich auch dann gilt, wenn $u$ und $\delta u$ Funktionen sind, s. Abb. \ref{U536} b. Gen\"{u}gt also z.B. die Funktion $u(x)$ der Differentialgleichung
+\begin{align}
+- EA\,u''(x) - p(x) = 0 \qquad 0 < x < l \,,
+\end{align}
+dann folgt
+\begin{align}
+\int_0^{\,l} (-EA\,u'' - p)\,\textcolor{red}{\delta u}\,dx = 0\,,
+\end{align}
+oder nach partieller Integration, wenn die Randwerte $\textcolor{red}{\delta u(0)} = \textcolor{red}{\delta u(l)} = 0$ null sind,
+\begin{align}
+\int_0^{\,l} \frac{N\,\textcolor{red}{\delta N}}{EA}\,dx = \int_0^{\,l} p\,\textcolor{red}{\delta u}\,dx\,.
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.5\textwidth]{\Fpath/U538}
+\caption{ Zwei Federn und der Satz von Betti, $k = 3$} \label{U538}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{{Der Satz von Betti}}}
+Wenn zwei Zahlen $u_1 $ und $u_2 $ die beiden Zwillings-Gleichungen
+\begin{align} \label{Eq44}
+3\cdot u_1 = 12 \qquad 3\cdot u_2 = 18
+\end{align}
+l\"{o}sen, (die 3 macht sie zu Zwillingen) und man multipliziert die beiden Gleichungen jeweils mit der anderen Zahl \glq \"{u}ber Kreuz\grq,
+\begin{align}
+u_2 \cdot 3\cdot u_1 = 12\cdot u_2 \qquad u_1\cdot 3\cdot u_2 = 18\cdot u_1\,,
+\end{align}
+dann sind die linken Seiten gleich und daher m\"{u}ssen auch die rechten Seiten gleich sein, s. Abb. \ref{U538},
+\begin{align}
+A_{12} = 12 \cdot x_2= 18 \cdot x_1 = A_{21}\,.
+\end{align}
+Das ist der {\em Satz von Betti\/} in seiner elementarsten Form:  {\em Die reziproken \"{a}u{\ss}eren Arbeiten zweier Systeme, die im Gleichgewicht sind, sind gleich gro{\ss}\/}. Dahinter steckt einfache Algebra -- wie auch in dem n\"{a}chsten Beispiel.
+
+Multipliziert man die Knotenverschiebungen $\vek u_1$ und $\vek u_2$ eines Fachwerks aus zwei unterschiedlichen Lastf\"{a}llen
+\begin{align}
+\vek K\,\vek u_1 = \vek f_1 \qquad \vek K\,\vek u_2 = \vek f_2\,,
+\end{align}
+skalar \glq \"{u}ber Kreuz\grq{}, dann ergibt das das Resultat
+\begin{align}
+\vek u_2^T\,\vek K\,\vek u_1 = \vek u_2^T\,\vek f_1  \qquad \vek u_1^T\,\vek K\,\vek u_2  = \vek u_1^T\,\vek f_2
+\end{align}
+und weil die linken Seiten gleich sind, m\"{u}ssen auch die rechten Seiten gleich sein
+\begin{align}
+\vek u_2^T\,\vek f_1   = \vek u_1^T\,\vek f_2\,,
+\end{align}
+sind also die reziproken Arbeiten der Knotenkr\"{a}fte gleich gro{\ss}.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U537}
+\caption{Wenn sich eine Feder unter einer Kraft $f = 1 $ um $u = 1/k$ verl\"{a}ngert, dann verl\"{a}ngert sie sich  unter einer Kraft $f $ um $u = f \cdot g$} \label{U537}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktionen}}}
+Um die Gleichung
+\begin{align}\label{Eq45}
+3\cdot x = 12
+\end{align}
+zu l\"{o}sen, dividieren wir die rechte Seite durch die Zahl 3, was man auch als Multiplikation der rechten Seite mit dem Faktor $g = 1/3$ lesen kann. {\em \glq The magic number\grq{}\/} $\textcolor{chapterTitleBlue}{g}$ ist die L\"{o}sung der Gleichung
+\begin{align}
+3\cdot \textcolor{chapterTitleBlue}{g} = 1\,,
+\end{align}
+wenn also rechts eine 1, eine \glq Punktlast\grq{} steht. Wie nat\"{u}rlich muss dann
+die Zahl
+\begin{align}
+x = \textcolor{chapterTitleBlue}{g} \cdot 12 = \textcolor{chapterTitleBlue}{\frac{1}{3}}\cdot 12 = 4
+\end{align}
+die L\"{o}sung von (\ref{Eq45}) sein, s. Abb. \ref{U537}. Das ist die Technik der {\em Einflussfunktionen\/} oder {\em Greenschen Funktionen\/} (daher der Buchstabe $\textcolor{chapterTitleBlue}{g}$).
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.89\textwidth]{\Fpath/U539}
+\caption{Biegebalken und Einflussfunktion f\"{u}r die Durchbiegung in Feldmitte} \label{U539}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Soll etwa die Verschiebung $u_i$ eines Fachwerkknotens berechnet werden, so
+setzen wir in den Knoten eine Kraft $f_i = 1$,  bestimmen die dazu geh\"{o}rigen Knotenverschiebungen des Fachwerks, den Vektor $\textcolor{chapterTitleBlue}{\vek g_i}$,
+\begin{align}
+\vek K\,\textcolor{chapterTitleBlue}{\vek g_i} = \vek  e_i \qquad \text{($i$-ter Einheitsvektor)}\,,
+\end{align}
+und bilden das Skalarprodukt zwischen den Vektoren $\textcolor{chapterTitleBlue}{\vek g_i}$ und $\vek f$
+\begin{align}
+u_i = \vek e_i^T\,\vek u = \vek e_i^T\,\vek  K^{-1}\,\vek f = \textcolor{chapterTitleBlue}{\vek g_i^T}\,\vek f  \,.
+\end{align}
+Bei einem Balken setzen wir in analoger Weise eine Einzelkraft $P = 1$ in den Aufpunkt $x$, bestimmen die zugeh\"{o}rige Biegelinie $G(y,x)$, s. Abb. \ref{U539}, \"{u}berlagern die Belastung mit dieser Biegelinie, und erhalten so die Durchbiegung $w(x)$ in dem Punkt $x$
+\begin{align}
+w(x) = \int_0^{\,l} G(y,x)\,p(y)\,dy\,.
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Identit\"{a}ten}}}
+
+Beim Rechnen in der Statik geht es in der Regel um das L\"{o}sen von einzelnen Gleichungen
+\begin{align}
+k\,u = f\,,
+\end{align}
+oder ganzen Systemen von Gleichungen wie
+\begin{align}
+\vek K\,\vek u = \vek f\,,
+\end{align}
+oder das L\"{o}sen von Differentialgleichungen wie
+\begin{align}
+EI@w^{IV}(x) = p(x)\,.
+\end{align}
+Zu jedem der Operatoren auf der linken Seite geh\"{o}rt eine einfache Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra B\,\,}(u,\delta u) = \delta u\,k\,u - u\,k\,\delta u = 0
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U364}
+\caption{Die Kontrolle des Gleichgewichts der Kr\"{a}fte an einem Balken beruht auf einer dualen Formulierung, $\text{\normalfont\calligra G\,\,}(w,1) = p \cdot l + V(l) - V(0) = 0$} \label{U364}%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\vek u,\vek \delta \vek u) = \vek \delta \vek u^T\,\vek K\,\vek u - \vek u^T\,\vek K\,\vek \delta \vek u = 0
+\end{align}
+\begin{align}\label{Eq55}
+\text{\normalfont\calligra G\,\,}(w,\delta w) = \int_0^{\,l} EI@w^{IV}\,\delta w\,dx + [V@\delta w - M@\delta w']_{@0}^{@l} - \int_0^{\,l} \frac{M@\delta M}{EI}\,dx = 0\,.
+\end{align}
+Nur diese letzte Identit\"{a}t ist nicht ganz so evident, weil sie auf partieller Integration beruht und die Funktionen $w$ und $\delta w$ aus $C^4(0,l)$ bzw. $C^2(0,l)$ sein m\"{u}ssen, damit sie richtig ist.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{ Die Arbeits- und Energieprinzipe der Statik sind verbale Umschreibungen der Greenschen Identit\"{a}ten}}\\
+
+Die zentrale Rolle des Arbeitsbegriffes (= Skalarprodukt) basiert auf diesen Identit\"{a}ten, denn die wesentlichen Formulierungen der Statik und Mechanik sind {\em duale Formulierungen\/}, sind {\bf \glq Stereo\grq{}}, nicht \glq  Mono\grq{}. Zwei Funktionen, die Biegelinie $w$ und die virtuelle Verr\"{u}ckung $\delta w$, sind in der Identit\"{a}t
+\begin{align}\label{Eq182}
+\text{\normalfont\calligra G\,\,}(w,\delta w) =  \delta A_a - \delta A_i = 0
+\end{align}
+miteinander verkn\"{u}pft und die null bedeutet, dass bei jeder Verr\"{u}ckung $\delta w $ die virtuelle \"{a}u{\ss}ere Arbeit gleich der virtuellen inneren Arbeit ist.
+
+Und weil (\ref{Eq55}) f\"{u}r alle $\delta w \in C^2(0,l) $ richtig ist, muss es auch f\"{u}r $\delta w = 1$ gelten
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,1) = \int_0^{\,l} EI@w^{IV} \cdot 1 \,dx + V(l)\cdot 1 - V(0) \cdot 1= 0\,,
+\end{align}
+und damit ist das Gleichgewicht der vertikalen Kr\"{a}fte, die zu der Biegelinie $w $ geh\"{o}ren,  s. Abb. \ref{U364}, wir setzen $ EI@w^{IV} = p $, garantiert.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U53}
+\caption{Beim Treppensteigen sp\"{u}ren wir den Hauptsatz der Differential- und Integralrechnung} \label{U53}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Greensche Identit\"{a}ten}}\index{Greensche Identit\"{a}ten}
+Wir stellen im Folgenden zun\"{a}chst in knapper Form die wesentlichen Differentialgleichungen der Stabstatik\index{Differentialgleichungen der Stabstatik} vor und notieren die zu ihnen geh\"{o}renden  Identit\"{a}ten, wie sie sich mit partieller Integration ergeben
+\begin{align}
+\int_0^{\,l} - EA\,u''\,\delta u\,dx = [(- EA\,u')\,\delta u]_0^l - \int_0^{\,l} - EA\,u'\,\delta u'\,dx
+\end{align}
+-- hier am Beispiel des Stabs, $- EA\,u'' = p$.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U155}
+\caption{Das Integral der Normalkraft und des Biegemomentes ist null} \label{U155}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+
+Die bekannteste Anwendung der partiellen Integration ist das Treppensteigen\index{Treppensteigen}
+\begin{align}\label{Eq83}
+\int_a^{\,b} f'(x)\,dx = f(b) - f(a)\,.
+\end{align}
+Wenn bei jedem Schritt $dx$ in der Horizontalen der Zuwachs an H\"{o}he $df = f'(x)\,dx$ betr\"{a}gt, dann steigt man insgesamt um das Ma{\ss} $f(b) - f(a)$ nach oben, s. Abb. \ref{U53}.
+
+Die Treppenformel\index{Treppenformel} (\ref{Eq83}) ist der {\em Hauptsatz der Differential- und Integralrechnung\/}\index{Hauptsatz der Differential- und Integralrechnung}. Aus ihr folgt z.B., dass das Integral der Normalkraft $N(x) = EA\,u'(x)$ in einem beidseitig festgehaltenen Stab null ist, s. Abb. \ref{U155} a,
+\begin{align}\label{Eq31}
+\int_0^{\,l} EA\,u'(x)\,dx = [EA\,u]_{@0}^{@l} = EA\,(u(l) - u(0)) = 0
+\end{align}
+wie auch das Integral der Biegemomente $M(x) = - EI\,w''(x)$ in einem beidseitig eingespannten Balken, s. Abb. \ref{U155} b,
+\begin{align}\label{Eq33}
+\int_0^{\,l} - EI\,w''(x)\,dx = - EI\,(w'(l) - w'(0)) = 0\,.
+\end{align}
+Bei partiellen Ableitungen lautet die Regel der partiellen Integration
+\begin{align}
+\int_{\Omega} u,_i\,v\,d\Omega = \int_{\Gamma} u\,n_i\,v\,ds - \int_{\Omega} u\,v,_i\,d\Omega\,.
+\end{align}
+Hier ist $\Gamma$ der Rand der Scheibe, der Platte $\Omega$ \"{u}ber die integriert wird, $n_i$ ist die $i$-te Komponente des Normalenvektors $\vek n$ (L\"{a}nge $|\vek n| = 1$) auf $\Gamma$ und\index{$u,_i$} $u,_i = \partial u/\partial x_i$
+ist eine abk\"{u}rzende Schreibweise f\"{u}r die Ableitung nach $x_i$.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U52}
+\caption{Bauteile der Stabstatik} \label{U52}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Wenn eine Scheibe $\Omega$ an ihrem Rand $\Gamma$ festgehalten wird, $u_x = u_y = 0$, dann ist daher das Integral der Spannung
+\begin{align}
+\sigma_{xx} = E\,(\varepsilon_{xx} + \nu\,\varepsilon_{yy}) =  E\,(u_x,_{x} + \nu\,u_y,_{y})
+\end{align}
+\"{u}ber $\Omega$, der Mittelwert von $\sigma_{xx}$, null (und ebenso von $\sigma_{yy}$), denn
+\beq
+\int_{\Omega} E\,(u_x,_{x} + \nu\,u_y,_{y})\,d\Omega =\int_{\Gamma} E\,(u_x\,n_x + \nu\,u_y\,n_y)\,ds = 0\,.
+\eeq
+
+{\textcolor{sectionTitleBlue}{\subsection{L\"{a}ngsverschiebung $u(x)$ eines Stabes}}}\index{L\"{a}ngsverformung}
+\vspace{-0.7cm}
+\begin{align}
+- EA\,u''(x) = p(x)
+\end{align}
+\begin{align}\label{Eq106}
+\text{\normalfont\calligra G\,\,}(u,\textcolor{red}{\delta u}) = \underbrace{\int_0^{\,l} - EA\,u''(x)\,\textcolor{red}{\delta u(x)}\,dx + [N\,\textcolor{red}{\delta u}]_{@0}^{@l}}_{\text{\"{a}u{\ss}ere virt. Arbeit}} - \underbrace{\int_0^{\,l} \frac{N\,\textcolor{red}{\delta N}}{EA}\,dx}_{\text{innere virt. Arbeit}} = 0\,,
+\end{align}
+mit der Normalkraft $N = EA\,u'$, s. Abb. \ref{U52}.
+
+Wenn $EA(x)$ ver\"{a}nderlich ist, dann lautet die Differentialgleichung des Stabes $- (EA(x)\,u')' = p(x)$ und partielle Integration
+\begin{align}
+\int_0^{\,l} - (EA(x)\,u')'\,\textcolor{red}{\delta u}\,dx = [(- EA(x)\,u')\,\textcolor{red}{\delta u}]_0^l - \int_0^{\,l} - EA(x)\,u'\,\textcolor{red}{\delta u'}\,dx
+\end{align}
+f\"{u}hrt sinngem\"{a}{\ss} auf das Ebenbild der Identit\"{a}t (\ref{Eq106}), denn die Definition von $N = EA(x)\,u'$ \"{a}ndert sich nicht
+\begin{align}\label{Eq106}
+\text{\normalfont\calligra G\,\,}(u,\textcolor{red}{\delta u}) = \int_0^{\,l} - (EA(x)\,u')'\,\textcolor{red}{\delta u(x)}\,dx + [N\,\textcolor{red}{\delta u}]_{@0}^{@l} - \int_0^{\,l} \frac{N\,\textcolor{red}{\delta N}}{EA}\,dx = 0\,.
+\end{align}
+Weil $- N' = p$ dasselbe ist wie $- (EA(x)\,u')' = p$, kann man auch schreiben
+\begin{align}
+\int_0^{\,l} - N'\,\textcolor{red}{\delta u}\,dx = [N\,\textcolor{red}{\delta u}]_0^l - \int_0^{\,l} -N\,\textcolor{red}{\delta u'}\,dx\,.
+\end{align}
+Wenn die Ausdehnung des Stabes durch Reibung ($c$) behindert wird,
+\begin{align}
+- EA\,u''(x) + c\,u(x) = p(x)\,,
+\end{align}
+dann lautet die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\textcolor{red}{\delta u}) &= \underbrace{\int_0^{\,l}\!\!\! (- EA\,u''(x) + c\,u(x))\,\textcolor{red}{\delta u(x)}\,dx + [N\,\textcolor{red}{\delta u}]_{@0}^{@l}}_{\delta A_a}\nn \\
+& - \underbrace{\int_0^{\,l} (\frac{N\,\textcolor{red}{\delta N}}{EA} + c\,u\,\textcolor{red}{\delta u})\,dx}_{\delta A_i} = 0\,.
+\end{align}
+
+{\textcolor{sectionTitleBlue}{\subsection{Schubverformung $w_S(x)$ eines Balkens}}}\index{Schubverformung}
+\vspace{-0.7cm}
+\begin{align}
+- GA\,w_s''(x) = p(x)
+\end{align}
+
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w_s,\textcolor{red}{\delta w}_s) = \underbrace{\int_0^{\,l} - GA\,w_s''(x)\,\textcolor{red}{\delta w_s(x)}\,dx + [V\,\textcolor{red}{\delta w_s}]_{@0}^{@l}}_{\delta A_a} - \underbrace{\int_0^{\,l} \frac{V\,\textcolor{red}{\delta V}}{GA}\,dx}_{\delta A_i} = 0\,,
+\end{align}
+mit $V = GA\,w_s'$\,.
+
+Wenn der Balken auf einer elastischen Grundlage ($c$) ruht,
+\begin{align}
+- GA\,w_s''(x) + c\,w_s(x) = p(x)\,,
+\end{align}
+dann hat die Identit\"{a}t die Gestalt
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w_s,\textcolor{red}{\delta w}_s) &= \underbrace{\int_0^{\,l} (- GA\,w_s''(x) + c\,w(x))\,\textcolor{red}{\delta w_s(x)}\,dx + [V\,\textcolor{red}{\delta w_s}]_{@0}^{@l}}_{\delta A_a}\nn \\
+ &- \underbrace{\int_0^{\,l} (\frac{V\,\textcolor{red}{\delta V}}{GA}\, +c\,w_s\,\textcolor{red}{\delta w_s}) dx}_{\delta A_i} = 0\,.
+\end{align}
+
+{\textcolor{sectionTitleBlue}{\subsection{Durchbiegung $w$ eines Seils}}}\index{Durchbiegung, Seil}
+\vspace{-0.7cm}
+\begin{align}
+- H\,w''(x) = p(x) \qquad H = \text{Horizontalzug im Seil}
+\end{align}
+mit $V(x) = H\,w'(x)$ als der Querkraft in dem Seil
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \underbrace{\int_0^{\,l} - H\,w''(x)\,\textcolor{red}{\delta w(x)}\,dx + [V\,\textcolor{red}{\delta w}]_{@0}^{@l}}_{\delta A_a}  - \underbrace{\int_0^{\,l} \frac{V\,\textcolor{red}{\delta V}}{H}\,dx}_{\delta A_i}  = 0\,.
+\end{align}%
+{\textcolor{sectionTitleBlue}{\subsection{Durchbiegung $w$ eines Balkens}}}\index{Durchbiegung, Balken Th. I. Ordg.}
+\vspace{-0.7cm}
+\begin{align}\label{Eq115}
+EI\,w^{IV}(x) = p(x)
+\end{align}
+\begin{align}\label{Eq107}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \underbrace{\int_0^{\,l} EI\,w^{IV}(x)\,\textcolor{red}{\delta w}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l}}_{\delta A_a}  - \underbrace{\int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx}_{\delta A_i} = 0\,,
+\end{align}
+mit $M(x) = - EI\,w''(x)$ und $V(x) = - EI\,w'''(x)$.
+
+Wenn $EI(x)$ ver\"{a}nderlich ist, dann lautet die Differentialgleichung des Balkens $(EI(x)\,w'')'' = p(x)$ und zweimalige partielle Integration
+\begin{align}
+\int_0^{\,l} (EI(x)\,w'')''\,\textcolor{red}{\delta w}\,dx &= [(EI(x)\,w'')'\,\textcolor{red}{\delta w} - EI(x)\,w''\,\textcolor{red}{\delta w'}]_0^l \nn \\
+&+ \int_0^{\,l} EI(x)\,w''\,\textcolor{red}{\delta w''}\,dx
+\end{align}
+f\"{u}hrt mit $M = -EI(x)\,w''$ und $V = -(EI(x)\,w'')'$ auf die zu (\ref{Eq107}) analoge Identit\"{a}t.
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) =\int_0^{\,l} (EI(x)\,w'')''\,\textcolor{red}{\delta w}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l}  - \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = 0\,.
+\end{align}
+Auch hier kann man, weil $-M'' = p$ dasselbe ist wie $(EI(x) w'')'' = p$, schreiben
+\begin{align}
+\int_0^{\,l} -M''\,\textcolor{red}{\delta w}\,dx = - [M'\,\textcolor{red}{\delta w}]_0^l + \int_0^{\,l} M'\,\textcolor{red}{\delta w'}\,dx\,.
+\end{align}
+{\textcolor{sectionTitleBlue}{\subsection{Durchbiegung $w$ eines Balkens, Theorie II. Ordnung}}}\index{Durchbiegung, Balken Th. II. Ordg.}
+\vspace{-0.7cm}
+\begin{align}
+EI\,w^{IV}(x) + (D(x)\,w'(x))' = p_z(x) \qquad D(x) = P + \int_0^{\,x} p_x(y)\,dy
+\end{align}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) &= \underbrace{\int_0^{\,l} (EI\,w^{IV}(x) + (D(x)\,w'(x))') \,\textcolor{red}{\delta w}\,dx + [T\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l}}_{\delta A_a} \nn \\
+&- \underbrace{\int_0^{\,l} (\frac{M\,\textcolor{red}{\delta M}}{EI} - D(x)\,w'(x)\,\textcolor{red}{\delta w'(x)})\,dx}_{\delta A_i} = 0
+\end{align}
+mit der {\em Transversalkraft\/}\index{Transversalkraft}
+\begin{align}
+ T(x) = - EI\,w'''(x) - D(x)\,w'(x) = V(x) - D(x)\,w'(x)\,,
+ \end{align}
+als der Erweiterung der Querkraft um den vertikalen Anteil aus der schr\"{a}g gerichteten $(w' = \tan\,\Np)$ Druckkraft $D$.
+
+Die Konstante $P$ ist eine Druckkraft in dem Stab und $p_x(x)$ und $p_z(x)$ sind Linienkr\"{a}fte in Achsrichtung und senkrecht dazu.
+
+{\textcolor{sectionTitleBlue}{\subsection{Elastisch gebetteter Tr\"{a}ger}}}\index{elastisch gebetteter Tr\"{a}ger}
+\vspace{-0.7cm}
+\begin{align}
+EI\,w^{IV}(x) + c\,w(x) = p(x)
+\end{align}
+Hierzu geh\"{o}rt die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) &= \underbrace{\int_0^{\,l} (EI\,w^{IV}(x) + c\,w(x))\,\textcolor{red}{\delta w(x)}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l}}_{\delta A_a} \nn  \\
+&- \underbrace{\int_0^{\,l}(\frac{M\,\textcolor{red}{\delta M}}{EI} + c\,w(x)\,\textcolor{red}{\delta w(x)})\,dx}_{\delta A_i} = 0\,.
+\end{align}
+
+{\textcolor{sectionTitleBlue}{\subsection{Zugbandbr\"{u}cke}}}\index{Zugbandbr\"{u}cke}
+
+Man stelle sich einen Balken vor, durch den ein vorgespanntes Seil gezogen wird, so dass Balken und Seil gemeinsam die Streckenlast $p$ tragen
+\begin{align}
+EI\,w^{IV}(x) - H\,w''(x) = p(x) \qquad H = \text{Vorspannkraft}
+\end{align}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) &= \underbrace{\int_0^{\,l} (EI\,w^{IV}(x) - H\,w''(x))\,\textcolor{red}{\delta w(x)}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l}}_{\delta A_a} \nn  \\
+&- \underbrace{\int_0^{\,l}(\frac{M\,\textcolor{red}{\delta M}}{EI} + H\,w'(x)\,\textcolor{red}{\delta w'(x)})\,dx}_{\delta A_i} = 0\,,
+\end{align}
+mit $V = - EI\,w'''(x) + H\,w'(x)$.
+
+{\textcolor{sectionTitleBlue}{\subsection{Torsion}}}\index{Torsion}
+Die Differentialgleichung der {\em St. Venantschen Torsion\/}\index{St. Venantsche Torsion}
+\begin{align}
+- G\,I_T\,\vartheta '' = m_x
+\end{align}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vartheta,\textcolor{red}{\delta \vartheta}) = \underbrace{\int_0^{\,l} -  G\,I_T\,\vartheta''(x)\,\textcolor{red}{\delta \vartheta(x)}\,dx + [M_T\,\textcolor{red}{\delta \vartheta}]_{@0}^{@l}}_{\delta A_a} - \underbrace{\int_0^{\,l} \frac{M_T\,\textcolor{red}{\delta M_T}}{G\,I_T}\,dx}_{\delta A_i} = 0\,,
+\end{align}
+und der {\em W\"{o}lbkrafttorsion\/}\index{W\"{o}lbkrafttorsion}
+\begin{align}
+EI_\omega\,\vartheta^{IV} - G\,I_T\,\vartheta'' = m_x
+\end{align}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vartheta,\textcolor{red}{\delta \vartheta}) &= \underbrace{\int_0^{\,l} (EI_\omega\,\vartheta^{IV}(x) - G\,I_T\,\vartheta''(x))\,\textcolor{red}{\delta \vartheta(x)}\,dx + [M_T\,\textcolor{red}{\delta \vartheta} - M_\omega\,\textcolor{red}{\delta \vartheta'}]_{@0}^{@l}}_{\delta A_a} \nn  \\
+&- \underbrace{\int_0^{\,l}(\frac{M_\omega\,\textcolor{red}{\delta M_\omega}}{EI_\omega} + G\,I_T\,\vartheta'(x)\,\textcolor{red}{\delta \vartheta'(x)})\,dx}_{\delta A_i} = 0\,,
+\end{align}
+mit
+\begin{align}
+M_\omega = - EI_\omega\,\vartheta''(x) \qquad M_T = - EI_\omega\,\vartheta'''(x) + G\,I_T\,\vartheta'(x)
+\end{align}
+wiederholen die obigen Muster.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die Arbeitss\"{a}tze der Statik}}}\index{Arbeitss\"{a}tze der Statik}
+In allen Identit\"{a}ten, wie z.B. der des Seils,
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \int_0^{\,l} - H\,w''(x)\,\textcolor{red}{\delta w(x)}\,dx + [V\,\textcolor{red}{\delta w}]_{@0}^{@l} - \int_0^{\,l} \frac{V\,\textcolor{red}{\hat{V}}}{H}\,dx = 0\,,
+\end{align}
+werden Kr\"{a}fte $[F]$\index{[F]} und Wege $[L]$\index{[L]} \"{u}berlagert, werden Arbeiten = $[F \cdot L] $ gez\"{a}hlt
+\begin{align}
+\int_0^{\,l} - H\,w''(x)\,\delta w(x) \,dx &= [F  / L] \cdot [L] \cdot [L] = [F  \cdot L]\\
+[V\,\delta w]_{@0}^{@l} = V(l)\, \delta w(l) - V(0) \,\delta w(0) &= [F  \cdot L] -[F  \cdot L]\\
+\int_0^{\,l} \frac{V\,\hat{V}}{H}\,dx &= \frac{[F] \cdot [F]}{[F]}\,[L] = [F  \cdot L]\,,
+\end{align}
+und die Bilanz ergibt am Schluss null. Auf diesem \glq Null-Summen-Spiel\grq{} beruhen die Arbeits- und Energieprinzipe der Balkenstatik.
+\pagebreak
+{\textcolor{sectionTitleBlue}{\subsubsection*{Prinzip der virtuellen Verr\"{u}ckungen}}}\index{Prinzip der virtuellen Verr\"{u}ckungen}
+
+\vspace{-0.7cm}
+\begin{align}
+\boxed{\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = \delta A_a - \delta A_i = 0\,.}
+\end{align}
+{\textcolor{sectionTitleBlue}{\subsubsection*{Energieerhaltungssatz}}}\index{Energieerhaltungssatz}
+
+Ist das zweite Argument identisch mit dem ersten, dann formuliert die erste Greensche Identit\"{a}t den Energieerhaltungssatz
+\begin{align}
+\boxed{\frac{1}{2}\, \text{\normalfont\calligra G\,\,}(w,  w) =  A_a -  A_i = 0\,,}
+\end{align}
+der besagt, dass die \"{a}u{\ss}ere Eigenarbeit (deswegen der Faktor $1/2 $) als innere Energie gespeichert wird.
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Prinzip der virtuellen Kr\"{a}fte}}}\index{Prinzip der virtuellen Kr\"{a}fte}
+
+R\"{u}ckt man $w(x) $ an die zweite Stelle und \"{u}berl\"{a}sst den ersten Platz einer Testfunktion $\textcolor{red}{\delta w^*} $, die man, wie es Tradition ist, mit einem Asterisk schreibt, dann ist es das Prinzip der virtuellen Kr\"{a}fte
+\begin{align}
+\boxed{\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*},w) = \delta A_a^* - \delta A_i^* = 0\,.}
+\end{align}
+{\textcolor{sectionTitleBlue}{\subsubsection*{Satz von Betti}}}\index{Satz von Betti}
+Auch der Satz von Betti geh\"{o}rt an diese Stelle, weil er durch Spiegelung aus der ersten Greenschen Identit\"{a}t entsteht
+\begin{align}
+\!\!\text{\normalfont\calligra B\,\,}(w,\,\textcolor{chapterTitleBlue}{\hat{w}}) &= \!\text{\normalfont\calligra G\,\,}(w,\textcolor{chapterTitleBlue}{\hat{w}}) - \!\!\! \text{\normalfont\calligra G\,\,}(\textcolor{chapterTitleBlue}{\hat{w}}, w)  = \!\!\underbrace{\int_0^{\,l} EI\,w^{IV}(x)\,\textcolor{chapterTitleBlue}{\hat{w}(x)}\,dx + [V\,\textcolor{chapterTitleBlue}{\hat{w}} - M\,\textcolor{chapterTitleBlue}{\hat{w}'}]_{@0}^{@l}}_{A_{1,2}}\nn \\
+& - \underbrace{[w\,\textcolor{chapterTitleBlue}{\hat{V}}- w' \textcolor{chapterTitleBlue}{\hat{M}}]_{@0}^{@l}  - \int_0^{\,l} w(x)\,\textcolor{chapterTitleBlue}{EI\,\hat{w}^{IV}(x)}\,dx}_{A_{2,1}}= 0\,,
+\end{align}
+was bedeutet, dass die reziproken \"{a}u{\ss}eren Arbeiten zweier Biegelinien $w $ und $\hat{w} $ gleich gro{\ss} sind, $$\boxed{\text{\normalfont\calligra B\,\,}(w,\hat{w}) = A_{1,2} - A_{2,1} = 0\,.}$$
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Prinzip vom Minimum der potentiellen Energie}}}\index{Prinzip vom Minimum der potentiellen Energie}
+Die potentielle Energie eines gelenkig gelagerten Einfeldtr\"{a}gers ist -- in klassischer und moderner Notation nebeneinander -- der Ausdruck
+\begin{align}
+\Pi(w) &=\frac{1}{2}\, \int_0^{\,l} \frac{M^2}{EI}\,dx - \int_0^{\,l} p(x)\,w(x)\,dx = \frac{1}{2}\, a(w,w) - (p,w)\nn\\
+ &=  \underbrace{\frac{1}{2}\, a(w,w) - \frac{1}{2}\,(p,w)}_{\frac{1}{2}\,\text{\normalfont\calligra G\,\,}(w,w) = \,0} - \frac{1}{2}\,(p,w) = - \frac{1}{2}\,(p,w) \,.
+\end{align}
+Ist $w$ die Biegelinie des Tr\"{a}gers, $EI\,w^{IV} = p$, dann ist $\text{\normalfont\calligra G\,\,}(w,w) = \,0$  und dann verk\"{u}rzt sich das, wie angedeutet, auf
+\begin{align}
+\Pi(w) &=- \frac{1}{2}\,(p,w) = - \frac{1}{2} \int_0^{\,l} p(x)\,w(x)\,dx\,,
+\end{align}
+woraus folgt, dass die potentielle Energie in der Gleichgewichtslage negativ ist, weil die {\em Eigenarbeit\/} $(p,w)$ immer positiv ist.
+
+Addiert man zur tiefsten Lage $w$ eine zul\"{a}ssige virtuelle Verr\"{u}ckung $\delta w$, also $\delta w(0) = \delta w(l) = 0$, dann wird die potentielle Energie gr\"{o}{\ss}er
+\begin{align}
+\Pi(w + \delta w) = \Pi(w) + \underbrace{\text{\normalfont\calligra G\,\,}(w,\delta w)}_{=\, 0} + \underbrace{a(\delta w,\delta w)}_{> \,0}\,,
+\end{align}
+was belegt, dass $\Pi(w)$ wirklich der tiefste Punkt ist. Ferner gilt:\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die erste Variation $\delta \Pi$ der potentiellen Energie ist identisch mit der ersten Greenschen Identit\"{a}t,}}
+\begin{align}
+\delta \Pi(w, \delta w) = a(w, \delta w) - (p, \delta w) = \text{\normalfont\calligra G\,\,}(w,\delta w) = 0\,.
+\end{align}
+Deswegen bilden die Greenschen Identit\"{a}ten die Vorlage f\"{u}r die finiten Elemente. Man konstruiert eine L\"{o}sung $w_h = \sum_j w_j\,\Np_j(x)$ so, dass
+\begin{align}\label{Eq190}
+\boxed{ a(w_h, \Np_i) - (p, \Np_i)= 0 \quad i = 1,2,\ldots, n \quad \text{oder}\quad \vek K @\vek w - \vek f = \vek 0\,.}
+\end{align}
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Free body diagram}}}\index{free body diagram}
+Es sollte klar sein, dass die Greenschen Identit\"{a}ten am frei geschnittenen System ({\em free body diagram\/}) formuliert werden, denn ohne Randarbeiten $[\ldots ]$ w\"{a}ren die Ausdr\"{u}cke nicht komplett. Sind nur starre Lager vorhanden, kann man auf das Freischneiden verzichten, wenn $\delta w$ eine {\em zul\"{a}ssige\/} virtuelle Verr\"{u}ckung\index{zul\"{a}ssige virtuelle Verr\"{u}ckung} ist.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.4\textwidth]{\Fpath/U265A}
+\caption{Tumbleweed} \label{U265}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Ein Null-Summen-Spiel}}}\index{Null-Summen-Spiel}
+
+Die erste Greensche Identit\"{a}t gleicht dem Spiel, das der W\"{u}stenwind $(= \delta u)$ mit dem ausgetrockneten {\em tumbleweed\/} $(= u)$\index{tumbleweed} treibt, s. Abb. \ref{U265}. Egal wie stark der Wind bl\"{a}st, und wie gro{\ss} die Kapriolen sind, am Schluss ist die Bilanz immer null,  $\text{\normalfont\calligra G\,\,}(u,\delta u) = 0$.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U324A}
+\caption{Geschlossener Pfad} \label{U324}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Lesen wir die Identit\"{a}t wie eine Variationsaussage
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\delta u) = 0 \qquad \text{f\"{u}r alle $\delta u$}\,,
+\end{align}
+dann erinnert sie an die Weg-Unabh\"{a}ngigkeit des Arbeitsintegrals einer Punktmasse $m$ im Schwerefeld der Erde, s. Abb. \ref{U324}. Nahe der Erdoberfl\"{a}che hat die potentielle Energie den Wert $\Pi = m\cdot g \cdot y$ und wenn sich die Punktmasse $m$ auf einem geschlossenen Pfad $\mathcal{ C} = \{x(s), y(s)\}^T$ bewegt, dann ist die Gesamtarbeit null\footnote{Part. Int. und $y(0) = y(L)$ mit $L = $ L\"{a}nge des Pfades}
+\begin{align}
+\int_{\mathcal{ C}} \cdot \nabla \Pi \dotprod  \vek d\vek s &= m \cdot g \int_{0}^L \left [\barr{c}  0 \\  1\earr \right ] \dotprod  \left [\barr{c}  x' \\  y'\earr \right ]\,ds =  m \cdot g \int_{0}^L  y'\,ds \nn \\
+&= m \cdot g \cdot (y(L) - y(0)) = 0
+\end{align}
+unabh\"{a}ngig von der Gestalt der Kurve $\mathcal {C}$ -- dem Pfad $\delta u$ so zu sagen.
+
+Mit der partiellen Integration kommt die {\em Dualit\"{a}t\/} in die Mechanik hinein, also das Wechselspiel von Kraft und Weg. Die fundamentale Bedeutung des Arbeitsbegriffs f\"{u}r die Mechanik beruht auf den Greenschen Identit\"{a}ten.
+
+Am Anfang steht immer das Skalarprodukt\footnote{Die \"{U}berlagerung zweier Funktionen nennt man ein  $L_2$-Skalarprodukt.}\index{Ueberlagerung}\index{$L_2$-Skalarprodukt}  von zwei konjugierten Gr\"{o}{\ss}en, von einer Kraft und einem Weg,
+\begin{align}
+\int_0^{\,l}  - EA\,u''\,u\,dx = \text{{\em Kraft\/}} \times \text{{\em Weg\/}}
+\end{align}
+und wie nat\"{u}rlich entstehen so aus dem Ausgangsintegral durch partielle Integration die Arbeits- und Energieprinzipe der Mechanik und Statik.
+
+Es gibt eben nicht nur die klassische Formel der partiellen Integration
+\begin{align}
+\text{\normalfont\calligra I\,\,}(u, v) = \int_0^{\,l} u'\,v\,dx - [u\,v]_{@0}^{@l} + \int_0^{\,l} u\,v'\,dx = 0\,,
+\end{align}
+sondern viele weitere M\"{o}glichkeiten, $\infty$ viele Paare von Funktionen $u$ und $\delta u$ in einem \glq Null-Summen-Spiel\grq{} miteinander zu verkn\"{u}pfen
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u, \delta u) =  \left \{ \begin{array}{l } \displaystyle{ \int_0^{\,l} - EA\,u''\,\delta u\,dx  + \ldots}   \vspace{0.2cm} \\
+ \displaystyle{\int_0^{\,l} EI\,u^{IV}\,\delta u\,dx   + \ldots} \vspace{0.2cm} \\
+  \displaystyle{\int_{\Omega} - \Delta u\,\delta u\,d\Omega + \ldots} \vspace{0.2cm} \\
+\ldots
+\end{array} \right \} = 0\,.
+\end{align}
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Und dass es Null-Summen sind, also {\bf \em Invarianten\/} -- man denke an den W\"{u}stenwind -- darauf beruht der Erfolg der Arbeits- und Energieprinzipe.}}
+
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U54}
+\caption{Kragtr\"{a}ger, aux = Hilfssystem} \label{U54}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Beispiele}}}
+Nach dieser doch etwas knappen, schlagwortartigen Auflistung sollen nun Beispiele den Inhalt  veranschaulichen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Das Prinzip der virtuellen Verr\"{u}ckungen}}}\index{Prinzip der virtuellen Verr\"{u}ckungen}
+Die Biegelinie des Kragtr\"{a}ger in Abb. \ref{U54}
+\begin{align} \label{Eq27}
+EI\,w^{IV}(x) = 10 \qquad w(0) = w'(0) = 0 \qquad M(l) = V(l) = 0
+\end{align}
+hat die Gestalt
+\begin{align}
+w(x) = \frac{1}{EI}\,(\frac{10}{24}\,x^4 - \frac{50}{6}\,x^3 + \frac{125}{2} \,x^2 )
+\end{align}
+und die Schnittkr\"{a}fte lauten
+\begin{align}
+M(x) = -5\,x^2 + 50\,x - 125 \qquad V(x) = -10\,x + 50\,.
+\end{align}
+Die erste Greensche Identit\"{a}t des Balkens
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{ \delta w})  = \int_0^{\,l} EI\,w^{IV}(x)\,\textcolor{red}{\delta w}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l} - \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = 0\,,
+\end{align}
+reduziert sich unter Beachtung von (\ref{Eq27}), und der Annahme, dass $\textcolor{red}{\delta w(x)}$ eine zul\"{a}ssige virtuelle Verr\"{u}ckung ist,
+\begin{align}\label{Eq28}
+\textcolor{red}{\delta w(0)} = 0 \qquad \textcolor{red}{\delta w'(0)} = 0\,,
+\end{align}
+auf den Ausdruck
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w})  = \int_0^{\,l} 10 \cdot \textcolor{red}{\delta w}\,dx - \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = 0\,,
+\end{align}
+der mit der Bilanz $\delta A_a - \delta A_i = 0$ identisch ist.
+
+W\"{a}hlen wir z.B. als zul\"{a}ssige virtuelle Verr\"{u}ckung die Funktion $\textcolor{red}{\delta w(x) = x^2}$, so finden wir in der Tat, dass die Bilanz null ergibt
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{x^2})  &= \int_0^{\,5} 10 \cdot\textcolor{red}{ x^2}\,dx - \int_0^{\,5} (-5\,x^2 + 50\,x - 125)\cdot \textcolor{red}{(-2)}\,dx \nn \\
+&= \frac{1250}{3} - \frac{1250}{3} = \delta A_a - \delta A_i = 0\,.
+\end{align}
+Die virtuelle Verr\"{u}ckung
+\begin{align}
+\textcolor{red}{\delta w(x) = \cos x}
+\end{align}
+ ist dagegen keine zul\"{a}ssige virtuelle Verr\"{u}ckung, denn bei dieser Bewegung wird das eigentlich feste linke Lager verr\"{u}ckt, $\textcolor{red}{\delta w(0) = \cos 0 = 1}$. Das setzt aber die G\"{u}ltigkeit von $\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = 0 $ nicht au{\ss}er Kraft. Man muss jetzt nur richtig z\"{a}hlen und beachten, dass nun auch die Querkraft $V(0) = 50$ eine Arbeit leistet, und so ergibt sich mit
+\begin{align}
+\textcolor{red}{\delta M(x) = - EI\,\delta w''(x) = EI\,\cos\,x}
+\end{align}
+auch das richtige Resultat (es ist $-50 \cdot \textcolor{red}{1} = -V(0) \cdot \textcolor{red}{\cos\,0}$)
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\cos x}) &= \int_0^{\,5} 10\,\textcolor{red}{\cos x }\,dx - 50 \cdot \textcolor{red}{1}\, - \int_0^{\,5} (-5\,x^2 + 50\,x - 125)\, \textcolor{red}{\cos\,x}\,dx \nn \\
+&= \underbrace{\phantom{[}-9.59 - 50}_{\delta A_a} + \underbrace{\phantom{[}59.59}_{\delta A_i} = 0\,.
+\end{align}
+Auch die Starrk\"{o}rperbewegungen $\textcolor{red}{\delta w = a + b\,x }$ sind keine zul\"{a}ssigen virtuellen Verr\"{u}ckungen, aber trotzdem ist ihre Anwendung erlaubt und sogar geboten, denn zwei spezielle Starrk\"{o}rperbewegungen, $\textcolor{red}{\delta w(x) = 1}$ und $\textcolor{red}{\delta w(x) = x}$, kontrollieren das Gleichgewicht, also die Summe der vertikalen Kr\"{a}fte und die Summe der Momente um das linke Lager
+\begin{alignat}{2}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{1}) &= \int_0^{\,5} 10 \cdot \textcolor{red}{1}\, dx - V(0) \cdot \textcolor{red}{1} = 50 - 50 = 0\qquad &&\textcolor{red}{\delta w = 1}\,,\\
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{x}) &= \int_0^{\,5} 10\cdot\textcolor{red}{x}\,dx - M(0)\cdot \textcolor{red}{1} = 125 - 125 = 0 \qquad &&\textcolor{red}{\delta w = x}\,.
+\end{alignat}
+($M(0) \cdot \textcolor{red}{1} = M(0) \cdot \textcolor{red}{x'})$.
+Nur wenn $w$ orthogonal zu diesen beiden Verr\"{u}ckungen ist, herrscht Gleichgewicht.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Energieerhaltungssatz}}}\index{Energieerhaltungssatz}
+Man \"{u}berzeugt sich auch leicht, dass die Biegelinie des Kragtr\"{a}gers dem Energieerhaltungssatz gen\"{u}gt
+\begin{align}
+\frac{1}{2}\, \text{\normalfont\calligra G\,\,}(w,w) &= \frac{1}{2}\,\int_0^{\,l} p(x)\,w(x)\,dx - \frac{1}{2}\,\int_0^{\,l} \frac{M^2}{EI}\,dx = A_a - A_i \nn \\
+& = \frac{1}{2}\,\frac{1}{EI} ( 1562.5 - 1562.5) = 0\,,
+\end{align}
+dass also die \"{a}u{\ss}ere Eigenarbeit $A_a$  gleich der inneren Energie $A_i$ ist.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U18}
+\caption{Kragtr\"{a}ger} \label{U18}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Das Prinzip der virtuellen Kr\"{a}fte}}}\index{Prinzip der virtuellen Kr\"{a}fte}
+Bei diesem Prinzip ist die Reihenfolge von $w$ und $\textcolor{red}{\delta w}$ vertauscht und man schreibt dann \"{u}blicherweise $\textcolor{red}{\delta w^*}$ statt $\textcolor{red}{\delta w} $
+\begin{align} \label{Eq29}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*},w) &= \int_0^{\,l} EI\,\textcolor{red}{\delta w^{*IV}(x)}\,w(x)\,dx + [\textcolor{red}{\delta V^*}\, w - \textcolor{red}{\delta M^*}\,w']_{@0}^{@l} \nn \\
+&- \int_0^{\,l} \frac{\textcolor{red}{\delta M^*}\,M}{EI}\,dx = 0\,.
+\end{align}
+Die { Mohrsche Arbeitsgleichung} basiert auf dieser Gleichung. Dort schreibt man $\textcolor{red}{\delta w^*} = \bar{w}$
+
+Um auf diesem Weg die Durchbiegung am Kragarmende des Tr\"{a}gers in Abb. \ref{U18} a zu berechnen, belasten wir den Tr\"{a}ger in einem zweiten Lastfall mit einer Einzelkraft $\textcolor{red}{P^* = 1}$, zu der die Biegelinie $\textcolor{red}{\delta w^*(x)}$ geh\"{o}rt
+\begin{align}
+\textcolor{red}{EI\,\delta w^{*\,IV} = 0 \qquad \delta V^*(l) = 1\qquad \delta M^*(l) = 0}\,.
+\end{align}
+Mit $w(0) = w'(0) = 0 $ folgt dann
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*},w) = \textcolor{red}{P^*} \cdot  w(l) - \int_0^{\,l} \frac{\textcolor{red}{\delta M^*}\,M}{EI}\,dx = 0\,,
+\end{align}
+oder
+\begin{align}
+\textcolor{red}{1}\cdot w(l) = \int_0^{\,l} \frac{\textcolor{red}{\delta M^*}\,M}{EI}\,dx\,,
+\end{align}
+was die Mohrsche Arbeitsgleichung\index{Mohrsche Arbeitsgleichung} ist.
+
+Nach diesem ersten Probest\"{u}ck wollen wir das {\em Prinzip der virtuellen Kr\"{a}fte\/} nun systematischer fassen. Weil die Pl\"{a}tze vertauscht sind, $\textcolor{red}{\delta w^*(x)}$ an erster Stelle steht,  liefert $\textcolor{red}{\delta w^*(x)} $ die Kraftgr\"{o}{\ss}en, also die Streckenlast
+\begin{align}\label{Eq17}
+\textcolor{red}{ EI\, \delta\,w^{*IV}(x) = \delta \,p^*}
+\end{align}
+und ebenso die Momente und Querkr\"{a}fte an den Balkenenden
+ \begin{align}\label{Eq18}
+\textcolor{red}{\delta V^*(0)} &= \textcolor{red}{- EI\,\delta w^{*'''}(0)} \qquad  \textcolor{red}{\delta V^*(l) = - EI\,\delta w^{*'''}(l)} \nn \\
+\textcolor{red}{\delta M^*(0)} &= \textcolor{red}{- EI\,\delta w^{*''}(0)} \qquad  \textcolor{red}{\delta M^*(l) = - EI\,\delta w^{*''}(l)}\,.
+ \end{align}
+Wir nennen die Gesamtheit der \"{a}u{\ss}eren Kr\"{a}fte, die zu $\textcolor{red}{\delta w^*(x)} $ geh\"{o}ren, $\textcolor{red}{\delta K^*}$.
+
+Weil die Weggr\"{o}{\ss}en  von $\textcolor{red}{\delta w^*} $ an den Balkenenden in der ersten Greenschen Identit\"{a}t nicht abgefragt werden,  muss $\textcolor{red}{\delta w^* }$ keine R\"{u}cksicht auf die Lagerbedingungen des Tr\"{a}gers nehmen.
+
+Die Identit\"{a}t $\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*},w) = \delta A_a^* - \delta A_i^* = 0 $ ist dann die Bilanz der \"{a}u{\ss}eren Arbeiten $\delta A_a^*$, die die Kr\"{a}fte $\textcolor{red}{\delta K^*}$ auf den Wegen $w(x) $ leisten, minus der virtuellen inneren Energie $\delta A_i^*$, also der \"{U}berlagerung von $\textcolor{red}{\delta M^*}$ und $M$.
+
+In der Literatur wird das {\em Prinzip der virtuellen Kr\"{a}fte\/} wie folgt ausgesprochen: \\
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Prinzip der virtuellen Kr\"{a}fte}}}
+{\em Ist ein System von \"{a}u{\ss}eren Kr\"{a}ften $\textcolor{red}{\delta K^*}$ im Gleichgewicht, dann ist die \"{a}ussere Arbeit $\delta A^*$ dieser Kr\"{a}fte auf den Wegen der Verformung $w$ des Systems
+\begin{align}
+\delta A_a^* = \int_0^{\,l} \textcolor{red}{EI\,\delta \,w^{*IV}}\,w(x)\,dx + [\textcolor{red}{\delta \,V^*}  w - \textcolor{red}{\delta \,M^*} w']_{@0}^{@l}\,,
+\end{align}
+gleich der virtuellen inneren Energie $\delta A_i^*$, also dem Integral\/}
+\begin{align}
+\delta A_i^* = \int_0^{\,l} \frac{\textcolor{red}{\delta \,M^*} M}{EI}\,dx\,.
+\end{align}
+In der Summe also
+\begin{align}
+\delta A_a^* - \delta A_i^* = 0\,,
+\end{align}
+was mit $\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*},w) = 0$ identisch ist.
+
+Manchmal wird verlangt, dass die  Kr\"{a}fte $\textcolor{red}{\delta K^*}$ {\em infinitesimal klein\/} sein m\"{u}ssen, aber daf\"{u}r gibt es keinen sachlichen Grund, denn partielle Integration macht keinen Unterschied zwischen gro{\ss} und klein.
+
+Das Gleichgewicht der virtuellen Kr\"{a}fte ist garantiert, weil wir die Kr\"{a}fte aus der Funktion $\textcolor{red}{\delta w^*}$ (dem \glq Mutterschiff\grq{}) durch Differentiation abgeleitet haben und jede Funktion $\textcolor{red}{\delta w^*} \in C^4(0,l)$ die Gleich\-gewichtsbedingungen erf\"{u}llt
+\begin{align}\label{Eq4}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*},\delta w) =  0  \qquad \delta w = a + b\,x\,.
+\end{align}
+Anders w\"{a}re es, wenn $\textcolor{red}{EI\,\delta \,w^{*IV}}$ und die Balkenendkr\"{a}fte $\textcolor{red}{\delta\,V^*}$ und $\textcolor{red}{\delta M^*}$ nicht zueinander passen w\"{u}rden, wenn sie \glq gew\"{u}rfelt\grq{} w\"{a}ren, dann w\"{a}re die Bilanz $\delta A_a^* - \delta A_i^*$ wahrscheinlich nicht  null.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U2}
+\caption{Stockwerkrahmen, Belastung und Verformung} \label{U2}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Rahmen}}}\index{Rahmen}
+Die Erweiterung der Identit\"{a}ten auf rahmenartige Tragwerke wie in Abb. \ref{U2} ist einfach, denn
+$0 + 0 = 0$.
+
+Der Rahmen m\"{o}ge aus $n$ Stielen und Riegeln mit entsprechenden L\"{a}ngs- und Biegeverformungen $u_i$ und $w_i$ bestehen. F\"{u}r jedes
+$u_i$ bzw. $w_i $ formulieren wir die zugeh\"{o}rige erste Greensche Identit\"{a}t und dann addieren wir all diese Identit\"{a}ten
+ \begin{align}
+ 0 + 0 + \ldots + 0 = 0\,.
+ \end{align}
+Im n\"{a}chsten Schritt trennen wir diesen Ausdruck nach \"{a}u{\ss}erer und innerer Arbeit auf. Was in den Identit\"{a}ten \"{a}u{\ss}ere Arbeit ist, bleibt auf der linken Seite und was innere Arbeit ist, kommt auf die rechte Seite, womit wir am Schluss einen Ausdruck wie
+\begin{align} \label{Eq13}
+\delta A_a = \delta A_i
+\end{align}
+vor uns haben.
+
+Der Term $\delta A_a $ l\"{a}sst sich in der Regel weiter vereinfachen. Die beiden zu $u_i$ und $w_i$ geh\"{o}rigen Identit\"{a}ten eines Riegels oder Stieles,
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u_i, \textcolor{red}{\delta u_i}) = 0\quad \text{(l\"{a}ngs)}\qquad  \text{\normalfont\calligra G\,\,}(w_i, \textcolor{red}{\delta w_i}) = 0 \quad \text{(quer)}
+\end{align}
+tragen in der Summe zu $\delta A_a$ einen Ausdruck wie
+\begin{align}
+\int_0^{\,l_i} p_x\,\textcolor{red}{\delta u_i}\,dx  + \int_0^{\,l_i} p_z\,\textcolor{red}{\delta w_i}\,dx  + \underbrace{[N_i\,\textcolor{red}{\delta u_i}]_0^{l_i} + [V_i\,\textcolor{red}{\delta w_i} - M_i\,\textcolor{red}{\delta w_i'}]_0^{l_i}}_{Randarbeiten}
+\end{align}
+bei. Das sind also die virtuellen \"{a}u{\ss}eren Arbeiten der Streckenlasten $p_x$ (l\"{a}ngs) und $p_z$ (quer) zwischen den Knoten, und die Randarbeiten, die die Balken\-endkr\"{a}fte, $ N_i, V_i$ und $M_i$ auf den zu ihnen konjugierten virtuellen Verr\"{u}ckungen leisten.
+
+Wenn in den Knoten des Rahmens keine Kr\"{a}fte oder Momente angreifen, dann sind die Anschlusskr\"{a}fte der Balken in den Knoten unter sich im Gleichgewicht. Was als Normalkraft $N$ ankommt, wird als Querkraft $V$ weitergeleitet, etc. Ferner sind die Verformungen und auch die virtuellen Verr\"{u}ckungen der Balken in den Knoten alle gleich gro{\ss}.
+
+Aus dem Gleichgewicht an den Knoten und dem Gleichklang der
+virtuellen Verr\"{u}ckungen folgt, dass die Summe der Randarbeiten, also die Summe \"{u}ber die eckigen Klammern in jedem Knoten null sind, und damit reduziert sich die Bilanz auf
+\begin{align}\label{Eq32}
+\delta A_a &= \sum_i\,[\int_0^{\,l_i} \,p_z\,\textcolor{red}{\delta w_i}\,dx + \int_0^{\,l_i} \,p_x\, \textcolor{red}{\delta u_i}\,dx]\nn \\
+ &= \sum_i\, [\int_0^{\,l_i} \frac{N_i\,\textcolor{red}{\delta N_i}}{EA_i}\,dx + \int_0^{\,l_i} \frac{M_i\,\textcolor{red}{\delta M_i}}{EI_i}\,dx ] = \delta A_i\,.
+\end{align}
+Wenn Punktlasten in den Knoten angreifen, dann springen die beteiligten Balken\-endkr\"{a}fte um die H\"{o}he dieser Punktlasten, d.h. die Summe \"{u}ber die Randarbeiten (die eckigen Klammern) ergibt dann in dem Knoten einen  Beitrag wie $P\cdot\textcolor{red}{\delta w(x)}$.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U62}
+\caption{Einzelkr\"{a}fte erfordern eine Zweiteilung des Feldes} \label{U62}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+
+
+Den Ausdruck (\ref{Eq32}) kann man nun weiter vereinfachen, indem man auf das Anschreiben der Integrationsgrenzen verzichtet und ebenso die Indices an $u_i$ und $w_i$ und $EA_i$ und $EI_i$ etc. wegl\"{a}sst, denn jeder wei{\ss} ja, welcher Teil des Rahmens gerade gemeint ist. Man schreibt also einfacher
+\begin{align}
+\delta A_a = \int \,p_z\,\textcolor{red}{\delta w}\,dx + \int \,p_x\, \textcolor{red}{\delta u}\,dx
+\end{align}
+und analog
+\begin{align}
+\int \frac{N\,\textcolor{red}{\delta N}}{EA} \,dx + \int \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = \delta A_i\,,
+\end{align}
+so dass aus den vielen Identit\"{a}ten am Ende schlie{\ss}lich der bequeme Ausdruck
+\begin{align}
+\delta A_a = \int \,p_z\,\textcolor{red}{\delta w}\,dx + \int \,p_x\, \textcolor{red}{\delta u}\,dx = \int \frac{N\,\textcolor{red}{\delta N}}{EA} \,dx + \int \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = \delta A_i
+\end{align}
+wird.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einzelkr\"{a}fte und Einzelmomente}}}\index{Einzelkr\"{a}fte und Einzelmomente}
+
+Es ist noch zu kl\"{a}ren, wie die Einzelkr\"{a}fte und Einzelmomente in die Arbeitsgleichung hineinkommen, also Terme wie $P\cdot\textcolor{red}{\delta w(x)}$.
+
+Diese Terme r\"{u}hren von den eckigen Klammern, den Randarbeiten, denn Einzelkr\"{a}fte und Einzelmomente auf freier Strecke machen eine Zwei\-teilung der Biegelinie in $w_L(x)$ und $w_R(x)$ notwendig, weil man, anschaulich gesagt, nicht einfach \"{u}ber eine Einzelkraft hinweg integrieren kann. Der Rand entsteht dort, wo die beiden H\"{a}lften zusammensto{\ss}en.
+
+
+Man integriert vom linken Lager bis zum Fu{\ss}punkt $\bar{x}$ der Kraft, stoppt dort, und setzt hinter dem Lastangriffspunkt die Integration fort
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = \text{\normalfont\calligra G\,\,}(w_L, \textcolor{red}{\delta w})_{(0,\bar{x})}+  \text{\normalfont\calligra G\,\,}(w_R, \textcolor{red}{\delta w})_{(\bar{x},l)} = 0 + 0 = 0\,.
+\end{align}
+Die beiden Teile der Biegelinie, $w_L(x)$ und $w_R(x)$, sind jeweils homogene L\"{o}sungen der Balkengleichung, weil wir hier der Einfachheit halber annehmen d\"{u}rfen, dass keine Streckenlasten vorhanden sind
+\begin{align}
+EI\,w_L(x) = 0 \qquad 0 < x < \bar{x} \qquad EI\,w_R(x) = 0 \qquad \bar{x}  < x < l\,,
+\end{align}
+und an der Stelle $\bar{x}$ gehen die beiden L\"{o}sungen stetig ineinander \"{u}ber, bis auf die Querkr\"{a}fte $V_L$ und $V_R$, die um den Wert der Einzelkraft springen, s. Abb. \ref{U62},
+\begin{align}
+M_R(\bar{x}) - M_L(\bar{x}) = 0 \qquad V_L(\bar{x})  - V_R(\bar{x})  = P\,.
+\end{align}
+Bei der Addition der Randarbeiten, also der eckigen Klammern an der \"{U}bergangssstelle, bleibt allein die virtuelle Arbeit der Einzelkraft \"{u}brig
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U204}
+\caption{Der Tr\"{a}ger muss in f\"{u}nf Integrationsintervalle unterteilt werden} \label{U204}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+\begin{align}
+[V_L\,\textcolor{red}{\delta w} - M_L\,\textcolor{red}{\delta w'}]_0^{\bar{x}} + [V_R\,\textcolor{red}{\delta w} - M_R\,\textcolor{red}{\delta w'}]_{\bar{x}}^l = P\cdot\textcolor{red}{\delta w(\bar{x})}
+\end{align}
+und somit lautet die Bilanz bei einer zul\"{a}ssigen virtuellen Verr\"{u}ckung
+\begin{align}
+\delta A_a = P\cdot\textcolor{red}{\delta w(\bar{x})} = \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = \delta A_i\,.
+\end{align}
+Mit Einzelmomenten verf\"{a}hrt man sinngem\"{a}{\ss}.
+
+Gegebenenfalls muss man, s. Abb. \ref{U204}, die Integration mehrmals unterbrechen
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) &:= \!\!\!\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w})_{(x_1,x_2)} + \!\!\!\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w})_{(x_2, x_3)} + \ldots + \!\!\!\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w})_{(x_5,x_6)} \nn \\
+&= 0 + 0 \ldots + 0 = 0\,.
+\end{align}
+All dies gilt nat\"{u}rlich auch f\"{u}r Lagerkr\"{a}fte, die ja auch Punktkr\"{a}fte sind. Damit sie in der Bilanz auftauchen, muss man allerdings virtuelle Verr\"{u}ckungen w\"{a}hlen, die offiziell nicht zul\"{a}ssig sind, die die \glq Ruhepflicht\grq{}, die Festhaltung der Lager, ignorieren, was mathematisch ja vollkommen legitim ist.
+
+Ist $\textcolor{red}{\delta w} $ eine solche virtuelle Verr\"{u}ckung des Durchlauftr\"{a}gers in Abb. \ref{U204}, die auch die Lager verschiebt, dann stehen in der ersten Greensche Identit\"{a}t des Gesamtsystems auch die Arbeiten der Lagerkr\"{a}fte
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) &=  M_A\,\textcolor{red}{\delta w'(x_1)}+ A\,\textcolor{red}{\delta w(x_1)} + P\,\textcolor{red}{\delta w(x_2)} + M\,\textcolor{red}{\delta w'(x_3)} + B\,\textcolor{red}{\delta w(x_4)}\nn \\
+&+ \int_{x_5}^{\,x_6} p\,\textcolor{red}{\delta w}\,dx + C\,\textcolor{red}{\delta w(x_6)} - \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M }}{EI}\,dx = 0\,.
+\end{align}
+Wir k\"{o}nnen gleich den umgekehrten Schluss ziehen:\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Wenn man nur mit zul\"{a}ssigen virtuellen Verr\"{u}ckungen $\textcolor{red}{\delta w }$ an einem Trag\-werk \glq wackelt\grq{}, dann sind die Randarbeiten in den Lagern  null.}}\\
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U205}
+\caption{Lagersenkung und Lagerverdrehung} \label{U205}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Lagersenkung}}}\index{Lagersenkung}
+Im Zusammenhang mit einer Lagersenkung interessieren uns drei Themen:\\
+
+\begin{itemize}
+  \item Der Energieerhaltungssatz
+  \item Das Prinzip der virtuellen Verr\"{u}ckungen
+  \item Die Anwendung des Prinzips der virtuellen Kr\"{a}fte zur Berechnung von Verformungen
+\end{itemize}
+
+Das rechte Lager des Tr\"{a}gers in Abb. \ref{U205} senkt sich um ein Ma{\ss} $w_{\Delta}$. Die Biegelinie des Tr\"{a}gers
+\begin{align}\label{Eq36}
+EI\,w^{IV} = 0 \qquad w(0) = w'(0) = 0 \qquad M(l) = 0\quad w(l) = w_{\Delta}\,,
+\end{align}
+besteht aus zwei Funktionen, einer Biegelinie $w_1(x)$ mit den korrekten Randwerten
+\begin{align}
+w_1(0) = w_1'(0) = 0 \qquad w_1(l) = w_{\Delta}
+\end{align}
+und einer zweiten Biegelinie $w_2(x)$, die die (eventuellen) Fehler von $w_1$, dass n\"{a}mlich $EI\,w_1^{IV}$ nicht null ist und $M_1(l) \neq 0$, korrigiert, d.h.
+\begin{align}
+EI\,w_2^{IV}(x) = - EI\,w_1^{IV}(x) \quad w_2(0) = w_2'(0) = w_2(l) = 0 \quad M_1(l) + M_2(l) = 0\,,
+\end{align}
+so dass die Summe $w(x) = w_1(x) + w_2(x)$ den Gleichungen (\ref{Eq36}) gen\"{u}gt.
+
+Mit finiten Elementen setzt man  $w_1(x) = w_{\Delta}\cdot \Np_3(x)$, bringt die Spalte $\vek f_3$ von $\vek K$ auf die rechte Seite, $\vek K\vek u = - w_{\Delta}\,\vek f_3$ und bestimmt aus diesen $n-1$ Gleichungen (die Zeile $3$ wird gestrichen), die \"{u}brigen $u_i$.
+
+\vspace{-0.5cm}
+{\textcolor{sectionTitleBlue}{\subsubsection*{Energieerhaltungssatz}}}
+
+Zur Formulierung des Energieerhaltungssatzes gehen wir auf die Diagonale und \"{u}berlagern $w$ mit sich selbst
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,w) &= \int_0^{\,l} EI\,w^{IV}\,w\,dx + [V\,w - M\,w']_{@0}^{@l} - \int_0^{\,l} \frac{M^2}{EI}\,dx \nn \\
+&= V(l) \cdot w_{\Delta} - \int_0^{\,l} \frac{M^2}{EI}\,dx = 0\,,
+\end{align}
+was nach Multiplikation mit $1/2 $
+\begin{align}
+\frac{1}{2}\, \text{\normalfont\calligra G\,\,}(w,w) = \frac{1}{2}\,  V(l)\cdot w_{\Delta} - \frac{1}{2}\,\int_0^{\,l} \frac{M^2}{EI}\,dx = 0\,,
+\end{align}
+der Energieerhaltungssatz ist.
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Prinzip der virtuellen Verr\"{u}ckungen}}}
+
+Nun gehen wir auf die Nebendiagonale, $\textcolor{red}{\delta w}$ sei eine zul\"{a}ssige virtuelle Verr\"{u}ckung, also $\textcolor{red}{\delta w(0) = \delta w'(0) = \delta w(l) = 0}$, und weil auch die Streckenlast null ist, $EI\,w^{IV} = 0$, ist $\delta A_a = 0$, und somit muss auch $\delta A_i = 0$ sein
+\begin{align}\label{Eq120}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) &= - \int_0^{\,l} \frac{M \textcolor{red}{\delta M}}{EI}\,dx =  - \delta A_i = 0\,.
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U63}
+\caption{Virtuelle Verr\"{u}ckung, $\delta A_a = \delta A_i = 0$} \label{U63}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+Das mag \"{u}berraschen, aber man versteht es, wenn man an die Mohrsche Arbeitsgleichung denkt: Wir berechnen in (\ref{Eq120}) mit Hilfe der Einzelkraft $V(l)$ im rechten Lager, um wieviel die virtuelle Verr\"{u}ckung dort nach unten geht, aber $\textcolor{red}{\delta w(l) = 0}$. Bei Lagersenkungen orientieren sich die virtuellen Verr\"{u}ckungen $\textcolor{red}{\delta w}$ am urspr\"{u}nglichen System, sind also in den (urspr\"{u}nglich) festen Lagern null.
+
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Prinzip der virtuellen Kr\"{a}fte}}}
+
+Jetzt vertauschen wir die Pl\"{a}tze von $w $ und $\textcolor{red}{\delta w}$, das wir nun $\textcolor{red}{\delta w^*}$ nennen, wir formulieren also das {\em Prinzip der virtuellen Kr\"{a}fte\/}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*}, w) &= \delta A_a^* - \delta A_i^* = 0\,,
+\end{align}
+und wir berechnen mit diesem Prinzip beispielhaft die Durchbiegung in Balkenmitte, s. Abb. \ref{U205}. Traditionsgem\"{a}{\ss} hei{\ss}t die Biegelinie $\textcolor{red}{\delta w^*}$ bei Mohr $\bar{w}$.
+
+Wir lassen also eine Einzelkraft $\textcolor{red}{\bar{P} = 1}$ in Richtung der gesuchten Verschiebung wirken und formulieren mit den beiden Teilen der Biegelinie
+\begin{align}
+\textcolor{red}{\bar{w} = \bar{w}_L + \bar{w}_R }
+\end{align}
+und $w$ die erste Greensche Identit\"{a}t und erhalten so, wir \"{u}berspringen die Zwischenschritte, das Ergebnis
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\bar{w}_L},w)_{(0,0.5\,l)}  &+ \text{\normalfont\calligra G\,\,}(\textcolor{red}{\bar{w}_R},w)_{(0.5\,l, l)} \nn \\
+&= \textcolor{red}{\bar{1}} \cdot w(0.5\,l) + \textcolor{red}{\bar{V}(l)} \cdot w_{\Delta} - \int_0^{\,l} \frac{\textcolor{red}{\bar{M}}\,M}{EI}\,dx = 0\,,
+\end{align}
+oder aufgel\"{o}st nach der gesuchten Durchbiegung
+\begin{align}
+w(0.5\,l) = \int_0^{\,l} \frac{\textcolor{red}{\bar{M}}\,M}{EI}\,dx - \textcolor{red}{\bar{V}(l)} \cdot w_{\Delta}\,.
+\end{align}
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Bei einer Lagersenkung ist also die Mohrsche Arbeitsgleichung um den Beitrag $ -\textcolor{red}{\bar{V}(l)} \cdot w_{\Delta} $ zu erweitern, wobei $ \textcolor{red}{\bar{V}(l)}$ die Lagerkraft aus $\bar{P} = 1 $ ist. Der Beitrag ist negativ, weil er eigentlich auf die linke Seite geh\"{o}rt, zu den virtuellen \"{a}u{\ss}eren Arbeiten.}}\\
+
+Wenn sich die Einspannung um einen Winkel $\Np_\Delta $ verdreht,
+\begin{align}
+EI\,w^{IV} = 0 \qquad w'(0) = \tan \Np_\Delta \qquad w(0) = w(l) = M(l) = 0\,,
+\end{align}
+dann erh\"{a}lt man auf analoge Weise
+\begin{align}
+\textcolor{red}{\bar{1}}\cdot w(0.5\,l) = - \textcolor{red}{\bar{M}}(0) \cdot \tan \Np_\Delta + \int_0^{\,l} \frac{\textcolor{red}{\bar{M}}  M}{EI}\,dx\,.
+\end{align}
+Das Moment $\textcolor{red}{\bar{M}(0)} $ ist das Einspannmoment aus der Einzelkraft $\textcolor{red}{\bar{P} = \bar{1}}$. Eigentlich geh\"{o}rt es auf die linke Seite, weil es virtuelle \"{a}u{\ss}ere Arbeit ist, und so taucht es rechts mit dem Faktor $(-1) $ auf.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.5\textwidth]{\Fpath/U55}
+\caption{Schraubenfeder} \label{U55}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Federn}}}\index{Federn}
+In matrizieller Schreibweise lautet das Federgesetz, s. Abb. \ref{U55},
+\begin{align}
+\left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r
+@{\hspace{4mm}}r @{\hspace{4mm}}r}
+      k & -k  \\
+      -k & k \\
+     \earr \right]\left [\barr{c}  u_1 \\  u_2\earr \right ]
+=  \left [\barr{c}  f_1 \\  f_2\earr \right ]
+\end{align}
+oder, k\"{u}rzer, $\vek K\,\vek u = \vek f$.
+
+Zu diesem System geh\"{o}rt die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek u, \textcolor{red}{\vek  \delta \vek  u}) = \textcolor{red}{\vek \delta \vek u^T}\,\vek K\,\vek u - \vek u^T\,\vek K\,\textcolor{red}{\vek \delta \,\vek  u} = 0\,.
+\end{align}
+Ist $\vek u $ die Gleichgewichtslage der Feder, $\vek K\,\vek  u = \vek f$, dann ergibt sich daraus das {\em Prinzip der virtuellen Verr\"{u}ckungen\/} f\"{u}r die Feder
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek u, \textcolor{red}{\vek  \delta \vek  u}) = \textcolor{red}{\vek \delta \vek u^T}\,\vek f - \vek u^T\,\vek K\,\textcolor{red}{\vek \delta \,\vek  u} =\delta A_a - \delta A_i = 0
+\end{align}
+und analog das {\em Prinzip der virtuellen Kr\"{a}fte\/}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\vek  \delta \vek  u^*},\vek  u) = \vek u^T \textcolor{red}{\vek f^{*}}- \textcolor{red}{\vek u^{*T}}\,\vek K\,\vek  u = \delta A_a^* - \delta A_i^* = 0\,.
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U57}
+\caption{Temperaturverformungen} \label{U57}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Temperatur}}}\index{Temperatur}
+In der linearen Statik darf man die Ergebnisse superponieren und so kann man den Lastfall Temperatur wie einen zus\"{a}tzlichen Lastfall behandeln
+\begin{align}
+w(x) = w_{LF\,1} + w_{LF\,2} + \ldots + w_{T}\,.
+\end{align}
+Wir d\"{u}rfen immer annehmen, dass $w_T$ am statisch bestimmten Tragwerk berechnet wird, also die Form
+\begin{align}
+w_T(x) = \alpha_T \frac{\Delta T}{h}\,x^2 + a\,x + b\,, \qquad (a, b\,\, \text{sind Konstante})
+\end{align}
+hat, weil eventuell n\"{o}tige Korrekturen in den vorangehenden Lastf\"{a}llen behandelt werden.
+
+Das {\em Prinzip der virtuellen Kr\"{a}fte\/} f\"{u}r eine Biegelinie $w_T$, wir setzen eine Punktlast $P^* = 1$ in den Aufpunkt $x$, lautet dann
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*}, w_T) = \textcolor{red}{1} \cdot w_T(x) - \int_0^{\,l}\textcolor{red}{ EI\,\delta w^*{''}}\,w_T''\,dx = 0
+\end{align}
+oder mit $w_T'' = \alpha_T \Delta T/h$
+\begin{align}
+w_T(x) = \int_0^{\,l}\textcolor{red}{ \delta M^*}\,\alpha_T \frac{\Delta T}{h}\,dx \,.
+\end{align}
+Hierbei ist $\alpha_T \sim 10^{-5}$ (Stahl, Beton) der Temperaturkoeffizient des Materials, $\Delta T$ ist die Temperaturdifferenz zwischen Ober- und Unterkante des Tr\"{a}gers und $h$ ist die Tr\"{a}gerh\"{o}he, s. Abb. \ref{U57}.
+
+Genauso leitet man die Formel f\"{u}r die L\"{a}ngsverschiebung aus Temperatur ab
+\begin{align}
+u_T(x) = \int_0^{\,l} \textcolor{red}{\delta N^*}\,\alpha_T\,T\,dx\,,
+\end{align}
+wobei $T$ die \"{A}nderung gegen\"{u}ber der Ausgangstemperatur ist.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die vollst\"{a}ndige Arbeitsgleichung}}}\index{vollst\"{a}ndige Arbeitsgleichung}
+Wir haben nun alle Teile zusammen, um die vollst\"{a}ndige Arbeitsgleichung, die {\em Mohrsche Arbeitsgleichung\/},\index{Mohrsche Arbeitsgleichung} zu formulieren
+  \begin{align}\label{Eq101}
+    \textcolor{red}{\bar{1}} \cdot \delta
+    = &
+    \int\frac{\textcolor{red}{\bar{M}}\,M}{EI}\,dx
+    + \int\frac{\textcolor{red}{\bar{N}}\,N}{EA}\,dx + \int \textcolor{red}{\bar{M}}\,\alpha_T\,\frac{\Delta T}{h}\,dx + \int \textcolor{red}{\bar{N}}\,\alpha_T\,T\,dx \nn \\
+     &+ \underbrace{\sum_i \frac{\textcolor{red}{\bar{F}_i}\,F_i}{k_{i}}}_{\text{Normalkraftfedern}}
+    + \underbrace{\sum_j \frac{\textcolor{red}{\bar{M}_j}\,M_j}{k_{\varphi j}}}_{\text{Biegemomentenfedern}}\nn \\
+    &
+%    + \underbrace{\int N_i\,\alpha_T\,T\;}_{\text{Gleichm. Erw\"{a}rmung}}
+%    + \underbrace{\int M_i\,\alpha_T\,\frac{\Delta T}{h}\;}_{\text{Ungleichm. Erw\"{a}rmung}}
+    - \underbrace{\sum_k \textcolor{red}{\bar{F}_{k}}\,w_{\Delta\,k}}_{\text{Lagerverschiebungen}}
+    - \underbrace{\sum_l \textcolor{red}{\bar{M}_{l}}\,\tan \varphi_{\Delta\,l}}_{\text{Lagerverdrehungen}}\,.
+  \end{align}
+Das $\delta$ auf der linken Seite steht, wie es in der Statik-Literatur Tradition ist, sowohl f\"{u}r Verschiebungen als auch Verdrehungen.
+
+Wenn es eine Verdrehung ist, dann ist es der Tangens des Drehwinkels, weil in der ersten Greenschen Identit\"{a}t -- auf der die Arbeitsgleichung ja beruht -- das Moment mit dem Tangens gepaart ist
+\begin{align}
+\ldots + [V\,w - M\,w'] + \ldots
+\end{align}
+und nicht mit dem Drehwinkel.
+
+Nur so wird die Arbeitsgleichung auch ihrem Namen gerecht, stehen links wie rechts wirklich Arbeiten
+\begin{align}
+\bar{M} \cdot  \delta = 1 \,\text{kNm}\cdot \tan\,\Np = [F \cdot L] \cdot [\,\,\,  ] = \int_0^{\,l} \ldots
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Kurzform}}}\index{Kurzform}
+Es ist nun sicherlich m\"{u}hsam, f\"{u}r ein gegebenes System die Bilanz
+\begin{align}
+\delta A_a = \delta A_i
+\end{align}
+aus den Greenschen Identit\"{a}ten der einzelnen Tragglieder zu entwickeln. Das macht kein Ingenieur so, sondern der Ingenieur wei{\ss} mit ein wenig \"{U}bung automatisch, welche Beitr\"{a}ge er $\delta A_a$ zuschlagen muss. Das sind die Arbeiten der Streckenlasten
+\begin{align}
+\int_0^{\,l} p_z\,\textcolor{red}{\delta w}\,dx \qquad \int_0^{\,l} p_z\,\textcolor{red}{\delta u}\,dx
+\end{align}
+und die Arbeiten der Punktlasten
+\begin{align}
+P_z\,\textcolor{red}{\delta w(x)}  \qquad P_x\,\textcolor{red}{\delta u(x)} \qquad M\,\textcolor{red}{\delta w'(x)} \qquad \text{etc.}
+\end{align}
+und die Beitr\"{a}ge zu $\delta A_i$ sind auch bekannt
+  \begin{align}
+   \delta A_i = &
+    \int \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx  + \int \frac{N\,\textcolor{red}{\delta N}}{EA}\,dx
+    +  \int \textcolor{red}{\delta M}\,\alpha_T\,\frac{\Delta T}{h}\,dx + \int \textcolor{red}{\delta N}\,\alpha_T\,T\,dx \nn \\
+     &+ \sum_i \frac{\textcolor{red}{\delta F_i}\,F_i}{k_{i}}
+    + \sum_j \frac{\textcolor{red}{\delta M_j}\,M_j}{k_{\varphi j}} - \sum_k \textcolor{red}{\delta F_k}\,w_{\Delta\,k}
+    - \sum_l  \textcolor{red}{\delta M_l}\,\tan \varphi_{\Delta\,l}\,,
+\end{align}
+und sie verk\"{u}rzen sich meist auf
+\begin{align}
+\delta A_i = \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx  + \int_0^{\,l} \frac{N\,\textcolor{red}{\delta N}}{EA}\,dx
+\end{align}
+oder oft noch einfacher auf
+\begin{align}
+\delta A_i = \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Dualit\"{a}t}}}\index{Dualit\"{a}t}
+Die Arbeits- und Energieprinzipe des Balkens entwickeln sich spielerisch aus dem Arbeitsintegral
+\begin{align}
+\int_0^{\,l} EI\,w^{IV}(x) \,\textcolor{red}{\delta w(x)}\,dx\,,
+\end{align}
+also der \"{U}berlagerung, dem $L_2$-Skalarprodukt, von Kraft und Weg. Wie dies geschieht, ist in der ersten Greenschen Identit\"{a}t detailliert dargelegt. Und was f\"{u}r den Balken gilt, gilt f\"{u}r die anderen Bauteile ebenso.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{ Kraft und Weg sind die beiden Pole, um die sich die Statik dreht. Der Arbeitsbegriff ist der zentrale Begriff der Statik und die fundamentale Rechenoperation der Statik ist das Skalarprodukt}}\\
+
+Die Kunst im Umgang mit der ersten Greenschen Identit\"{a}t besteht nun einfach darin, die virtuelle Verr\"{u}ckung so zu w\"{a}hlen, dass man an die Information kommt, die man sucht. Drei Techniken stehen zur Verf\"{u}gung:
+\begin{align}
+&\text{{\em Prinzip der virtuellen Verr\"{u}ckungen\/}} \quad &\!\!\!\!\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = 0 \quad &\text{Kr\"{a}fte}\nn \\
+&\text{{\em Prinzip der virtuellen Kr\"{a}fte\/}} \quad &\!\!\!\!\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*}, w) = 0 \quad &\text{Wege}\nn \\
+&\text{{\em Satz von Betti\/}} \quad &\!\!\!\!\text{\normalfont\calligra B\,\,}(w_1, w_2) = 0\quad &\text{Wege und Kr\"{a}fte}\nn
+\end{align}
+Mit dem {\em Satz von Betti\/} kann man Weg- und Kraftgr\"{o}{\ss}en berechnen. Mit dem {\em Prinzip der virtuellen Kr\"{a}fte\/} Weggr\"{o}{\ss}en und mit dem {\em Prinzip der virtuellen Verr\"{u}ckungen\/} Kraftgr\"{o}{\ss}en, \"{u}blicherweise sind das Lagerkr\"{a}fte.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U148B}
+\caption{Einflussfunktionen bei einem Einfeldtr\"{a}ger. Man l\"{o}st ein Lager oder baut ein Gelenk ein, zeichnet das System noch einmal an und verr\"{u}ckt das rechte System. Es gilt der Satz von Betti $A_{1,2} = A_{2,1}$. Die Summe der Arbeiten der Null-Kr\"{a}fte rechts auf den (nicht gezeichneten) Wegen links ist null, $A_{2,1} = 0$, und daher sind auch die Arbeiten der Kr\"{a}fte links auf den Wegen rechts null, $A_{1,2} = 0$. Zur Illustration wurden die Kr\"{a}fte links rechts angetragen, um ihre Wege zu verfolgen, aber die rechten Systeme selbst sind kr\"{a}ftefrei, weil sie kinematisch sind und sich daher die Wege rechts ohne Kraftaufwand erzeugen lassen} \label{U148}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+Im {\em Prinzip der virtuellen Verr\"{u}ckungen\/} formuliert man\footnote{Die Funktionen $\delta w $ und  $\delta w^* $ sind nat\"{u}rlich genauso real wie $w $. Es sind einfach geschickt gew\"{a}hlte Hilfsfunktionen, nur hat man sie mit dem Attribut \glq virtuell\grq{} versehen.}
+\begin{align}\label{Eq61}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = \text{Reale Kr\"{a}fte} \,\times\, \textcolor{red}{\text{virtuelle Wege}} - a(w,\textcolor{red}{\delta w}) = 0
+\end{align}
+und im {\em Prinzip der virtuellen Kr\"{a}fte\/} dagegen
+\begin{align}\label{Eq62}
+\text{\normalfont\calligra G\,\,}(\textcolor{red}{\delta w^*}, w) = \textcolor{red}{\text{Virtuelle Kr\"{a}fte}} \,\times \,\text{reale Wege} - a(\textcolor{red}{\delta w^*},w) = 0\,.
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+%\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U149A}
+\caption{Einflussfunktion f\"{u}r Moment in einem Sparren {\bf a)} \glq alles in einem\grq{} Zeichnung {\bf b)} die Bewegung nach dem L\"{o}sen des Gelenks als separates Bild, $\tan \Np_l + \tan \Np_r = 1$ am Gelenk} \label{U149}
+\end{figure}%
+%--------------------------------------------------------------------------------------------------------
+Will man zum Beispiel die Lagerkraft $A$ an dem Einfeldtr\"{a}ger in Abb. \ref{U148} berechnen, so kann man eine Drehung um das rechte Lager, $\textcolor{red}{\delta w(x) = 1 - x/l}$, als virtuelle Verr\"{u}ckung w\"{a}hlen
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = \int_0^{\,l} p(x)\,\textcolor{red}{\delta w(x)}\,dx - V(0) \,\textcolor{red}{\delta w(0)} = 0\,,
+\end{align}
+und die Identit\"{a}t dann nach $A = V(0)$ aufl\"{o}sen
+\begin{align}
+A\cdot \textcolor{red}{1} = \int_0^{\,l} p\cdot\textcolor{red}{(1 - \frac{x}{l})}\,dx\,.
+\end{align}
+Der Vollst\"{a}ndigkeit halber wollen wir auch zeigen, wie man mit dem {\em Prinzip der virtuellen Verr\"{u}ckungen\/} Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en an statisch bestimmten Tragwerken berechnen kann, obwohl das Vorgehen eigentlich mit dem Satz von Betti identisch ist\footnote{Das sieht man besser, wenn man zwei Zeichnungen macht, denn Betti ist ja eigentlich \glq zwei\grq{}; einmal das Originalsystem (mit dem eingebauten Gelenk, im Gleichgewicht gehalten durch die zuvor inneren Momente $M_l$ und $M_r$ am Gelenk) und dann die Verr\"{u}ckung des Originalsystems mit dem gel\"{o}sten Gelenk. Die Verr\"{u}ckung ist gerade die Einflussfunktion. }.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die Anwendung des Prinzips der virtuellen Verr\"{u}ckungen zur Berechnung von Kraftgr\"{o}{\ss}en an statisch bestimmten Tragwerken ist eigentlich eine Anwendung des Satzes von Betti.}}\\
+
+Weil das Tragwerk nach Einbau des entsprechenden Gelenkes kinematisch ist, ist die virtuelle innere Arbeit $\delta A_i = 0$ und somit muss auch $\delta A_a = 0$ sein
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \delta A_a - 0 = 0\,,
+\end{align}
+w\"{a}hrend beim Satz von Betti
+\begin{align}
+\text{\normalfont\calligra B\,\,}(w,\textcolor{red}{\delta w}) =  A_{1,2} - A_{2,1} = 0
+\end{align}
+die Arbeit $A_{2,1}$ null ist, s. S. \pageref{ImmerSo}, und daher muss auch $A_{1,2}$ null sein. Mathematisch sind aber $\delta A_a$ und $A_{1,2}$ bei den folgenden Beispielen gleich, nur werden sie anders benannt, und daher ist kein Unterschied zwischen den beiden Verfahren an dieser Stelle.
+
+Um die Einflussfunktion f\"{u}r das Moment in Balkenmitte zu bestimmen,  bauen wir ein Gelenk in Balkenmitte ein, und bringen das zuvor innere Moment $M$ auf beiden Seiten des Gelenks als \"{a}u{\ss}eres Momentenpaar auf, damit der Balken weiterhin die Wanderlast abtragen kann, s. Abb. \ref{U148} {\em c\/} und {\em d\/}.
+
+Dann erteilen wir dem Balken eine virtuelle Verr\"{u}ckung $\textcolor{red}{\delta w(x)}$ derart, dass sich die Balkenmitte um einen noch n\"{a}her zu bestimmenden Wert  $\textcolor{red}{\Delta\,w}$ absenkt. Der Stabdrehwinkel der linken H\"{a}lfte ist dabei $\textcolor{red}{\delta w_L'} = \textcolor{red}{\Delta w/(l/2)}$ und der rechten H\"{a}lfte ist $\textcolor{red}{\delta w_R'} = -\textcolor{red}{\Delta w/(l/2)}$. Gem\"{a}{\ss} dem {\em Prinzip der virtuellen Verr\"{u}ckungen\/} gilt
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = \delta A_a - \delta A_i = 0\,.
+\end{align}
+Nun ist die virtuelle innere Arbeit bei dieser Bewegung null (wie bei einer Marionette) und daher  muss auch die Summe der virtuellen \"{a}u{\ss}eren Arbeiten null sein
+\begin{align}
+\delta A_a = 1 \cdot \textcolor{red}{\delta w(x)} - M\cdot \textcolor{red}{\delta w_L'} + M \cdot \textcolor{red}{\delta w_R'}= 0\,.
+\end{align}
+Wenn man nun $\textcolor{red}{\Delta w}$ so gro{\ss} w\"{a}hlt, dass
+\begin{align}
+\textcolor{red}{\delta w_L'} - \textcolor{red}{\delta w_R'} = 1
+\end{align}
+ist, also $\textcolor{red}{\Delta w} = l/4$, dann folgt
+\begin{align}
+M(x) = 1 \cdot \textcolor{red}{\delta w(x)}\,.
+\end{align}
+Zur Bestimmung der Einflussfunktion f\"{u}r die Querkraft in Balkenmitte bauen wir in die Mitte des Balkens ein Querkraftgelenk ein, s. Abb. \ref{U148} {\em e\/}, und korrigieren diesen Verlust an Querkrafttragf\"{a}higkeit dadurch, dass wir links und rechts von dem Gelenk die zuvor innere Kraft $V$ als \"{a}u{\ss}ere St\"{u}tzkraft wirken lassen. Dann spreizen wir dieses Gelenk so, dass die beiden Seiten des Gelenks jeweils um $\pm 0.5$ m nach oben bzw. nach unten ausweichen und berechnen die virtuelle \"{a}u{\ss}ere Arbeit, die dabei von der Wanderlast und den beiden Kr\"{a}ften $V$ geleistet wird
+\begin{align}
+\delta A_a = 1 \cdot\textcolor{red}{\delta w(x)} - V(x) \cdot 0.5 - V \cdot 0.5 = 1 \cdot \textcolor{red}{\delta w(x)} - V(x) \cdot 1 = 0
+\end{align}
+oder
+\begin{align}
+V(x) = \textcolor{red}{\delta w(x)}\,.
+\end{align}
+Die Logik l\"{a}sst sich auch auf Wandermomente anwenden, wenn also ein Moment \"{u}ber den Tr\"{a}ger l\"{a}uft.
+Ein Wandermoment $M = 1$ leistet Arbeit, wenn man es verdreht. Das Ma{\ss} f\"{u}r diese Arbeit ist das Produkt aus dem Moment und dem Tangens des Drehwinkels, also
+\begin{align}
+M \cdot\textcolor{red}{\delta w'}
+\end{align}
+und daher sind die Einflussfunktionen f\"{u}r $A(x), M(x)$ und $V(x)$ in diesem Fall identisch mit den Ableitungen von $\textcolor{red}{\delta w(x)}$.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U372}
+\caption{Durchlauftr\"{a}ger und das Prinzip der virtuellen Verr\"{u}ckungen  \textbf{ a)} Momente  \textbf{b)} virtuelle Verr\"{u}ckung nach Einbau von Zwischengelenken } \label{U372}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+Sind Streckenlasten vorhanden, dann geschieht die Auswertung der Einflussfunktionen durch Integration
+\begin{align}
+A(x) = \int_a^{\,b} p(x)\,\textcolor{red}{\delta w(x)}\,dx\,.
+\end{align}
+Bei schr\"{a}gen St\"{a}ben, wie dem Sparren in Abb. \ref{U149}, muss man darauf achten, dass nur der Anteil von $\textcolor{red}{\delta w(x)}$, der in Richtung der Wanderlast f\"{a}llt, gez\"{a}hlt wird.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Ganze Tragwerke}}}
+Der Formulierung des Prinzips der virtuellen Verr\"{u}ckungen an ganzen Tragwerken ist ein Summieren der einzelnen Identit\"{a}ten, l\"{a}ngs ($u_i$) und quer ($w_i$),
+\begin{align}
+\sum_i \text{\normalfont\calligra G\,\,}(u_i,\textcolor{red}{\delta u_i}) + \sum_i\ \text{\normalfont\calligra G\,\,}(w_i,\textcolor{red}{\delta w_i}) = 0 + 0 + \ldots + 0 = 0\,.
+\end{align}
+So k\"{o}nnte man z.B. in den Durchlauftr\"{a}ger in Abb. \ref{U372} drei Gelenke einbauen und diese Gelenkkette so auslenken, dass die Einzelkraft den Weg \textcolor{red}{Eins} geht und man h\"{a}tte das Resultat ($\delta A_i = 0$ weil die $\textcolor{red}{\delta w_i}$ Starrk\"{o}rperbewegungen sind)
+\begin{align}\label{Eq73}
+\sum_i\ \text{\normalfont\calligra G\,\,}(w_i,\textcolor{red}{\delta w_i}) &= \delta A_a + \delta A_i = \sum_{k = 1}^3 M_k \cdot \textcolor{red}{\Delta \Np_k} + P \cdot \textcolor{red}{1} = 0 \\
+ \textcolor{red}{\Delta \Np_k} &= \textcolor{red}{\tan \Np_k^r - \tan \Np_k^l}\,,
+\end{align}
+was einem wahrscheinlich nicht viel weiterhilft, weil man drei Schnittmomente $M_k$ in einer Gleichung hat.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U384MitGitter}
+\caption{Dreigelenkrahmen, Bestimmung des Moments $M_i$ mittels eines Polplans \textbf{ a)} System und Belastung  \textbf{b)} virtuelle Verr\"{u}ckung nach Einbau des Gelenks  \textbf{c)} vertikaler Anteil der Einflussfunktion im Lastgurt} \label{U384}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+In einer anderen Situation k\"{o}nnte gleichwohl die Gleichung (\ref{Eq73}) als Kontrolle dienen. Setzt man die Feldl\"{a}nge $l = 4$ und $P = 10$, dann ergibt sich mit
+$\textcolor{red}{\Delta \Np_1 = 0.5, \Delta \Np_2 = -0.5, \Delta \Np_3 = 0.5}$ und $M_1 = -1.31, M_2 = 3.98, M_3 = -14.71$ tats\"{a}chlich das richtige Ergebnis, n\"{a}mlich null
+\begin{align}
+\delta A_a = \sum_{k = 1}^3 M_k\,\textcolor{red}{\Delta \Np_k} + P \cdot \textcolor{red}{1 }= \textcolor{red}{0.5} \cdot (- 1.31 - 3.98 - 14.71) + 10 \cdot \textcolor{red}{1} = 0\,.
+\end{align}
+Wichtig ist, dass die Integrationsgrenzen $[\ldots]$ zum einen die Lager und Gelenke und zum anderen m\"{o}gliche Einzelkr\"{a}fte und Einzelmomente respektieren m\"{u}ssen. Mit jedem Einbau von zus\"{a}tzlichen Gelenken in ein Tragwerk \"{a}ndert sich die Zahl der Abschnitte, \"{u}ber die die Identit\"{a}ten integrieren. Bei dem Tr\"{a}ger in Abb. \ref{U372} sind es erst vier Identit\"{a}ten, entsprechend den vier Feldern, und danach sind es sieben.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U188A}
+\caption{Mohr und der Satz von Betti, es ist einfacher $\bar{M}$ zu bestimmen, als die Biegelinie $G_0(y,x)$} \label{U188}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Der erfahrene Ingenieur geht nat\"{u}rlich nicht \"{u}ber die Identit\"{a}ten, sondern er wei{\ss} automatisch,  was er mitzunehmen hat, und was nicht. Das macht die Identit\"{a}ten aber nicht \"{u}berfl\"{u}ssig, denn sie legen ja eigentlich erst fest, was zu z\"{a}hlen ist, und was nicht, wie die innere Energie aussieht und die \"{a}u{\ss}ere Arbeit und wie sich Starrk\"{o}rperbewegungen \"{u}ber ein Tragwerk fortpflanzen -- n\"{a}mlich als Pseudodrehungen -- und die Identit\"{a}ten garantieren schlie{\ss}lich erst das Endresultat $\delta A_a - \delta A_i = 0$.
+
+Das Prinzip der virtuellen Verr\"{u}ckungen ist immer dann gut anwendbar, wenn das Tragwerk statisch bestimmt ist, weil man dann durch das geschickte Wegnehmen nur eines Lagers oder den Einbau eines Gelenks ein kinematisches System erh\"{a}lt, an dem man mit geeigneten Starrk\"{o}rperbewegungen eine unbekannte Lagerkraft oder ein inneres Moment bestimmen kann.
+
+Bei Rahmen, wie in Abb. \ref{U384}, muss man sich allerdings mit Hilfe von Polpl\"{a}nen Klarheit \"{u}ber die Wege verschaffen, die die Kr\"{a}fte gehen. Wenn ein Programm m\"{o}gliche Beweglichkeiten in einem Rahmen anzeigt, weil man ein Lager vergessen hat, dann kann man das Programm dazu benutzen, die Starrk\"{o}rperbewegungen darzustellen, die nach dem Einbau eines Gelenks oder der Entfernung eines Lagers m\"{o}glich sind.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U183}
+\caption{Berechnung der Horizontalverschiebung eines Knotens mit Mohr und mit dem Satz von Betti, \textbf{ a)} Momente aus Last, \textbf{ b)} Momente aus $\bar{P} = 1$, \textbf{ c)} Verschiebung aus $\bar{P} = 1$ (= Einflussfunktion f\"{u}r die Horizontalverschiebung)} \label{U183}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Mohr contra Betti}}}
+Man kann also die Durchbiegung eines Balkens mit der Mohrschen Arbeitsgleichung (dem {\em Prinzip der virtuellen Kr\"{a}fte\/}) berechnen
+\begin{align}\label{Eq132}
+w(x) = \int_0^{\,l} \frac{M(y)\,\bar{M}(y,x)}{EI} \,dy \qquad \text{\normalfont\calligra G\,\,}(G_0, w) = 0
+\end{align}
+oder mit dem {\em Satz von Betti\/}
+\begin{align}
+w(x) = \int_0^{\,l} G_0(y,x)\,p(y)\,dy \qquad \text{\normalfont\calligra B\,\,}(G_0, w) = 0\,.
+\end{align}
+Die letztere Gleichung benutzt aber kein Ingenieur, weil er dazu erst die Biegelinie $G_0(y,x) $ bestimmen m\"{u}sste, die die Einzelkraft $\bar{P} = 1 $ an dem Tr\"{a}ger erzeugt, s. Abb. \ref{U188}. Die Berechnung der Momente $\bar{M} = - EI\,G_0'' $ f\"{a}llt dem Ingenieur dagegen viel leichter, und das ist der Grund, warum Verformungen an Tragwerken mit der Mohrschen Arbeitsgleichung berechnet werden und nicht mit dem Satz von Betti.
+
+Allerdings muss man bei Mohr mehr tun, um zum Ergebnis zu kommen, wie man in Abb. \ref{U183} sieht, denn man muss die Momente $M$ und $\bar{M}$ \"{u}ber den ganzen Rahmen integrieren, w\"{a}hrend sich dasselbe Ergebnis nach dem Satz von Betti durch eine Auswertung in einem Punkt ergibt.
+
+Mit Blick auf die finiten Elemente scheint es so zu sein, dass Mohr die genaueren Ergebnisse liefert, weil sich die mittleren Fehler in $M_h$ und $\bar{M}_h$ (den FE-N\"{a}herungen) besser ausgleichen, w\"{a}hrend Betti ja genau den richtigen Wert $G_0(y,x)$ am Ort $y$ von $P$ treffen muss. {\em Aber Mohr und Betti sind zwei Seiten einer Medaille!\/} Wenn man mit finiten Elementen rechnet, dann sind die Ergebnisse gleich genau (oder gleich ungenau), weil man Mohr mittels partieller Integration in Betti umformen kann und umgekehrt.
+
+\begin{remark}
+In der Statikliteratur schreibt man f\"{u}r das Integral (\ref{Eq132}) k\"{u}rzer
+\begin{align}
+\delta = \int_0^{\,l} \frac{M\,\bar{M}}{EI}\,dx\,,
+\end{align}
+taucht der Aufpunkt $x$ nicht auf, und deswegen kann dann die Integrationsvariable $x$ hei{\ss}en. Auch wir haben diese kurze Form bei der Arbeitsgleichung benutzt und werden sie gelegentlich weiter benutzen.
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U156}
+\caption{Der Satz von Betti, System 1 der reale Balken, System 2 derselbe Balken, frei schwebend, ohne Belastung, ohne Lager, sich frei um sein rechtes Ende drehend } \label{U156}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Schwache und starke Einflussfunktionen}}}
+Die Gleichung (die Mohrsche Arbeitsgleichung)
+\begin{align}\label{Eq81}
+w(x) = \int_0^{\,l} \frac{M(y)\,\bar{M}(y,x)}{EI} \,dy
+\end{align}
+nennen wir eine {\em schwache Einflussfunktion\/}\index{schwache Einflussfunktion} und die Gleichung
+\begin{align}
+w(x) = \int_0^{\,l} G_0(y,x)\,p(y)\,dy
+\end{align}
+eine {\em starke Einflussfunktion\/}\index{starke Einflussfunktion}. Man kann also $w(x)$ aus den Momenten, der zweiten Ableitung von $w$, berechnen oder aus der Streckenlast, der vierten Ableitung von $w$.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U279}
+\caption{Mohr und Kraftgr\"{o}{\ss}en, \textbf{ a)} Einflussfunktion f\"{u}r $V(x)$, \textbf{ b)} am statisch bestimmten Tr\"{a}ger, \textbf{ c)} Korrektur mit $X_1$, \textbf{ d) } Moment aus $X_1 = 1$ } \label{U279}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Schwache Einflussfunktionen basieren auf der ersten Greenschen Identit\"{a}t, in der Formulierung als {\em Prinzip der virtuellen Kr\"{a}fte\/},
+\begin{align}
+\text{\normalfont\calligra G\,\,}(G,w) = 0
+\end{align}
+und starke Einflussfunktionen auf der zweiten Greenschen Identit\"{a}t, dem {\em Satz von Betti\/}
+\begin{align}
+\text{\normalfont\calligra B\,\,}(G,w) = 0\,.
+\end{align}
+Das Standardbeispiel f\"{u}r eine schwache Einflussfunktion ist die Mohrsche Arbeitsgleichung (\ref{Eq81}).
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U280}
+\caption{Einflussfunktionen beim Seil f\"{u}r \textbf{ a)} die Durchbiegung und \textbf{ b)} die Querkraft} \label{U280}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Mit der Mohrschen Arbeitsgleichung kann man aber keine Kraftgr\"{o}{\ss}en wie etwa die Querkraft
+\begin{align}\label{Eq113}
+V(x)  \overset{?}{=} \int_0^{\,l} \frac{M\,\bar{M}}{EI}\,dy
+\end{align}
+berechnen. Was klar scheint, denn welche virtuelle Kraft will man anwenden, um die Querkraft $V(x)$ in einem Punkt zu berechnen? Das {\em Prinzip der virtuellen Kr\"{a}fte\/} taugt also nur zur Berechnung von Weggr\"{o}{\ss}en.
+
+Auch rechnerisch ist das Ergebnis null, wie das folgende Beispiel zeigen soll. Betti kann mit der Einflussfunktion f\"{u}r $V(x)$, s. Abb. \ref{U279} a, die Querkraft in Balkenmitte exakt voraussagen
+\begin{align}
+V(x) = \int_0^{\,l} G_3(y,x)\,p(y)\,dy\,.
+\end{align}
+Probiert man dasselbe mit Mohr, dann muss man gem\"{a}{\ss} (\ref{Eq113}) das Moment $\bar{M}$ der Einflussfunktion mit dem Moment $M$ aus der Belastung \"{u}berlagern. Die Einflussfunktion $G_3(y,x)$ setzt sich aus zwei Teilen zusammen, der Scherbewegung in Abb.  \ref{U279} b, und einem Zusatzterm, der den Fehler in der Einspannung korrigiert. Entsprechend hat $\bar{M}$ die Gestalt
+\begin{align}
+\bar{M} = X_1 \cdot M_1 + 0\,,
+\end{align}
+wenn wir das Moment der st\"{u}ckweise linearen Scherbewegung null setzen, was nur im Aufpunkt etwas problematisch ist\footnote{Setzt man $\bar{M} = X_1 \cdot M_1 + \delta_1$ kann man die Situation retten, denn es ergibt sich   (wir d\"{u}rfen $EI = 1$ setzen) $(M,\bar{M}) = X_1 \cdot (M,M_1) + (M,\delta_1) = X_1 \cdot 0 + V(x) = V(x)$}. Die \"{U}berlagerung ergibt jedoch null und nicht $V(x)$
+\begin{align}
+V(x) \overset{?}{=} \int_0^{\,l} \frac{M\,\bar{M}}{EI}\,dy = X_1 \int_0^{\,l} \frac{M\,M_1}{EI}\,dy = 0\,,
+\end{align}
+weil die \"{U}berlagerung von $M$ und $M_1$ die Kontrolle ist ({\em Reduktionssatz\/}),\index{Reduktionssatz} ob die Verdrehung des Balkens in der Einspannfuge null ist -- was sie ist.
+
+Man kann sich das auch analytisch zurechtlegen. Am einfachsten geht das an einem Seil mit den beiden Einflussfunktionen $G_0(y,x)$ f\"{u}r die Durchbiegung und $G_1(y,x)$ f\"{u}r die Querkraft $V(x) = H\,w'(x)$ in Seilmitte, s. Abb. \ref{U280}.
+
+Formal geschieht die Herleitung so, dass man die Strecke $(0,l)$ in der Mitte zweiteilt, dabei einen Spalt $(x-\varepsilon,x+\varepsilon)$ l\"{a}sst, die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\hat{w}) = \int_0^{\,l} - H\,w''\,\hat{w}\,dx + [V\,\hat{w}]_{@0}^{@l} - a(w,\hat{w}) = 0
+\end{align}
+f\"{u}r jeden Teil getrennt formuliert und dann den Spalt gegen null gehen l\"{a}sst
+\begin{align}
+\text{\normalfont\calligra G\,\,}(G_0,w) = \lim_{\varepsilon \to 0}\,\{\text{\normalfont\calligra G\,\,}(G_0,w)_{(0,x-\varepsilon)} + \text{\normalfont\calligra G\,\,}(G_0,w)_{(x+\varepsilon,l)}\} = 0 + 0\,.
+\end{align}
+Wir erhalten so
+\begin{align}
+\text{\normalfont\calligra G\,\,}(G_0,w) = \int_0^{\,l} 0 \cdot w\,dx + 1 \cdot w(x) - a(G_0,w) = 0 \,,
+\end{align}
+was die Gleichung von Mohr (am Seil) ist
+\begin{align}
+w(x) = a(G_0,w) = \int_0^{\,l} \frac{V_0\,V}{H}\,dy\,,
+\end{align}
+w\"{a}hrend aus der Formulierung
+\begin{align}
+\text{\normalfont\calligra G\,\,}(G_1,w) &= \int_0^{\,l} 0 \cdot w\,dx + (V_1(x_{-}) - V_1(x_{+})) \cdot w(x) - a(G_1,w) \nn \\
+&= 0 + 0 \cdot w(x) - a(G_1,u) = 0
+\end{align}
+folgt, dass $a(G_1,w) = 0$ ist, was sich auch aus
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,G_1) = \underbrace{\int_0^{\,l} p\,G_1\,dy - V(x) \cdot 1}_{=\, 0\,(Betti)} - a(w,G_1) = 0
+\end{align}
+ergibt.
+
+\begin{remark}
+Um den Unterschied zwischen den beiden Typen von Einflussfunktionen deutlich zu machen, nehmen wir an, dass die Belastung nur aus einer einzelnen Kraft $P$ besteht.
+
+Im {\em Satz von Betti\/}
+\begin{align}
+w(x) = \int_0^{\,l} G_0(y,x)\,p(y)\,dy = G_0(y,x) \cdot P
+\end{align}
+lassen wir -- anschaulich gesprochen -- im Aufpunkt $x$ einen Stein (ein Dirac Delta) in das Wasser fallen, und wir beobachten, wie sich die Welle $G_0(y,x)$ \"{u}ber den Balken ausbreitet, um wieviel die Punktlast in der Ferne von der Welle gehoben wird.
+
+Bei dem {\em Prinzip der virtuellen Kr\"{a}fte (Mohr)\/}
+\begin{align}
+w(x) = \int_0^{\,l} \frac{M(y)\,M^*(y,x)}{EI}\,dy
+\end{align}
+beobachten wir dagegen die Interaktion von zwei Wellen. Die erste Welle, $M(y)$, ist das Biegemoment, das von der Punktlast erzeugt wird, und die zweite Welle $M^*(y,x)$ ist das Biegemoment, das von dem Dirac Delta erzeugt wird. Nur die Teile des Balkens, wo beide Momente gro{\ss} sind (und nicht orthogonal zueinander), sind relevant. \\
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U172}
+\caption{Die kanonischen Randwerte von Stab und Balken} \label{U172}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die kanonischen Randwerte}}}\index{kanonische Randwerte}
+
+Die erste Greensche Identit\"{a}t besteht aus lauter Skalarprodukten konjugierter Gr\"{o}{\ss}en. Dabei kommt den Weg- und Kraftgr\"{o}{\ss}en
+in den eckigen Klammern, den Randarbeiten,
+\begin{align}
+[N\,u]_{@0}^{@l} &= N(l)\,u(l) - N(0)\,u(0) = f_2\,u_2 + f_1\,u_1 \\
+[V\,w - M\,w']_{@0}^{@l} &= V(l)\,w(l) - M(l)\,w'(l) - V(0)\,w(0) + M(0)\,w'(0)\nn \\
+ &= f_3\,u_3 + f_4\,u_4 + f_1\,u_1 + f_2\,u_2\,,
+\end{align}
+eine spezielle Bedeutung zu. Sie kann man als die {\em kanonischen Werte\/} eines Stabes bzw. eines Balkens bezeichnen, s. Abb. \ref{U172}. Das kommt am besten in den Steifigkeitsmatrizen des Stabes
+\begin{align}
+\frac{EA}{l}\,\left[ \barr {r @{\hspace{4mm}}r }
+      1 & -1  \\
+      -1 & 1 \\
+     \earr \right]\left [\barr{c}  u_1 \\  u_2\earr \right ]
+=  \left [\barr{c}  f_1 \\  f_2 \earr \right ]
+\end{align}
+und des Balkens
+\begin{align}
+ \frac{EI}{l^3} \left[
+\begin{array}{r r r r}
+ 12 & -6l & -12 &-6l \\
+ -6l & 4l^2 & 6l &2l^2 \\
+ -12 & 6l & 12 & 6l \\
+ -6l &2l^2 &6l &4l^2
+ \end{array}
+  \right]\,\left [\barr{c}u_1 \\ u_2 \\ u_3 \\ u_4 \earr \right ] = \left [\barr{c}  f_1 \\ f_2 \\ f_3\\ f_4 \earr \right ]
+\end{align}
+zum Ausdruck.
+
+Die Steifigkeitsmatrizen formulieren eine {\em Kopplung \/} zwischen den $2 + 2$ Weg- und Kraftgr\"{o}{\ss}en eines Stabes bzw. den $4 + 4$ Gr\"{o}{\ss}en eines Balkens. Sind Streckenlasten vorhanden, dann sind die Gleichungen um den Vektor $\vek d$ der \"{a}quivalenten Knotenkr\"{a}fte aus der {\em domain load\/} zu erweitern,
+\begin{align}
+\vek K\,\vek u = \vek f + \vek d\,,
+\end{align}
+der beim Stab zwei Komponenten und beim Balken vier Komponenten hat
+\begin{align}\label{Eq87}
+d_i &= \int_0^{\,l} p(x)\,\Np_i^e(x)\,dx \quad && i = 1,2 && \text{(Stab)}\\
+d_i &= \int_0^{\,l} p(x)\,\Np_i^e(x)\,dx \quad \qquad && i = 1,2,3,4 &&\text{(Balken)}\,.
+\end{align}
+Die $\Np_i^e(x)$ sind die zwei bzw. vier Einheitsverformungen\index{Einheitsverformungen} des Stabes bzw. Balkens, s. Abb. \ref{U89} auf S. \pageref{U89}. Die $d_i$ sind die Kr\"{a}fte, mit denen die Lasten auf die eingespannten Balken/Stabenden dr\"{u}cken oder ziehen, um sie zum Nachgeben zu zwingen. Die {\em Festhaltekr\"{a}fte\/}\index{Festhaltekr\"{a}fte} versuchen dies zu verhindern. Sie haben daher das entgegengesetzte Vorzeichen\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{\"{A}quivalente Knotenkr\"{a}fte = Festhaltekr\"{a}fte $\times (-1)$ }}\\
+
+Bei den finiten Elementen operiert man meist mit nur einem Vektor $\vek f \equiv \vek f + \vek d$, der beide Anteile enth\"{a}lt, also die Kr\"{a}fte $f_i$, die direkt in den Knoten angreifen, und die Kr\"{a}fte $d_i$ aus der verteilten Belastung. Wenn der Ingenieur Lasten in die Knoten reduziert, dann sind  das die $d_i$. {\em Eine Knotenkraft hei{\ss}t \"{a}quivalent, wenn sie bei einer Einheitsverformung des Knotens dieselbe Arbeit leistet, wie die Last im Feld\/}.\index{\"{a}quivalente Knotenkraft}
+
+Auch das System $\vek K\,\vek u = \vek f + \vek d$ basiert auf der ersten Greenschen Identit\"{a}t. Um dies zu sehen, spalten wir die L\"{a}ngsverschiebung $u(x) = u_h(x) + u_p(x)$ eines Stabes in eine homogene L\"{o}sung
+\begin{align}
+u_h(x) = u_1\,\Np_1(x) + u_2\,\Np_2(x)
+\end{align}
+und eine partikul\"{a}re L\"{o}sung $u_p(x)$ auf
+\begin{align}
+- EA\,u_p''(x) = p(x) \qquad u_p(0) = u_p(l) = 0\,,
+\end{align}
+denn dann folgt
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u_h + u_p,\Np_i^e) &= \int_0^{\,l} p\,\Np_i^e \,dx + [N\,\Np_i^e]_{@0}^{@l} - a(u_h + u_p,\Np_i^e) \nn \\
+&= d_i + f_i - a(u_h,\Np_i^e) - \underbrace{a(u_p,\Np_i^e)}_{ = 0} = d_i + f_i - \sum_{j = 1}^2 k_{ij}\,u_j = 0\,,
+\end{align}
+wobei wir das Resultat
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\Np_i^e,u_p) = \int_0^{\,l} 0 \cdot u_p\,dx - a(\Np_i^e, u_p) = a(\Np_i^e, u_p) = 0
+\end{align}
+benutzt haben. Dies folgt aus der Tatsache, dass die Randwerte von $u_p$ null sind.
+
+In einem Balken ergibt dieselbe Aufspaltung
+\begin{align}\label{Eq159}
+\text{\normalfont\calligra G\,\,}(w_h + w_p,\Np_i^e) &= \int_0^{\,l} p\,\Np_i^e\,dx + [V\,\Np_i^e - M\,\Np_i^{e'}]_{@0}^{@l} - a(w_h,\Np_i^e) -  \underbrace{a(w_p,\Np_i^e)}_{ = 0}  \nn \\
+&= d_i + f_i - \sum_{j = 1}^4 k_{ij}\,u_j = 0
+\end{align}
+wobei die $\Np_i^e(x)$ die Einheitsverformung der Balkenenden sind.
+
+Ganz wesentlich ist es, dass man mit dem System $\vek K\,\vek u = \vek f + \vek d$ die Kontrolle \"{u}ber die Randwerte $u_i$ und $f_i$ hat.\\
+
+\begin{itemize}
+  \item Man kann immer nur einen Teil der $u_i$ und $f_i$ frei w\"{a}hlen, der andere Teil ist dann durch  $\vek K\,\vek u = \vek f + \vek d$ bestimmt.
+  \item In jeder Gleichung darf es immer nur eine Unbekannte geben, wie etwa im Fall eines gelenkig gelagerten Tr\"{a}gers
+  \begin{align}
+ \frac{EI}{l^3} \left[
+\begin{array}{r r r r}
+ 12 & -6l & -12 &-6l \\
+ -6l & 4l^2 & 6l &2l^2 \\
+ -12 & 6l & 12 & 6l \\
+ -6l &2l^2 &6l &4l^2
+ \end{array}
+  \right]\,\left [\barr{c}  0 \\ u_2 \,?\\ 0 \\ u_4 \,?\earr \right ] = \left [\barr{c}  f_1 \,?\\ 0 \\ f_3\,? \\ 0 \earr \right ] + \left [\barr{c}  d_1 \\ d_2 \\ d_3 \\d_4 \earr \right ]\,.
+\end{align}
+  \item Ebenso kann man nicht zwei konjugierte Gr\"{o}{\ss}en {\em gleichzeitig \/} vorschreiben, also an einem Stab mit einer Kraft von 10 kN ziehen und gleichzeitig ver\-langen, dass die L\"{a}ngsverschiebung $u(l)$ dabei 1 cm betragen soll.
+\end{itemize}
+
+Die eigentlich wichtige Botschaft, auf die wir gleich eingehen, ist jedoch:
+
+\begin{itemize}
+  \item Wenn man die $u_i$ und $f_i$ am Balkenende kennt, dann kann man mit ihnen (zusammen mit der Belastung $p(x)$) die Verformungen und Schnittgr\"{o}{\ss}en in allen Punkten dazwischen berechnen.
+\end{itemize}
+
+Dieser Schluss ist so wichtig, dass wir ihn in einen gr\"{o}{\ss}eren Kontext stellen wollen.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die Reduktion der Dimension}}\index{Reduktion der Dimension}}
+
+Beim Drehwinkelverfahren sprechen wir vom {\em Grad der kinematischen Unbestimmtheit\/} und meinen damit die Zahl der unbekannten Knotenverschiebungen und Knotenverdrehungen. Nachdem die Verformungen der Knoten berechnet wurden, nennen wir das Tragwerk kinematisch bestimmt, und wir k\"{o}nnen uns dann daran machen, aus den Knotenwerten die Verformungen und die Schnittgr\"{o}{\ss}en zwischen den Knoten zu berechnen.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.99\textwidth]{\Fpath/U252}  %U552
+\caption{Die Knoten sind die \glq R\"{a}nder\grq{} eines Rahmens. Wei{\ss} man, wie sich die Knoten verformen, dann kennt man auch die Verl\"{a}ufe von $N, M$ und $V$ zwischen den Knoten} \label{U252}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+In der Stabstatik reicht es also offenbar aus, die Weg- und Kraftgr\"{o}{\ss}en auf dem \glq Rand\grq{} zu kennen -- in den Knoten, s. Abb. \ref{U252} -- denn nur so ist es m\"{o}glich, dass sich die Statik eines Rahmens auf zwei Vektoren, $\vek u$ und $\vek f$, die dem Gleichungssystem
+\begin{align}
+\vek K\,\vek u = \vek f_K + \vek d = \vek f
+\end{align}
+gen\"{u}gen, reduzieren l\"{a}sst. Das bedeutet:\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{{\em Endlich viele\/} Knotenwerte bestimmen unendlich viele Zahlen, die Verformungen $u(x), w(x), w'(x) $ und Schnittgr\"{o}{\ss}en  $ N(x), M(x), V(x)$ in den unendlich vielen Punkten der Stiele und Riegel.}}
+\\
+
+Das ist aber doch eine Reduktion um Eins. Die $n = 1$ dimensionalen Tragglieder schrumpfen auf eine $n - 1 = 0$ dimensionale Menge von Punkten, von Knoten, zusammen. {\em Erst diese Reduktion macht das  Drehwinkelverfahren\index{Drehwinkelverfahren} m\"{o}glich: Es reicht, sich mit den Knoten zu besch\"{a}ftigen!\/}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U253A}
+\caption{Staumauer, auf der Wasser- und Luftseite kennt man den Spannungsvektor $\vek t = \vek S\,\vek n$ und im Fels den Verschiebungsvektor $\vek u = \vek 0$. Die fehlenden Werte, den Spannungsvektor $\vek t$ im Fels und den Verschiebungsvektor $\vek u$ des oberen Teils kann man durch L\"{o}sen einer Integralgleichung (\glq Knotenausgleich auf der Oberfl\"{a}che der Staumauer\grq{}) berechnen. Anschlie{\ss}end kann man aus den Randwerten alle interessierenden Werte im Innern der Staumauer berechnen} \label{U253}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Alle linearen, selbstadjungierten Differentialgleichungen gestatten eine solche Reduktion der Dimension eines Problems um Eins, $n \to (n-1)$. Der praktische Wert dieser Reduktion kann nicht hoch genug gesch\"{a}tzt werden.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Wenn man die Weg- und Kraftgr\"{o}{\ss}en auf dem Rande kennt, dann kann man die Verformungen und Schnittgr\"{o}{\ss}en im Innern mittels Einflussfunktionen aus den Randwerten berechnen.}}
+\\
+
+Zur Ermittlung der Spannungen in einer Staumauer ($n = 3$), s. Abb. \ref{U253}, reicht die Kenntnis der Verschiebungen und Spannungen auf der Oberfl\"{a}che der Staumauer ($n = 2$) aus. Um eine Platte ($n = 2$) zu berechnen, reicht die Kenntnis der Weg- und Schnittgr\"{o}{\ss}en l\"{a}ngs des Randes ($n = 1$) aus und bei einem Balken ($n = 1$) muss man nur die Knotenwerte kennen.
+
+Die einfachste und elementarste Umsetzung dieser Idee ist das Lineal. Eine Gerade (die L\"{o}sung der Differentialgleichung $u'' = 0$) ist durch ihre beiden Randwerte eindeutig bestimmt und daher kann man die Gerade zeichnen, wenn man das Lineal an die Endpunkte anh\"{a}lt. {\em Das Lineal ist die universelle Einflussfunktion der Geraden\/}.
+
+Au{\ss}enraumprobleme werden gerne durch solche Methoden gel\"{o}st. Allein durch das Diskretisieren der Oberfl\"{a}che eines Motorblocks kann man den L\"{a}rm -- den Schalldruck -- in 3 m, 30 m oder 300 m Entfernung berechnen.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U93}
+\caption{Deckenplatte,  \textbf{ a)} die Knoten der Randelemente und  \textbf{ b)} die Hauptmomente im LF $g$; sie wurden mittels Randintegralen berechnet} \label{U93}
+\end{figure}
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Methode der Randelemente}}}\index{Methode der Randelemente}
+Die  Methode der Randelemente ist die Anwendung dieser Idee auf Fl\"{a}chentragwerke (Scheiben und Platten) oder ganze Volumina, wie Staumauern. Sie hat ihren Namen von den kurzen Geradenst\"{u}cken (Randelementen), in die der Rand der Platte oder Scheibe unterteilt wird. Eine Unterteilung des Innern wie bei den finiten Elementen ist nicht n\"{o}tig, so wie ja noch nie ein Ingenieur einen Knotenausgleich \glq im Feld\grq{} gef\"{u}hrt hat.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U94}
+\caption{Wandscheibe,  \textbf{ a)} Knoten der Randelemente, \textbf{ b)} Lagerkr\"{a}fte, \textbf{ c)} Hauptspannungen. Alle Spannungen im Innern wurden durch Integration \"{u}ber den Rand berechnet.} \label{U94}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Man kann sich die Methode der Randelemente als eine Mischung aus dem Drehwinkelverfahren und Einflussfunktionen vorstellen. Der Rand der Platte oder Scheibe wird in Randelemente unterteilt, s. Abb. \ref{U93} und \ref{U94}, um die Randverformungen und Randkr\"{a}fte (= Funktionen) l\"{a}ngs des Randes mit Polygonz\"{u}gen darstellen zu k\"{o}nnen. Dann wird, wie beim Drehwinkelverfahren, ein Knotenausgleich in den Randknoten durchgef\"{u}hrt -- allerdings nicht iterativ, sondern in einem Schritt.
+
+Anschlie{\ss}end werden darauf mit Hilfe von Einflussfunktionen aus den Verformungen der R\"{a}nder und den Lagerkr\"{a}ften die Schnittgr\"{o}{\ss}en im Innern der Platte oder Scheibe berechnet.
+
+Im \"{u}brigen gilt: {\em Auch das Drehwinkelverfahren ist eine Randelementmethode\/} bei der \"{U}bertragungsmatrizen die Rolle der Einflussfunktionen \"{u}bernehmen, die Randwerte nach Innen fortsetzen.
+
+Und was \"{u}berraschen mag: {\em Auch die Methode der finiten Elemente ist in einem gewissen Sinn eine
+\glq Randelementmethode'\/}, denn die Kerne $G_h(\vek y,\vek x)$ in den Einflussfunktionen
+\begin{align}\label{Eq171}
+u_h(\vek x) = \int_{\Omega} G_h(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y}
+\end{align}
+werden in der FEM \glq unsichtbar\grq{} aus {\em Randintegralen\/} (denselben wie in der BEM) und {\em Gebietsintegralen\/} erzeugt, s. S. \pageref{SingInf}, (ohne dass die Anwender und wohl auch die meisten Programmautoren sich dessen bewusst sind)
+\begin{align}
+G_h(\vek y,\vek x) = \int_{\Gamma} \ldots ds_{\vek y} + \int_{\Omega} \ldots \,d\Omega_{\vek y}\,,
+\end{align}
+Die Randintegrale propagieren die Singularit\"{a}ten auf dem Rand ins Innere, machen, dass die FE-Einflussfunkti\-on (\ref{Eq171}) und damit die FE-L\"{o}sung -- {\bf im ganzen Gebiet} -- an Genauigkeit verliert!
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U96}
+\caption{Stab,  \textbf{ a)} System und Belastung,  \textbf{ b)} gen\"{a}herte Einflussfunktion -- ihr fehlt der Knick,  \textbf{ c)} Fundamentall\"{o}sung, sie hat den Knick an der richtigen Stelle, aber ihre Randwerte sind nicht null; die horizontalen Verschiebungen sind, um sie sichtbar zu machen, nach unten abgetragen}
+\label{U96}
+\end{figure}%%
+%----------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Finite Elemente und Randelemente}}}
+Einflussfunktionen sind das wesentliche Werkzeug von finiten Elementen wie von Randelementen. Ein FE-Programm berechnet die Verschiebung in einem Stab -- ganz klassisch -- mit einer Einflussfunktion
+\begin{align}
+u_h(x) = \int_0^{\,l} G_h(y,x)\,p(y)\,dy\,,
+\end{align}
+nur dass die Einflussfunktion $G_h(y,x)$ eine N\"{a}herung ist, s. Abb. \ref{U96} b, weil sie den Knick unter der Einzelkraft nicht darstellen kann (zumindest, wenn der Aufpunkt $x$ zwischen den Knoten liegt).
+
+Die Methode der Randelemente geht im Grunde genauso vor, aber sie benutzt eine sogenannte {\em Fundamentall\"{o}sung\/}\index{Fundamentall\"{o}sung} $g(y,x)$. Das ist eine Funktion, die zwar den richtigen Knick unter der Einzelkraft aufweist, die aber an den Enden des Stabes nicht null ist, die also die Lagerbedingungen verletzt.
+
+Die Folge ist, dass bei der Formulierung des {\em Satzes von Betti\/}
+\begin{align}
+\lim_{\varepsilon \to 0}\text{\normalfont\calligra B\,\,}(g,u)_{\Omega_e} = 0
+\end{align}
+nun auch die Normalkr\"{a}fte $N(0)$ und $N(l)$ an den Endes des Stabes, s. Abb. \ref{U96} a, von den \glq nicht-null\grq{} Verschiebungen $g$ verschoben werden und zur Dirac Energie beitragen, die Einflussfunktion wird \glq l\"{a}nger\grq{}
+\begin{align}\label{Eq84}
+1 \cdot u(x) = \underbrace{\int_0^{\,l} g(y,x)\,p(y)\,dy + N(l)\,g(l,x) - N(0)\,g(0,x)}_{Dirac\,\, Energie}
+\end{align}
+verglichen mit der urspr\"{u}nglichen Formulierung mit $G(y,x)$
+\begin{align}
+1 \cdot u(x) = \underbrace{\int_0^{\,l} G(y,x)\,p(y)\,dy}_{Dirac\,\, Energie} \,.
+\end{align}
+Man beachte, dass beide Formeln denselben Wert f\"{u}r die Dirac Energie liefern. Aber der $g(y,x)$-Zugang muss auch die Arbeit an den Stabenden, den R\"{a}ndern, mitz\"{a}hlen, das Arbeitsintegral $(p,g)$ allein ist \glq zu wenig\grq{}. Das ist der Unterschied.
+
+Der Vorteil von Fundamentall\"{o}sungen ist, dass sie ein {\em Universalschl\"{u}ssel\/} sind, der \"{u}berall passt. Mit ein und derselben Fundamentall\"{o}sung kann man alle Platten berechnen. In BE-Programmen sind die Fundamentall\"{o}sungen \glq fest verdrahtet\grq{}. {\em One solution suffices to rule them all\/}.
+
+Der Nachteil ist, dass auch die Randkr\"{a}fte und eventuell auch die Randverformungen mit zur {\em Dirac Energie\/} beitragen, so dass diese Randwerte, wenn sie unbekannt sind, durch das L\"{o}sen eines linearen Gleichungssystems bestimmt werden m\"{u}ssen. Technisch bedeutet dies kein Problem. Es ist nur so, dass in zwei und drei Dimensionen diese Hilfsprobleme nur n\"{a}herungsweise gel\"{o}st werden k\"{o}nnen und so ist auch bei Randelementen -- wie bei den finiten Elementen -- die {\em Dirac Energie\/} nur eine N\"{a}herung.
+
+Das Operieren mit Fundamentall\"{o}sungen hat den weiteren Vorteil, dass eine Approximation der Einflussfunktionen f\"{u}r die Schnittgr\"{o}{\ss}en, wie bei den finiten Elementen, nicht notwendig ist.
+BE-Programme benutzen exakte Einflussfunktionen f\"{u}r {\em alle\/} Weg- und Schnittgr\"{o}{\ss}en, nur die Marken auf dem Rand, an die wir sozusagen die Kurvenlineale, die Einflussfunktionen, halten, sind leicht verrutscht.
+
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.4\textwidth]{\Fpath/U64}
+\caption{Test eines Keilriemens} \label{U64}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Testfunktionen}}\index{Testfunktionen}
+Die Arbeits- und Energieprinzipe der Statik beruhen also auf der ersten Greenschen Identit\"{a}t
+\begin{align}\label{Eq133}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = 0\,,
+\end{align}
+und deren \glq Spiegelung\grq{}, dem Satz von Betti. Die Schreibweise $\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w})$ ist geeignet deutlich zu machen, dass nichts besonders geheimnisvolles an einer virtuellen Verr\"{u}ckung $\textcolor{red}{\delta w}$ ist. Mathematisch ist es einfach der Gegenpart zu $w$. Und wie $w$ ist $\textcolor{red}{\delta w}$ eine Funktion -- und mehr nicht!
+
+Leider ist der Begriff der virtuellen Verr\"{u}ckungen jedoch historisch so belastet, dass man manchmal versucht ist, ihn durch einen harmloseren Begriff wie den der {\em Testfunktion\/} zu ersetzen. Der Begriff der virtuellen Verr\"{u}ckung, des Testens ist ja auch nicht auf die Statik beschr\"{a}nkt, sondern ganz fest im Alltag verankert und wird st\"{a}ndig angewandt.
+
+Um das Gewicht eines Koffers zu bestimmen, heben wir den Koffer hoch. Gem\"{a}{\ss}
+der Formel {\em Kraft = Masse $\times$ Beschleunigung\/} k\"{o}nnen wir aus der Beschleunigung $a$ und der Kraft im Arm, auf die Masse $M$ des Koffers schlie{\ss}en.
+
+Um die Spannung in einem Keilriemen zu ermitteln, dr\"{u}cken wir mit dem Daumen dagegen, s. Abb. \ref{U64}. Bei einen Fu{\ss}ball reicht ebenfalls ein Daumendruck.
+
+Dualit\"{a}t findet mathematisch ihren Ausdruck in der ersten Greenschen Identit\"{a}t. Diese Invariante gleicht einer nie versiegenden Quelle, aus der wir durch geschickte Wahl der Testfunktion $\textcolor{red}{\delta w} $ (fast) jede gew\"{u}nschte Information \"{u}ber $w$ ziehen k\"{o}nnen.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.69\textwidth]{\Fpath/U535}
+\caption{Gleichg\"{u}ltig, wie gro{\ss} $\delta w$ ist, es ist immer $\delta A_i = \delta A_a$} \label{U535}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{M\"{u}ssen virtuelle Verr\"{u}ckungen klein sein?}}}
+Nein. Virtuelle Verr\"{u}ckungen m\"{u}ssen nicht klein sein, s. Abb. \ref{U535}. Die Gleichung
+\begin{align} \label{Eq145}
+\delta A_a = \int_0^{\,l} p\,\textcolor{red}{\delta w}\,dx = \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI} \,dx = \delta A_i,
+\end{align}
+ist nicht deswegen wahr, weil $\delta A_a = \delta A_i$ ist. {\em Labels\/} sind kein Beweis! Man kann nicht einen Term $A$ mit dem {\em label\/} $\delta A_a$ versehen und einen zweiten Term $B$ mit dem {\em label\/} $\delta A_i$ und dann behaupten, dass $A = B$ ist, weil ja doch $\delta A_a = \delta A_i$ ist. Wir d\"{u}rfen Mathematik nicht mit Mechanik verwechseln.
+
+Die Energieprinzipe bilden den Kern der Mechanik und an keiner Stelle ist man der Mechanik so nahe, wie bei Formulierungen wie $\delta A_a = \delta A_i$. Es ist auch richtig, dass die statische Interpretation einer Gleichung -- definitiv -- die beste Kontrolle ist. Aber das verf\"{u}hrt Ingenieure dazu Mathematik mit Mechanik zu beweisen, was nicht geht -- Kontrolle ja, aber Beweis nein.
+
+Um nicht missverstanden zu werden: Wir halten die Energieprinzipe der Mechanik f\"{u}r ein sehr gelungenes Konzept. Vom didaktischen Standpunkt aus gibt es kaum einen besseren Zugang zur Statik --  Generationen von Ingenieuren haben so erfolgreich Statik gelernt.
+
+Es ist nicht unsere Absicht, Statik in ein rigoros System von Axiomen und Theoremen zu verwandeln. Ein solcher Versuch w\"{u}rde mehr Unheil anrichten als dass er Gutes bewirkt. Statik kann nicht und sollte nicht im Sinne eines mathematischen Lehrbuches gelehrt werden\footnote{Auch wenn die  Lufthoheit, die die Mathematik (scheinbar) garantiert, viele Menschen anzieht. Aber die Statik lebt von lebendiger Anschauung und nicht von rigider Axiomatik. {\em Babu\v{s}ka\/} hat sogar einmal einen Doktoranden vor den Mathematikern gewarnt: \glq {\em Mathematicians are very clever\/}\grq{}. Anders gesagt: {\em Don't fall into their trap\/}, \cite{Babuska6}. }. Wir glauben nur, dass wir an einem Punkt des Studiums den Studenten beibringen sollten, warum die doch so zentrale Gleichung (\ref{Eq145}) richtig ist.
+
+Die Gleichung ist wahr, weil
+\begin{itemize}
+  \item $w \in C^4(0,l)$ (wie wir annehmen) eine L\"{o}sung des Randwertproblems ist
+\begin{align}\label{Eq146}
+EI\,w^{IV} = p \qquad w(0)= w(l) = M(0) = M(l) = 0
+\end{align}
+  \item  $\textcolor{red}{\delta w} \in C^2(0,l)$  (wie wir annehmen) eine zul\"{a}ssige virtuelle Verr\"{u}ckung ist,  $\textcolor{red}{\delta w(0)} = \textcolor{red}{\delta w(l)} = 0$
+  \item und wir die Regeln der partiellen Integration
+\begin{align}
+\int_0^{\,l} w'(x)\,\textcolor{red}{\delta w(x)}\,dx = [w\,\textcolor{red}{\delta w}]_{@0}^{@l} - \int_0^{\,l} w(x)\,\textcolor{red}{\delta w'(x)}\,dx
+\end{align}
+zweimal anwenden.
+\end{itemize}
+Da partielle Integration keinen Unterschied zwischen \glq gro{\ss}\grq{} und \glq klein\grq{} macht, kann $\textcolor{red}{\delta w}$ von beliebiger Gr\"{o}{\ss}e sein. Auf der linken Seite steht eine Zahl und auf der rechten Seite steht eine Zahl
+\begin{align}
+0.56@789\ldots = 0.56@789\ldots
+\end{align}
+die in allen Ziffern gleich sind. Welches mechanische Prinzip kann dies garantieren? Oder wenn wir das Argument auf den Kopf stellen, welches {\em mathematische Gesetz\/} w\"{u}rde missachtet werden, wenn $\textcolor{red}{\delta w}$ gro{\ss} w\"{a}re? Hat je ein Mathematiker eine Gleichung dadurch bewiesen, dass er sich auf ein Naturgesetz bezogen hat?
+
+Die Balkenkr\"{u}mmung auf $\kappa \simeq w''$ zu reduzieren, wenn $ w' \ll 1$ ist, ist ein legitimes Argument, um die Balkengleichung zu linearisieren, aber man ist dann doch erstaunt, wenn einem ein Ingenieur erkl\"{a}rt -- wie uns das mehrfach passiert ist -- dass die Gleichung (\ref{Eq145}) nur solange richtig ist, solange $\textcolor{red}{\delta w}$ klein ist\footnote{Bei solchen Gespr\"{a}chen w\"{u}nscht man sich die Mathematiker als Zuh\"{o}rer, w\"{u}nscht sich, dass sie einmal ihre {\em splendid isolation\/} verlassen und verstehen, was Ingenieur-Mathematik ist. {\em \glq Epsilontik\grq{}\/} ist einfach, das schwere ist die Bedeutung! Viele Missverst\"{a}ndnisse beruhen auf dieser {\em Zwi-Natur\/} der Ingenieur-Mathematik.}
+
+{\em Rechnen\/} ist Mathematik und die Arbeits- und Energieprinzipe, die der Ingenieur dabei geschickt zu seinem Vorteil nutzt, sind im Grunde mathematische Identit\"{a}ten, die der Ingenieur sich in seine Sprache \"{u}bersetzt hat.
+
+\vspace{-0.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Nur, wenn Gleichgewicht herrscht?}}}
+Die Identit\"{a}ten beruhen auf einer Kette von Umformungen mittels partieller Integration und daher ist das Ergebnis $\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) = 0 $ immer richtig.
+
+Nun wird aber bei der Formulierung der Arbeitsprinzipien der Statik immer davon gesprochen, dass die Systeme im Gleichgewicht sein m\"{u}ssen. Warum diese Einschr\"{a}nkung? Das liegt an den Abk\"{u}rzungen, die in der Literatur an dieser Stelle genommen werden.
+
+Um nachzuweisen, dass die Biegelinie eines Balkens,
+\begin{align}\label{Eq147}
+EI\,w^{IV}(x) = p(x) \qquad w(0) = w(l) = 0 \qquad M(0) = M(l) = 0\,,
+\end{align}
+dem {\em Prinzip der virtuellen Verr\"{u}ckungen\/} gen\"{u}gt, setzen wir -- bei unserem Ansatz -- die Biegelinie $w$ und eine zul\"{a}ssige virtuelle Verr\"{u}ckung $\textcolor{red}{\delta w }$ in die erste Greensche Identit\"{a}t ein
+\begin{align} \label{Eq30}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w})  = \int_0^{\,l} EI\,w^{IV}(x)\,\textcolor{red}{\delta w}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l} - \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = 0\,,
+\end{align}
+und wir erhalten so unter Ber\"{u}cksichtigung von
+\begin{align} \label{Eq16}
+EI\,w^{IV}(x) = p(x) \qquad M(0) = M(l) = 0 \qquad \textcolor{red}{\delta w(0) = \delta w(l) = 0}
+\end{align}
+das bekannte Ergebnis
+\begin{align}\label{Eq15}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \int_0^{\,l} p(x)\,\textcolor{red}{\delta w(x)}\,dx - \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = {\delta A_a - \delta A_i = 0}\,.
+\end{align}
+Anders in der Literatur: Dort wird die zu Grunde liegende Identit\"{a}t (\ref{Eq30}) gar nicht angeschrieben, sondern die Autoren formulieren direkt die verk\"{u}rzte Identit\"{a}t (\ref{Eq15}). Das verpflichtet die Autoren aber dann zu dem Hinweis, dass das ganze nur gilt, wenn der Balken im Gleichgewicht ist ($w$ gen\"{u}gt (\ref{Eq147})) und $\textcolor{red}{\delta w} $ eine zul\"{a}ssige virtuelle Verr\"{u}ckung ist.
+
+Es gibt also sozusagen zwei Formulierungen der ersten Greenschen Identit\"{a}t: Eine \glq blanke\grq{} Formulierung, (\ref{Eq30}), bei der man nichts ver\"{a}ndert, und die garantiert null ist, weil ja alles nur auf partieller Integration beruht.
+
+Bei der zweiten Formulierung substituiert man dagegen f\"{u}r \glq interne\grq{} Terme \glq externe\grq{} Daten, nutzt aus, dass die Biegelinie $w(x) $ das Randwertproblem l\"{o}st und $\textcolor{red}{\delta w} $ eine zul\"{a}ssige virtuelle Verr\"{u}ckung ist, s. (\ref{Eq16}). Diese Ersetzungen bewahren jedoch nur dann die Balance, wenn $w(x) $ wirklich die L\"{o}sung des Randwertproblems ist. Es ist ein {\em Stellvertreter-Problem\/}.
+
+Das steckt hinter der Bemerkung, dass die Arbeitsprinzipe nur gelten, wenn das System im Gleichgewicht ist.
+
+Man kann es auch anders ausdr\"{u}cken:  Die erste Greensche Identit\"{a}t ist $\infty \times \infty$,  unendlich viele $w $ und unendlich viele $\delta w $ gen\"{u}gen der Identit\"{a}t. Wenn man aber $w$ durch Forderungen wie $EI\,w^{IV} =  p$ und $w(0) = 0$ etc. festlegt, fixiert,  dann wird daraus ein $1 \times \infty$; so kommt es zu den Bemerkungen in der Literatur.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Was ist Weg und was ist Kraft?}}}\index{Weg und Kraft}
+Bei der Umformung des Arbeitsintegrals
+\begin{align}
+\int_0^{\,l} EI\,w^{IV}(x)\, w(x)\,dx \qquad \text{(Eigenarbeit)}
+\end{align}
+mittels partieller Integration erscheinen wie von selbst die Weg- und Kraftgr\"{o}{\ss}en, die zur Differentialgleichung geh\"{o}ren. Sie bilden paarweise die Rand\-arbeiten
+\begin{align}
+[V\, w - M\,w']_{@0}^{@l} = V(l)\,w(l) - M(l)\,w'(l) - V(0)\,w(0) + M(0)\,w'(0)\,,
+\end{align}
+woran man ablesen kann, dass die Querkraft $V$ zu $w$ konjugiert ist und das Moment $M$ zu $w'$. Das scheint uns selbstverst\"{a}ndlich, weil wir es nicht anders kennen, aber hier ist die Stelle, wo das amtlich gemacht wird.
+
+Der Versuch eines Kollegen etwa die Gr\"{o}{\ss}e $w + 0.5\,w'$ als die \glq wahre\grq{} Weggr\"{o}{\ss}e auf dem Rand zu definieren, die zu $V$ konjugiert ist, muss scheitern, weil es in der ersten Greenschen Identit\"{a}t anders steht. Sie h\"{a}lt uns auf dem rechten Weg.
+
+Bei der (zweimaligen) partiellen Integration der Arbeitsgleichung des Balkens nach Theorie II. Ordnung
+\begin{align}
+\int_0^{\,l} (EI\,w^{IV}(x) + P\,w''(x))\,w(x)\,dx &= [\underbrace{(EI\,w'''(x) + P\,w'(x))}_{- T(x)}\, w + M\,w']_{@0}^{@l}\nn \\ &+ \int_0^{\,l} (\frac{M^2}{EI} - P\,(w'(x))^2)\,dx
+\end{align}
+lernen wir z.B., dass nun der Ausdruck
+\begin{align}
+ T(x) = - EI\,w'''(x) - P\,w'(x) = V(x) - P\,w'(x)\,,
+ \end{align}
+die Transversalkraft, zu $w(x)$ konjugiert ist und wir lesen aber auch ab, dass $M(x) $ dasselbe Moment ist, wie bei der Theorie erster Ordnung und dass $M $ weiterhin zu $w' $ konjugiert ist.
+
+Die Unterscheidung zwischen Weg und Kraft ist auch f\"{u}r die finiten Elemente wichtig. {\em Shape functions\/} sind konform, wenn ihre Weggr\"{o}{\ss}en stetig sind. Das ist der Grund, warum man einen Balken nicht mit H\"{u}tchenfunktionen $\Np_i(x)$ berechnen kann. Die Spr\"{u}nge in der ersten Ableitung $\Np_i'(x)$ disqualifizieren solche Funktionen ($w'$ z\"{a}hlt als Weggr\"{o}{\ss}e beim Balken). \index{konforme Elemente}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die Zahl der Weg- und Kraftgr\"{o}{\ss}en}}}\index{Zahl der Weg- und Kraftgr\"{o}{\ss}en}
+Zu Differentialgleichungen zweiter Ordnung geh\"{o}ren eine Weg- und eine Kraftgr\"{o}{\ss}e. Bei einem Stab, $-EA\,u''(x)$, sind dies
+\begin{align}
+u(x) \quad\text{0-te Ableitung} \qquad N(x) = EA\,u'(x)\quad\text{1. Ableitung}
+\end{align}
+bei einem Seil, $- H\,w''(x)$,
+\begin{align}
+w(x) \quad\text{0-te Ableitung} \qquad V(x) = H\,w'(x)\quad\text{1. Ableitung}
+\end{align}
+oder einem Schubtr\"{a}ger, $- GA\,w_s''(x)$,
+\begin{align}
+w(x)  \quad\text{0-te Ableitung} \qquad V(x) = GA\,w'(x)\quad\text{1. Ableitung}\,.
+\end{align}
+Zu Differentialgleichungen vierter Ordnung geh\"{o}ren dagegen je zwei Weg- und Kraftgr\"{o}{\ss}en
+\begin{alignat}{2}
+&w(x), \, w'(x) \quad&&\text{0-te und 1. Ableitung} \\
+&M(x) = - EI \,w''(x), V(x) = - EI\,w'''(x) \quad&&\text{2. und 3. Ableitung}\,.
+\end{alignat}
+Diese Unterscheidung ist nicht ganz unwichtig, weil Einflussfunktionen f\"{u}r Weggr\"{o}{\ss}en sowohl mit dem {\em Prinzip der virtuellen Kr\"{a}fte\/} als auch dem {\em Satz von Betti\/} berechnet werden k\"{o}nnen, w\"{a}hrend Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en in der Regel nur mit dem {\em Satz von Betti\/} berechnet werden k\"{o}nnen.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U51}
+\caption{Oszillierende Belastung auf einem Seil und das getreue Echo im Seil} \label{U51}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Warum das Minus in $-H\,w'' = p$?}}}
+{\em Warum beginnen eigentlich alle Differentialgleichungen zweiter Ordnung mit einem Minus?\/}
+
+Der Mathematiker w\"{u}rde antworten: Das h\"{a}ngt mit den trigonometrischen Funktionen zusammen. Eine wellenf\"{o}rmige Belastung $ p(x) = \sin (x)$ zwingt dem Seil ein entsprechendes Echo auf, $w(x) = 1/H \,\sin \,(x)$, s. Abb. \ref{U51}. Weil nun aber die zweite Ableitung des Sinus negativ ist, muss ein Minus vor der Differentialgleichung dies korrigieren
+\begin{align}
+- H\,w''(x) = - H\,(- \frac{1}{H}\,\sin(x)) = \sin(x)\,.
+\end{align}
+Statisch kommt das Minus aus dem Gleichgewicht $- V + V + dV + p\,dx = 0$ am infinitesimalen Element, aber was wissen $\sin (x)$ und $\cos(x)$ vom Gleichgewicht -- und wie kommt es, dass der {\em switch\/} $(1) \cdot (-1)$ in  $\sin(x)$ eingebaut ist, aber nicht in Polynome? Sind sie nicht identisch\footnote{Die Reihenentwicklung von $\sin(x)$ und das alternierende Vorzeichen sind anscheinend der Grund...}
+\begin{align}
+\sin(x) = \frac{x}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} + \ldots
+\end{align}
+Bei der Balkengleichung, $ EI w^{IV}(x)$, korrigiert sich der \glq Fehler\grq{} im \"{u}brigen durch die  viermalige Differentiation, $(-1) \cdot (1) \cdot (-1) \cdot (1) = 1$, von selbst.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die virtuelle innere Energie}}}\index{virtuelle innere Energie}
+Das symmetrische Gebietsintegral in den  Greenschen Identit\"{a}ten ist die virtuelle innere Energie, die oft auch knapper
+\begin{align}
+a(w,\textcolor{red}{\delta w}) := \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}} {EI}\,dx
+\end{align}
+geschrieben wird. Wir bezeichnen sie auch als {\em Wechselwirkungsenergie\/}\index{Wechselwirkungsenergie} oder {\em strain energy product\/}\index{strain energy product}, weil das besser die Gleichwertigkeit der beiden Funktionen  $w$ und $\delta w$ zum Ausdruck bringt.
+
+Auf der Diagonalen, $\delta w = w$, ist die Wechselwirkungsenergie gleich der inneren Energie
+\begin{align}
+\frac{1}{2}\, a(w,w) = \frac{1}{2}\, \int_0^{\,l} \frac{M^2}{EI}\,dx\,.
+\end{align}
+Sind $ w(x) $ und $ \delta w(x)$ zusammengesetzte Funktionen, $c_i$ und $d_i$ m\"{o}gen beliebige Zahlen sein,
+\begin{align}
+w(x)= c_1\,w_1(x) + c_2\,w_2(x) \qquad \delta w(x) = d_1\,\delta w_1(x) + d_2\,\delta w(x)\,,
+\end{align}
+dann kann man das Gesamtergebnis auf die \"{U}berlagerung der einzelnen Bie\-ge\-linien zur\"{u}ckf\"{u}hren
+\begin{align}
+a(w,\delta w) = c_1\,d_1\,a(w_1,\delta w_1) &+ c_1\,d_2\,a(w_1,\delta w_2)\nn \\
+ &+ c_2\,d_1\,a(w_2,\delta w_1) + c_2\,d_2\,a(w_2,\delta w_2)\,.
+\end{align}
+Deswegen nennt man $ a(w,\delta w) $ eine {\em symmetrische Bilinearform\/}\index{Bilinearform}\index{symmetrische Bilinearform}.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.75\textwidth]{\Fpath/U65}
+\caption{Auslenkung $y'$ bei einer echten Drehung und Auslenkung $y$ bei einer Pseudodrehung} \label{U65}
+\end{figure}
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Gleichgewicht}}}\index{Gleichgewicht}
+
+An einem freigeschnittenen Balken herrscht Gleichgewicht, wenn die \"{a}u{\ss}eren Kr\"{a}fte ($p$ + Lagerkr\"{a}fte) orthogonal sind zu allen  Funktionen $\textcolor{red}{\delta w}$, deren Momente null sind, denn dann ist
+\begin{align}
+a(w,\textcolor{red}{\delta w}) = \int_0^{\,l} \frac{M\,\textcolor{red}{\delta M}}{EI}\,dx = 0\,,
+\end{align}
+und in der ersten Greenschen Identit\"{a}t bleiben nur die Arbeit der \"{a}u{\ss}eren Kr\"{a}fte \"{u}brig und die ist null
+\begin{align}\label{Eq114}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \int_0^{l} p\,\textcolor{red}{\delta w}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l} = 0\,.
+\end{align}
+Beim Balken sind die \glq Null-Energie\grq{}-Funktionen die Starrk\"{o}rperbewegungen
+\begin{align}
+\textcolor{red}{\delta w(x) = a + b\,x}\,.
+\end{align}
+Dies ist die Stelle, wo die {\em Pseudodrehungen\/}\index{Pseudodrehungen} in die Statik hinein kommen. Im Unterschied zu echten Drehungen bleiben die Punkte nicht auf dem Drehkreis, sondern sie folgen der Tangente an den Drehkreis, s. Abb. \ref{U65},
+\begin{align}
+\tan\,\Np = \frac{y}{x}\,.
+\end{align}
+Das ist kein \glq Defekt\grq{}, sondern es liegt in der Natur der Balkengleichung. Die Mathematik bestimmt an Hand von $a(w,\delta w) = 0$, dass Drehungen bei Balken so aussehen m\"{u}ssen. Alle Einflussfunktionen statisch bestimmter Tragwerke sind ja kinematische Ketten und als solche basieren sie auf Pseudodrehungen. {\em Echte Drehungen w\"{u}rden zu falschen Ergebnissen f\"{u}hren\/}.
+
+Die Balkenendkr\"{a}fte $V$ und -momente $M$ eines Balkens stehen mit der verteilten Belastung  $p$ also genau dann im Gleichgewicht, wenn (\ref{Eq114}) f\"{u}r alle $\textcolor{red}{\delta w = a\,x + b }$ gilt. Ein erfolgreicher Test mit $\textcolor{red}{\delta w = 1}$ bedeutet, dass die Summe der vertikalen Kr\"{a}fte null ist, und mit $\textcolor{red}{\delta w = x}$, dass die Summe der Momente um das linke Lager  null ist. F\"{u}r die Kontrolle von $M = 0$ in anderen Punkten w\"{a}hle man $a, b$ geeignet!
+
+Jede Funktion $w $ aus $C^4(0,l)$ ist im \"{u}brigen im Gleichgewicht, denn ihre Kraftgr\"{o}{\ss}en
+\begin{align}
+EI\,w^{IV}(x) \qquad M(x) = - EI w''(x) \qquad V(x)= - EI\,w'''(x)
+\end{align}
+gen\"{u}gen der Gleichung
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \int_0^{\,l} EI\,w^{IV}(x)\,\textcolor{red}{\delta w(x)}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w'}]_{@0}^{@l} = 0\,,
+\end{align}
+wie immer die Starrk\"{o}rperbewegung $\textcolor{red}{\delta w(x) = a + b\,x}$ aussieht -- garantiert!
+
+So ist eine Sinus-Welle $w(x) = \sin\, (x)$ im Gleichgewicht
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\sin\,(x),\textcolor{red}{1}) &= \int_0^{\,l}\!\!EI\,\sin\,(x)\cdot \textcolor{red}{1}\,dx + [EI\,\cos\,(x) \cdot \textcolor{red}{1}]_{@0}^{@l} = 0\\
+\text{\normalfont\calligra G\,\,}(\sin\,(x),\textcolor{red}{x}) &= \int_0^{\,l}\!\!EI\,\sin\,(x)\,\cdot \textcolor{red}{x} \,dx + [\underbrace{EI\,\cos\,(x)}_{V} \cdot \textcolor{red}{x} - \underbrace{( EI\,\sin\,(x))}_{M}\cdot \textcolor{red}{1}]_{@0}^{@l} = 0\,.
+\end{align}
+Bei einem Fundamentbalken ist das anders. Zur Differentialgleichung des elas\-tisch gebetteten Balkens
+\begin{align}
+EI\,w^{IV}(x) + c\,w(x) = p(x)\,,
+\end{align}
+geh\"{o}rt die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) &= \int_0^{\,l} p(x)\,\textcolor{red}{\delta w}\,dx + [V\,\textcolor{red}{\delta w} - M\,\textcolor{red}{\delta w}']_{@0}^{@l} \nn  \\
+&- \int_0^{\,l}(\frac{M\,\textcolor{red}{\delta M}}{EI} + c\,w(x)\,\textcolor{red}{\delta w(x)}
+)\,dx = 0\,.
+\end{align}
+Jetzt gibt es keine Funktion $\textcolor{red}{\delta w} $, au{\ss}er $\textcolor{red}{\delta w = 0} $, die die virtuelle innere Energie
+\begin{align}
+a(w,\textcolor{red}{\delta w}) := \int_0^{\,l}(\frac{M\,\textcolor{red}{\delta M}}{EI} + c\,w(x)\,\textcolor{red}{\delta w(x)})\,dx
+\end{align}
+zu null macht. Gibt es also keine Gleichgewichtsbedingungen? Nun die Terme in der ersten Greenschen Identit\"{a}t m\"{u}ssen zumindest orthogonal sein zu allen Funktionen $\delta w \in C^2 $. W\"{a}hlen wir die Funktion $\textcolor{red}{\delta w(x) = 1} $, dann folgt
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{1}) = \int_0^{\,l} p(x)\,dx + V(l) - V(0) - \int_0^{\,l} c\,w(x)\,dx = 0\,,
+\end{align}
+oder wegen $p(x) = EI\,^{IV}(x) + c\,w(x)$
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{1}) = \int_0^{\,l} EI\,w^{IV}\,dx + V(l) - V(0) = 0\,,
+\end{align}
+was uns vertraut vorkommt. Analog resultiert die Drehung $\textcolor{red}{\delta w(x) = x}$ in der Momentenbedingung um den linken Anfangspunkt
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{x}) = \int_0^{\,l} EI\,w^{IV}\,\textcolor{red}{x}\,dx + V(l)\,\textcolor{red}{x}  - M(l) \cdot \textcolor{red}{1} + M(0)\cdot \textcolor{red}{1} = 0\,.
+\end{align}
+Allerdings wird hier immer nur der Anteil $EI\,w^{IV} $ der Gesamtbelastung $p(x) = EI\,w^{IV}(x) + c\,w(x) $ bilanziert.
+
+
+Wenn am Ende eines Fundamentbalkens eine Einzelkraft $P = V(l)$ steht, dann muss folglich gelten
+\begin{align}
+\int_0^{\,l} EI\,w^{IV}(x)\, dx + P = 0\,.
+\end{align}
+Wegen $EI\,w^{IV}(x) + c\,w(x) = 0$ (keine Streckenlast) kann man $EI\,w^{IV}(x) $ mit $-c\,w(x) $ vertauschen, und daher muss auch gelten
+\begin{align}
+ P =  \int_0^{\,l} c\,w(x)\,dx\,,
+\end{align}
+woraus man abliest, dass das Integral des Bodendrucks gleich der Kraft $P$ ist.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Wie der Mathematiker das Gleichgewicht entdeckt}}}
+Der Mathematiker wei{\ss}, dass jede Biegelinie $w(x)$ der Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = 0
+\end{align}
+gen\"{u}gt, $w$ also orthogonal zu allen Biegelinien $\textcolor{red}{\delta w(x) = a + b\, x}$ sein muss. Weil in diesen F\"{a}llen aber $\delta A_i = 0$ ist, m\"{u}ssen notwendig die \"{a}u{\ss}eren Kr\"{a}fte ($p$ + Lagerkr\"{a}fte) zu jedem solchen $\textcolor{red}{\delta w}$ orthogonal sein
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\textcolor{red}{\delta w}) = \delta A_a - \delta A_i = \delta A_a - 0 = 0\,,
+\end{align}
+und so entdeckt der Mathematiker die Forderung
+\begin{align}
+\sum V = 0 \qquad \sum M = 0\,,
+\end{align}
+ohne etwas von Statik zu wissen.
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die Mathematik hinter dem Gleichgewicht}}}
+Das Gleichgewicht basiert im Grunde auf dem {\em Hauptsatz der Differential- und Integralrechnung\/}
+\begin{align}
+\int_0^{\,l} f'(x)\,dx = f(l) - f(0)\,,
+\end{align}
+denn weil $EI\,w^{IV}(x) = - V'(x) = p(x)$ die Ableitung der Querkraft $V(x) $ ist, gilt
+\begin{align}
+\int_0^{\,l} -V'(x)\,dx = - V(l) + V(0)\quad \Rightarrow \quad \int_0^{\,l} p(x)\,dx + V(l) - V(0) = 0\,.
+\end{align}
+Um zu zeigen, dass z.B. das Moment und das linke Lager null ist, $M = 0$, starten wir mit dem Moment der Streckenlast $p(x) = - V'(x)$ um das linke Lager und formulieren es mittels partieller Integration um
+\begin{align}
+\int_0^{\,l} - V'(x)\,x\,dx = [-V\,x]_{@0}^{@l} - \int_0^{\,l} -V(x)\cdot 1\,dx\,.
+\end{align}
+Wegen $V(x) = M'(x)$ ergibt dann der Hauptsatz den Ausdruck
+\begin{align}
+\int_0^{\,l} - V'(x)\,x\,dx = [-V\,x]_{@0}^{@l} + M(l) - M(0)\,,
+\end{align}
+oder
+\begin{align}
+\int_0^{\,l} p(x)\,x\,dx + V(l)\cdot l -  M(l) + M(0) = 0\,.
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\centering
+\includegraphics[width=.6\textwidth]{\Fpath/U206}
+\caption{Theorie II. Ordnung}
+\label{U206}%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Gleichgewicht am verformten Tragwerk?}}}\index{Gleichgewicht am verformten Tragwerk}
+In der Theorie erster Ordnung wird das Gleichgewicht am unverformten Tragwerk aufgestellt und in der Theorie zweiter Ordnung am verformten Tragwerk -- so hei{\ss}t es zumindest. Aber das ist nicht ganz  richtig. Die Theorie zweiter Ordnung ist in Wirklichkeit eine Mischung aus beiden Theorien, s. Abb. \ref{U206}.
+
+Die seitliche Auslenkung des Balkens, also die Vergr\"{o}{\ss}erung der Durchbiegung geht in die Gleichgewichtsbedingung ein, aber die Verk\"{u}rzung der Stabachse in L\"{a}ngsrichtung nicht.
+
+Es ist daher theoretisch auch nicht m\"{o}glich, das Gleichgewicht eines Rahmens, der nach Theorie zweiter Ordnung berechnet wurde, zu \"{u}berpr\"{u}fen. Denn die Knotenverformungen enthalten ja Beitr\"{a}ge aus  Theorie I. wie II. Ordnung. Dass das in der Praxis nicht auff\"{a}llt, liegt daran, dass die Verk\"{u}rzungen der St\"{a}be sehr klein sind, so dass man bei einer \"{U}berpr\"{u}fung der Gleichgewichtsbedingungen geneigt ist, Abweichungen auf Rundungsfehler zu schieben, \cite{HaM2}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Quellen und Senken}}}\index{Quellen und Senken}
+Aus der Sicht der Physik sind die Gleichgewichtsbedingungen Erhaltungss\"{a}tze. Das, was aus einer Platte $\Omega$ am Rande herausflie{\ss}t, also die Lagerkr\"{a}fte auf dem Rand $\Gamma$, der Kirchhoffschub $v_n$, muss in der Summe gleich der aufgebrachten Belastung sein\footnote{Die Eckkr\"{a}fte haben wir weggelassen.}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,1) = \int_{\Omega} p \,d\Omega + \int_{\Gamma} v_n\,ds = 0\,.
+\end{align}
+Die Temperaturverteilung $T(\vek x)$ in einem Zimmer, das von einer Fu{\ss}bodenheizung $p$ (= Quellen) erw\"{a}rmt wird und dessen W\"{a}nde konstant auf null Grad gehalten werden, gen\"{u}gt der Gleichung
+\begin{align}
+- \Delta T = p \qquad T = 0 \qquad \text{auf $\Gamma$}\,.
+\end{align}
+Aus der ersten Greenschen Identit\"{a}t des Laplace-Operators,
+\begin{align}\label{Eq90}
+\text{\normalfont\calligra G\,\,}(u, v) = \int_{\Omega} - \Delta u\,v\,\,d\Omega + \int_{\Gamma} \frac{\partial u}{\partial n}\,v\,ds - \int_{\Omega} \nabla u \dotprod \nabla v\,d\Omega = 0\,,
+\end{align}
+in der Formulierung
+\begin{align}
+\text{\normalfont\calligra G\,\,}(T,1) = \int_{\Omega} p \,d\Omega + \int_{\Gamma} \frac{\partial T}{\partial n}\,ds = 0\,,
+\end{align}
+folgt: Was an W\"{a}rme aus dem Zimmer $\Omega$ herausflie{\ss}t, das ist das Integral des Flu{\ss} $\partial T/\partial n$, muss gleich der im Zimmer produzierten W\"{a}rme sein.
+
+Fachwerkst\"{a}be sind frei von Quellen (keine Streckenlast zwischen den Stabenden) und daher m\"{u}ssen sich die Normalkr\"{a}fte am Anfang und am Ende in der Summe aufheben, was an Kraft hineinflie{\ss}t muss auch wieder herausflie{\ss}en
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,1) = [N\cdot 1]_{@0}^{@l} = N(l) - N(0) = 0\,.
+\end{align}
+Summarisch hat also die erste Greensche Identit\"{a}t, wenn man $\delta u = 1$ setzt, die Struktur
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,1) = \int_{\Omega} \text{{\em Quellen im Gebiet\/}}\,\,d\Omega + \int_{\Gamma} \text{{\em Fluss am Rand\/}}\,ds = 0\,.
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Das Prinzip vom Minimum der potentiellen Energie}}}\index{Prinzip vom Minimum der potentiellen Energie}
+
+Gem\"{a}{\ss} dem Federgesetz
+\begin{align}
+k\,u = f
+\end{align}
+ist die Auslenkung $ u $ einer Feder proportional zur aufgebrachten Kraft $ f $, s. Abb. \ref{U208}.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\if \bild 2 \sidecaption \fi
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U208}
+\caption{Dort, wo $A_i = A_a$ ist, liegt der Gleichgewichtspunkt $u$ der Feder. Weil die
+innere Energie $A_i$ quadratisch mit $u$ w\"{a}chst, die \"{a}u{\ss}ere Arbeit $A_a$ aber nur
+linear, holt $A_i$ immer $A_a$ ein, gibt es immer eine Gleichgewichtslage}
+\label{U208}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Die Kraft $ f $, die die Feder nach unten zieht, leistet dabei eine Arbeit (weil es Eigenarbeit ist, steht hier der Faktor $1/2$),
+\begin{align}
+A_a = \frac{1}{2}\,f\,u\,,
+\end{align}
+und diese Arbeit wird als innere Energie in der Feder gespeichert
+\begin{align}\label{Eq5}
+A_i = \frac{1}{2}\, k\,u^2\,.
+\end{align}
+Wir erwarten nat\"{u}rlich, dass in der Gleichgewichtslage die \"{a}u{\ss}ere Arbeit und die innere Energie gleich gro{\ss} sind
+\begin{align}
+A_a = \frac{1}{2}\, f\,u =  \frac{1}{2}\, k\,u^2 = A_i\,,
+\end{align}
+was aber  durch die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\delta u) = \delta u\,k\,u - u\,k\,\delta u = 0
+\end{align}
+garantiert ist, denn
+\begin{align}
+\frac{1}{2}\,\text{\normalfont\calligra G\,\,}(u,u) = \frac{1}{2}\, u\,k\,u - \frac{1}{2}\, u\,k\,u = \frac{1}{2}\, u\,f - \frac{1}{2}\, k\,u^2 = A_a - A_i = 0\,.
+\end{align}
+Tr\"{a}gt man den Verlauf der Funktion $1/2\,f\,u $ und der Funktion $1/2\,k\,u^2 $ als Funktion der Auslenkung $u$ auf, dann ist die Auslenkung $u$ der Feder  unter der Wirkung der Kraft $ f $ genau der Punkt $u$, in dem sich die beiden Kurven schneiden, siehe Abb. \ref{U208}.
+
+Die dritte Kurve in Abb. \ref{U208} ist die potentielle Energie $\Pi$ der Feder
+\begin{align}
+\Pi(u) = \frac{1}{2}\, k\,u^2 - f\,u\,.
+\end{align}
+Der Faktor $1/2$ macht, dass sich bei der Bildung der Ableitung die 2 wegk\"{u}rzt
+\begin{align}
+\Pi'(u) = k\,u - f
+\end{align}
+und so, weil die Auslenkung $ u $ der Feder dem Federgesetz $k\,u = f $ gen\"{u}gt, die potentielle Energie im Gleichgewichtspunkt $u$ eine horizontale Tangente hat, $\Pi'(u) = 0$.
+
+Die interessante Beobachtung ist nun, siehe Abb. \ref{U208}, dass der Punkt $u$, in dem sich die \"{a}u{\ss}ere und innere Arbeit schneiden,  auch genau der Punkt $u$ ist, in dem die potentielle Energie ihr Minimum hat.
+
+Wie man im Abb. \ref{U208} sieht, steigt am Anfang die \"{a}u{\ss}ere Arbeit schneller als die innere Energie, aber dann passieren die beiden Kurven einen Punkt, von dem ab die innere Energie schneller w\"{a}chst als die \"{a}u{\ss}ere Arbeit. { Dieser Schnittpunkt ist der Gleichgewichtspunkt}. Nur in diesem Punkt gilt $A_a = A_i$.
+
+W\"{u}rde von Anfang an die innere Energie schneller steigen als die \"{a}u{\ss}ere Arbeit, dann w\"{u}rde sich die Feder \"{u}berhaupt nicht bewegen, dann w\"{a}re schon im Nullpunkt der Wettlauf zu Ende.
+
+Setzen wir alle Werte eins, also $ k = 1$ und $ f = 1 $, dann liegt der Gleich\-gewichtspunkt genau bei $ u = 1$. Woraus folgt, dass die ganze Mechanik und Statik im Grunde auf der Tatsache beruht, dass im Intervall $(0,1)$
+die Ungleichung $u > u^2$ gilt und danach das Umgekehrte, $u^2 > u$.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.8\textwidth]{\Fpath/U209C}
+\caption{Die potentielle Energie $\Pi(w_h)$ der FE-L\"{o}sung liegt
+immer rechts von der exakten potentiellen Energie $\Pi(w)$, aber in beiden F\"{a}llen ist $\Pi$ eine nach oben offene Parabel, muss man Energie zuf\"{u}hren, um die Gleichgewichtslage zu verlassen} \label{U209}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Minimum oder Maximum?}}}
+Man kann die Lastf\"{a}lle (LF) in der Statik in zwei Typen, $p$ und $\Delta$, einteilen:\\
+
+\begin{itemize}
+  \item In einem LF $p$ \index{LF $p$} werden Kr\"{a}fte aufgebracht
+  \item In einem LF $\Delta$\index{LF $\Delta$} werden Lagerverschiebungen/-verdrehungen aufgebracht.
+\end{itemize}
+
+Wir werden sehen, dass der Typ des Lastfalls bestimmt, ob die potentielle Energie in der Gleichgewichtslage positiv oder negativ ist.
+
+In einem LF $p$ ist die potentielle Energie in der tiefsten Lage negativ, wie man durch Einsetzen ($ k\,u = f$) direkt verifiziert
+\begin{align}
+\Pi(u) = \frac{1}{2}\,k\,u^2 - f\,u = \frac{1}{2}\, f\,u - f\,u = - \frac{1}{2}\, f\,u\,.
+\end{align}
+Nun ist aber die Auslenkung $ u $ der Sieger in dem Wettbewerb, die potentielle Energie m\"{o}glichst klein zu machen, und das hei{\ss}t doch anschaulich, dass $ u $ den {\em gr\"{o}{\ss}tm\"{o}glichen Abstand\/} $|\Pi(u)|$ vom Nullpunkt hat.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Das Prinzip vom Minimum der potentiellen Energie ist in einem LF $p$ eigentlich ein Maximumsprinzip: Der Betrag $|\Pi(u)|$ wird maximiert. Nur weil die potentielle Energie in der Gleichgewichtslage negativ ist, ist das dasselbe, wie das Minimum der potentiellen Energie zu finden.}}
+\\
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U367}
+\caption{Je weniger Festhaltungen desto gr\"{o}{\ss}er ist $\mathcal{V}$ und umso gr\"{o}{\ss}er wird der Betrag der potentiellen Energie, $|\Pi|$, in der Gleichgewichtslage; alle Werte $\times EI^{-1}$}
+\label{U367}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Wir interpretieren das Prinzip in der Regel so, wie es die Wortwahl (anscheinend)  suggeriert, mit m\"{o}glichst wenig Anstrengung zum Ziel kommen, die potentielle Energie m\"{o}glichst klein machen, m\"{o}glichst nahe an null zu r\"{u}cken, w\"{a}hrend die wahre (?) Bedeutung genau das Gegenteil ist, s. Abb. \ref{U209}. Je gr\"{o}{\ss}er $\mathcal{V}$ ist, je weniger Fesseln es gibt, desto negativer wird die potentielle Energie bei demselbe $p$, desto weiter r\"{u}ckt $|\Pi(w)|$ von null ab, s. Abb. \ref{U367}.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.71\textwidth]{\Fpath/1GreenF208A}
+\caption{Unter allen auf Eins normierten Biegelinien $w/\|w\|$ in $\mathcal{V}$, ist die Biegelinie $w$ des Balkens die Funktion, die die gr\"{o}{\ss}te Wirkung aus $p$ ziehen kann, \cite{Ha6} }
+\label{Supremum}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+
+{\em Das Bestreben der Kraft $ f $ ist es, m\"{o}glichst viel Energie aus der Feder herauszuholen, $|\Pi(u)|$ m\"{o}glichst gro{\ss} zu machen\/}.
+
+Abb. \ref{Supremum} illustriert dieses versteckte Maximumprinzip an einem Balken. Man kann zeigen, dass die Biegelinie $w$ des Balkens unter allen auf Eins normierten Biegelinien $w/\|w\|$ aus $\mathcal{V}$ die ist, die die gr\"{o}{\ss}te Wirkung, {\em the most mileage\/}, aus dem Arbeitsintegral
+\begin{align}
+J(w) = \int_0^{\,l} p\,w\,dx
+\end{align}
+zieht. Die Norm ist hier die Wurzel aus dem Integral von $M^2/EI$, sie ist also mit der Energienorm $||w|| = \sqrt{a(w,w)}$ identisch.
+
+Betrachten wir nun dagegen einen LF $\Delta$ wie in Abb. \ref{U305}. Wegen der fehlenden \"{a}u{\ss}eren Lasten reduziert sich die potentielle Energie auf den positiven Ausdruck
+\begin{align}
+\Pi(w)= \frac{1}{2}\,a(w,w) = \frac{1}{2}\, \int_0^{\,l} \frac{M^2}{EI}\,dx\,.
+\end{align}
+In einem LF $\Delta$ ist die potentielle Energie also positiv, {\em liegt sie rechts vom Nullpunkt\/}, und wenn man jetzt die potentielle Energie minimiert, dann sucht man den Verformungszustand $ u $ oder $w$, der die potentielle Energie m\"{o}glichst nahe an null r\"{u}ckt, s. Abb. \ref{U209}. In dieser Situation hat das Prinzip vom Minimum der potentiellen Energie die Bedeutung, die wir ihm normalerweise unterlegen. Das Tragwerk versucht mit m\"{o}glichst wenig Widerstand, sprich mit m\"{o}glichst wenig innerer Energie, die Verformungen zu ertragen, die ihm aufgezwungen werden.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U305}
+\caption{Lagersenkung }
+\label{U305}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Bei der Interpolation mit {\em splines\/}\index{splines} nutzt man diese Intelligenz des Materials aus, indem man es dem Material \"{u}berl\"{a}sst die optimale Kurve $w$ durch den Slalom der Pfl\"{o}cke zu finden; optimal in dem Sinn, dass die Biegeenergie
+\begin{align}
+\|w\| = \sqrt{a(w,w)} = \left[ \int_{0}^{l}\frac{M^2}{EI}\,dx \right]^{\frac{1}{2}}
+\end{align}
+m\"{o}glichst klein wird, m\"{o}glichst nahe an null r\"{u}ckt, s. Abb. \ref{U521}.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U521}
+\caption{Spline Interpolation als LF Lagersenkung }
+\label{U521}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U5}
+\caption{In einem LF $p$ (Kr\"{a}fte) nehmen die Spannungen zu, wenn das Material rei{\ss}t, $\vek u_1 \to \vek u_2$, w\"{a}hrend sie in einem LF $\Delta$ (Wege) sinken}
+\label{U5}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U287}
+\caption{Je mehr Lager vorhanden sind, um so kleiner wird der Betrag der potentiellen Energie, weil der Ansatzraum $\mathcal{V}$ schrumpft}
+\label{U287}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Wenn das Material rei{\ss}t}}}
+Das Prinzip vom Minimum der potentiellen Energie kann auch erkl\"{a}ren, warum die Spannungen in einem Bauteil wachsen, wenn das Bauteil Risse bekommt, s. Abb. \ref{U5}.
+
+Wenn das Bauteil rei{\ss}t, m\"{u}ssen die Verschiebungen auf den Flanken des Risses nicht mehr gleich sein, wie das der Fall war, solange die Flanke noch im Inneren des ungerissenen Bauteils lag. {\em Risse bewirken also, dass der Ansatzraum $\mathcal{V}$ gr\"{o}{\ss}er wird\/}, weil mehr Funktionen an der Konkurrenz um das Minimum teilnehmen k\"{o}nnen. Damit rutscht das Minimum aber noch weiter weg vom Nullpunkt, wird es dem Betrage nach gr\"{o}{\ss}er, und das bedeutet, dass die potentielle Energie und damit die Spannungen in dem Bauteil steigen.
+
+Wenn sich ein Lager senkt, haben Risse den gegenteiligen Effekt, die Spannungen sinken, weil $\Pi(\vek u) > 0$ jetzt n\"{a}her an null rutschen kann; wieder weil der Ansatzraum $\mathcal{V}_h$ durch die Risse gr\"{o}{\ss}er wird.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U40}
+\caption{Wenn man die Zahl der Lager erh\"{o}ht, aber die Absenkung unver\"{a}ndert beibeh\"{a}lt, dann nimmt die potentiellen Energie zu}
+\label{U40}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Wenn Lager entfallen}}}
+Dieselbe Logik gilt auch bei Durchlauftr\"{a}gern, bei denen die Zahl der Lager sozusagen der Gr\"{o}{\ss}e des Ansatzraums $\mathcal{V}$ entspricht, auf dem das Minimum der potentiellen Energie gesucht wird, s. Abb. \ref{U287}. Je mehr Lager vorhanden sind, um so kleiner ist der Ansatzraum, weil die wachsende Anzahl von Zwangspunkten, $w(x) = 0$, die Konkurrenz immer kleiner werden l\"{a}sst, $\mathcal{V}$ also schrumpft, und das bedeutet, dass die potentielle Energie in einem LF $p$ dem Betrage nach kleiner wird.
+
+Gerade bei Einzelkr\"{a}ften kann man das direkt an den Verformungen ablesen, denn bei diesen ist die potentielle Energie proportional zur Durchbiegung unter der Einzelkraft
+\begin{align}
+\Pi(w) = \frac{1}{2}\,\int_0^{\,l} \frac{M^2}{EI}\,dx - P\cdot w(l) = - \frac{1}{2}\, P \cdot w(l)
+\end{align}
+und wegen $|\Pi(w_2)| = 0.5 \,P\,w_2(l) < |\Pi(w_1)| = 0.5 \,P\,w_1(l)$ muss daher gelten, s. Abb. \ref{U287}, dass die Kragarmdurchbiegung kleiner wird, wenn man ein Zwischenlager einbaut.
+
+Die umgekehrte Tendenz stellt sich ein, wenn man Lager wegnimmt, denn dann wird der Ansatzraum $\mathcal{V}$ gr\"{o}{\ss}er, weil weniger Forderungen an die Biegelinien gestellt werden, die an der Konkurrenz um das Minimum teilnehmen, und das bedeutet, dass der Betrag der potentiellen Energie w\"{a}chst.
+
+Das gegenteilige Ph\"{a}nomen hat man, wenn man einen Durchlauftr\"{a}ger, dessen Ende man um einen vorgegebenen Betrag $w_\Delta$ nach unten dr\"{u}ckt (Lagersenkung), auf zus\"{a}tzliche Lager stellt, s. Abb. \ref{U40}. Wieder wird der Ansatzraum $\mathcal{V}$ kleiner, aber weil in einem LF $\Delta$ die potentielle Energie positiv ist, bedeutet dies, dass die potentielle Energie steigt. Es macht mehr M\"{u}he, einem Tr\"{a}ger mit $n + 1$ Lagern eine Verformung aufzuzwingen, als einem Tr\"{a}ger mit $n$ Lagern.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/UE351}
+\caption{Hauptsystem}
+\label{UE351}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Auf den ersten Blick scheint es so zu sein, dass der Raum $\mathcal{V}$ nur schrumpft, wenn zus\"{a}tzlich \glq harte\grq{} Lagerbedingungen wie $w(x) = 0$ dazu kommen, aber auch \glq weiche\grq{} Nebenbedingungen lassen $\mathcal{V}$ schrumpfen. Eine St\"{u}tze, die man zum Beispiel unter das Ende eines Tr\"{a}gers stellt, s. Abb. \ref{UE351}, formuliert einen solchen {\em soft constraint\/} und $\mathcal{V}$ schrumpft.
+
+Um das zu verstehen, argumentieren wir mit dem Kraftgr\"{o}{\ss}enverfahren. Der Balken mit der St\"{u}tze ist das statisch unbestimmte Hauptsystem und wir w\"{a}hlen die Normalkraft $N$ in der St\"{u}tze als statisch \"{U}berz\"{a}hlige $X_1$. Nach dem Einbau des Normalkraftgelenkes k\"{o}nnen sich der obere und untere Teil unabh\"{a}ngig voneinander bewegen.
+
+Der Raum $\mathcal{V}$ des statisch bestimmten Hauptsystems besteht aus allen Biegelinien $w$, die die Lagerbedingungen des Balkens erf\"{u}llen, $w(0) = w'(0) = 0$, und aus allen L\"{a}ngsverschiebungen $u_1(x)$ und $u_2(x)$ der zweigeteilten St\"{u}tze.  Dieses System ist unserem urspr\"{u}nglichen System \"{a}quivalent, weil die zweigeteilte St\"{u}tze keine Lasten tr\"{a}gt.
+
+Die Kraft $X_1$ unterliegt der Bedingung, dass der obere und untere Teil der St\"{u}tze in der Mitte die gleiche Verschiebung aufweisen, $u_1(h/2) = u_2(h/2)$, und das bedeutet das die Zahl der m\"{o}glichen Funktionen $u_i(x)$ kleiner wird, $\mathcal{V}$  schrumpft.
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Wenn man Riegel oder Stiele zu einem Rahmen addiert, schrumpft der Raum $\mathcal{V}$, die Steifigkeit des Tragwerks nimmt zu.}}\\
+
+
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U240}
+\caption{Membran und zentrische Punktlast}
+\label{U240}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Unendliche Energie}}}
+
+Die Erzeugung von Einflussfunktionen bedeutet f\"{u}r einen Rahmen eine gro{\ss}e Strapaze, denn dabei werden konzentrierte Punktlasten aufgebracht oder ein Riegel wird geknickt ($EF\!-\!M$) oder gar auseinander gerissen, (Verschiebungssprung, $EF\!-\!V$). Daher haben viele Einflussfunktionen unendlich gro{\ss}e Energie. Was das bedeutet, wollen wir im Folgenden diskutieren.
+
+Von allen Fl\"{a}chentragwerken ist die Membran das einfachst m\"{o}gliche und daher beginnen wir mit einer kreisf\"{o}rmigen Membran, Radius $R = 1$, die eine \"{O}ffnung $\Omega$ \"{u}berdeckt und die am ringf\"{o}rmigen Rand $\Gamma$ gehalten wird. Unter einem Druck $p$ bildet sich eine Biegefl\"{a}che $u(\vek x)$ aus, die die L\"{o}sung des Randwertproblems
+\begin{align}
+ - H\,\Delta u = p \quad \text{in $\Omega$} \qquad u = 0 \quad \text{auf $\Gamma$}
+\end{align}
+ist. Die Konstante $H$ ist die in $x_1$- und $x_2$-Richtung, (also $x$ und $y$) gleich gro{\ss}e Vorspannkraft in der Membran. Wir werden  sp\"{a}ter $H = 1$ setzen.
+
+Beim Seil ist die Schnittkraft die Querkraft $V = H\,w'$ und bei einer Membran gibt es nun zwei Querkr\"{a}fte $v_{x_1}, v_{x_2}$ (Kr\"{a}fte/lfd. m)
+\begin{align}
+\left[ \barr {c }
+      v_{x_1}  \\
+      v_{x_2}
+     \earr \right]= H \left[ \barr {c }
+      u,_{x_1}  \\
+      u,_{x_2}
+     \earr \right]= H\,\nabla u\,,
+\end{align}
+die proportional den Neigungen der Biegefl\"{a}che in die beiden Richtungen $x_1$ bzw. $x_2$ sind.
+
+Die Arbeits- und Energieprinzipe der Membran basieren auf der ersten Greenschen Identit\"{a}t des Laplace-Operators,  also dem Ausdruck, (wir setzen $H = 1$),
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u, \delta u) &= \underbrace{\int_{\Omega} -\Delta u\,\delta u\,d\Omega + \int_{\Gamma} \nabla u \dotprod \vek n\,\delta u\,ds}_{\delta A_a} - \underbrace{\int_{\Omega} \nabla u \dotprod \nabla \delta u \,d\Omega}_{\delta A_i} = 0\,.
+\end{align}
+Das Skalarprodukt zwischen dem Gradienten und dem Normalenvektor
+\begin{align}
+\nabla u \dotprod \vek n = u,_{x_1}\,n_1 + u,_{x_2}\,n_2 = \frac{\partial u}{\partial n}
+\end{align}
+ist die Normalableitung der Biegefl\"{a}che, also die Neigung der Membran am Rand in Richtung des nach Au{\ss}en zeigenden Normalenvektors. Wenn die Durchbiegung zum Rande hin kleiner wird, was die Regel ist, ist die Normalableitung negativ und wir haben Gleichgewicht zwischen der abw\"{a}rts gerichteten Fl\"{a}chenkraft $p\,\downarrow$ und den aufw\"{a}rts gerichteten Haltekr\"{a}ften $\partial u/\partial n\,\uparrow$ am Rand
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u, 1) &= \int_{\Omega} p \cdot 1\,d\Omega + \int_{\Gamma} \nabla u \dotprod \vek n\,\cdot 1 \,ds = 0\,.
+\end{align}
+Wenn wir die Membran in ihrer Mitte $\vek x = \vek 0$ mit einer Einzelkraft $P=1$ belasten, s. Abb. \ref{U240}, dann bildet sich ein Trichter aus, \begin{align} \label{Eq103}
+G(\vek y,\vek x) = -\frac{1}{2\,\pi}\,\ln\,r \qquad r = |\vek y - \vek x|\,,
+\end{align}
+der in der Tiefe bis zum Punkt $\infty$ reicht, d.h. die Membran kann die Einzelkraft nicht festhalten.
+
+Nun wollen wir den {\em Energieerhaltungssatz\/} in diesem Lastfall formulieren, also die Gleichung
+\begin{align}
+\frac{1}{2}\, \text{\normalfont\calligra G\,\,}(G, G) &= A_a - A_i = 0\,,
+\end{align}
+anschreiben, aber ohne den Faktor $1/2$, weil er f\"{u}r die Argumentation nicht wesentlich ist.
+
+Der Gradient der schlauchartigen Biegefl\"{a}che $G$ verh\"{a}lt sich wie $1/r$
+\begin{align}
+\nabla G = \frac{1}{2\,\pi}\,\frac{1}{r} \left[ \barr {c }
+      \cos \Np  \\
+      \sin \Np
+     \earr \right]
+\end{align}
+und wegen
+\begin{align}
+\nabla G \dotprod  \nabla G = \frac{1}{4\,\pi^2}\frac{1}{r^2} (\cos^2 \Np + \sin^2 \Np) = \frac{1}{4\,\pi^2}\frac{1}{r^2}
+\end{align}
+ist daher die innere Energie unendlich gro{\ss},
+\begin{align}
+A_i = \int_{\Omega} \nabla G \dotprod \nabla G \,d\Omega = \int_0^{\,2\,\pi} \int_0^{\,1} \frac{1}{4\,\pi^2}\frac{1}{r^2}\,r\,dr\,d\Np = \infty\,,
+\end{align}
+denn das Integral
+\begin{align}
+\int_0^{\,1} \frac{1}{r}\,dr = \infty
+\end{align}
+ist unbeschr\"{a}nkt. Dazu passend ist auch die \"{a}u{\ss}ere Arbeit unendlich gro{\ss}
+\begin{align}
+A_a = P \cdot \infty\,,
+\end{align}
+weil $P$ unendlich tief absinkt. In sich ist das Resultat zwar stimmig
+\begin{align}
+A_a - A_i = \infty - \infty = 0\,,
+\end{align}
+aber mit unendlich kann man leider nicht rechnen, unendlich ist einfach nur \glq unz\"{a}hlbar viel\grq{}.
+
+Der Grund f\"{u}r die unendliche Energie ist, dass man zur Formulierung von $A_i$ auf die Diagonale
+der ersten Greenschen Identit\"{a}t
+\begin{align}
+\frac{1}{2}\, \text{\normalfont\calligra G\,\,}(G, G) &= A_a - A_i = 0
+\end{align}
+gehen muss und sich so die Singularit\"{a}t im Integral verdoppelt. Aus $1/r$ wird $1/r^2$ und das ist nicht mehr integrierbar.
+
+Dies wiederholt sich in der Elastizit\"{a}tstheorie. Wenn man eine Scheibe, die auch wieder kreisf\"{o}rmig sei, $R = 1$, mit einer Einzelkraft belastet, dann verhalten sich die Dehnungen und Spannungen wie $1/r$ und folglich verdoppelt sich auf der Diagonalen die Singularit\"{a}t, und so wird $A_i$ unendlich gro{\ss},
+\begin{align}
+A_i = \int_{\Omega} \sigma_{ij}\,\varepsilon_{ij}\,\,d\Omega \simeq \int_0^{\,2\,\pi} \int_0^{\,1} \frac{1}{r^2}\,r\,dr\,d\Np\,.
+\end{align}
+Bei dreidimensionalen Problemen verhalten sich die $\sigma_{ij}$ und $\varepsilon_{ij}$ wie $1/r^2$ und das Volumenelement $d\Omega = r^2\,dr\,d\Np\,\sin\,\theta\,d\theta$ kann der verdoppelten Singularit\"{a}t $1/r^4$ nicht paroli bieten, d.h. die innere Energie ist ebenfalls unendlich gro{\ss}.
+
+Belastet man aber eine Platte (Kirchhoff) mit einer Einzelkraft, dann hat die Biegefl\"{a}che die Gestalt ($c $ ist eine Konstante)
+\begin{align}
+w(\vek x) = c \cdot \frac{1}{8\,\pi\,K}\,r^2\,\ln\,r + \text{regul\"{a}re Terme}\,.
+\end{align}
+und die Momente $m_{ij}$ bzw. Kr\"{u}mmungen $\kappa_{ij}$ gehen daher \glq nur\grq{} wie
+\begin{align}
+m_{ij} \sim \ln\,r
+\end{align}
+gegen Unendlich und so ist die innere Energie in einer kreisf\"{o}rmigen Platte, $R = 1$,
+\begin{align}
+A_i = \int_{\Omega} m_{ij}\,\kappa_{ij} \,d\Omega  \sim \int_0^{\,2\,\pi} \int_0^{\,1} \ln^2\,r\,\underbrace{r\,dr\,d\Np}_{d \Omega} + \,\text{endliches Integral}
+\end{align}
+beschr\"{a}nkt, ist $A_i$ endlich, weil der Integrand in der Grenze gegen null geht, $r \to 0$ gewinnt gegen\"{u}ber $\ln^2 r \to \infty$,
+\begin{align}
+\lim_{r \to 0}\,r\,\ln^2\,r = 0\,.
+\end{align}
+Wie bei der Scheibe verursacht die Punktlast $P = 1$ eine $1/r$ Singularit\"{a}t, hier des Kirchhoffschubs $v_n$ (der \glq dritten\grq{} Ableitung),
+\begin{align}
+\lim_{\varepsilon \to 0}\,\int_{\Gamma_{N_\varepsilon}} \frac{1}{2\,\pi\,r}\,ds_{\vek y} = 1\,,
+\end{align}
+weil aber die Plattengleichung von vierter Ordnung ist, braucht es drei Schritte von $v_n$ zu $w$
+\begin{align}
+w = \int \int \int v_n (d\Omega)^3 \simeq r^2\,\ln\,r\qquad\text{(drei Schritte)}
+\end{align}
+und das reicht, um die Singularit\"{a}t zu d\"{a}mpfen. Bei Problemen zweiter Ordnung, wie der Scheibe, trennt nur eine Integrationsstufe $\sigma \simeq 1/r$ von $u$ und das ist nicht genug
+\begin{align}
+u \simeq \int \frac{1}{r}\,dr = \ln\,r \qquad\text{(ein Schritt)}\,.
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Sobolevscher Einbettungssatz}}}
+In dieses scheinbare Durcheinander von endlicher und unendlicher Energie kann man nun mit dem {\em Sobolevschen Einbettungssatz\/}\index{Sobolevscher Einbettungssatz} eine gewisse Systematik hineinbringen. Er erlaubt genaue Voraussagen, wann die innere Energie endlich ist und wann nicht, \cite{Ha6}.
+
+Eine Greensche Funktion hat eine endliche Energie, wenn die Ungleichung
+\begin{align}\label{Eq23}
+\boxed{m - i > \frac{n}{2}}
+\end{align}
+erf\"{u}llt ist\footnote{Die Tabelle auf S. \pageref{TabelleSobolev} enth\"{a}lt eine systematische Auswertung der Ungleichung im Zusammenhang mit den Gleichungen der Statik}. Hier ist $2\,m$ die Ordnung des Differentialoperators, $i$ ist die Ordnung der Singularit\"{a}t, die in unserer Notation identisch ist mit dem Index  $i$ an dem Dirac Delta $\delta_i$, und $n$ ist die Dimension des Raums. Bei Scheiben ist $n = 2$, das Differentialgleichungssystem hat die Ordnung $2 m = 2$ und daher hat das Verschiebungsfeld, das von einer Einzelkraft, $i = 0$, erzeugt wird unendliche Energie, weil die Ungleichung
+\begin{align}
+1 - 0 > \frac{2}{2} = 1\,\,\,?
+\end{align}
+nicht gilt, w\"{a}hrend sie im Fall der Kirchhoffplatte, $2m = 4$, erf\"{u}llt ist
+\begin{align}
+2 - 0 > \frac{2}{2} = 1\,.
+\end{align}
+Wir k\"{o}nnen diese Ergebnisse wie folgt zusammenfassen: \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die innere Energie $A_i$ ist unendlich, wenn die \"{a}u{\ss}ere Arbeit $A_a$ unendlich ist und das ist genau dann der Fall, wenn in dem Ausdruck
+\begin{align}
+A_a = \text{{\em Kraft\/}}\, \times\, \text{{\em Weg\/}}
+\end{align}
+einer der beiden Terme unendlich gro{\ss} ist.}}\\
+
+Bei der Membran ist die Kraft zwar endlich, $P = 1$, aber der Weg, den die Kraft geht, die Durchbiegung im Aufpunkt, ist $\infty$. Ebenso ist es bei der Scheibe. Bei der Platte ist hingegen die Durchbiegung, die die Kraft $P = 1$ erzeugt, endlich und somit auch die Arbeit $A_a = \text{{\em Kraft\/}} \times \text{{\em Weg\/}} < \infty$.
+
+Die Energie ist immer unendlich, wenn das Material \"{u}ber die Flie{\ss}grenze hinaus deformiert wird, wie das zur Erzeugung von Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en n\"{o}tig ist. Die Einflussfunktion f\"{u}r eine Normalkraft $N$ in einem Stab entsteht durch ein Verschiebungssprung, man muss den Stab also buchst\"{a}blich zerrei{\ss}en, und die Einflussfunktion f\"{u}r ein Moment $M$ verlangt einen Knick, einen pl\"{o}tzlichen Richtungswechsel der Tangente im Aufpunkt und das geht nur, wenn man das Material vorher zum Flie{\ss}en bringt.
+
+Bei Fl\"{a}chentragwerken haben eigentlich alle Einflussfunktionen, auch die f\"{u}r Weggr\"{o}{\ss}en, unendlich gro{\ss}e Energie. Die Ausnahme ist die Einflussfunktion f\"{u}r die Durchbiegung $w(\vek x)$ einer Kirchhoffplatte\index{Kirchhoffplatte}\footnote{Die Kirchhoffplatte, auch schubstarre Platte genannt, ist die Erweiterung des Biegebalkens $EI\,w^{IV}$ auf zwei Dimensionen. Im Unterschied hierzu ist die Mindlin-Reissner Platte\index{Reissner-Mindlin Platte} eine schubweiche Platte, s. Kapitel 7. Im Regelfall meint der Ingenieur die Kirchhoffplatte, wenn er von Platten spricht. }.
+
+Nun kann man fragen: \glq Wenn die Energie der Einflussfunktionen unendlich ist, wieso kann man dann mit ihnen rechnen?' Der Unterschied ist, dass man bei der Anwendung des {\em Prinzips der virtuellen Verr\"{u}ckungen\/} oder des {\em Prinzips der virtuellen Kr\"{a}fte\/} auf der { Nebendiagonale} ist
+\begin{align}
+\text{\normalfont\calligra G\,\,}(G,u) &= \delta A_a - \delta A_i = 0\,,
+\end{align}
+und sich daher die Singularit\"{a}t nicht verdoppelt, die virtuelle innere Energie $\delta A_i$ bleibt endlich
+\begin{align}
+\delta A_a = 1 \cdot u(\vek x) = \int_{\Omega}  \nabla G \dotprod  \nabla u \,d\Omega = \delta A_i\,,
+\end{align}
+weil das $1/r$ des Gradienten $\nabla G$ durch das $r$ in dem Fl\"{a}chenelement $d\Omega = r\,dr\,d\Np$ ausgeglichen wird. Genau genommen m\"{u}ssen wir auch noch fordern, dass der Gradient von $u$ beschr\"{a}nkt ist, $|\nabla u| \leq \infty$.
+
+Der {\em Satz von Betti\/} ist von den Singularit\"{a}ten der Einflussfunktionen auch betroffen, aber weil man am Schluss nur das Endergebnis sieht
+\begin{align}
+\lim_{\varepsilon \to 0} \text{\normalfont\calligra B\,\,}(G,u)_{\Omega_\varepsilon} = u(\vek x) -\int_{\Omega} G(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y} = 0\,,
+\end{align}
+sieht alles glatt aus. Das, was singul\"{a}r war, hat zu dem Term $u(\vek x)$ gef\"{u}hrt und der Rest sind alles Integrale, deren Berechnung man dem Computer \"{u}berlassen kann (numerische Quadratur).\\
+
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U314}
+\caption{Balkenbiegelinien,  \textbf{ a)} mit unendlich gro{\ss}er Energie, \textbf{ b)} mit endlicher Energie, hier sogar null}
+\label{U314}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+\begin{remark}
+Die charakteristischen Singularit\"{a}ten der verschiedenen Einflussfunktionen $G_i$ f\"{u}r  {\em solids\/}, Scheiben und Platten, bis hinunter zu den Einflussfunktionen f\"{u}r Momente und Querkr\"{a}fte, findet der interessierte Leser in \cite{Ha2} und \cite{Ha3}. Dort werden auch die Grenzprozesse
+\begin{align}
+\lim_{\varepsilon \to 0} \text{\normalfont\calligra G\,\,}(G_i,u)_{\Omega_\varepsilon} = 0 \qquad \lim_{\varepsilon \to 0} \text{\normalfont\calligra B\,\,}(G_i,u)_{\Omega_\varepsilon} = 0\,,
+\end{align}
+die ja den Einflussfunktionen zu Grunde liegen, detailliert diskutiert.
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/UE358}
+\caption{Definition der Winkel $\Np_l$ und $\Np_r$}
+\label{UE358}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+
+\begin{remark} {\em Ingenieur versus Mathematiker\/}\label{Fourierreihe}
+Ein Mathematiker wird darauf hinweisen, dass unendlich viel Energie n\"{o}tig ist, um einen Knick in einem Balken zu erzeugen, und zur Bekr\"{a}ftigung seiner Behauptung wird er die Biegelinie $w$, s. Abb. \ref{U314} a, des Balkens in eine Fourier-Reihe entwickeln
+\begin{align}
+w(x)= \frac{\pi}{2} - \frac{4}{\pi}(\cos x + \frac{1}{3^2}\,\cos 3x + \frac{1}{5^2}\,\cos 5x + \ldots )
+\end{align}
+und dann die Energie berechnen
+\begin{align}
+\frac{1}{2} \cdot  EI\int_0^{\,2\,\pi} (w''(x))^2\,dx = \frac{1}{2}\cdot \frac{16}{\pi} (1 + 1 + 1 \ldots ) = \infty\,.
+\end{align}
+Aber ein Ingenieur geht anders vor: Er installiert ein Gelenk und verdreht die beiden Seiten des Gelenkes so, dass $\tan \Np_l + \tan \Np_r = 1$. Die Biegeenergie in dem Balken ist dann einfach die Energie, die notwendig ist, um die Balkenenden zu verdrehen und diese Energie ist endlich. Im Falle des statisch bestimmten Balkens in Abb. \ref{U314} b ist sie sogar null, denn $w'' = 0$.
+\end{remark}
+
+\begin{remark}
+In Abb. \ref{UE358} haben wir angetragen, wie wir die Winkel $\Np_l$ und $\Np_r$ z\"{a}hlen. Die Arbeit, die die beiden Momente, links und rechts vom Gelenk, leisten, ist
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w, \textcolor{red}{\delta w}) &= \text{\normalfont\calligra G\,\,}(w_l, \textcolor{red}{\delta w})_{(0,{x})}+  \text{\normalfont\calligra G\,\,}(w_r, \textcolor{red}{\delta w})_{({x},l)} \nn\\
+&= \ldots - M_l \cdot \delta w'_l + M_r \cdot \delta w'_r + \ldots = 0\,.
+\end{align}
+Am besten w\"{a}re es, es bei dieser Notation zu belassen, aber als Ingenieure wollen wir mit Winkeln rechnen und nicht mit \glq abstrakten\grq\ Steigungen $\delta w'$. Mit den positiven Richtungen in Abb.  \ref{UE358} geht dieser Ausdruck \"{u}ber in
+\begin{align}
+- M_l \cdot \delta w'_l + M_r \cdot \delta w'_r &= - (M_l \cdot \tan\,\Np_l + M_r\,\tan\,\Np_r)\nn \\
+&= - M \,(\tan\,\Np_l + \tan\,\Np_r)\,,
+\end{align}
+weil $\delta w_r' = - \tan\,\Np_r$. Wenn wir diesen Term auf die linke Seite bringen, dann verschwindet das Minuszeichen
+\begin{align}
+M \cdot (\tan\,\Np_l + \tan\,\Np_r) = M \cdot 1 = \ldots
+\end{align}
+In den B\"{u}chern wird das meist geschrieben als
+\begin{align}
+M \cdot \Delta\,\Np = M \cdot 1 = \ldots\,,
+\end{align}
+weil f\"{u}r kleine  Winkel $\tan \Np \simeq \Np$, aber einige Autoren gehen so weit $\Delta \Np$ mit der Dimension {\em rad\/} oder {\em degree\/} zu schreiben, was nicht korrekt ist. $M \cdot \Delta \Np$ ist eine \"{a}u{\ss}ere Arbeit. $ \Delta \Np$ steht f\"{u}r $\tan\,\Np_l + \tan\,\Np_r$. Wenn man ein Balkenende um $45^\circ$ verdreht, dann leistet das Moment dabei die Arbeit
+\begin{align}
+M \cdot \tan\,45^\circ = M\, [\text{kNm}] \cdot 1 = M  \,[\text{kNm}]
+\end{align}
+und nicht die Arbeit $M \cdot 45^\circ$
+\begin{align}
+M \cdot 45^\circ =  M\, [\text{kNm}] \cdot 45^\circ [\text{rad}] \qquad \text{(?)}
+\end{align}
+Der letzte Ausdruck hat nicht die Dimension einer Arbeit.
+\end{remark}
+
+\begin{remark}
+F\"{u}r weitere, erg\"{a}nzende Angaben zu dem Sobolevschen Einbettungssatz siehe Kapitel 7, S. \pageref{Eq71}.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Der Reduktionssatz}}\label{RedSatz}
+Der {\em Reduktionssatz\/}\index{Reduktionssatz} ist eine spezielle Variante der Mohrschen Arbeitsgleichung.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption[t] \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/UE363}
+\caption{Anwendung des Reduktionssatzes, \textbf{ a)} und \textbf{ b)} Momentenverlauf und Mohrsche Formulierung, \textbf{ c)} auf unterschiedlichen Pfaden ist das Ergebnis dasselbe, \textbf{ d)}  Reduktionssatz} \label{UE363}
+\end{figure}%%
+%----------------------------------------------------------
+Zur Berechnung der horizontalen Verschiebung $u_i$ des Rahmens in Abb. \ref{UE363} w\"{u}rde Mohr eine Kraft $X_1 = 1$ in Richtung der gesuchten Verschiebung $u_i$ wirken lassen, und das Integral
+\begin{align}
+1 \cdot u_i = \sum_e \int_0^{\,l_e} (\frac{M\,M_1}{EI} + \frac{N\,N_1}{EA})\,dx
+\end{align}
+auswerten, und dabei \"{u}ber alle St\"{a}be des Rahmens integrieren.
+
+Gem\"{a}{\ss} dem Reduktionssatz reicht es jedoch aus, die Einzelkraft $X_1 = 1$ an einem statisch bestimmten Teilsystem des urspr\"{u}nglichen Tragwerkes wirken zu lassen.
+
+Wir verstehen das besser, wenn wir uns klarmachen, dass der Knoten, der die Last tr\"{a}gt von vier verschiedenen Startpunkten aus angesteuert werden kann, s. Abb. \ref{UE363} c, und dass auf jedem Pfad die Summe der horizontalen Verschiebungen $u_i$ sein muss.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption[t] \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/UE333}
+\caption{Kopplung zweier Spannungszust\"{a}nde auf einem Teilnetz} \label{UE333}
+\end{figure}%%
+%----------------------------------------------------------
+
+Wir k\"{o}nnen also $u_i$ berechnen, indem wir zum Beispiel einfach nur \"{u}ber den Pfosten in Abb. \ref{UE363} d integrieren
+\begin{align}\label{Eq158}
+1 \cdot u_i = \int_0^{\,l} (\frac{M\,M_1}{EI} + \frac{N\,(N_1 = 0)}{EA})\,dx\,.
+\end{align}
+
+
+Der Reduktionssatz sagt im wesentlichen, dass das Dirac Delta, das $X_1$, nicht auf den urspr\"{u}nglichen Rahmen aufgebracht werden muss, sondern dass es irgendein { Teilsystem} sein kann, das in dem urspr\"{u}nglichen System \glq enthalten\grq{} ist, s. Abb. \ref{UE363} d. Enthalten bedeutet, dass beim \"{U}bergang zum Teilsystem die Festhaltungen von Knoten gel\"{o}st werden k\"{o}nnen, aber das keine zus\"{a}tzlichen Festhaltungen eingebaut werden d\"{u}rfen. In der Sprache der Mathematik bedeutet dies, dass der { Dirichlet Rand} (die Lagerknoten) schrumpfen kann, aber dass er nicht wachsen darf, \cite{Ha6} p. 149. Die zul\"{a}ssigen Teilsysteme sind \"{u}blicherweise gerade die Teilsysteme, die man auch beim Kraftgr\"{o}{\ss}enverfahren w\"{a}hlen w\"{u}rde, wie der einzelne Pfosten.
+
+Der Reduktionssatz ist eine geschickte Anwendung der ersten Greenschen Identit\"{a}t, denn weil diese Identit\"{a}t f\"{u}r jedes einzelne Stabelement null ist
+\begin{align}
+\sum_e \text{\normalfont\calligra G\,\,}(u,u_1)_{e} = 0\,,
+\end{align}
+ist sie auch f\"{u}r jedes Teilsystem null. Der \glq Trick\grq{} besteht nun darin, Teilsysteme zu w\"{a}hlen, die sich leichter analysieren lassen, weil sie statisch bestimmt sind.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption[t] \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U405}
+\caption{Virtuelle Verr\"{u}ckung und Lagersenkung} \label{U405}
+\end{figure}%%
+%----------------------------------------------------------
+
+Nur muss man eben Systeme vermeiden, die zur Formulierung der Identit\"{a}ten $\text{\normalfont\calligra G\,\,}(u, u_1) = 0$, unbekannte Knotenverschiebungen oder Knotenkr\"{a}fte verlangen. Das ist die Essenz der obigen \glq Dirichlet Bedingung\grq{}\index{Dirichlet Bedingung}. Wenn man sich aber von dem Kraftgr\"{o}{\ss}enverfahren leiten l\"{a}sst, dann kommt man nicht in diese Verlegenheit.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption[t] \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U374X8}
+\caption{Kraftgr\"{o}{\ss}enverfahren} \label{U374}
+\end{figure}%%
+%----------------------------------------------------------
+
+Die Idee der Teilsysteme l\"{a}sst sich nat\"{u}rlich auf jedes FE-Netz anwenden. Auf jedem Teilnetz kann man unterschiedliche Spannungszust\"{a}nde via der Greenschen Identit\"{a}t in einer Null-Summe koppeln, s.  Abb. \ref{UE333}
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek u,\vek  \delta \vek u) = 0\,.
+\end{align}
+Mit dem Reduktionssatz kann man auch leicht zeigen, dass Biegelinien $w$ aus Lagersenkung orthogonal sind zu den virtuellen Verr\"{u}ckungen $\delta w$ des Systems, s. Abb. \ref{U405}. Die Absenkung kann man sich als Reaktion des Tr\"{a}gers ohne Zwischenlager (= Hauptsystem) auf eine Kraft $X_1 = 1 \cdot P$ vorstellen (auf den Faktor $P$ kommt es nicht an) und gem\"{a}{\ss} Reduktionssatz muss gelten
+\begin{align}
+\delta A_i(w, \delta w) = \int_0^{\,l} \frac{M\,\delta M}{EI}\,dx = 0 \qquad M = P \cdot M_1\,,
+\end{align}
+weil dieser Ausdruck gerade das $P$-fache der Durchbiegung der virtuellen Verr\"{u}ckung $\delta w$ im Zwischenlager ist, aber $\delta w$ ist null, s. Abb. \ref{U405} a.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Das Kraftgr\"{o}{\ss}enverfahren}}}\index{Kraftgr\"{o}{\ss}enverfahren}
+Beim Kraftgr\"{o}{\ss}enverfahren macht man ein Tragwerk durch den Einbau von $M$-, $V$- oder $N$-Gelenken statisch bestimmt, s. Abb. \ref{U374}.
+
+Die statisch \"{U}berz\"{a}hligen $X_i$ werden so bestimmt, dass die Klaffungen in den Gelenken null sind
+\begin{align}
+\left[ \barr {r @{\hspace{4mm}}r} \delta_{11} & \delta_{12} \\ \delta_{21} & \delta_{22} \earr \right] \left[ \barr {r } X_1 \\ X_2 \earr \right] -  \left[ \barr {r } \delta_{10} \\ \delta_{20} \earr \right] = \left[ \barr {r } 0 \\ 0 \earr \right] \,.
+\end{align}
+Die $\delta_{ij}$ sind die Relativverdrehungen/Verschiebungen zwischen den $X_i$ (links und rechts vom Gelenk) und die $\delta_{i0}$ sind dieselben Gr\"{o}{\ss}en aus der Belastung. Ihre Berechnung beruht auf der Mohrschen Arbeitsgleichung
+\begin{align}
+\delta_{ij} = \int_0^{\,l} \frac{M_i\,M_j}{EI}\,dx\,,
+\end{align}
+die ja wiederum mit der ersten Greenschen Identit\"{a}t identisch ist
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w_i,w_j) = \delta_{ij} - a(w_i,w_j) = \delta_{ij}  - \int_0^{\,l}\frac{M_i\,M_j}{EI}\,dx = 0\,.
+\end{align}
+Die Biegelinien $w_i$ und $w_j$ sind die Biegelinien, die zu $X_i$ und $X_j$ geh\"{o}ren (sie werden zum Gl\"{u}ck nicht gebraucht -- nur ihre Momente) und der einzelne Term
+\begin{align}
+\delta_{ij} = [V_i\,w_j - M_i\,w'_j]_0^l - [w_i,\,V_j - w_i'\,M_j]_0^l
+\end{align}
+ist sozusagen der \glq Rest\grq{}, das was von den eckigen Klammern, den Randarbeiten, in der Summe \"{u}ber alle St\"{a}be \"{u}brig bleibt. Der Rest $\delta_{ij} = Spreizung \cdot 1$ hat immer die Dimension einer Arbeit.
+
+Zur Berechnung der $\delta_{i0}$ ersetzt man in den obigen Formeln das zweite Momente $M_j$ durch das Moment $M_0$ am statisch bestimmten Hauptsystem aus der Belastung.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Wo l\"{a}uft es hin?}}
+Wir haben oben von dem Null-Summen-Spiel der ersten Greenschen Identit\"{a}t gesprochen. Dieser Begriff hat auch eine direkte statische Relevanz, wie die beiden folgenden Beispielen erl\"{a}utern sollen.
+
+Ein fester Punkt reicht Archimedes nicht aus, um die Welt aus den Angeln zu heben. Er ben\"{o}tigt auch einen Hebel mit einer unendlich gro{\ss}en Biegesteifigkeit $EI = \infty$, s. Abb. \ref{Hebel2A} a, denn sonst geht seine ganze Kraft nur in die Verkr\"{u}mmung des Hebels.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.9\textwidth]{\Fpath/HEBEL2A}
+\caption{Archimedes' Dilemma: Aller Aufwand flie{\ss}t in die Biegeenergie {\bf a)} die Erde wird sich keinen Millimeter bewegen {\bf b)} und das Gummiband wird lang und l\"{a}nger...}\label{Hebel2A}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Wegen $\text{\normalfont\calligra G\,\,}(w,w) = A_a - A_i = 0$ sind zu jedem Zeitpunkt die \"{a}u{\ss}ere Arbeit und die Biegeenergie in dem Balken gleich gro{\ss} (wir lassen den Faktor $1/2$ weg)
+\bfo
+ A_a = P_r \cdot w_r - P_l \cdot w_l = a(w,w) = \int_0^{\,l} \frac{M^2}{EI}\,dx = A_i
+\efo
+oder aufgel\"{o}st nach dem angestrebten Effekt
+\bfo
+P_l \cdot w_l = a(w,w) - P_r \cdot w_r \simeq 0\,,
+\efo
+der aber praktisch null ist, weil der ganze Aufwand von Archimedes, $P_r \cdot w_r$, in die Verkr\"{u}mmung des Balkens flie{\ss}t, also in die Biegeenergie $a(w,w)$, und praktisch nichts auf der linken Seite der Gleichung ankommt, nichts \"{u}brigbleibt, um die Erde anzuheben.
+
+Dieselbe Situation liegt vor, wenn man ein schweres Gewicht \"{u}ber den nassen Sand am Strand zieht, s. Abb. \ref{Hebel2A} b, \cite{Ha5},
+\bfo
+A_a = \underbrace{P_r \cdot u_r}_{Aufwand} - P_l \cdot u_l = a(u,u) =
+\int_0^{\,l} \frac{N^2}{EA}\,dx = A_i\,.
+\efo
+Das Gummiband ($EA$) wird sich l\"{a}ngen, die Verzerrungsenergie $a(u,u)$ wird immer weiter anwachsen, aber das Gewicht wird sich kaum bewegen, $u_l \simeq 0$,
+\begin{align}
+P_l \cdot u_l = a(u,u) - P_r \cdot u_r \simeq 0\,.
+\end{align}
+Das sind Situationen, die dem Steckenbleiben im Treibsand \"{a}hneln, wo man sich mit eigener Kraft nicht aus dem Sand ziehen  kann. Hier ist es die erste Greensche Identit\"{a}t, das Null-Summen-Spiel, die das verhindert, die es dem Balken, bzw. dem Seil, erlaubt auszuweichen. Der Anwender hat keine Kontrolle dar\"{u}ber, wo sein Effort, sein Input, seine Energie hinflie{\ss}t. Das ist, wenn man so will,  die \glq Unsch\"{a}rferelation der Statik\grq{}\index{Unsch\"{a}rferelation der Statik}.
+
+Der Anwender wei{\ss} das erst, wir wechseln jetzt zu einem kompletten Tragwerk, wenn er das System $\vek K\,\vek u = \vek f$ gel\"{o}st hat, denn dann ist klar, wie sich die Knoten verformen, um wieviel sich die Elementenden verschieben, $\vek u_e$, und dann kann er f\"{u}r jedes einzelne Element die Energie berechnen. %Wie das geht, erl\"{a}utern wir im n\"{a}chsten Abschnitt.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Finite Elemente und die erste Greensche Identit\"{a}t}}
+Wir wollen zum Schluss dieses Kapitels noch vor einem m\"{o}glichen Missverst\"{a}ndnis warnen. Ist $u$ die L\"{a}ngsverschiebung eines links festgehaltenen Stabes mit einem freien Ende
+\begin{align}
+- EA u'' = p \qquad u(0) = 0\,, \quad  N(l) = 0
+\end{align}
+und $\delta u$ eine virtuelle Verr\"{u}ckung, $\delta u(0) = 0$, dann ist die Gleichung
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\delta u) = (p, \delta u)  - a(u, \delta u) = 0
+\end{align}
+die Vorlage zur Bestimmung der FE-L\"{o}sung $u_h(x) = \sum_j u_j\,\Np_j(x)$
+\begin{align}
+(p, \Np_i)  - a(u_h, \Np_i)= 0 \qquad i = 1,2,\ldots, n\,.
+\end{align}
+Man ist versucht, das mit
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u_h,\Np_i) &= (p_h,\Np_i) - a(u_h,\Np_i)= 0
+\end{align}
+gleichzusetzen, also die FEM auf die bequeme Formulierung
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u_h,\Np_i) &= 0\qquad i = 1,2,\ldots, n
+\end{align}
+zu reduzieren, aber $p_h = - EA\,u_h''$ ist nicht $p$ (bei linearen Elementen best\"{u}nde $p_h$ aus lauter Knotenkr\"{a}ften $f_i$)
+\begin{align}
+\text{FEM} = (p,\Np_i) - a(u_h,\Np_i) \neq (p_h,\Np_i) - a(u_h,\Np_i) = \text{\normalfont\calligra G\,\,}(u_h,\Np_i)\,.
+\end{align}
+%Versuchsweise k\"{o}nnte man die FE-Gleichungen als
+%\begin{align}
+% \text{\normalfont\calligra G\,\,}^{\,ex}(u_h,\Np_i) = (p,\Np_i) - a(u_h,\Np_i) = 0
+%\end{align}
+%mit $ex = exchange$ schreiben, d.h. ersetze in $\text{\normalfont\calligra G\,\,}(u_h,\Np_i)$ alle %Kraftgr\"{o}{\ss}en von $u_h$ durch die Kraftgr\"{o}{\ss}en der exakten L\"{o}sung.
+
+

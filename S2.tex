@@ -1,0 +1,1632 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{chapterTitleBlue}{\chapter{Der Satz von Betti}}}\index{Satz von Betti}
+Das Thema dieses Kapitels ist die Berechnung von Einflussfunktionen mit dem Satz von Betti.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Grundlagen}}}
+Der {\em Satz von Betti\/} besagt, dass die reziproken \"{a}u{\ss}eren Arbeiten zweier Systeme, die jedes f\"{u}r sich im Gleichgewicht ist, gleich gro{\ss} sind
+\begin{align}
+A_{1,2} = A_{2,1}\,.
+\end{align}
+{\em Die Arbeiten, die die Lasten des Systems 1 auf den Wegen des Systems 2 leisten, $A_{1,2} $, sind genauso gro{\ss} wie die Arbeiten, die die Lasten des Systems 2 auf den Wegen des Systems 1 leisten, $A_{2,1} $\/}.
+
+Dieser Satz beruht auf der zweiten Greenschen Identit\"{a}t $\text{\normalfont\calligra B\,\,}(w,\hat{w})$. Sie erh\"{a}lt man durch Spiegelung der ersten Greenschen Identit\"{a}t und Vertauschung der Reihenfolge von $w$ und $\hat{w}$
+\begin{align}
+\text{\normalfont\calligra B\,\,}(w,\textcolor{chapterTitleBlue}{\hat{w}}) = \text{\normalfont\calligra G\,\,}(w,\textcolor{chapterTitleBlue}{\hat{w}}) - \text{\normalfont\calligra G\,\,}(\textcolor{chapterTitleBlue}{\hat{w}}, w) = 0 - 0 = 0\,,
+\end{align}
+was im Falle des Balkens zu dem Ergebnis
+\begin{align}\label{Eq57}
+\text{\normalfont\calligra B\,\,}(w_1,\textcolor{chapterTitleBlue}{w_2})= &\underbrace{\int_0^{\,l} EI\,w_1^{IV}\,\textcolor{chapterTitleBlue}{w_2}\,dx + [V_1\,\textcolor{chapterTitleBlue}{w_2} - M_1\,\textcolor{chapterTitleBlue}{w_2}']_{@0}^{@l}}_{A_{1,2}} \nn \\
+&- \underbrace{[\textcolor{chapterTitleBlue}{V_2}\,w_1 - \textcolor{chapterTitleBlue}{M_2}\,w_1']_{@0}^{@l} - \int_0^{\,l} w_1\,\textcolor{chapterTitleBlue}{EI\,w_2^{IV}}\,dx}_{A_{2,1}} = 0
+\end{align}
+f\"{u}hrt.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U210}
+\caption{{\em Satz von Betti\/}} \label{U210}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Man kann sich das auch so vorstellen, dass man mit dem Arbeitsintegral
+\begin{align}
+\int_0^{\,l} EI\,w_1^{IV}(x)\,\textcolor{chapterTitleBlue}{w_2(x)}\,dx
+\end{align}
+startet, und dann mittels partieller Integration die Ableitungen von $w_1$ vollst\"{a}ndig auf $\textcolor{chapterTitleBlue}{w_2} $ \"{u}berw\"{a}lzt und so am Schluss das Spiegelbild des Ausgangsintegrals erh\"{a}lt.
+
+Differentialgleichungen, bei denen auf diesem Weg das Spiegelbild entsteht, hei{\ss}en {\em selbstadjungiert\/}. Alle linearen Differentialgleichungen gerader Ordnung sind selbstadjungiert.
+
+Differentialgleichungen ungerader Ordnung, wie $u' = p$ nennt man {\em schiefsymmetrisch\/},  weil sie nur nach Multiplikation mit $(-1)$ mit dem Ausgangsintegral zur Deckung zu bringen sind
+\begin{align}\label{Eq58}
+\int_0^{\,l} u'\,\hat{u}\,dx = [u\,\hat{u}]_{@0}^{@l} - \int_0^{\,l} u\,\hat{u}'\,dx\,.
+\end{align}
+Partielle Integration ist daher, wenn man so will, eine \glq schiefsymmetrische\grq{} Operation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection*{Beispiel}}}
+Die beiden Balken in Abb. \ref{U210} tragen verschiedene Streckenlasten
+\begin{align}
+p_1 &= 10 \qquad w_1(x) = \frac{10\cdot 5^4}{24\,EI}\,(\xi - 2\,\xi^3 + \xi^4) \qquad \xi = \frac{x}{l}\\
+\textcolor{chapterTitleBlue}{p_2} &= 7\,\xi \qquad \textcolor{chapterTitleBlue}{w_2(x)} = \frac{7\cdot 5^3\,x}{360\,EI}\,(7 - 10\,\xi^2 + 3\,\xi^4)\,,
+\end{align}
+aber ihre reziproken \"{a}u{\ss}eren Arbeiten, also die Arbeiten \glq \"{u}ber Kreuz\grq{}, sind dennoch gleich gro{\ss}
+\begin{align}\label{Eq35}
+\text{\normalfont\calligra B\,\,}(w_1,\textcolor{chapterTitleBlue}{w_2}) &= \int_0^{\,l} p_1(x)\,\textcolor{chapterTitleBlue}{w_2(x)}\,dx - \int_0^{\,l} \textcolor{chapterTitleBlue}{p_2(x)}\,w_1(x)\,dx\nn \\
+ &= \frac{1}{EI}\cdot 911.46 - \frac{1}{EI}\cdot 911.46 = 0\,.
+\end{align}
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U211}
+\caption{{\em Satz von Betti\/} bei zwei unterschiedlich gelagerten Systemen} \label{U211}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+In den Statikb\"{u}chern wird der {\em Satz von Betti\/} auf Systeme beschr\"{a}nkt, die im Gleichgewicht sind. Dieser Hinweis ist notwendig, weil die Autoren nicht mit der voll ausgeschriebenen zweiten Greenschen Identit\"{a}t beginnen, Glg. (\ref{Eq57}), und daraus alles weitere ableiten, sondern sie  beginnen den {\em Satz von Betti\/} gleich mit Glg. (\ref{Eq35}). Dies setzt aber eben voraus, dass die beiden Biegelinien den Differentialgleichungen $EI\,w_1^{IV} = p_1$ bzw. $EI\,w_2^{IV} = p_2$ und den Randbedingungen gen\"{u}gen.
+
+Der {\em Satz von Betti\/} gilt im \"{u}brigen auch dann, wenn die beiden Balken unterschiedlich gelagert sind, wie in Abb. \ref{U211}, denn
+\begin{align}
+A_{1,2} = M_1(0)\,\textcolor{chapterTitleBlue}{w_2'(0)} = - 50 \cdot \frac{17}{EI}= - 850\cdot\frac{1}{EI}
+\end{align}
+ist dasselbe, wie
+\begin{align}
+A_{2,1} &=   \int_0^{\,l} \textcolor{chapterTitleBlue}{p_2}\,w_1(x)\,dx - \textcolor{chapterTitleBlue}{B_2}\,w_1(l)\nn \\
+&= \int_0^{\,5} 7 \cdot \frac{x}{5} \cdot ( 25\,x^2 - \frac{10}{6}\,x^3)\,\frac{1}{EI}\,dx  - \frac{35}{3} \cdot \frac{1250}{3\,EI}\nn \\
+&=  4010.42  \cdot\frac{1}{EI} - 4861.1\cdot\frac{1}{EI} = - 850\cdot\frac{1}{EI}\,.
+\end{align}
+Die unterschiedliche Lagerung bedeutet nur, dass jetzt auch die Lagerkr\"{a}fte Arbeiten leisten und die m\"{u}ssen mitgez\"{a}hlt werden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einflussfunktionen f\"{u}r Weggr\"{o}{\ss}en}}}\index{Einflussfunktionen f\"{u}r Weggr\"{o}{\ss}en}
+
+Die Einflussfunktion $G_0(y,x)$ f\"{u}r die Verschiebung eines Punktes $x$ ist identisch mit der Verformung des Tragwerks, wenn eine Kraft $P = 1$ den Aufpunkt $x$ in Richtung der gesuchten Verformung dr\"{u}ckt. Die zweite Gr\"{o}{\ss}e $y$ ist die Laufvariable, also die Orte $y$, an denen wir die Verschiebung beobachten, die die Einzelkraft bewirkt.
+
+Die Einflussfunktion ist symmetrisch, $G_0(y,x) = G_0(x,y)$, man kann also jederzeit $x$ mit $y$ vertauschen. Ob die Kraft im Punkte $x$ steht und wir beobachten die Verformung im Punkt $y $, oder ob die Kraft im Punkt $y$ steht und wir beobachten die Verformung im Punkt $x$, ist numerisch dasselbe ({\em Satz von Maxwell\/}).
+
+F\"{u}r unsere Zwecke wird es sich als sinnvoll erweisen, mit $x$ den Aufpunkt zu bezeichnen und mit $y$ die Punkte, in denen die Belastung steht.
+
+Eine Streckenlast $p$ kann man als eine Serie von kleinen Einzelkr\"{a}ften
+\begin{align}
+dP(y) = p(y)\,dy
+\end{align}
+ansehen, die jede f\"{u}r sich die Durchbiegung im Aufpunkt $x$ um das Ma{\ss}
+\begin{align}
+dw = G_0(y,x)\,dP(y)
+\end{align}
+erh\"{o}hen. Die gesamte Durchbiegung ist daher die Summe \"{u}ber die $dw$, also die \"{U}berlagerung der Einflussfunktion mit der Belastung
+\begin{align} \label{Eq37}
+w(x) = \int_0^{\,l} dw = \int_0^{\,l} G_0(y,x)\,p(y)\,dy\,.
+\end{align}
+Besteht die Belastung nur aus einer einzelnen Kraft $P$ in einem Punkt $y$, dann reduziert sich das nat\"{u}rlich auf den Ausdruck
+\begin{align}
+w(x) = G_0(y,x) \cdot P\,.
+\end{align}
+Und so, wie die Weg- und Kraftgr\"{o}{\ss}en eines Balkens aus der Biegelinie durch Differentiation hervorgehen,
+\begin{align}
+w'(x) = \frac{d}{dx}\,w(x) \qquad M(x) = - EI\,\frac{d^2}{dx^2}\,w(x) \qquad V(x) = - EI\,\frac{d^3}{dx^3}\,w(x)\,,
+\end{align}
+so gehen die zugeh\"{o}rigen Einflussfunktionen aus $G_0(y,x)$ durch Differentiation nach dem Aufpunkt $x$ hervor
+\begin{subequations}
+\begin{alignat}{3}
+G_0(y,x) & \phantom{\frac{d}{dx} G_0(y,x)} &&= \text{Einflussfunktion f\"{u}r $w(x)$}\\
+G_1(y,x) &= \frac{d}{dx} G_0(y,x) &&= \text{Einflussfunktion f\"{u}r $w'(x)$}\\
+G_2(y,x) &= - EI\,\frac{d^2}{dx^2} G_0(y,x) &&= \text{Einflussfunktion f\"{u}r $M(x)$}\\
+G_3(y,x) &= - EI\,\frac{d^3}{dx^3} G_0(y,x) &&= \text{Einflussfunktion f\"{u}r $V(x)$}
+\end{alignat}
+\end{subequations}\index{$G_0$}\index{$G_1$}\index{$G_2$}\index{$G_3$}
+Wir bezeichnen die Einflussfunktionen mit dem Buchstaben $G$, weil in der Mathematik Einflussfunktionen {\em Greensche Funktionen\/}\index{Greensche Funktion} hei{\ss}en, und weil die Durchbiegung die nullte Ableitung ist, schreiben wir ihre Einflussfunktion $G_0 $ mit einem Index $0$.
+
+Eigentlich m\"{u}sste man immer sauber trennen zwischen {\em Kern\/}\index{Kern einer Einflussfunktion} und Einflussfunktion. Die Greenschen Funktionen $G_i(y,x)$ sind die Kerne und die Integrale wie (\ref{Eq37}) sind die Einflussfunktionen, aber oft bezeichnet man auch schon die Kerne als Einflussfunktionen.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U212}
+\caption{Anwendung des Satzes von Betti bei einem Balken} \label{U212}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U213}
+\caption{Anwendung des Satzes von Betti bei einem Stab} \label{U213}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Herleitung}}}
+
+Technisch gesehen geschieht bei der Herleitung der Einflussfunktion (\ref{Eq37}) das folgende: Wir belasten den Tr\"{a}ger im Aufpunkt $x$ mit einer Einzelkraft $\textcolor{chapterTitleBlue}{P = 1} $, s. Abb. \ref{U212} a, ermitteln die zugeh\"{o}rige Biegelinie $\textcolor{chapterTitleBlue}{G_0(y,x)}$ und
+formulieren dann mit den beiden Biegelinien $\textcolor{chapterTitleBlue}{G_0(y,x)}$ und $w(y)$ den {\em Satz von Betti\/}, d.h. die zweite Greensche Identit\"{a}t.
+
+Das geht nicht in einem St\"{u}ck, weil die dritte Ableitung (die Querkraft) der Einflussfunktion im Aufpunkt springt. Wir integrieren also vom linken Lager bis zum Aufpunkt $x$, unterbrechen dort, und setzen die Integration hinter dem Aufpunkt fort
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_0},w) &= \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_{@0}^{@l}},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_0^R},w)_{(x,l)}\,.
+\end{align}
+An den beiden Balkenenden sind $w$ und $M$ null und so verbleibt in der Summe
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_0},w) &= \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_{@0}^{@l}},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_0^R},w)_{(x,l)}\nn \\
+ & = \textcolor{chapterTitleBlue}{V_{@0}^{@l}(x)}\,w(x) - \textcolor{chapterTitleBlue}{M_{@0}^{@l}(x)}\,w'(x) - \int_0^{\,x} \textcolor{chapterTitleBlue}{G_{@0}^{@l}(y,x)}\,p(y)\,dy\nn \\
+ &- \textcolor{chapterTitleBlue}{V_0^R(x)}\,w(x) + \textcolor{chapterTitleBlue}{M_0^R(x)}\,w'(x)- \int_x^{\,l} \textcolor{chapterTitleBlue}{G_0^R(y,x)}\,p(y)\,dy \nn \\
+ &= \underbrace{(\textcolor{chapterTitleBlue}{V_{@0}^{@l}(x)} - \textcolor{chapterTitleBlue}{V_0^R(x)})}_{= 1}\,w(x) - \underbrace{(\textcolor{chapterTitleBlue}{M_{@0}^{@l}(x) - M_0^R(x)})}_{= 0}\,w'(x)\nn\\
+  &- \int_0^{\,l} \textcolor{chapterTitleBlue}{G_0(y,x)}\,p(y)\,dy\nn \\
+  &= \textcolor{chapterTitleBlue}{1}\cdot w(x) - \int_0^{\,l} \textcolor{chapterTitleBlue}{G_0(y,x)}\,p(y)\,dy = 0
+\end{align}
+oder
+\begin{align}
+\textcolor{chapterTitleBlue}{1}\cdot w(x) = \int_0^{\,l} \textcolor{chapterTitleBlue}{G_0(y,x)}\,p(y)\,dy\,,
+\end{align}
+was die Einflussfunktion f\"{u}r $w(x)$ ist.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsubsection{Einflussfunktion f\"{u}r $w'(x) $}}}
+Zur Berechnung von $w'(x) $ belasten wir den Tr\"{a}ger im Aufpunkt mit einem Einzelmoment $\textcolor{chapterTitleBlue}{M = 1} $ und formulieren mit den beiden Teilen $\textcolor{chapterTitleBlue}{G_1^L}$ und $\textcolor{chapterTitleBlue}{G_1^R}$ den {\em Satz von Betti\/}, s. Abb. \ref{U212} c,
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_1},w) = \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_1^L},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_1^R},w)_{(x,l)} =  0 + 0\,.
+\end{align}
+Der Sprung des Biegemomentes im Aufpunkt macht, dass bei der Addition der beiden Identit\"{a}ten im Aufpunkt die Arbeit
+\begin{align}
+(\textcolor{chapterTitleBlue}{M_L(x,x) - M_R(x,x)})\,w'(x) = \textcolor{chapterTitleBlue}{1} \cdot w'(x)
+\end{align}
+\"{u}brig bleibt und damit ergibt sich die Einflussfunktion f\"{u}r $w'(x)$
+\begin{align}
+ \textcolor{chapterTitleBlue}{1}\cdot w'(x) = \int_0^{\,l} \textcolor{chapterTitleBlue}{G_1(y,x)}\,p(y)\,dy\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsubsection{Einflussfunktion f\"{u}r die L\"{a}ngsverschiebung $u(x)$}}}
+Die zweite Greensche Identit\"{a}t ({\em Satz von Betti\/}) der Differentialgleichung $-EA\,u''(x) = p(x)$ lautet
+\begin{align}
+\text{\normalfont\calligra B\,\,}(u,\textcolor{chapterTitleBlue}{\hat{u}}) &= \int_0^{\,l} - EA\,u''(x)\,\textcolor{chapterTitleBlue}{\hat{u}(x)}\,dx + [N\,\textcolor{chapterTitleBlue}{\hat{u}}]_{@0}^{@l}\nn \\
+&- [u\textcolor{chapterTitleBlue}{\hat{N}}]_{@0}^{@l} - \int_0^{\,l} u(x)\,(\textcolor{chapterTitleBlue}{- EA\,\hat{u}''(x))}\,dx = 0\,,
+\end{align}
+und aus ihr erh\"{a}lt man die Einflussfunktion f\"{u}r $u(x) $, indem man eine Kraft $\textcolor{chapterTitleBlue}{P = 1} $ in Richtung der Stabachse wirken l\"{a}sst, s. Abb. \ref{U213},
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_0},u) &= \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_{@0}^{@l}},u)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_0^R},u)_{(x,l)} = 0 + 0 \nn \\
+&= \textcolor{chapterTitleBlue}{N_{@0}^{@l}(x)}\,u(x) - \int_0^{\,x} \textcolor{chapterTitleBlue}{G_{@0}^{@l}(y,x)}\,p(y)\,dy \nn \\
+&- \textcolor{chapterTitleBlue}{N_0^R(x)}\,u(x) - \int_x^{\,l} \textcolor{chapterTitleBlue}{G_0^R(y,x)}\,p(y)\,dy\nn \\
+&= \underbrace{(\textcolor{chapterTitleBlue}{N_{@0}^{@l}(x) - N_0^R(x)})}_{= \textcolor{chapterTitleBlue}{1}}\,u(x) - \int_0^{\,l} \textcolor{chapterTitleBlue}{G_0(y,x)}\,p(y)\,dy
+\end{align}
+oder
+\begin{align}
+1 \cdot u(x) = \int_0^{\,l} \textcolor{chapterTitleBlue}{G_0(y,x)}\,p(y)\,dy\,.
+\end{align}
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U164}
+\caption{Eine Einflussfunktion gleicht einer Schaukel} \label{U164A}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en}}}\index{Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en}
+
+Bei der Berechnung von Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en geht man -- kurz gesagt -- in zwei Schritten vor:\\
+
+\colorbox{highlightBlue}{\parbox{0.5\textwidth}{
+\begin{description}
+  \item[$\bullet$] Kraftgr\"{o}{\ss}e sichtbar machen
+  \item[$\bullet$] Schaukeln
+\end{description}}}\\
+
+Erst macht man die Schnittgr\"{o}{\ss}e durch den Einbau eines entsprechenden Gelenkes zu einer \"{a}u{\ss}eren Kraftgr\"{o}{\ss}e, s. Abb. \ref{U164A}, und dann bewegt man die beiden Gelenkh\"{a}lften so, dass die beiden Schnittgr\"{o}{\ss}en, links und rechts  vom Gelenk, insgesamt den Weg $-1$ zur\"{u}cklegen.
+
+In der Statik hei{\ss}t dies der {\em Satz von Land\/}\index{Satz von Land}, der aber im Grunde doch nur abliest, was im {\em Satz von Betti\/} seht. Man sucht in der zweiten Greenschen Identit\"{a}t nach der Kraftgr\"{o}{\ss}e, schaut auf ihren Partner, also die Weggr\"{o}{\ss}e, mit der die Kraftgr\"{o}{\ss}e gepaart ist, und wei{\ss} dann, dass man diese Weggr\"{o}{\ss}e um Eins springen lassen muss, damit bei der Addition, s. (\ref{Eq6}), die Kraftgr\"{o}{\ss}e \glq ans Licht kommt\grq{}.
+
+Man unterscheidet, s. Abb. \ref{U30}, zwischen $M-$, $N-$ und $V-$Gelenken. Ist das Tragwerk statisch bestimmt, dann wird aus dem Tragwerk durch den Einbau des Gelenkes ein {\em Getriebe\/} und dann sind keine Kr\"{a}fte n\"{o}tig, um die beiden Gelenkh\"{a}lften zu spreizen.
+
+Ist das Tragwerk statisch unbestimmt, dann ben\"{o}tigt man daf\"{u}r Kr\"{a}fte. Praktisch geht man dabei so vor, dass  man zun\"{a}chst auf beiden Seiten des Gelenkes eine Kraftgr\"{o}{\ss}e $X = \pm 1$ wirken l\"{a}sst, die dadurch verursachte Spreizung des Gelenks ausrechnet, und dann das Paar $\pm X$ so normiert, dass die Spreizung sich genau zu Eins ergibt.
+
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U30}
+\caption{Der Einbau von Gelenken erm\"{o}glicht die Berechnung von Einflussfunktionen, \textbf{ a)} $M$-Gelenk, \textbf{ b)} $N$-Gelenk, \textbf{ c)} $V$-Gelenk } \label{U30}
+\end{figure}%
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U214}
+\caption{Der Hebel des Archimedes} \label{U214}
+%
+\end{figure}%
+%--------------------------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------------------------
+
+Archimedes wusste, wenn er das linke Lager an dem Hebel in Abb. \ref{U214} wegnimmt, und den Hebel dort um eine L\"{a}ngeneinheit nach unten dr\"{u}ckt, dass dann die Arbeit der Lagerkraft $A$ und die Arbeit der Kraft $P$ in der Summe null sein m\"{u}ssen
+\begin{align}
+A_{1,2} = A \cdot 1 - P\,h_2\,\tan\,\Np = 0\,,
+\end{align}
+und er fand so f\"{u}r den Wert von $A$ das Resultat
+\begin{align}
+A = P\,h_2\,\tan\,\Np = P \cdot (\uparrow)\,.
+\end{align}
+Alle Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en sind im Grunde solche \glq Schaukeln\grq{}, s. Abb. \ref{U164A}, denn das Spiel von Kr\"{a}ften und Bewegungen ist der Grundpfeiler der Statik.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Statik ist nicht statisch, sondern Statik ist \glq kinematisch\grq{}.}}\\
+
+Zu jeder Schnittkraft geh\"{o}rt ein Gelenk und die Bewegung, die \"{u}ber das Tragwerk l\"{a}uft, wenn man das Gelenk spreizt, {\em das Echo\/}, entscheidet dar\"{u}ber, wie gro{\ss} die Schnittkraft in dem Aufpunkt ist.
+
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U215}
+\caption{Berechnung der Einflussfunktion f\"{u}r die Normalkraft $N(x)$} \label{U215}
+%
+\end{figure}%
+%---------------------------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r $N(x)$}}}
+Die Einflussfunktion $\textcolor{chapterTitleBlue}{G_1(y,x)} $ f\"{u}r eine Normalkraft $N(x)$ weist im Aufpunkt $x$ einen Verschiebungssprung der Gr\"{o}{\ss}e Eins auf, s. Abb. \ref{U215} b,
+\begin{align}
+\textcolor{chapterTitleBlue}{G_1(x_{-}) - G_1(x_+) = 1}\,.
+\end{align}
+Die Randarbeiten an den Enden des Stabes im {\em Satz von Betti\/}
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_1},u ) &= \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_1^L},u)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_1^R},u)_{(x,l)} = 0 + 0\nn \\
+&= [\ldots]_0^x - \int_0^{\,x} \textcolor{chapterTitleBlue}{G_1^L(y,x)}\,p(y)\,dy + [\ldots]_x^l -  \int_x^{\,l} \textcolor{chapterTitleBlue}{G_1^R(y,x)}\,p(y)\,dy \,,
+\end{align}
+sind, wegen $u(0) = u(l) = 0$ und $\textcolor{chapterTitleBlue}{G_1(0,x) = G_1(l,x) = 0}$, null, und so verbleiben nur die Randarbeiten links und rechts vom Aufpunkt $x$.
+
+Die zu $\textcolor{chapterTitleBlue}{G_1}$ geh\"{o}rige Normalkraft $\textcolor{chapterTitleBlue}{N_1}$ ist im Aufpunkt stetig, weil $\textcolor{chapterTitleBlue}{G_1} $ links und rechts vom Aufpunkt dieselbe Steigung hat, s. Abb. \ref{U215} b, und  auch $u(x)$ ist dort stetig, so dass die Arbeit der beiden Normalkr\"{a}fte $\pm \textcolor{chapterTitleBlue}{N_1(x)}$, links und rechts vom Gelenk, in der Summe null ist
+\begin{align}
+\underbrace{\textcolor{chapterTitleBlue}{N_1(x_{-})}\,u(x)}_{links} - \underbrace{\textcolor{chapterTitleBlue}{N_1(x_{+})}\,u(x)}_{rechts} = (\textcolor{chapterTitleBlue}{N_1(x_{-}) - N_1(x_{+})})\,u(x) = 0\,,
+\end{align}
+und sich somit alles auf
+\begin{align}\label{Eq6}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_1},u ) &= N(x) (\textcolor{chapterTitleBlue}{G_1(x_{-}) - G_1(x_+)}) - \int_0^{\,l} \textcolor{chapterTitleBlue}{G_1(y,x)}\,p(y)\,dy\nn \\
+&= N(x) \cdot \textcolor{chapterTitleBlue}{1} - \int_0^{\,l}\textcolor{chapterTitleBlue}{ G_1(y,x)}\,p(y)\,dy = 0
+\end{align}
+reduziert, oder
+\begin{align}
+\textcolor{chapterTitleBlue}{1} \cdot N(x) = \int_0^{\,l} \textcolor{chapterTitleBlue}{G_1(y,x)}\,p(y)\,dy\,.
+\end{align}
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U216}
+\caption{Einflussfunktionen f\"{u}r $M(x)$ und $V(x)$} \label{U216}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r $M(x)$}}}
+Im Aufpunkt $x$ wird ein Momentengelenk eingebaut und dieses wird so bewegt, dass eine Spreizung von Eins entsteht
+\begin{align}
+\textcolor{chapterTitleBlue}{G_2'(x_{-}) - G_2'(x_+) = 1}\,.
+\end{align}
+Bei der Formulierung des Satzes von Betti mit den beiden Teilen der Einflussfunktion, $\textcolor{chapterTitleBlue}{G_2^L}$ und $\textcolor{chapterTitleBlue}{G_2^R}$,
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_2},w) = \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_2^L},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_2^L},w)_{(x,l)} = 0 + 0
+\end{align}
+sind die Randarbeiten an den Balkenenden null und die Randarbeiten an der \"{U}bergangsstelle, im Aufpunkt $x$, heben sich gegenseitig weg bis auf den Term
+\begin{align}
+\textcolor{chapterTitleBlue}{G_2'(x_{-})}\,M(x) - \textcolor{chapterTitleBlue}{G_2'(x_+)}\,M(x) = \textcolor{chapterTitleBlue}{1} \cdot M(x)
+\end{align}
+und so folgt
+\begin{align}
+\textcolor{chapterTitleBlue}{1} \cdot M(x) = \int_0^{\,l} \textcolor{chapterTitleBlue}{G_2(y,x)}\,p(y)\,dy\,.
+\end{align}
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U260}
+\caption{Herleitung von Einflussfunktionen durch Differentiation} \label{U260}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r $V(x)$}}}
+Die Querkraft machen wir durch den Einbau eines Querkraftgelenks sichtbar, s. Abb. \ref{U216} e, und spreizen es dann derart, dass die beiden Querkr\"{a}fte in der Summe den Weg $(-1)$ zur\"{u}cklegen. Das bedeutet, dass die Einflussfunktion $\textcolor{chapterTitleBlue}{G_3}$ im Aufpunkt einen Versatz der Gr\"{o}{\ss}e Eins aufweist
+\begin{align}
+\textcolor{chapterTitleBlue}{G_3(x_{-}) - G_3(x_+) = 1}\,.
+\end{align}
+Entsprechend besteht die Biegelinie $\textcolor{chapterTitleBlue}{G_3}$ aus zwei Teilen, $\textcolor{chapterTitleBlue}{G_3^L}$ und $\textcolor{chapterTitleBlue}{G_3^R}$, und so m\"{u}ssen wir auch den {\em Satz von Betti\/} zweiteilen
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_3},w) = \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_3^L},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_3^R},w)_{(x,l)} = 0 + 0\,.
+\end{align}
+An der \"{U}bergangsstelle, im Aufpunkt $x$, heben sich die Randarbeiten gegenseitig weg bis auf
+\begin{align}
+\textcolor{chapterTitleBlue}{G_3(x_{-})}\,V(x) - \textcolor{chapterTitleBlue}{G_3(x_+)}\,V(x) = \textcolor{chapterTitleBlue}{1} \cdot V(x)
+\end{align}
+und so ergibt sich aus $A_{1,2} = 0$ das Resultat
+\begin{align}
+\textcolor{chapterTitleBlue}{1} \cdot V(x) = \int_0^{\,l} \textcolor{chapterTitleBlue}{G_3(y,x)}\,p(y)\,dy\,.
+\end{align}
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U407}
+\caption{Auswertung einer Einflussfunktion bei Lagersenkung, \textbf{ a)} Lagersenkung \textbf{ b)} Einflussfunktion $G_2(y,x)$ f\"{u}r $M(x)$} \label{U407}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Lagersenkung }}}\label{Korrektur18}\label{LagerWeg}\index{Lagersenkung}
+Wenn sich ein Lager senkt, dann hat man kein $p$. Wie werden dann die Einflussfunktionen ausgewertet? Antwort: Indem man \"{u}ber die Lagerkr\"{a}fte geht. Wie das genau geht, soll ein Beispiel erl\"{a}utern.
+
+Abb. \ref{U407}b zeigt die Einflussfunktion f\"{u}r das Biegemoment in Feldmitte des Tr\"{a}gers und die zugeh\"{o}rige vertikale Lagerkraft von 425 kN im Lager rechts. Abb. \ref{U407}a zeigt die eigentliche Lagersenkung.
+
+Die Biegelinie $w$ ist eine homogene L\"{o}sung, $EI\,w^{IV} = 0$, und die Einflussfunktion ist eine L\"{o}sung der Gleichung $EI\,G_2^{IV}(y,x) = \delta_2(y-x)$. Das Dirac Delta ist die Spreizung in Feldmitte, die die Einflussfunktion f\"{u}r $M(x)$ erzeugt.
+
+Mit diesen beiden Biegelinien, $w(y)$ aus der Lagersenkung und der Einflussfunktion $G_2(y,x)$, formulieren wir den Satz von Betti, und erhalten (wir \"{u}berspringen die Zwischenschritte)
+\begin{align}
+\text{\normalfont\calligra B\,\,}(G_2,w) = - M(x) - V_2(l)\,w(l) = 0\,,
+\end{align}
+oder
+\begin{align}
+M(x) = - V_2(l)\,w(l) = -\text{Lagerkraft aus Einflussfunktion} \times \text{Lagersenkung}
+\end{align}
+Das Minus in $- V_2(l)\,w(l) $ kommt aus dem Minus, das vor dem zweiten Teil von Betti steht
+\begin{align}
+\text{\normalfont\calligra B\,\,}(G_2,w) = \int_0^{\,l} \ldots\,dy + [\ldots]_0^l - [V_2\,w + \ldots]_0^l  - \int_0^{\,l} \ldots dy = 0\,.
+\end{align}
+Fassen wir das als Regel:\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Bei einer Lagerbewegung geschieht die Auswertung einer Einflussfunktion durch Multiplikation der zur Einflussfunktion geh\"{o}rigen Lagerkraft mit dem Lagerweg $\times (-1)$}}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Temperatur\"{a}nderungen}}}\label{Korrektur39}\index{Temperatur\"{a}nderungen}
+Auch bei Temperatur\"{a}nderungen $\Delta T$ hat man kein $p$. Hier benutzt man die Mohrsche Arbeitsgleichung
+\begin{align}\label{Eq131}
+    \textcolor{red}{\bar{1}} \cdot \delta
+    = &\ldots  + \int \textcolor{red}{\bar{M}}\,\alpha_T\,\frac{\Delta T}{h}\,dx + \int \textcolor{red}{\bar{N}}\,\alpha_T\,T\,dx\,.
+\end{align}
+Diese Terme kommen \"{u}brigens aus einer starken Einflussfunktion. Man k\"{o}nnte mit ihnen deshalb auch die \"{A}nderungen von Schnittgr\"{o}{\ss}en aus Temperatur verfolgen, wenn $\bar{M}$ und $\bar{N}$ die Momente und Normalkr\"{a}fte der Einflussfunktion f\"{u}r die Schnittkraft sind, s. S. \pageref{TempIdentit}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Die Kette der Einflussfunktionen }}}
+Es beginnt mit der Einflussfunktion $G_0(y,x)$ f\"{u}r die Verschiebung bzw. die Durchbiegung in einem Punkt $x$ und die Ableitung nach dem Aufpunkt $x$ f\"{u}hrt dann zu den anderen Einflussfunktionen, wie in Abb. \ref{U260} gezeigt.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U301}
+\caption{Der Einfluss eines Momentes h\"{a}ngt von der Neigung der Tangente an die Einflussfunktion im Quellpunkt, am Ort von $M$, ab, \textbf{ a)} Biegelinie aus dem Moment \"{u}ber dem Lager, \textbf{ b)} Einflussfunktion f\"{u}r Durchbiegung des Kragarmendes} \label{U301}
+%
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Man kann die Einflussfunktion auch direkt differenzieren
+\begin{align}
+u(x) = \int_0^{\,l} G_0(y,x)\,p(y)\,dy \qquad \rightarrow \qquad N(x) = \int_0^{\,l} EA\,\frac{d}{dx}\,G_0(y,x)\,p(y)\,dy\,,
+\end{align}
+was aber als Differentiation eines Integrals nach einem Parameter gilt und da muss man aufpassen.
+
+Theoretisch muss man in zwei Schritten vorgehen, wie wir am Beispiel einer Platte und der Einflussfunktion f\"{u}r das Moment $m_{xx}(\vek x)$ erl\"{a}utern wollen:
+\begin{enumerate}
+  \item Zun\"{a}chst muss man den Kern $G_2(\vek y,\vek x)$ der Einflussfunktion f\"{u}r das Moment $m_{xx}$ durch Ableitung aus $G_0$ berechnen, $G_2 = m_{xx} (G_0(\vek y,\vek x))$\,.
+  \item Dann muss man den Grenzprozess
+  \begin{align}
+  \text{\normalfont\calligra B\,\,}(G_2,w) = \lim_{\varepsilon \to 0} \text{\normalfont\calligra B\,\,}(G_2,w)_{\Omega_\varepsilon} = 0
+    \end{align}
+    ausf\"{u}hren und das Ergebnis nach $m_{xx}(\vek x)$ aufl\"{o}sen
+    \begin{align}
+    m_{xx}(\vek x) = \int_{\Omega} G_2(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y}\,.
+    \end{align}
+\end{enumerate}
+Der Praktiker wird nat\"{u}rlich sagen, \glq ich wei{\ss}, was heraus kommt\grq{}, und das Ergebnis direkt hinschreiben.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Lastmomente differenzieren die Einflussfunktionen}}}
+Betrachten wir den Balken in Abb. \ref{U301}. Das Moment \"{u}ber dem Lager im Punkt $y$ kann man in zwei Einzelkr\"{a}fte $ P = \pm  M/\Delta y$ aufl\"{o}sen, die untereinander den Abstand $\Delta y$ haben. Ist $G_0(y,l)$ die Einflussfunktion f\"{u}r die Durchbiegung am Kragarmende $x = l$, dann ist
+\begin{align}
+w(l) &= \lim_{\Delta y \to 0} (G_0(y + 0.5\,\Delta y,l) - G_0(y - 0.5\,\Delta y,l)) \cdot \frac{M}{\Delta y} = \frac{d}{dy}\,G_0(y,l)\cdot M
+\end{align}
+die Durchbiegung am Kragarmende aus dem Moment $M$ \"{u}ber dem Lager. Entscheidend f\"{u}r die Wirkung des Moments auf $w(l)$ ist also die Steigung der Einflussfunktion am Ort von $M$, im Quellpunkt.
+
+Bei Rahmen haben also Einzelmomente $M$ in Feldmitte geringen Einfluss, weil dort die Neigung der Einflussfunktionen ann\"{a}hernd null ist,  $G' \sim 0$, und Momente $M$ in den Knoten den maximal m\"{o}glichen Einfluss, weil dort die Neigung $G'$ der Einflussfunktionen meist am gr\"{o}{\ss}ten ist.
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U13}
+\caption{Einflussfunktion f\"{u}r ein Moment} \label{U13}
+%
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Ein R\"{a}tsel}}}
+Bei der Herleitung der Einflussfunktion f\"{u}r Biegemomente wird oft die Spreizung des Gelenks, wie in Abb. \ref{U13} gezeigt, mit $\delta \Np = 1$ angegeben, wo man dann r\"{a}tselt, was das denn genau bedeutet. Betr\"{a}gt der Winkel $45^\circ$ und meint $\delta \Np = 1$ also den Tangens dieses Winkels?
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U217}
+\caption{Gelenke machen die Schnittgr\"{o}{\ss}en sichtbar} \label{U217}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Was eigentlich gemeint ist, sieht man in Abb. \ref{U13} auch. Der linke Teil des Tr\"{a}gers wird um einen Winkel $\Np_l$ verdreht und der rechte um einen Winkel $\Np_r$ und zwar so, dass die Summe
+\begin{align}
+\tan\,\Np_l +\tan\,\Np_r  = 1
+\end{align}
+gleich $1$ ist, denn dann erh\"{a}lt man prompt das gew\"{u}nschte Resultat
+\begin{align}
+- M \cdot \tan\,\Np_l  - M \cdot\tan\,\Np_r + P \cdot \delta w = - M \cdot 1 + P \cdot \delta w = 0\,,
+\end{align}
+also $M = P \cdot\delta w$.
+
+In den Statikb\"{u}chern wird oft nicht sauber getrennt zwischen dem Tangens, $\tan\,\Np$, und dem Winkel $\Np$ selbst. Wenn die Autoren $\Np$ schreiben, dann meinen sie eigentlich immer den Tangens, und so auch hier
+\begin{align}
+\delta\,\Np = \Np_l + \Np_r = \tan\,\Np_l +\tan\,\Np_r  = 1\,.
+\end{align}
+Um dem Leser aber einen Gefallen (?) zu tun, wird der Tangens\index{Tangens} oft als der Drehwinkel selbst genommen, $ \tan\,\Np \simeq \Np $, und tritt dann prompt mit der Dimension {\em Rad \/} auf. Damit sind aber allen Missverst\"{a}ndnissen Tor und T\"{u}r ge\"{o}ffnet.
+
+In diesem Buch schreiben wir $\tan\,\Np$, wenn wir den Tangens meinen. Wir erlauben uns nur die eine Unsch\"{a}rfe, dass wir gelegentlich im Text von Verdrehungen reden, wenn rechnerisch der Tangens gemeint ist.
+
+Dass der Tangens eine so dominante Rolle spielt, liegt daran, dass er die Weggr\"{o}{\ss}e ist, die  zu $M$ konjugiert ist (erste Greensche Identit\"{a}t), w\"{a}hrend der Winkel keinen \glq Partner\grq{} hat und daher nicht in den Grundgleichungen der Statik vorkommt, die ja praktisch alle Arbeitsgleichungen sind.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U302}
+\caption{{\em Satz von Betti\/}---Einflussfunktion f\"{u}r ein Moment, \textbf{ a)} Tr\"{a}ger mit Belastung, \textbf{ b)} dasselbe System unbelastet aber mit einer Spreizung $\tan \Np_l + \tan \Np_r = 1$ des Gelenks} \label{U302}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Statisch bestimmte Tragwerke}}}
+Die Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en an statisch bestimmten Tragwerken sind kinematische Ketten, weil durch den Einbau des Zwischengelenks der Grad der statischen Bestimmtheit sich von $n = 0$ auf $n = -1$ reduziert.
+
+Die Schritte sind immer dieselben. Man baut ein $M$- bzw. $V$-Gelenk in das Tragwerk ein, um die innere Schnittgr\"{o}{\ss}e sichtbar zu machen, \glq sie ans Licht zu zwingen\grq{}, s. Abb. \ref{U217}. Dann zeichnet man das so modifizierte Tragwerk noch einmal an und verformt es nun so, dass die beiden Kraftgr\"{o}{\ss}en links und rechts vom Gelenk zusammen den Weg $-1$ gehen.
+
+Ein Beispiel soll dies erl\"{a}utern. In Abb. \ref{U302} wird die Einflussfunktion f\"{u}r ein Moment hergeleitet. Zun\"{a}chst wird in den Tr\"{a}ger ein Gelenk eingebaut, um das innere Moment $M(x)$ \glq sichtbar\grq{} zu machen, zu einem \"{a}u{\ss}eren Momentenpaar zu machen. Dann wird der so modifizierte Tr\"{a}ger noch einmal angezeichnet, aber ohne Belastung. Statt dessen wird er so verschoben, dass die Spreizung im Gelenk genau $\tan \Np_l + \tan \Np_r = 1$ betr\"{a}gt. Weil der modifizierte Tr\"{a}ger kinematisch ist, sind dazu keine Kr\"{a}fte n\"{o}tig.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U165}
+\caption{Regeln f\"{u}r die Polplankonstruktion} \label{U165}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Nach dem {\em Satz von Betti\/} gilt
+\begin{align}
+\text{\normalfont\calligra B\,\,}(w_1,w_2) = A_{1,2} - A_{2,1} = 0\,.
+\end{align}
+Nun ist $A_{2,1} = 0$, weil die nicht vorhandenen Kr\"{a}fte am Tr\"{a}ger 2 keine Arbeit auf den Wegen $w_1(x)$ leisten. Die Arbeit der Kr\"{a}fte am Tr\"{a}ger 1 auf den Wegen $w_2(x)$ ist somit ebenso null
+\begin{align}
+A_{1,2} = -M_L\,\tan\,\Np_l - M_R\,\tan\,\Np_r + P\,w_2(x) = - M \cdot 1 + P\,w_2(x) = 0
+\end{align}
+oder
+\begin{align}
+1 \cdot M = P\,w_2(x)\,,
+\end{align}
+was beweist, dass $w_2(x)$ die Einflussfunktion f\"{u}r $M(x)$ ist.\\
+
+\begin{remark}
+Bekanntlich \"{a}ndern sich die Kraftgr\"{o}{\ss}en in einem statisch bestimmten Tragwerk nicht, wenn sich die Steifigkeiten \"{a}ndern. Ein \glq akademischer\grq{} Beweis dieses Prinzips l\"{a}sst sich wie folgt f\"{u}hren: wenn sich $EI$ oder $EA$ in einem Stab \"{a}ndert, dann sind die zugeh\"{o}rigen $f^+$ Gleichgewichtskr\"{a}fte, s. Kapitel 5, und weil Gleichgewichtskr\"{a}fte orthogonal sind zu allen Starrk\"{o}rperbewegungen, also allen kinematischen Ketten (den Einflussfunktionen f\"{u}r $N, M, V$), \"{a}ndern sich die  Schnittkr\"{a}fte nicht.\\
+\end{remark}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Polpl\"{a}ne}}}
+
+Bei der Konstruktion der Verschiebungsfiguren, die durch das Spreizen der Gelenke entstehen, hilft die Kenntnis der {\em Drehpole\/} der einzelnen Scheiben. Als Scheiben bezeichnet man einzelne St\"{a}be und Balken, oder biegesteife Verbindungen und unverschiebliche Konstruktionen aus diesen.
+
+Hierzu muss man jedoch anmerken, dass diese lediglich Repr\"{a}sentanten der entsprechenden Scheiben sind. Scheiben sind vielmehr unendlich gro{\ss}e Mengen von Punkten, deren Verdrehung um den zugeh\"{o}rigen Hauptpol so erfolgt, dass sie sich dabei auf Geraden und nicht auf Kreisbahnen bewegen. \\
+
+Die Regeln f\"{u}r die Konstruktion der Polpl\"{a}ne lauten, s. Abb. \ref{U165}:\\
+
+\begin{enumerate}
+  \item Jedes feste Gelenklager ist Hauptpol der angeschlossenen Scheibe.
+  \item Jedes Biegemomentengelenk bildet den Nebenpol der von diesem verbundenen Scheiben.
+  \item Die Senkrechte zur Bewegungsrichtung eines verschieblichen Gelenklagers bildet den geometrischen Ort des Hauptpols der angeschlossenen Scheibe.
+  \item Der Nebenpol zweier, durch einen verschieblichen Anschluss (Normalkraft- oder Querkraftgelenk) verbundenen Scheiben liegt auf jeder Senkrechten zur Bewegungsrichtung im Unendlichen.
+  \item Die Hauptpole zweier Scheiben und ihr gemeinsamer Nebenpol liegen auf einer Geraden:
+$(i)-(i, j)-(j)$, z.B.: $(1)-(1, 2)-(2)$.
+
+  \item Die Nebenpole $(i, j), (j, k), (i, k)$ dreier Scheiben $I, J, K$ liegen auf einer Geraden: $(i, j)-(j, k)-(i, k)$, z.B.: $(1, 3)-(1, 4)-(3, 4)$.
+  \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Konstruktion von Polpl\"{a}nen und Verschiebungsfiguren}}}
+
+
+Am einfachsten beginnt man mit den festen Gelenklagern, denn diese sind, s. Regel 1, der Hauptpol der angeschlossenen Scheibe. Momentengelenke bilden den Nebenpol der angeschlossenen Scheiben, s. Regel 2.
+
+Alle \"{u}brigen Pole bestimmt man nun mit Hilfe sogenannter {\em Ortslinien\/}. Unter einer Ortslinie versteht man die Gerade, auf der sich gem\"{a}{\ss} den Regeln 3 bis 7 der Pol befinden muss.\\
+
+\begin{itemize}
+  \item Der Schnittpunkt zweier Ortslinien f\"{u}r ein und denselben Pol ist der exakte geometrische Ort des Pols.
+  \item Laufen verschiedene Ortslinien f\"{u}r ein und denselben Pol parallel, so liegt dieser als Schnittpunkt aller dieser Linien im Unendlichen.
+  \item Liegt der Hauptpol einer Scheibe im Unendlichen bedeutet dies, dass sich die Scheibe nur parallel verschieben kann, ihre Verdrehung ist null.
+  \item  Liegt der Nebenpol zweier Scheiben im Unendlichen bedeutet dies, dass sich beide Scheiben um ihre jeweiligen Hauptpole um exakt denselben Winkel verdrehen. Also sind zum Beispiel St\"{a}be dieser beiden Scheiben, die vor der Verdrehung parallel zueinander waren, es auch danach.
+\end{itemize}
+
+Mit diesen Regeln kann man die Verformungsfigur bestimmen, die durch das \glq normierte\grq{} Spreizen des $M$-, $V$- oder $N$-Gelenks entstehen. Normiert meint, dass das Gelenk so gespreizt wird, dass am Gelenk negative Arbeit auf einem Weg von 1 m geleistet wird. Der Teil der Verformungsfigur, der in Richtung der Wanderlast f\"{a}llt, ist dann die gesuchte Einflusslinie. Wir sagen dazu auch, dass die Einflussfunktion die \glq Projektion\grq{} der Verformungsfigur in Richtung der Wanderlast ist.
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.95\textwidth]{\Fpath/U366}
+\caption{Verschiebungsberechnungen \textbf{ a)} Berechnung der Verschiebungen $u$ und $v$ einer Kraft \textbf{ b)} Berechnung der Verdrehungen zweier Scheiben zueinander } \label{U366}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Berechnung der Verdrehungen}}}}
+
+An verschiedenen Stellen ben\"{o}tigt man ferner die Stabdrehwinkel von kinematischen Ketten und ihre Abh\"{a}ngigkeiten untereinander. Diese Aufgabe ist sehr leicht und elegant zu l\"{o}sen, wenn man sich den Zusammenhang zwischen der Verdrehung zweier Scheiben $(i)$ und $(k)$, die \"{u}ber den Nebenpol $(i,k)$ miteinander verbunden sind, klar macht. Das Vorgehen wollen wir an Abb. \ref{U366} b illustrieren.
+
+Die Verdrehung $\Np_i$ des Stabes $i$ (bzw. der Scheibe $(i)$) ist gegeben und die Verdrehung Stabes $k$ in Abh\"{a}ngigkeit von $\varphi_i$ ist gesucht.
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U290}
+\caption{Berechnung der Verschiebungen der Scheiben bzw. St\"{a}be $2$ und $3$ bei vorgegebener Verdrehung von Scheibe 1} \label{U290}\label{Korrektur29}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Es bezeichne $x_i$ den horizontalen Abstand des Hauptpols $(i)$ vom Nebenpol $(i,k)$ bzw. $x_k$ den horizontalen Abstand des Hauptpols $(k)$ vom Nebenpol $(i,k)$. Entsprechend bezeichnen $y_i$ und $y_k$ die vertikalen Abst\"{a}nde und $l_i$ und $l_k$ die Abst\"{a}nde der Hauptpole $(i)$ bzw. $(k)$ vom zugeh\"{o}rigen Nebenpol $(i,k)$.
+
+Damit gilt
+\begin{align}
+\tan\,\Np_i = \frac{\eta}{l_i} \qquad \tan\,\Np_k = \frac{\eta}{l_k}
+\end{align}}
+also
+\begin{align} \label{Eq115c}
+\boxed{l_i \cdot \tan\,\Np_i = l_k \cdot \tan\,\Np_k }
+\end{align}
+Die Hauptpole der beiden Scheiben und ihr gemeinsamer Nebenpol liegen -- wie immer -- auf einer Geraden, die hier unter dem Winkel $\alpha$ geneigt ist, und daher gilt
+\begin{align}
+\sin\,\alpha = \frac{y_i}{l_i} = \frac{y_k}{l_k}
+\end{align}
+oder aufgel\"{o}st nach den L\"{a}ngen
+\begin{align}
+l_i = \frac{y_i}{\sin\,\alpha}\qquad l_k = \frac{y_k}{\sin\,\alpha}
+\end{align}
+und mit (\ref{Eq115c}) folgt also
+\begin{align}\label{Eq116A}
+\boxed{y_i \cdot \tan\,\Np_i = y_k \cdot \tan\,\Np_k}
+\end{align}
+Ebenso ergibt sich aus
+\begin{align}
+\cos\,\alpha = \frac{x_i}{l_i} = \frac{x_k}{l_k}
+\end{align}
+das Ergebnis
+\begin{align}\label{Eq117A}
+\boxed{x_i \cdot \tan\,\Np_i = x_k \cdot \tan\,\Np_k}
+\end{align}
+An einem System aus drei Scheiben, s. Abb. \ref{U290},  wollen wir die Anwendung dieser Beziehungen erl\"{a}utern. Gegeben ist der Winkel $\Np_1$ mit dem Wert $\tan\varphi_1 = 1/3$. Gesucht sind die anderen beiden Drehwinkel $\Np_2$ und $\Np_3$. Die Verdrehung der Scheibe 2 und damit des Stabes 2 ergibt sich \"{u}ber (\ref{Eq117A}) zu
+\begin{align}
+\tan\varphi_2=\frac{x_1\cdot\tan\varphi_1}{x_2}=\frac{3\cdot
+1/3}{1}=1\,.
+\end{align}
+Die Verdrehung der Scheibe 3 erh\"{a}lt man nun z.B. aus (\ref{Eq116A})
+\begin{align}
+\tan\varphi_3=\frac{y_2\cdot\tan \varphi_2}{y_3}=\frac{2\cdot 1}{2}=1
+\end{align}
+oder mit (\ref{Eq117A}) \"{u}ber die Verdrehung der Scheibe 1
+\begin{align}
+\tan\varphi_3=\frac{\bar x_1\cdot\tan\varphi_1}{\bar x_3}=\frac{9\cdot 1/3}{3}=1\,.
+\end{align}
+Damit ergibt sich insgesamt f\"{u}r die Verdrehungen der Scheiben in Abh\"{a}ngigkeit von der Verdrehung der Scheibe 1 das Resultat
+\begin{align}
+\left [\barr{c}   \tan \Np_1 \\  \tan \Np_2 \\  \tan \Np_3\earr \right ]
+ = \left [\barr{c}  1 \\  3 \\  3\earr \right ]\cdot \tan\varphi_1\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Berechnung der Verschiebung eines Punktes}}}}
+Die Arbeit, die eine Last $P$ auf der zugeh\"{o}rigen Verschiebung $v$ leistet, ist $P \cdot v$, s. Abb. \ref{U366} a. Deshalb ist es h\"{a}ufig notwendig den Anteil $v$ von $\delta P$ zu ermitteln, der in Richtung der Last f\"{a}llt. Das ist jedoch einfach, denn weil sich der Stab um seinen Hauptpol dreht, besteht zwischen der Auslenkung $\delta P$ in senkrechter Richtung zum Stab und den \"{u}brigen Gr\"{o}{\ss}en die Beziehung
+\begin{align}
+\frac{v}{\delta P} = \frac{x_p}{l_p}\,,
+\end{align}
+woraus schon das Ergebnis folgt
+\begin{align}
+v = x_p \cdot \frac{\delta P}{l_p} = x_p \cdot \tan \Np\,.
+\end{align}
+Analog l\"{a}sst sich auch die horizontale Verschiebung ermitteln, denn man erh\"{a}lt sofort
+\begin{align}
+u = y_p \cdot \tan\,\Np\,.
+\end{align}
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U201}
+\caption{Vertikale Wanderlast und Einflussfunktion f\"{u}r eine Querkraft, $(1), (2), (3)$ sind die Hauptpole der Scheiben 1, 2 und 3 und $(1,2), (2,3)$ sind die Nebenpole von Scheibe 1 und 2 bzw. Scheibe 2 und 3} \label{U201}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U202}
+\caption{Einflussfunktion f\"{u}r eine Normalkraft bei vertikaler Wanderlast} \label{U202}
+\end{figure}%%
+%----------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r eine Querkraft, Abb. \ref{U201}}}}
+
+Im Abb. \ref{U201} ist die Einflusslinie f\"{u}r die Querkraft in dem rechten, schr\"{a}g verlaufenden Stab gesucht. Bei der Konstruktion des Polplans ist zu beachten, dass die Ortslinie des Nebenpols (2,3) auf jeder Senkrechten zur Bewegungsrichtung des Querkraftgelenkes im Unendlichen liegt, also auch auf derjenigen durch den Hauptpol (3). Diese Gerade durch den Hauptpol (3) ist gleichzeitig Ortslinie f\"{u}r den Hauptpol (2), genauso wie die Verbindungsgerade von (1) und (1,2). In dem Schnittpunkt der beiden Ortslinien liegt der Hauptpol (2).
+
+Zur Generierung der Einflusslinie wird zwischen den beiden Ufern des Querkraftgelenkes eine Spreizung von Eins erzeugt. Vertikal, also in Lastrichtung, bedeutet dies in der Projektion eine relative Verschiebung der Scheiben zueinander im Gelenk und auch \"{u}ber den Hauptpolen von $0.8$ m.
+
+Die relative Verschiebung \"{u}ber den Hauptpolen l\"{a}sst sich zur Konstruktion der Bewegung der Scheiben in der Projektion nutzen, da wegen der Unverschieblichkeit der Hauptpole die Verschiebung der Scheibe $2$ \"{u}ber dem Hauptpol (3) betragsm\"{a}{\ss}ig $0.8$ m ist und umgekehrt die Verschiebung der Scheibe $3$ \"{u}ber dem Hauptpol (2) betragsm\"{a}{\ss}ig ebenso $0.8$ m.
+
+Die vertikalen Anteile der Bewegungen des Lastgurtes bilden die gesuchte Einfluss\-linie.
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U248}
+\caption{Einflussfunktion f\"{u}r ein Moment bei vertikaler Wanderlast} \label{U248}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r eine Normalkraft, Abb. \ref{U202}}}}
+
+In Abb. \ref{U202} ist die Einflusslinie f\"{u}r die Normalkraft in dem schr\"{a}g verlaufenden Stab gesucht. Bei der Konstruktion des Polplanes ist zu beachten, dass die Ortslinie des Nebenpols (2,3) auf jeder Senkrechten zur Bewegungsrichtung des Normalkraftgelenkes im Unendlichen liegt, also auch auf derjenigen durch den Hauptpol (3). Diese Gerade durch den Hauptpol (3) ist auch Ortslinie f\"{u}r den Hauptpol (2) genauso wie die Verbindungsgerade von (1) und (1,2). Beide Ortslinien liefern in ihrem Schnittpunkt den Hauptpol (2).
+
+Zur Konstruktion der Einflusslinie wird im Normalkraftgelenk eine Spreizung von Eins erzeugt. Vertikal, also in Lastrichtung, bedeutet dies in der Projektion eine relative Verschiebung der Scheiben zueinander im Gelenk und auch \"{u}ber den Hauptpolen von $0.5\cdot\sqrt{2}$ m. Die relative Verschiebung \"{u}ber den Hauptpolen l\"{a}sst sich zur Konstruktion der Scheiben in der Projektion nutzen, da hier wegen der Unverschieblichkeit der Hauptpole die Verschiebung der Scheibe $2$ \"{u}ber dem Hauptpol (3)  $0.5 \cdot \sqrt{2}$ m betr\"{a}gt und umgekehrt die Verschiebung der Scheibe $3$ \"{u}ber dem Hauptpol (2) absolut genommen $0.5 \cdot \sqrt{2}$ m betr\"{a}gt.
+
+
+Die vertikalen Anteile der Bewegungen des Lastgurtes bilden wieder die gesuchte Einfluss\-linie.
+
+
+%Bsp: 2.17
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r ein Moment, Abb. \ref{U248}}}}
+
+In Abb. \ref{U248} ist die Einflusslinie f\"{u}r das Biegemoment im Punkt $i$ gesucht, und so wird an der Stelle $i$ zun\"{a}chst ein Momentengelenk eingef\"{u}gt. Das vormals statisch bestimmte System ist nun verschieblich. Die normierte Verschiebungsfigur ergibt sich dann \"{u}ber die Bedingung $\textcolor{chapterTitleBlue}{\tan\,\Np_r +\tan\,\Np_l=1}$. Diese ist genau dann erf\"{u}llt, wenn die vertikale Verschiebung im Aufpunkt $i$ den Wert
+\begin{align}
+\eta=\frac{ x_1\cdot x_2 }{ x_1+x_2}=\frac{ 3\cdot 4 }{ 3+4}=\frac{ 12 }{7}
+\end{align}
+hat.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U249}
+\caption{Einflussfunktion (-linie) f\"{u}r ein Moment bei vertikaler Wanderlast} \label{U249}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Zum Schluss muss man noch die Verschiebungsfigur in die Lastrichtung projizieren. Die Verdrehungen der drei Scheiben in der Projektion stimmen mit den Verdrehungen in der Verschiebungsfigur \"{u}berein. In den Hauptpolen ist die Verschiebung null und somit auch in der Projektion. Unter Beachtung dieser Zusammenh\"{a}nge ist es im Allgemeinen m\"{o}glich, sofort die Projektion des Lastgurtes in der Verschiebungsfigur zu zeichnen, ohne vorher die komplette Verschiebungsfigur am verschieblichen System zu bestimmen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r ein Moment, Abb. \ref{U249}}}}
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U250}
+\caption{Einflussfunktion f\"{u}r eine Querkraft bei vertikaler Wanderlast} \label{U250}
+\end{figure}%%
+%-----------------------------------------------------------------
+In Abb. \ref{U249} ist ebenfalls die Einflusslinie f\"{u}r ein Biegemoment in einem Punkt $i$ gesucht. An der Stelle $i$ wird zun\"{a}chst wieder ein Momentengelenk eingef\"{u}gt, wodurch das ehemals statisch bestimmte System verschieblich wird. Im Unterschied zum Beispiel in Abb. \ref{U248} liegen beide Hauptpole der im Gelenk $i$, dem Nebenpol, miteinander verbundenen Scheiben, auf der rechten Seite des Gelenkes.
+
+Die normierte Verschiebungsfigur ergibt sich nun \"{u}ber die Bedingung $\textcolor{chapterTitleBlue}{\tan\,\Np_4 -\tan\,\Np_2=1}$. Diese ist erf\"{u}llt, wenn die relative Verdrehung zwischen den beiden Scheiben $2$ und $4$ gleich eins ist, was genau dann der Fall ist, wenn die vertikale Verschiebung im Aufpunkt $i$ den Wert
+\begin{align}
+\eta=\frac{x_2\cdot x_4 }{x_2-x_4}=\frac{3\cdot 1 }{3-1}=\frac{3 }{2}
+\end{align}
+hat.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r eine Querkraft, Abb. \ref{U250}}}}
+
+In Abb. \ref{U250} ist die Einflusslinie f\"{u}r die Querkraft im Punkt $i$ gesucht und so wird an der Stelle $i$ zun\"{a}chst ein Querkraftgelenk eingef\"{u}gt. Analog zum Beispiel in Abb. \ref{U249} liegen beide Hauptpole der in diesem Gelenk verbundenen Scheiben rechts vom Aufpunkt $i$.
+
+Zur Konstruktion der Einflusslinie wird zwischen den beiden Ufern des Querkraftgelenkes eine Spreizung von Eins erzeugt. Negative Arbeit wird dann  geleistet, wenn sich die Scheibe $2$ bzw. die Scheibe $3$ im Uhrzeigersinn bzw. entgegen dem Uhrzeigersinn um die zugeh\"{o}rigen Hauptpole drehen. Diese Drehrichtung findet man so auch in der Projektion wieder.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.8\textwidth]{\Fpath/U251}
+\caption{Einflussfunktionen f\"{u}r zwei Lagerkr\"{a}fte} \label{U251}
+\end{figure}%%
+%-----------------------------------------------------------------
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U318}
+\caption{Spreizung der Bogenmitte um 1 Meter, eine f\"{u}r die Baustatik fundamentale Figur, die zudem verdeutlicht, wie eng Statik und Kinematik zusammenh\"{a}ngen} \label{U318}
+\end{figure}%%
+%---------------------------------------------------------------
+
+Vertikal, also in Lastrichtung, findet man in der Projektion eine relative Verschiebung der Scheiben zueinander im Gelenk und auch \"{u}ber den Hauptpolen von $1$ m. Die relative Verschiebung \"{u}ber den Hauptpolen l\"{a}sst sich zur Konstruktion der Scheiben in der Projektion nutzen, da hier wegen der Unverschieblichkeit der Hauptpole die Verschiebung der Scheibe $2$ \"{u}ber dem Hauptpol (3) absolut $1$ m ist und umgekehrt. Die Teile des Lastgurtes auf den Projektionen der Scheiben geh\"{o}ren zur gesuchten Einflusslinie.
+
+%Bsp: 2.20
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Einflussfunktion f\"{u}r zwei Lagerkr\"{a}fte, Abb. \ref{U251}}}}
+
+In Abb. \ref{U251} sind die Einflusslinien f\"{u}r die Auflagerkr\"{a}fte in $A$ und $B$ gesucht. Nach dem L\"{o}sen der jeweiligen Fessel wird, da die Auflagerkr\"{a}fte genau in Belastungs- und Projektionsrichtung liegen, der Punkt $A$ und $B$ um den Wert $1$ entgegengesetzt zur positiven Richtung der Auflagerkraft, also nach unten, verschoben (negative Arbeit!).
+
+Die Einflusslinie f\"{u}r die Auflagerkraft $A$ l\"{a}sst sich sofort ablesen, da der abgesenkte Punkt der Scheibe $1$ zum Lastgurt und damit zur Einflusslinie geh\"{o}rt. Im Fall der Einflussfunktion f\"{u}r die Auflagerkraft in $B$ geh\"{o}rt dieser abgesenkte Punkt jedoch zu den Scheiben $3$ und $4$, deren Hauptpole im Unendlichen liegen. Damit verschieben sich diese beiden Scheiben parallel ebenfalls um eins nach unten.
+
+Auf diesen beiden Scheiben findet man nun die Bilder der zu den Scheiben $1$ bzw. $2$ geh\"{o}renden Nebenpole (1,3) bzw. (2,4). Die Verbindung von (1) mit (1,3) und von (2) mit (2,4) in der Projektion liefert uns die zum Lastgurt geh\"{o}renden Scheiben $1$ und $2$ und damit die Einflusslinie.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{K\"{a}mpferdruck am Bogen, Abb. \ref{U318}}}}}
+Der K\"{a}mpferdruck $H$ eines Bogens, s. Abb. \ref{U318},
+\begin{align}
+H = \frac{M}{f}\,,
+\end{align}
+ist gleich dem Feldmoment $M$ am gleichlangen Einfeldtr\"{a}ger dividiert durch den Stich $f$. Die richtige Balance zwischen $H$ und $f$ zu finden ist das Kernproblem bei der Konstruktion von H\"{a}ngebr\"{u}cken.
+
+Eigentlich ist ein gelenkig gelagerter Bogen einfach statisch unbestimmt. Wenn aber die Belastung symmetrisch ist, dann ist im Scheitel des Bogens, die Querkraft null und daher kann man dann dort ein Querkraftgelenk einbauen und den Bogen somit statisch bestimmt machen.
+
+In Abb. \ref{U318} wird die Normalkraft $N = H$ im Zenith des Bogens durch den Einbau eines $N$-Gelenks \glq sichtbar gemacht\grq{}. Bei einer Spreizung der Bogenmitte um einen Meter dreht sich die linke Seite des Bogens um den Pol $1$ und alle Punkte, die dieselbe H\"{o}he $f$ \"{u}ber dem Pol haben, schwenken um 0.5 m nach links, wie der Punkt $A$ in Abb. \ref{U318}. Daran kann man $\tan\,\Np = 0.5/f$ ablesen und alle anderen Punkte, die in der Horizontalen den Abstand $\ell/2$ vom Drehpol haben, schwenken um $v = \ell/2 \cdot \tan\,\Np$ nach oben und somit ist $H = P \cdot v = P \cdot l/(4 \cdot f) = M/f$. Bei einer Gleichlast $p$ gilt
+\begin{align}
+H = 2 \cdot p\int_0^{\,\ell/2} x \cdot \tan\,\Np\,dx = \frac{p \cdot \ell^2}{8 \cdot f } =  \frac{M}{f}\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Statisch unbestimmte Tragwerke}}}
+Wenn das Tragwerk statisch unbestimmt ist, dann sind Kr\"{a}fte n\"{o}tig, um die beiden Gelenkh\"{a}lften zu spreizen, aber auch dann ist $A_{2,1} = 0$ und der {\em Satz von Betti\/} reduziert sich wie oben auf
+\begin{align}
+\text{\normalfont\calligra B\,\,}(w_1,w_2) = A_{1,2} = 0\,.
+\end{align}
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U218}
+\caption{Gelenke machen die Schnittgr\"{o}{\ss}en sichtbar} \label{U218}
+\end{figure}%%
+%-----------------------------------------------------------------
+Betrachten wir den Balken in Abb. \ref{U218}. Um die Einflussfunktion f\"{u}r das Biegemoment in Feldmitte zu erzeugen, wird ein Momentengelenk eingebaut und die beiden H\"{a}lften so gegeneinander verdreht, dass sich eine Spreizung
+\begin{align}
+\textcolor{chapterTitleBlue}{\tan\,\Np_r + \tan\,\Np_l = 1}
+\end{align}
+einstellt. Dann integriert man von $0$ bis $x$ und von $x$ bis zum Tr\"{a}gerende $l$
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_2},w) = \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_2},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_2},w)_{(x,l)}\,.
+\end{align}
+Die Randarbeiten an den Tr\"{a}gerenden sind null und an der \"{U}bergangsstelle, im Aufpunkt $x$, heben sich alle Randarbeiten weg, bis auf den Term
+\begin{align}
+\underbrace{-M(x)\,\textcolor{chapterTitleBlue}{w'(x_{-})}}_{\text{von links}} + \underbrace{M(x)\,\textcolor{chapterTitleBlue}{w'(x_+)}}_{\text{von rechts}} = - M(x) \cdot (\textcolor{chapterTitleBlue}{\tan\,\Np_r +\tan\,\Np_l})\,,
+\end{align}
+und somit ergibt sich in der Summe
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_2},w) = -M(x) \cdot \underbrace{(\textcolor{chapterTitleBlue}{\tan\,\Np_r + \tan\,\Np_l})}_{= \textcolor{chapterTitleBlue}{ 1}} + \int_0^{\,l} \textcolor{chapterTitleBlue}{G_2(y,x)}\,p(y)\,dy = 0
+\end{align}
+oder
+\begin{align}
+M(x)  =  \int_0^{\,l} \textcolor{chapterTitleBlue}{G_2(y,x)}\,p(y)\,dy\,.
+\end{align}
+Um die Spreizung zu erzeugen, m\"{u}ssen an dem rechten Tr\"{a}ger links und rechts von dem Gelenk zwei gegengleiche Momente $\pm X$ wirken. In der Praxis macht man das so, dass man zun\"{a}chst ein Momentenpaar $\pm X = 1$ aufbringt, die Relativverdrehung berechnet und dann das $X$ so normiert, dass sich die gew\"{u}nschte Spreizung von eins einstellt.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U169}
+\caption{Einflussfunktion f\"{u}r die Normalkraft in einer St\"{u}tze} \label{U169}
+\end{figure}%%
+%-----------------------------------------------------------------
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U173}
+\caption{Einflussfunktion f\"{u}r das Moment in einem Unterzug} \label{U173}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Das ergibt die folgende Bilanz. Die Arbeit der \"{a}u{\ss}eren Kr\"{a}fte am Original auf den Wegen $G_2(y,x)$ aus der Spreizung ist
+\begin{align}
+A_{1,2} = \int_0^{\,l} \textcolor{chapterTitleBlue}{G_2(y,x)}\,p(y)\,dy - M \cdot (\textcolor{chapterTitleBlue}{\tan\,\Np_l + \tan\,\Np_r})\,,
+\end{align}
+aber die Arbeit der Kr\"{a}fte rechts auf den Wegen links ist null
+\begin{align}\label{ImmerSo}
+A_{2,1} = - \textcolor{chapterTitleBlue}{X} \cdot w'(x) + \textcolor{chapterTitleBlue}{X}\cdot w'(x) = (\textcolor{chapterTitleBlue}{-X + X})\,w'(x) = 0\,,
+\end{align}
+was immer so ist. Die Kr\"{a}fte $\textcolor{chapterTitleBlue}{\pm X} $, also hier die Momente, die die Spreizung des Gelenks bewirken, sind gegengleich und weil die zu den beiden $\textcolor{chapterTitleBlue}{\pm X}$ konjugierte Weggr\"{o}{\ss}e des Originals im Aufpunkt stetig ist ($w'(x)$ springt nicht bei diesem Beispiel), ist die Arbeit der Kr\"{a}fte $\textcolor{chapterTitleBlue}{\pm X}$ in der Summe null.\\
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U219}
+\caption{Eine weiche Feder f\"{a}ngt viel von der Fusspunktsbewegung auf, w\"{a}hrend eine harte Feder fast die ganze Bewegung an den Tr\"{a}ger weitergibt und somit die Einflussfunktion f\"{u}r die Lagerkraft weiter ausschl\"{a}gt als bei einer weichen Feder} \label{U219}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Bei der Berechnung von Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en reduziert sich der {\em Satz von Betti\/}  auf die Gleichung
+\begin{align}
+A_{1,2} =  0\,.
+\end{align}}}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einflussfunktionen f\"{u}r Lagerkr\"{a}fte}}}\index{Einflussfunktionen f\"{u}r Lagerkr\"{a}fte}
+Lagerkr\"{a}fte k\"{o}nnen, wie andere Schnittkr\"{a}fte auch, durch den Einbau eines entsprechenden Gelenks sichtbar gemacht werden.
+Die Einflussfunktion entsteht dann wie gewohnt durch die Spreizung des Lagers.  Wenn der Boden starr ist, dann kann sich nur eine Seite des Lagers bewegen, die somit allein den vollen Weg $1$ gehen muss und die $1$ geht in voller H\"{o}he in das Tragwerk, wie etwa in Abb. \ref{U169}.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U15}
+\caption{Einflussfunktion f\"{u}r eine elastische Einspannung} \label{U15}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Wenn der Boden elastisch ist, dann muss man durch eine lokale Analyse untersuchen, wieviel
+von der $1$ der Boden beitr\"{a}gt und wieviel das Tragwerk.
+
+Die Kraft $X$, die n\"{o}tig ist, um das Lager um 1 m auseinander zu dr\"{u}cken, betr\"{a}gt
+\begin{align}
+X = \frac{k_S\,k_B}{k_S + k_B} \qquad k_B = \text{$k$-Boden} \qquad k_S = \text{$k$-Struktur}\,.
+\end{align}
+Die Steifigkeit $k_S$ der Struktur im Lager ermittelt man, indem man die Verbindung des Tragwerks mit dem Boden l\"{o}st, und mit einer Kraft $X = 1$ gegen das Tragwerk dr\"{u}ckt. Der Kehrwert der Verformung ist $k_S$.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U365}
+\caption{Einflussfunktionen f\"{u}r Querkr\"{a}fte, \textbf{ a)} $V_l$, \textbf{ b)} $V_r$ und \textbf{ c)} die Lagerkraft $B = V_r - V_l$} \label{U365}
+\end{figure}%
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/1GREENF74D}
+\caption{Wie die Einflussfunktion f\"{u}r die Querkraft \"{u}ber den Tr\"{a}ger wandert und dabei im Grunde immer gleich bleibt, \cite{Ha6}. }
+\label{1GreenF74}%
+%
+\end{figure}%%
+%----------------------------------------------------------
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/1GREENF73D}
+\caption{Wie die Einflussfunktion f\"{u}r das Biegemoment \"{u}ber den Tr\"{a}ger wandert und dabei im Grunde immer gleich bleibt, \cite{Ha6}.}
+\label{1GreenF73}%
+%
+\end{figure}%%
+
+%----------------------------------------------------------------------------------------------------------
+Ein verwandtes Problem stellen nachgiebige St\"{u}tzen (= Federn) dar, s. Abb. \ref{U219}.
+Wenn die Feder sehr weich ist, dann wird der Weg $1 $, den der Fusspunkt der Feder geht, zu einem gro{\ss}en Teil von der Feder verschluckt und der Tr\"{a}ger sp\"{u}rt wenig von der Spreizung, d.h. die Einflussfunktion verl\"{a}uft sehr flach in dem Tr\"{a}ger. Umgekehrt, wenn die Feder sehr hart ist, dann teilt sich der Weg $1 $ am Fuss der Feder dem Tr\"{a}ger deutlich mit, d.h. die Feder nimmt relativ viel Last auf, weil die Einflussfunktion jetzt weit ausschwingt.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U282}
+\caption{Durchlauftr\"{a}ger unter Gleichlast, \textbf{ a)} die Einflussfunktion f\"{u}r die Lagerkraft, \textbf{ b)} die Nullstellen der Querkraft, \textbf{ c)} Momentenverlauf } \label{U282}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Eine elastische Einspannung, s. Abb. \ref{U15}, kann durch eine Drehfeder mit der Steifigkeit $k_\Np$ simuliert werden. Bei einer Drehfeder betr\"{a}gt der Zusammenhang zwischen Drehwinkel $\Np$ und dem Moment $M$
+\begin{align}
+M = k_{\Np}\,\tan\,\Np\,.
+\end{align}
+Um die Drehfedersteifigkeit des Tragwerks zu ermitteln, denken wir uns das Tragwerk frei drehbar durch ein Gelenk mit der Einspannstelle verbunden und wir lassen ein Moment $X = 1 $ wirken. Sei $\tan\,\Np$ der Tangens des Drehwinkels, der sich dabei einstellt, dann betr\"{a}gt die Drehsteifigkeit der Struktur (S)
+\begin{align}
+k_{\Np}^S = \frac{1}{\tan\,\Np}\,,
+\end{align}
+und das Moment $X$, das f\"{u}r eine Spreizung $1$ n\"{o}tig ist, hat die Gr\"{o}{\ss}e
+\begin{align}
+X = \frac{k_\Np^S\,k_\Np}{k_\Np^S + k_\Np} \,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Spr\"{u}nge in Schnittgr\"{o}{\ss}en}}}\index{Spr\"{u}nge in Schnittgr\"{o}{\ss}en}
+Momente $M$ oder Querkr\"{a}fte $V$ k\"{o}nnen springen. Es macht daher keinen Sinn einen Aufpunkt genau in einen solchen Sprung, wie das Zwischenlager eines Balkens, zu legen, s. Abb. \ref{U365}. Man kann nur eine Einflussfunktion f\"{u}r die linke Querkraft aufstellen und eine Einflussfunktion f\"{u}r die rechte Querkraft. Die Einflussfunktion f\"{u}r den Sprung $V_r - V_l$ ist identisch mit der Einflussfunktion f\"{u}r die Lagerkraft, die sich ja aus beiden Teilen zusammensetzt.
+
+Im Angriffspunkt einer Einzelkraft $P = 1$ springt die Querkraft um eins und deswegen weisen Einflussfunktionen den typischen Sprung auf, s. Abb. \ref{1GreenF74}. Rechnerisch kommt er durch die Spreizung des Querkraftgelenks in das System hinein.
+
+Die Einflussfunktionen f\"{u}r Schnittmomente sind immer stetig, springen nicht, weil sie ja die Wirkung von vertikalen Wanderlasten (keinen Momenten) erfassen, s. Abb. \ref{1GreenF73}. Wollte man Spr\"{u}nge sehen, dann m\"{u}sste man die Ableitung der Einflussfunktion antragen. Diese Kurve w\"{a}re dann die Einflussfunktion f\"{u}r Wandermomente.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Die Nullstellen der Querkraft}}}\index{Nullstellen der Querkraft}
+Praktiker sch\"{a}tzen die Gr\"{o}{\ss}e einer Lagerkraft \"{u}ber das Querkraftdiagramm ab. Je weiter die Nullstellen der Querkraft auseinander liegen, um so gr\"{o}{\ss}er ist die Lagerkraft, s. Abb. \ref{U282}.
+
+Diese Absch\"{a}tzung beruht auf der Formel $V'(x) = - p(x)$. Links vom Lager (Koordinate $x_s$) gilt
+\begin{align}
+\int_{x_a}^{\,x_s}\,V'(x)\,dx = V_l - V(x_a) = V_l
+\end{align}
+und rechts vom Lager
+\begin{align}
+\int_{x_s}^{\,x_b}\,V'(x)\,dx = V(x_b) - V_r = - V_r
+\end{align}
+und somit ergibt sich die Lagerkraft zu
+\begin{align}
+R = V_r - V_l = \int_{x_s}^{\,x_b}\,p(x)\,dx + \int_{x_a}^{\,x_s}\,p(x)\,dx = \int_{x_a}^{\,x_b} \,p(x)\,dx\,.
+\end{align}
+In allen Lastf\"{a}llen $p = c$ (konstante Streckenlast) ist bei einem Durchlauftr\"{a}ger die Lage und der Abstand der Nullpunkte gleich und der Abstand ist gleich der Fl\"{a}che der Einflussfunktion
+\begin{align}
+R = \int_0^{\,l}  G(y,x_s) \cdot c\,dy = (x_b - x_a) \cdot c\,.
+\end{align}
+\"{A}hnliches gilt f\"{u}r das St\"{u}tzmoment $M = M_l = M_r$. Aus $M'(x) = V(x)$ folgt
+\begin{align}
+M = M_l = \int_{x_a}^{\,x_s} V\,dx \qquad M = M_r = -\int_{x_s}^{\,x_b} V\,dx\,,
+\end{align}
+wenn jetzt $x_a$ und $x_b$ die Nullstellen im $M$-Verlauf bezeichnen, s. Abb. \ref{U282} c. Das St\"{u}tzmoment ist also gleich dem Fl\"{a}cheninhalt von $V$ auf der linken Seite bzw. von $-V$ auf der rechten Seite.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Dirac Deltas}}}\index{Dirac Delta}
+All diese Ergebnisse, die wir oben doch relativ m\"{u}hsam durch Aufspalten des Integrationsbereichs in zwei Teile und dem genauen Verfolgen der einzelnen Terme hergeleitet haben, kann man mit dem
+Dirac Delta viel schneller hinschreiben.
+
+Das Dirac Delta wurde eingef\"{u}hrt, um mit Einzelkr\"{a}ften wie mit anderen Funktionen auch rechnen zu k\"{o}nnen. Das Dirac Delta ist eine Linienlast, die in allen Punkten $y$ au{\ss}er dem Aufpunkt $x$ null ist
+\begin{align}
+\delta_0(y-x) =  0 \qquad y \neq x\,,
+\end{align}
+und die bei einer virtuellen Verr\"{u}ckung $w$ gerade die Arbeit $w(x) \cdot 1$ leistet
+\begin{align}
+\int_0^{\,l} \delta_0(y-x)\, w(y)\,dy = w(x) \qquad x \in (0,l)\,,
+\end{align}
+ganz so, wie man sich das von einer echten Einzelkraft vorstellt.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U117}
+\caption{In der obersten Reihe sind die vier Einflussfunktionen eines Balkens f\"{u}r \textbf{ a)} $w$, \textbf{ b)} $w'$, \textbf{ c)} $M $ und \textbf{ d)} $V$, jeweils in der Balkenmitte, dargestellt. In der zweiten Reihe sieht man die Einflussfunktionen f\"{u}r einen Stab, \textbf{ e)} $u$, \textbf{ f)} $N$. Die Einflussfunktionen integrieren, $+ $,  bzw. differenzieren, $-$, die Belastung} \label{U117}
+%
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Die Biegelinie, die zu der Einzelkraft geh\"{o}rt, ist dann die L\"{o}sung der Differentialgleichung
+\begin{align}
+\textcolor{chapterTitleBlue}{EI \frac{d^4}{dy^4}\,G_0(y,x) = \delta_0(y-x)}
+\end{align}
+und mit dieser Definition und aufgrund der obigen Eigenschaften des Dirac Deltas ergibt sich die Einflussfunktion f\"{u}r $w(x) $ sozusagen automatisch
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{G_0},w) &= \int_0^{\,l} \textcolor{chapterTitleBlue}{\delta_0(y-x)}\,w(y)\,dy - \int_0^{\,l} \textcolor{chapterTitleBlue}{G_0(y,x)}\,p(y)\,dy \nn \\
+&= w(x) - \int_0^{\,l} \textcolor{chapterTitleBlue}{G_0(y,x)}\,p(y)\,dy  = 0\,.
+\end{align}
+Die Einflussfunktionen f\"{u}r die zweite Weggr\"{o}{\ss}e, $w'(x) $, und die beiden Kraftgr\"{o}{\ss}en, $M(x) $ und $V(x) $, ergeben sich analog durch Einf\"{u}hrung weiterer Dirac Deltas\index{$\delta_0$}\index{$\delta_1$}\index{$\delta_2$}\index{$\delta_3$}
+\begin{alignat}{2}
+&\delta_0(y-x) \qquad &&\text{Kraft $P = 1$}\nn \\
+&\delta_1(y-x) \qquad &&\text{Moment $M = 1$}\nn \\
+&\delta_2(y-x) \qquad &&\text{Knick $\Delta w' = 1$}\nn\\
+&\delta_3(y-x) \qquad &&\text{Versatz $\Delta w = 1$}\nn
+\end{alignat}
+mit entsprechenden Eigenschaften, s. Abb. \ref{U117},
+\begin{subequations}
+\begin{alignat}{2}
+&\int_0^{\,l} \delta_0(y-x)\,w(y)\,dy = w(x) \\
+&\int_0^{\,l} \delta_1(y-x)\,w(y)\,dy = w'(x) \\
+&\int_0^{\,l} \delta_2(y-x)\,w(y)\,dy = M(x) \\
+&\int_0^{\,l} \delta_3(y-x)\,w(y)\,dy = V(x)\,.
+\end{alignat}
+\end{subequations}
+Die Dirac Deltas sind sozusagen die Akteure, die aus der Biegelinie $w$ die interessierende Gr\"{o}{\ss}e herauspr\"{a}parieren.
+
+Das Operieren mit Dirac Deltas is ein sehr eleganter Kalk\"{u}l, mit dem man sehr einfach die vielen Schritte, die zur Herleitung einer Einflussfunktion n\"{o}tig sind, wie die Zweiteilung des Intervalls, die genaue Verfolgung des Sprungs in der Querkraft, etc., umgehen kann, aber auf der anderen Seite darf man nicht vergessen, dass man nur auf diesem analytischen Weg
+\begin{align}
+\text{\normalfont\calligra B\,\,}(G_0,w) = \text{\normalfont\calligra B\,\,}(G_{@0}^{@l},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(G_0^R,w)_{(x,l)} = 0 + 0
+\end{align}
+die Ergebnisse wirklich herleiten kann. Wenn man danach wei{\ss}, was herauskommt, kann man die Abk\"{u}rzung nehmen, aber vorher muss man wissen, was eigentlich herauskommt...
+
+Und noch eine Anmerkung: Die Punkt\-werte $w(x)$ etc. entspringen gar nicht dem Gebietsintegral, wie es das Dirac Delta glauben machen will, sondern es ist die Differenz zweier Randarbeiten, (Querkraftsprung), die den Punkt\-wert $w(x) $ liefert
+\begin{align}
+ \underbrace{(\textcolor{chapterTitleBlue}{V_{@0}^{@l}(x) - V_0^R(x))}}_{= 1}\,w(x) = \textcolor{chapterTitleBlue}{1}\cdot w(x)\,.
+\end{align}
+Das ist auch bei 2-D und 3-D Problemen so. Dann sind die Punktwerte die Grenzwerte von Randintegralen l\"{a}ngs der kreisf\"{o}rmigen \"{O}ffnung, die den Aufpunkt umgibt, und die sich dann zu einem Punkt zusammenschn\"{u}rt.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U220}
+\caption{\textbf{ a)} Gleichgewicht der Kr\"{a}fte am Stab: Ut tenso sic vis, \textbf{ b)} Gleichheit der Arbeiten beim Flaschenzug} \label{U220}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Die f\"{u}r uns wichtigste Eigenschaft von Dirac Deltas ist, dass man sie integrieren kann. Genauer gesagt, dass man feste Regeln daf\"{u}r hat, was
+\begin{align}
+\int_0^{\,l} \delta(y-x)\,\Np_i(y)\,dy
+\end{align}
+bedeuten soll, denn so kann man die Dirac Deltas nahtlos in die Methode der finiten Elemente einf\"{u}gen, kann man jedem Dirac Delta \"{a}quivalente Knotenkr\"{a}fte zuordnen\footnote{In Kapitel 1, $\vek K\,\vek u = \vek f + \vek p$, haben wir zwischen echten Knotenkr\"{a}ften $\vek f $ und \"{a}quivalenten Knotenkr\"{a}ften $\vek p$ aus Lasten im Feld unterschieden, um uns aber nicht zu weit vom {\em mainstream\/} zu entfernen, bezeichnen wir von nun ab, alle Kr\"{a}fte mit $\vek f $.}
+\begin{subequations}
+\begin{align}
+f_i &= \int_0^{\,l} \delta_0(y-x)\,\Np_i(y)\,dy = \Np_i(x) \\
+f_i &= \int_0^{\,l} \delta_1(y-x)\,\Np_i(y)\,dy = \Np_i'(x)\\
+f_i &= \int_0^{\,l} \delta_2(y-x)\,\Np_i(y)\,dy = M(\Np_i)(x) \\
+f_i &= \int_0^{\,l} \delta_3(y-x)\,\Np_i(y)\,dy = V(\Np_i)(x)\,.
+\end{align}
+\end{subequations}
+Hier bedeutet $M(\Np_i)(x)$ das Moment der Ansatzfunktion $\Np_i$ im Aufpunkt $x$ und analog ist $ V(\Np_i)(x)$ die Querkraft von $\Np_i$ im Aufpunkt $x$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Dirac Energie}}}\index{Dirac Energie}
+Das Geheimnis des Flaschenzuges ist, dass die Kraft, die am Seilende zieht, und das Gewicht dieselbe Arbeit verrichten , s. Abb. \ref{U220}.
+
+Auch Einflussfunktionen dr\"{u}cken eine solche Balance aus, eine Energiebalance. Die Arbeit, die eine Einzelkraft $P = 1$
+auf dem Weg $w(x)$ verrichtet
+\beq
+1 \cdot w(x) = \int_0^{\,l}  G_0(y,x)\,p(y)\,dy\,,
+\eeq
+ist dieselbe, die die verteilte Belastung $p$ auf dem Weg $G_0(y,x)$, der Durchbiegung des Balkens unter der Einzelkraft, leistet.
+
+Der Faktor 1 ist wesentlich, weil ohne diesen Faktor die Dimensionen nicht \"{u}bereinstimmen
+\begin{align}
+\!\!\!\!\!Kraft \cdot Weg =  1 \cdot u(x) &= \int_0^{\,l} G_0(y, x)\,p(y)\,dy \nn \\
+&= Weg \cdot Kraft/L\ddot{a}nge \cdot L\ddot{a}nge\,.
+\end{align}
+Die Auswertung einer Einflussfunktion ergibt daher eine {\em Energie\/}. Wir nennen dieses Energiequantum die {\em Dirac Energie\/}
+\index{Dirac Energie}.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die Dirac Energie ist die Arbeit, die die Belastung auf dem Wege der Einflussfunktion leistet.}}\\
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U32}
+\caption{Schaukel} \label{U32}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Das einfachste Beispiel f\"{u}r diesen Gedanken ist die Schaukel, siehe Abb. \ref{U32}. Die Arbeit der beiden Gewichte ist bei jeder Drehung $\Np$ der Schaukel null
+\begin{align}
+P_l \, u_l - P_r \, u_r = P_l \,\tan \Np \, h_l - P_r \, \tan \Np \, h_r
+= (P_l \, h_l - P_r \, h_r) \,\tan \Np  = 0\,,
+\end{align}
+weil die beiden Kr\"{a}fte dem Hebelgesetz\index{Hebelgesetz} gehorchen, $P_l \, h_l = P_r \, h_r$.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U258}
+\caption{Die Kinematik eines Tragwerks bestimmt den Abtrag der Kr\"{a}fte} \label{U258}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+{\em In diesem Sinne gleicht jede Einflussfunktion einer Schaukel\/}. Um die Querkraft $V(x)$ eines Tr\"{a}gers in einem Punkt $x$ wie in Abb.  \ref{U164A}  zu berechnen, installieren wir im Punkt $x$ ein Querkraftgelenk und spreizen das Gelenk so, dass die beiden Querkr\"{a}fte dabei insgesamt die Arbeit $- V(x) \cdot 1$ leisten
+\beq
+-V(x) \, w(x_{-} ) - V(x) \, w(x_{+}) = -V(x) \, (w(x_{-} )
+ + w(x_{+})) = -V(x) \cdot  1\,.
+\eeq
+Die Arbeit der Punktlast $P$ auf der Verschiebung $w$, die durch die Spreizung des Gelenks ausgel\"{o}st wird, muss genau das Gegenteil davon sein
+\beq
+\underbrace{- V(x) \cdot 1 + P \, w}_{A_{1,2}} = 0 \,,
+\eeq
+wie aus dem {\em Satz von Betti\/}, $A_{1,2} = A_{2,1}$ folgt. (Die Arbeit $A_{2,1}$ ist null, siehe die folgende Bemerkung).
+
+
+Zu jeder Schnittgr\"{o}{\ss}e $V(x), N(x), M(x)$ etc., geh\"{o}rt also ein gewisser Mechanismus, eine gewisse Schaukel, s. Abb. \ref{U258}, und wenn wir das Gelenk l\"{o}sen und die Arbeit berechnen, die die Belastung auf den Wegen leistet, die durch die Spreizung des Gelenks verursacht werden, dann lernen wir, wie gro{\ss} die Schnittgr\"{o}{\ss}e in dem Gelenk sein muss, damit sie die Arbeit der \"{a}u{\ss}eren Belastung ins Gleiche setzt.
+
+Bei einer FE-Berechnung behindern wir die freie Bewegung eines Tragwerks, wir legen dem Tragwerk sozusagen Fesseln an, weil die {\em shape functions\/} $\Np_i(x)$ zu \glq ungelenk\grq{} sind, und daher bekommt das Gelenk das falsche Signal. Die Verschiebung im Fu{\ss}punkt von $P$ ist $w_h$
+\beq
+-V_h(x) \cdot 1 + P \, w_h = 0
+\eeq
+und nicht der exakte Wert $w$
+\beq
+-V(x) \cdot 1  + P \, w = 0\,,
+\eeq
+und so ist $V_h(x) \neq V(x)$. {\em Ein FE-Programm versch\"{a}tzt sich bei den Dirac Energien\/}\footnote{Vor allem bei Fl\"{a}chentragwerken. Bei Stabtragwerken ist die Kinematik meist exakt, es sei denn $EA$ oder $EI$ sind nicht konstant.}.
+
+Wir ziehen also den Schluss, dass die Kinematik eines FE-Netzes, die Feinheit der Details, die Genauigkeit der FE-L\"{o}sung bestimmt.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Netz = Kinematik = Pr\"{a}zision der Einflussfunktionen = G\"{u}te der Ergebnisse}}\\
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U166}
+\caption{Wenn eine Punktlast an der Turmspitze angreift, dann ist die Normalkraft in der Strebe proportional zur Auslenkung der Turmspitze, die durch die Spreizung der Strebe in Achsrichtung verursacht wird} \label{U166}
+\end{figure}%%
+%-----------------------------------------------------------------
+Wir k\"{o}nnen jetzt auch sagen, was ein guter Entwurf\index{guter Entwurf} ist. Die Schaukellogik
+\beq\label{Eq185}
+V(x) = \frac{P \cdot w}{1} = P \cdot \frac{w}{1} \qquad \leftarrow \qquad\text{mache $w$ klein!}
+\eeq
+signalisiert, dass ein Entwurf dann gut ist, wenn das, was von der ausl\"{o}senden Bewegung, also hier der Spreizung 1 des Querkraftgelenks (im Nenner), im Fu{\ss}punkt der Punktlast $P$ ankommt, das ist das $w$ im Z\"{a}hler, so klein wie m\"{o}glich ist, weil dann $V(x)$ nur ein Bruchteil der Belastung $P$ sein wird.
+
+{\em Wirf einen Stein ins Wasser und schau den Wellen zu!\/} Je kleiner die Wellen sind, die die Last erreichen, um so besser.
+Der Hebel des Archimedes ist (ganz bewusst) das Gegenteil eines guten Entwurfs. Dr\"{u}ckt man das kurze linke Ende um eins nach unten, dann stellt sich am rechten Ende eine sehr gro{\ss}e Verschiebung $w$ ein, weswegen Archimedes nur eine kleine Kraft braucht, um die Welt aus den Angeln zu heben. Umgekehrt bedeutet dies aber auch, dass Archimedes lange, lange Wege gehen muss, um die Welt nur ein Iota zu heben.\\
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U445}
+\caption{Fachwerk mit biegesteifen Knoten: Einflussfunktion f\"{u}r ein Moment im Zuggurt. Die Spreizung erzeugt keine Verschiebung in den Knoten und das Bild best\"{a}tigt damit die Zul\"{a}ssigkeit der Fachwerktheorie} \label{U445}
+\end{figure}\label{Korrektur38}
+%-----------------------------------------------------------------
+\begin{remark}
+Glg. (\ref{Eq185}) macht noch einmal deutlich, dass Einfluss ein Verh\"{a}ltnis $w/1$ von zwei Verschiebungen ist, und daher ist es gleichg\"{u}ltig, ob die ausl\"{o}sende Spreizung 1 mm, 1 cm, 1 m oder 1 km ist. Es kommt nur auf das Verh\"{a}ltnis von gesp\"{u}rter Bewegung zu ausl\"{o}sender Bewegung an.
+\end{remark}
+
+Die Abb. \ref{U166} soll zeigen, dass der Normalkraftanteil einer Strebe an einer Last $\vek P = \{P_x, P_y, P_z\}^T$ an der Spitze des Eiffelturms, davon bestimmt wird, wie gro{\ss} die Auslenkungen $g_x, g_y, g_z$ sind, die die Spreizung der Strebe an der Spitze des Turms verursacht
+\begin{align}
+1 \cdot N = P_x \cdot g_x + P_y \cdot g_y + P_z \cdot g_z\,.
+\end{align}
+Die Abb. \ref{U445} demonstriert, dass die Kinematik die Fachwerktheorie best\"{a}tigt, mit der der Eiffelturm ja berechnet wurde (+ grafischer Statik(!)). Die Knoten verschieben sich bei der Spreizung des Aufpunktes nicht und so k\"{o}nnen Lasten in den Knoten keine Momente in dem Gurt erzeugen, d.h. die Knoten k\"{o}nnen in solchen Lastf\"{a}llen gelenkig gerechnet werden.
+
+Der Schadensfall in Abb. \ref{U531} belegt eindr\"{u}cklich, welche gro{\ss}e und wichtige Rolle die Kinematik in der Statik spielt. Wir haben dieses Bild auch zu Ehren von Prof. C. Petersen eingef\"{u}gt, der \"{u}ber Zylinderschalen mit ver\"{a}nderlicher Kr\"{u}mmung promoviert hat, \cite{Petersen0}.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U531}
+\caption{Die Kinematik \glq ist das Schicksal\grq{} -- sie bestimmt die Kr\"{a}fte. Nach 200 Jahren wurden Sicherungsma{\ss}nahmen an einer als Korbbogen ausgebildeten Br\"{u}cke n\"{o}tig, die man damals nachtr\"{a}glich \"{u}berbaut hat, {\em Kassel Schloss Wilhelmsh\"{o}he\/}} \label{U531}
+\end{figure}
+%-----------------------------------------------------------------
+\vspace{-0.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Punktwerte bei Fl\"{a}chentragwerken}}}
+Punktwerte, wie etwa die Durchbiegung $w(x)$ eines Balkens, kommen direkt in der zweiten Greenschen Identit\"{a}t der Balkengleichung vor und daher ist es ein einfaches, eine Einflussfunktion f\"{u}r $w(x)$ herzuleiten, man muss nur den Balken in zwei Teile teilen, denn dann springt wie von selbst an der Intervallgrenze mit Hilfe des dualen Lastfalls, der Einzelkraft $P = 1$, der Wert $w(x)$ heraus
+\begin{align}
+1 \cdot w(x) = \int_0^{\,l} G_0(y,x)\,p(y)\,dy\,.
+\end{align}
+Bei Fl\"{a}chentragwerken ist das anders. Die Biegefl\"{a}che $w(\vek x)$ einer Membran ist die L\"{o}sung des Randwertproblems
+\begin{align}
+- \Delta w = p \qquad  w = 0 \,\,\,\text{auf dem Rand $\Gamma$}\,,
+\end{align}
+und in der zugeh\"{o}rigen zweiten Greensche Identit\"{a}t,
+\begin{align}
+\text{\normalfont\calligra B\,\,}(w,\hat{w}) &= \int_{\Omega} - \Delta\,w\,\hat{w}\,d\Omega + \int_{\Gamma} \frac{\partial w}{\partial n}\,\hat{w}\,ds \nn \\
+&- \int_{\Gamma} w\,\frac{\partial \hat{w}}{\partial n}\,ds - \int_{\Omega} w\,(- \Delta \hat{w})\,d\Omega = 0\,,
+\end{align}
+stehen nur Integrale, aber keine Punktwerte.
+
+Der \"{U}bergang zum Punkt gelingt, weil die Biegefl\"{a}che $G_0(\vek y,\vek x)$, die zu einer Punktlast $P = 1$ geh\"{o}rt, die Eigenschaft hat, dass das Integral der Querkr\"{a}fte $\partial G_0/\partial n$ der Membran \"{u}ber immer enger gezogene Kreise $\Gamma_\varepsilon$ um den Aufpunkt in der Grenze den Wert $1$ hat
+\begin{align}\label{Eq88}
+\lim_{\varepsilon \to 0} \int_{\Gamma_\varepsilon} Querkraft\,\,ds = \lim_{\varepsilon \to 0} \int_{\Gamma_\varepsilon} \frac{\partial G_0}{\partial n}\,ds = 1\,.
+\end{align}
+Dieser Grenzwert macht den \"{U}bergang vom Integral zum Punkt m\"{o}glich. Es ist eine sehr wichtige Eigenschaft von $G_0$.
+
+Man formuliert daher den {\em Satz von Betti\/} zun\"{a}chst auf dem gelochten Gebiet $\Omega_\varepsilon = \Omega - N_\varepsilon$, spart also einen kleinen Kreis $N_\varepsilon$ um den Aufpunkt aus, und l\"{a}sst dann den Radius $\varepsilon \to 0$ gegen null gehen. In der Grenze
+\begin{align}
+\text{\normalfont\calligra B\,\,}(G_0,w) := \lim_{\varepsilon \to 0} \int_{\Gamma_\varepsilon} \frac{\!\!\partial G_0(\vek y,\vek x)}{\partial n}\,w(\vek y)\,\,ds_{\vek y} - \lim_{\varepsilon \to 0} \int_{\Omega_\varepsilon} \!\!G_0(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y} = 0
+\end{align}
+ erh\"{a}lt man so die Einflussfunktion f\"{u}r $w(\vek x)$ in dem Aufpunkt $\vek x$,
+\begin{align}
+ 1 \cdot w(\vek x) = \int_{\Omega} G_0(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y}\,.
+\end{align}
+Die Herleitung von Einflussfunktionen bei Fl\"{a}chentragwerken ist sehr technisch und nicht immer einfach, siehe \cite{Ha2} und \cite{Ha3}. Zum Gl\"{u}ck geht das ganze mit finiten Elementen aber viel einfacher, s. Kapitel 3.\\
+
+\begin{remark}
+Bei einem Seil ist $V = H\,w'$ die Querkraft, bei einer Membran ist die Querkraft $v_n$ in einem Schnitt mit der Schnittnormalen $\vek n$ die Normalableitung der Biegefl\"{a}che in Richtung von $\vek n$
+\begin{align}
+v_n = H\,\frac{\partial w}{\partial n} = H\,\nabla w \dotprod \vek n = H\,(w,_x\,n_x + w,_y\,n_y)\qquad \text{[kN/m]}\,.
+\end{align}
+$H$ ist die Vorspannkraft, die wir oben Eins gesetzt haben.
+\end{remark}
+
+\vspace{-0.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Dualit\"{a}t}}}\index{Dualit\"{a}t}
+Hinter dem {\em Satz von Betti\/} steckt ein Begriff, der f\"{u}r das Rechnen in der Statik sehr wichtig ist, der Begriff der {\em Dualit\"{a}t\/}.
+
+Den einfachsten Zugang zu diesem Thema bietet eine Steifigkeitsmatrix $\vek K$. Wenn man die Matrix mit einem Vektor $\vek u$ multipliziert, $\vek K\,\vek u$, und diesen
+Vektor dann skalar mit einem zweiten Vektor $\textcolor{chapterTitleBlue}{\vek \delta \vek u} $, ist das Ergebnis eine Zahl $\textcolor{chapterTitleBlue}{\vek \delta \vek u^T}\,\vek K\,\vek u$.
+
+Weil eine  reelle Zahl wie $\pi$ sich nicht \"{a}ndert, wenn man sie transponiert, $\pi^T = \pi$, gilt
+\begin{align}
+\textcolor{chapterTitleBlue}{\vek \delta \vek u^T}\,\vek K\,\vek u = \vek u^T\,\vek K\,\textcolor{chapterTitleBlue}{\vek \delta \vek u}
+\end{align}
+oder
+\begin{align}\label{Eq39}
+\text{\normalfont\calligra B\,\,}(\vek u,\textcolor{chapterTitleBlue}{\vek \delta \vek u})= \textcolor{chapterTitleBlue}{\vek \delta \vek u^T}\,\vek K\,\vek u - \vek u^T\,\vek K\,\textcolor{chapterTitleBlue}{\vek \delta \vek u} = 0\,.
+\end{align}
+Das ist der {\em Satz von Betti\/} f\"{u}r symmetrische, d.h. selbstadjungierte Matrizen\index{selbstadjungierte Matrizen}.  Symmetrie bei Matrizen ist dasselbe wie selbstadjungiert bei Differentialgleichungen.
+
+Eine Steifigkeitsmatrix kann man bekanntlich als die Abbildung eines Vektors $\vek u$ auf einen Vektor $\vek f$ lesen
+\begin{align}
+\vek K\,\vek  u = \vek f\,.
+\end{align}
+Nun stellen wir uns vor, wir kennen den Vektor $\vek f$, der etwa die Knotenkr\"{a}fte eines Fachwerks darstellt, und wir wollen die Komponente $u_1$ des Vektors $\vek u$ im LF $\vek f$ wissen.
+
+Um $u_1$ zu bestimmen, l\"{o}sen wir das Gleichungssystem
+\begin{align}\label{Eq38}
+\vek K\,\textcolor{chapterTitleBlue}{\vek g_1} = \textcolor{chapterTitleBlue}{\vek e_1}\,,
+\end{align}
+wir vertauschen also $\vek f$ mit dem ersten Einheitsvektor $\textcolor{chapterTitleBlue}{\vek e_1^T = \{1,0,0,\ldots,0\}}$.
+Mit der L\"{o}sung $\textcolor{chapterTitleBlue}{\vek g_1}$ und dem Vektor $\vek u$ gehen wir dann in
+die Identit\"{a}t (\ref{Eq39})
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\textcolor{chapterTitleBlue}{\vek g_1},\vek u) = \textcolor{chapterTitleBlue}{\vek g_1^T}\,\vek f - \vek u^T\,\textcolor{chapterTitleBlue}{\vek e_1} = \textcolor{chapterTitleBlue}{\vek g_1^T}\,\vek f - u_1 = 0
+\end{align}
+und erhalten so das gew\"{u}nschte Resultat
+\begin{align}
+u_1 = \textcolor{chapterTitleBlue}{\vek g_1^T}\,\vek f\,.
+\end{align}
+Zu jeder Komponente $u_i$ gibt es einen solchen Vektor $\textcolor{chapterTitleBlue}{\vek g_i}$, der die L\"{o}sung von
+\begin{align}
+\vek K\,\textcolor{chapterTitleBlue}{\vek g_i }= \textcolor{chapterTitleBlue}{\vek e_i}\,,
+\end{align}
+ist und mit dem man $u_i$ aus der rechten Seite $\vek f$ berechnen kann, s. Abb. \ref{U42},
+\begin{align}
+u_i = \textcolor{chapterTitleBlue}{\vek g_i^T}\,\vek f\,.
+\end{align}
+Indem man also den Vektor $\vek f$ auf die $n$ Vektoren $\textcolor{chapterTitleBlue}{\vek g_i, i = 1, 2 \ldots n}$ projiziert, kann man die L\"{o}sung $\vek u = u_1\,\vek e_1 + \ldots + u_n\,\vek e_n$
+bestimmen, denn die Projektion von $\vek f$ auf die Vektoren $\textcolor{chapterTitleBlue}{\vek g_i}$ ist dasselbe, wie die Projektion von $\vek u$ auf die Einheitsvektoren $\textcolor{chapterTitleBlue}{\vek e_i}$
+\beq\label{Eq40}
+u_i = \textcolor{chapterTitleBlue}{\vek g_i^T} \vek f = \vek u^T\,\textcolor{chapterTitleBlue}{\vek e_i}\,.
+\eeq
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=.65\textwidth]{\Fpath/U42}
+\caption{Dualit\"{a}t am Beispiel der linearen Algebra, Dualit\"{a}t = \glq \"{u}ber Kreuz\grq{}}
+\label{U42}%
+\end{figure}%%
+%--------------------------------------------------------------------------------------------------
+Genau das passiert, (f\"{u}r alle $u_i$ gleichzeitig), wenn wir den Vektor $\vek f$ mit der inversen Matrix $\vek K^{-1}$ multiplizieren
+\beq
+\vek u = \vek K^{-1}\,\vek f\,,
+\eeq
+denn die Zeilen (und Spalten) der symmetrischen Matrix $\vek K^{-1}$ sind gerade die Vektoren $\textcolor{chapterTitleBlue}{\vek g_i}$ und daher folgt
+\beq
+\vek u = (\textcolor{chapterTitleBlue}{\vek g_1^T}\,\vek f) \, \vek e_1 + (\textcolor{chapterTitleBlue}{\vek g_2^T}\,\vek f) \,\vek e_2 + \ldots + (\textcolor{chapterTitleBlue}{\vek g_n^T}\,\vek f)\,\vek e_n\,.
+\eeq
+Geht es um Funktionen, also die L\"{o}sungen von Differentialgleichungen, wie zum Beispiel
+\beq
+- EA\,u''(x) = p(x) \qquad u(0) = u(l) = 0\,,
+\eeq
+dann hat die Matrix $\vek K$  unendlich viele Spalten, und die Einheitsvektoren gehen in Dirac Deltas \"{u}ber
+\beq
+- EA\frac{d^2}{dy^2} \,\textcolor{chapterTitleBlue}{G(y,x)} = \textcolor{chapterTitleBlue}{\delta(y- x)}\,,
+\eeq
+aber der Formalismus ist derselbe. Indem wir die rechte Seite $p$ auf die L\"{o}sungen $\textcolor{chapterTitleBlue}{G(y,x)}$ projizieren, also das $L_2$-Skalarprodukt (Integral) der beiden Funktionen bilden, k\"{o}nnen wir den Wert der L\"{o}sung an jeder Stelle $x$ berechnen
+\beq\label{Eq41}
+u(x) = \underbrace{\int_0^{\,l} \textcolor{chapterTitleBlue}{G(y,x)}\,p(y)\,dy}_{\textcolor{chapterTitleBlue}{\vek g_i^T} \vek f} = \underbrace{\int_0^{\,l} \textcolor{chapterTitleBlue}{\delta(y-x)}\,u(y)\,dy}_{\vek u^T\,\textcolor{chapterTitleBlue}{\vek e_i}}\,.
+\eeq
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U44A}
+\caption{Einflussfunktionen werden von Monopolen (linke Seite) bzw. Dipolen (rechte Seite) erzeugt,  Einflussfunktion f\"{u}r \textbf{ a)} Durchbiegung,  \textbf{ b)} Verdrehung $w,_x$, \textbf{ c)} Moment $m_{xx}$,  \textbf{ d)} Querkraft $q_x$ }\label{U44A}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Monopole und Dipole}}}\index{Monopole}\index{Dipole}
+Die Einflussfunktion f\"{u}r die Verdrehung $w'$ eines Balkens wird durch ein Einzelmoment $M = 1 $ erzeugt
+\beq
+M = \lim_{\Delta x \to 0} \,\,\frac{1}{\Delta x}  \, \Delta x = 1\,,
+\eeq
+das man sich durch zwei gegengleiche Kr\"{a}fte, $P = \pm 1/\Delta x$, erzeugt denken kann, deren Abstand $\Delta x $ gegen null geht, w\"{a}hrend gleichzeitig die Kr\"{a}fte gegen unendlich gehen. In der Physik nennt man dies einen {\em Dipol\/}.
+
+Die Einflussfunktion f\"{u}r eine Durchbiegung $w(x)$ hingegen wird von einem {\em Monopol\/}, einer Einzelkraft, erzeugt.
+
+Einflussfunktionen, die von Monopolen erzeugt werden, summieren. Solche Einflussfunktionen gleichen Dellen oder Senken, s. Abb. \ref{U44A} und \ref{U77} a. Alles was in die Delle hineinf\"{a}llt, vergr\"{o}{\ss}ert die Durchbiegung der Platte.
+
+Dipole hingegen erzeugen Scherbewegungen, die auf Ungleichgewichte reagieren, sie differenzieren, s. Abb. \ref{U44A} und \ref{U77} b.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Monopole integrieren und Dipole differenzieren.}}\\
+
+
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U177}
+\caption{Oberste Reihe Einflussfunktionen f\"{u}r \textbf{ a)} das Biegemoment und \textbf{ b)} die Querkraft in der Mitte des Balkens, \textbf{ c)} und \textbf{ d)} Momente und Querkr\"{a}fte unter symmetrischer Last und antimetrischer Last, \textbf{ e)} und \textbf{ f)}}
+\label{U177}%
+%
+\end{figure}%%
+%----------------------------------------------------------
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U268}
+\caption{Die Steigerung der Komplexit\"{a}t, \textbf{ a)} Durchbiegung $w$, \textbf{ b)} Momente $m_{yy}$, \textbf{ c)} Querkr\"{a}fte $q_y$ }
+\label{U268}%
+\end{figure}%%
+%--------------------------------------------------------------------------------------------------
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.85\textwidth]{\Fpath/U77}
+\caption{Deckenplatte Einflussfunktionen \textbf{ a)} f\"{u}r eine Durchbiegung ($G_0 = O(r^2\ln r)$), \textbf{ b)} f\"{u}r eine Querkraft ($G_3 = O(r^{-1})$), \textbf{ c)} f\"{u}r ein Moment ($G_2 = O(\ln r)$), s. (\ref{Eq150}) S. \pageref{Eq150} letzte Spalte der Matrix}
+\label{U77}%
+\end{figure}%%
+%----------------------------------------------------------
+
+Jede der vier Einflussfunktionen in Abb. \ref{U44A} geh\"{o}rt sinngem\"{a}{\ss} zu einem der beiden Typen:\\
+
+\begin{itemize}
+  \item E.F. f\"{u}r Durchbiegungen und Momente {\em summieren\/}.
+  \item E.F. f\"{u}r Verdrehungen, Spannungen und Querkr\"{a}fte {\em  differenzieren\/}
+\end{itemize}
+
+Die Einflussfunktion f\"{u}r die Querkraft $V$ wird von einem Dipol erzeugt, w\"{a}hrend die Einflussfunktion f\"{u}r das Biegemoment $M$ von zwei entgegengesetzt drehenden Momenten $M = \pm 1/\Delta x$ erzeugt wird, die nach Innen drehen und so eine symmetrische Biegefigur aber mit einem scharfen Knick im Aufpunkt generieren\footnote{Genau genommen lautet die Folge: Monopol -- Dipol -- Quadropol -- Octopol, entsprechend den finiten Differenzen f\"{u}r $w, w', M, V$, s. Abb. \ref{U303} S. \pageref{U303}, aber f\"{u}r unsere Zwecke reicht das einfache Raster: Monopol -- Dipol oder symmetrisch-antimetrisch aus.}.\label{Korrektur6}
+ \label{Footnote1}
+
+Das maximale Ergebnis ergibt sich, wenn die Belastung und die Einflussfunktion vom selben Typ sind ({\em symmetrisch -- symmetrisch\/} oder {\em anti\-metrisch -- anti\-metrisch\/}) und der minimale Effekt, wenn sie vom entgegengesetzten Typ sind, siehe Abb. \ref{U177}.
+\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Der Unterschied zwischen Monopolen und Dipolen ist der Grund, warum es einfacher ist, Verschiebungen und Biegemomente anzun\"{a}hern, als Spannungen und Querkr\"{a}fte. Es ist der Unterschied zwischen  numerischer Integration und numerischer Differentiation, s. Abb. \ref{U268}.}}\\
+
+\begin{remark} Alle Einflussfunktionen f\"{u}r Lagerreaktionen integrieren, obwohl die Lagerkr\"{a}fte ja Normalkr\"{a}fte (Spannungen) oder Querkr\"{a}fte sind und daher w\"{u}rden wir erwarten, dass die Einflussfunktionen differenzieren. Aber in einem festen Lager wird der eine Teil der Scherbewegung durch den Baugrund behindert, so dass der andere Teil den ganzen Weg allein gehen muss, um die vorgeschriebene Versetzung $[[u]] = 1$ zu realisieren und daher wird aus der Einflussfunktion eine einseitige Integration.
+\end{remark}
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.8\textwidth]{\Fpath/U178}
+\caption{\textbf{ a)} Gerbertr\"{a}ger, \textbf{ b)} Einflussfunktion f\"{u}r ein Moment $M$. Nicht alle Einflussfunktionen klingen ab! }
+\label{U178}%
+%
+\end{figure}%%
+%----------------------------------------------------------
+
+\begin{remark}
+Nicht alle Einflussfunktionen tendieren gegen null. Wenn Teile des Tragwerks (nach dem Einbau eines $N$-, $V$- oder $M$-Gelenkes) Starrk\"{o}rperbewegungen ausf\"{u}hren k\"{o}nnen, dann kann es passieren, dass sich die Einflussfunktionen aufschaukeln, siehe Abb. \ref{U178} b.
+\end{remark}
+%-------------%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U78}
+\caption{Kragplatte, \textbf{ a)} Einflussfunktion f\"{u}r die Querkraft $q_x$ und \textbf{ b)} f\"{u}r das Moment $m_{xx}$; es ist erstaunlich, wie es mit einer \glq numerischen\grq{} Spreizung bzw. einem \glq numerischen\grq{} Knick (Randelemente) m\"{o}glich ist, einen fast konstanten Versatz bzw. eine Rotation von genau 45$^\circ$ zu erreichen. Frage: Wie nahe kann man dem Aufpunkt kommen, bevor die Singularit\"{a}t, $O(1/r)$ in Bild a und $O(\ln r)$ in Bild b, durchschl\"{a}gt?   }
+\label{U78}%
+\end{figure}%%
+%------------------------------------------------------------------------------------------------------
+
+%-------------%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U292}
+\caption{Plattenbr\"{u}cke, \textbf{ a)} Einflussfunktion f\"{u}r das Moment $m_{xx}$ und \textbf{ b)} f\"{u}r die Querkraft $q_{x}$ in der Plattenmitte (also in einem Punkt); die Einflussfunktion f\"{u}r das Integral von $q_x$ quer durch die Mitte d\"{u}rfte mit der Balkenl\"{o}sung identisch sein.}
+\label{U292}%
+\end{figure}%%
+%------------------------------------------------------------------------------------------------------
+\begin{remark}
+Das Abklingverhalten von Einflussfunktionen h\"{a}ngt von der Ordnung $d^n w/dx^n$ der Zielgr\"{o}{\ss}e ab. Beim Balken haben die Zielgr\"{o}{\ss}en
+\begin{align}
+w(x), \quad w'(x), \quad M(x) = - EI\,w''(x), \quad V(x) = - EI\,w'''(x)
+\end{align}
+die Ordnung $0, 1, 2, 3$. Je niedriger die Ordnung ist, um so weiter schwingt eine Einflussfunktion aus und um so langsamer klingt sie ab, wie man an der Einflussfunktion f\"{u}r die Durchbiegung $w(\vek x)$ der Platte sieht, s. Abb. \ref{U77} a, w\"{a}hrend die Einflussfunktion f\"{u}r die Querkraft $q_x$ sehr eng gefasst ist, s. Abb. \ref{U77} b. Es sind praktisch zwei gegengleiche Spitzen $\pm \infty$, die aus der Platte herausragen, die dann aber sehr rasch auf null abfallen.
+
+Nat\"{u}rlich sind das nur \glq Trendmeldungen\grq{} und das genaue Verhalten h\"{a}ngt auch von der Art der Lagerung ab, s. Abb. \ref{U78} und Abb. \ref{U292}, denn gerade Kragtr\"{a}ger und Kragplatten spielen diesbez\"{u}glich eine Sonderrolle, weil sie freie Enden haben.
+\end{remark}
+
+Eine Sonderrolle spielen auch Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en an statisch bestimmten Systemen. Weil nach dem Einbau des Gelenks das System kinematisch ist, k\"{o}nnen sich die Verformungen frei ausbilden, denn es wird keine Energie verbraucht. Nichts kann die Einflussfunktion f\"{u}r das Moment in einem Kragtr\"{a}ger daran hindern den Schenkel rechts vom Aufpunkt unter $45^\circ$ bis \glq in den Himmel\grq{} laufen zu lassen, denn es kostet ja nichts. Deswegen st\"{u}rzen kinematische Strukturen auch so leicht ein, denn es ist keine Energie n\"{o}tig, um den Einsturz auszul\"{o}sen.
+
+Statisch unbestimmte Systeme d\"{a}mpfen also die Ausbreitung der Einflussfunktionen f\"{u}r Kraftgr\"{o}{\ss}en, w\"{a}hrend bei statisch bestimmten Systemen eine solche Sperre fehlt.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.9\textwidth]{\Fpath/U82}
+\caption{Scheibe, {\bf a)} Einflussfunktion f\"{u}r $N_y$ (exakt nach der gedehnten 1. Elementreihe), {\bf b)} Einflussfunktion f\"{u}r $\sigma_{yy}$, Kr\"{a}fte in kNm, Verschiebungen in m} \label{U82}
+\end{figure}%
+%-----------------------------------------------------------------
+\vspace{-0.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einflussfunktionen f\"{u}r integrale Werte}}}\index{Einflussfunktionen f\"{u}r integrale Werte}
+
+In einem Punkt fokussiert man den Blick auf einen einzelnen Wert des Moments, der Durchbiegung, der Querkraft, etc. Manchmal ist es jedoch sinnvoller, die Ergebnisse \"{u}ber eine k\"{u}rzere oder l\"{a}ngere Linie aufzuintegrieren, also zu mitteln, weil die Punktwerte zu stark schwanken.
+
+Warum eine solche Mittelung bessere Ergebnisse liefert, versteht man, wenn man sich die unterschiedlichen Einflussfunktionen anschaut. Die Einflussfunktion f\"{u}r die Spannung $\sigma_{yy}$ in einem Punkt ist eine Spreizung des Aufpunktes in vertikaler Richtung, s. Abb. \ref{U82} b. Erweitern wir den Punkt zu einer kurzen Linie $\ell$ und entschlie{\ss}en uns mit dem Mittelwert der Spannungen l\"{a}ngs dieser Linie zu rechnen
+\begin{align}
+\bar{\sigma}_{yy} = \frac{1}{\ell } \int_0^{\,\ell} \sigma_{yy}\,ds \,,
+\end{align}
+dann ist die Einflussfunktion eine linienhafte Versetzung der Punkte auf der Linie und eine solche Bewegung ist einfacher mit finiten Elementen anzun\"{a}hern als eine Punktversetzung. Das ist der Grund, warum eine Mittelung in der Regel bessere Werte liefert.
+
+Wenn, wie in Abb. \ref{U82} a, der Schnitt ganz durch die Scheibe geht, ist das Integral der Spannungen
+\begin{align}
+N_y = \int_0^{\,l} \sigma_{yy}\,dx
+\end{align}
+sogar exakt, weil der {\em lift\/}  in $\mathcal{V}_h^+$ (= $\mathcal{V}_h$ + Starrk\"{o}rperbewegungen) liegt. Dagegen d\"{u}rfte die Einflussfunktion f\"{u}r den Punktwert $\sigma_{yy}$ nur eine N\"{a}herung sein, denn so eckig sieht keine Einflussfunktion aus.
+
+Einflussfunktionen f\"{u}r integrale Werte ordnen sich dem globalen Schema unter. Bei einem Punktfunktional wie $J(w) = w(x)$ sind die $j_i$ die Durchbiegungen der Ansatzfunktionen $\Np_i(x)$ im Aufpunkt
+\begin{align}
+\vek K\,\vek g = \vek j\,.
+\end{align}
+Ist $J(w)$ hingegen ein Integral, etwa der Mittelwert der Durchbiegung auf einer Strecke $(x_a, x_b)$,
+\begin{align}
+J(w) = \frac{1}{(x_b - x_a)}\int_{x_b}^{\, x_b} w(x)\,dx\,,
+\end{align}
+dann sind die \"{a}quivalenten Knotenkr\"{a}fte die Mittelwerte der $\Np_i$
+\begin{align}
+j_i = \frac{1}{(x_b - x_a)} \int_{x_b}^{\, x_b}  \Np_i(x)\,dx\,.
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U408}
+\caption{Einflussfunktion f\"{u}r den Mittelwert von $\sigma_{xx}$ in dem Element {\bf a)\/} das \lqq Dirac Delta\rqq \, besteht aus horizontalen Linienkr\"{a}ften auf dem vertikalen Rand und (kleinen, $\nu$-fachen) vertikalen Linienkr\"{a}ften auf dem horizontalen Rand von $\Omega_e$, {\bf b)\/}
+horizontale Verschiebungen, nach oben und unten in $z$-Richtung abgetragen. Bei bilinearen Elementen sind die Einflussfunktionen f\"{u}r den Mittelwert im Element und von $\sigma_{xx}$ im Mittelpunkt des Elements identisch, \cite{Ha5}} \label{U408}
+\end{figure}%%
+%----------------------------------------------------------------------------------------------------------
+Die mittlere Spannung $\sigma_{xx}^\varnothing$ in einem Element $\Omega_e$ ist das Integral
+\bfo
+\sigma_{xx}^\varnothing = \frac{1}{\Omega_e}\int_{\Omega_e} \sigma_{xx}\,d\Omega =
+\frac{E}{\Omega_e}\int_{\Omega_e} (\varepsilon_{xx} + \nu\,\varepsilon_{yy})\,d\Omega\,.
+\efo
+Wegen $\varepsilon_{xx} = u_x,_x$ und $\varepsilon_{yy} = u_y,_y$, kann das Gebietsintegral durch ein Rand\-integral \"{u}ber den Rand $\Gamma_e$ des Elements ersetzt werden
+\bfo
+\sigma_{xx}^\varnothing = \frac{E}{\Omega_e}\int_{\Omega_e}  (\varepsilon_{xx} +
+\nu\,\varepsilon_{yy})\,d\Omega = \frac{E}{\Omega_e}\int_{\Gamma_e} (u_x\,n_x +
+\nu\,u_y\,n_y) \,ds\,.
+\efo
+Die Einflussfunktion f\"{u}r die Verschiebung $u_x$ bzw. $u_y$ eines Randpunktes $\vek x$ ist die Verschiebung, die durch eine Einzelkraft $P_x = 1$ bzw. $P_y = 1$ ausgel\"{o}st wird, die im Punkt $\vek x$ angreift. Daher ist die Einflussfunktion f\"{u}r das Integral
+\bfo
+\frac{E}{\Omega_e}\int_{\Gamma_e} (u_x\,n_x + \nu\,u_y\,n_y) ds
+\efo
+das Verschiebungsfeld, das durch horizontale bzw. vertikale Linienkr\"{a}fte $E/\Omega_e
+\cdot n_x$ bzw. $E/\Omega_e \cdot n_y$ l\"{a}ngs des Elementrandes $\Gamma_e$ erzeugt wird, s. Abb. \ref{U408}. (Das $\Omega_e$ im Nenner ist nat\"{u}rlich die Fl\"{a}che des Elements.)
+
+Daraus folgt, dass die mittleren Spannungen in einer Scheibe, die am Rand festgehalten wird, null sind, weil die Randkr\"{a}fte der Einflussfunktion die Scheibe nicht deformieren k\"{o}nnen.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/U551}
+\caption{Integralbeziehungen an einem Balken} \label{U551}
+\end{figure}%
+%-----------------------------------------------------------------
+Sinngem\"{a}{\ss} dasselbe gilt f\"{u}r Platten: Die Mittelwerte der Momente einer allseits eingespannten Platte sind null. Im eindimensionalen Fall hatten wir das schon in Kapitel 1, Glg. (\ref{Eq31}) und Glg. (\ref{Eq33}), festgestellt.
+
+Erfahrungsgem\"{a}{\ss} sind die Spannungen in der Mitte eines Elements am genauesten. Zum einen, weil man in der Mitte von den R\"{a}ndern des Elements, wo die FE-Spannungen springen, am weitesten entfernt ist, zum andern liegt es aber auch daran, dass, wenn man bilineare Elemente benutzt, die FE-Einflussfunktionen f\"{u}r die Spannungen in der Elementmitte die gleichen sind, wie f\"{u}r die Mittelwerte der Spannungen im Element. Letztere sind aber einfacher zu erzeugen, weil sie ja keine Punktversetzung simulieren m\"{u}ssen. Im output stehen also eigentlich die Mittelwerte der Spannungen, \cite{Ha5}.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U304}
+\caption{Durchbiegung am Kragarmende aus {\bf a)} Einzelkraft -- dreimal integrieren, {\bf b)} Moment -- zweimal integrieren -- und {\bf c)} Streckenlast -- viermal integrieren} \label{U304}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Die partielle Integration ist auch eine Aussage \"{u}ber den Mittelwert der Ableitung einer Funktion
+\begin{align}
+\frac{1}{l}\int_{0}^{l} u'(x)\,dx = \frac{1}{l} (u(l) - u(0))
+\end{align}
+und sinngem\"{a}{\ss} ist daher das Integral der Normalkraft $N = EA\,u'(x)$ in einem Stab (wir lassen die Division durch die L\"{a}nge weg) proportional zur Spreizung der Endpunkte
+\begin{align}
+\int_{0}^{l} N(x)\,dx = EA\,(u(l) - u(0))\,.
+\end{align}
+Das Integral des Moments $M(x) = - EI\,w''(x)$ ist proportional zur Differenz der Endtangenten, s. Abb. \ref{U551},
+\begin{align}
+\int_{0}^{l} M(x) \,dx = - EI\,(w'(l) - w'(0)),
+\end{align}
+bei der Querkraft
+\begin{align}
+\int_{0}^{l} V(x)\,dx = M(l) - M(0)
+\end{align}
+ist es die Differenz der Endmomente und die Resultierende der Belastung $p = -V' = EI\,w^{IV}$ ist nat\"{u}rlich gerade die Differenz der Querkr\"{a}fte
+\begin{align}
+\int_{0}^{l} p\,dx = - (V(l) - V(0)) \,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einflussfunktionen rechnen r\"{u}ckw\"{a}rts}}}\index{Einflussfunktionen rechnen r\"{u}ckw\"{a}rts}
+
+Wenn man differenziert, dann geht man \glq vorw\"{a}rts\grq{} und wenn man integriert, dann geht man \glq r\"{u}ckw\"{a}rts\grq{}. Einflussfunktionen rechnen r\"{u}ckw\"{a}rts. Aus $- EA\,u'' = p$  bzw.  $EI\,w^{IV} = p$ werden die Ableitungen niedrigerer Ordnung
+\begin{align}
+u,\, N = EA\,u' \qquad w,\,w',\,M, \,V
+\end{align}
+berechnet.
+
+Die Einflussfunktion $G_1(y,x)$ f\"{u}r die Normalkraft in einem Stab integriert die Belastung einmal
+\begin{align}
+N(x) = \int_0^{\,l} G_1(y,x)\,p(y)\,dy \qquad ('') \to (')
+\end{align}
+und die Einflussfunktion $G_0(y,x)$ f\"{u}r die L\"{a}ngsverschiebung $u(x) $ integriert die Belastung zweimal
+\begin{align}
+u(x) = \int_0^{\,l} G_0(y,x)\,p(y)\,dy \qquad ('') \to (\,\,)\,.
+\end{align}
+Das R\"{u}ckw\"{a}rtsrechnen sieht man sehr sch\"{o}n an dem Kragtr\"{a}ger in Abb. \ref{U304}. Die Durchbiegung $w$ ist ja das dreifach unbestimmte Integral der Querkraft $V = - EI\,w'''$
+\begin{align}
+w = -\int\! \int\! \int\, V\,dx\,dx\,dx = - \int\! \int\! \int\, P\,dx\,dx\,dx
+\end{align}
+und prompt steht ein $\ell^3$ im Ergebnis
+\begin{align}\label{Eq129}
+w(\ell) = \frac{P\,\ell^3}{3\,EI}\,,
+\end{align}
+und wenn ein Moment $M = - EI\,w''$ angreift, dann steht dort ein  $\ell^2$
+\begin{align}
+w(\ell) = \frac{M\,\ell^2}{2\,EI}\,.
+\end{align}
+Die letzte \glq vern\"{u}nftige\grq{}, integrierbare Funktion in der Kette der Ableitungen ist $w'''$ (LF $P$) bzw. $w''$ (LF $M$) und deswegen wird $w$  aus $V$ bzw. $M$ berechnet. W\"{u}rde statt $P$ eine Streckenlast $p$ angreifen, dann w\"{a}re
+\begin{align}
+w(\ell) = \frac{p\,\ell^4}{8\,EI}
+\end{align}
+und das $\ell^4$ passt zu $ EI\,w^{IV} = p$.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.6\textwidth]{\Fpath/UE344}
+\caption{Balkenrost} \label{UE344}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Wir finden das $l^3$ der Glg. (\ref{Eq129}) auch in der Formel
+\begin{align}
+\frac{P_a}{P_b} = \frac{l_b^3}{l_a^3}\,,
+\end{align}
+die erkl\"{a}rt, wie sich eine Punktlast $P = P_a + P_b$ auf zwei Balken verteilt, s. Abb. \ref{UE344}.
+
+Eine Steifigkeitsmatrix, $\vek K\,\vek u = \vek f$, dagegen differenziert und daher finden wir den \glq inversen\grq{} Faktor $EI/l^3$ vor einer Balkenmatrix bzw. den Faktor $EA/l$ vor einer Stabmatrix.
+
+Bei dem Weg zur\"{u}ck ist es wichtig zu wissen, wie man auf das $p$ gekommen ist. Man nehme die Funktion $u(x) = \sin (\pi\,x/l)$ und differenziere sie zweimal bzw. viermal
+\begin{align}
+- u'' &= (\frac{\pi}{l})^2 \sin (\pi\,x/l)  \qquad = p(x)\,\\
+EI\,u^{IV} &= (\frac{\pi}{l})^4 \sin (\pi\,x/l) \qquad =\bar{p}(x)\,.
+\end{align}
+Im ersten Fall ist sie die Durchbiegung eines vorgespannten Seils unter einer Streckenlast $p(x)$ und im zweiten Fall ist sie die Durchbiegung eines Balkens unter einer Streckenlast $\bar{p}(x)$.
+
+Um $u$ im Punkt $x = l/2$ aus den rechten Seiten $p(x)$ und $\bar{p}(x)$ zu berechnen, sind verschiedene Einflussfunktionen n\"{o}tig, obwohl wir nach demselben Wert fragen, $u(l/2) = \sin (0.5 \cdot \pi)$. Wir m\"{u}ssen wissen, welcher Operator $p$ aus $u$ erzeugt hat. Wo kommen die Daten her?
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Prinzip von St. Venant}}}\index{Prinzip von St. Venant}
+{\em \glq Wenn die auf einen kleinen Teil der Oberfl\"{a}che eines elastischen K\"{o}rpers wirkende Kraft durch ein \"{a}quivalentes Kr\"{a}ftesystem ersetzt wird, ruft diese Belastungsumverteilung wesentliche \"{A}nderungen nur bei den \"{o}rtlichen Spannungen hervor: nicht aber in Bereichen, die gro{\ss} sind im Vergleich zur belasteten Oberfl\"{a}che'\/}, \cite{Wiki1}.
+
+Dieses Prinzip ist eine direkte Konsequenz der Tatsache, dass Wirkungen per Einflussfunktionen propagieren. Einflussfunktionen sind Skalarprodukte, sind Integrale, die die Belastung $p$ mit einem Kern $G(y,x)$ wichten und der Kern hat (gew\"{o}hnlich) die Eigenschaft, dass er mit wachsendem Abstand vom Aufpunkt gegen null tendiert. Wenn der Abstand nur gro{\ss} genug ist kann man eine Ein-Punkt-Quadratur benutzen, d.h. man kann die Belastung durch ihre Resultierende ersetzen. Weil nun \"{a}quivalente Kr\"{a}ftesysteme dieselbe Resultierende haben, wirkt sich ein Austausch in der Ferne nicht aus.
+
+Daraus folgt im \"{u}brigen, dass die Wirkungen von antimetrischen Lasten, von Lasten mit null Resultierender, besonders schnell abklingen. Ja wenn die Einflussfunktionen im Bereich der Belastung \glq flach\grq{} verl\"{a}uft, keine Steigung hat, dann ist der Einfluss sofort null, {\em Symmetrie $\times$ Antimetrie = 0\/}. \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Antimetrische Belastungen \glq differenzieren\grq{} die Einflussfunktionen.}}\\
+
+Dieser Effekt spielt bei den Kr\"{a}ften $f^+ $ in Kapitel 5 eine gro{\ss}e Rolle.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/UE342}
+\caption{Theorie II. Ordnung {\bf a)} Druckkraft $P$, {\bf b)} Einflussfunktionen f\"{u}r $w'(l)$ und {\bf c)} f\"{u}r $w(l)$} \label{UE342}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Theorie II. Ordnung}}}\index{Theorie II. Ordnung}
+Die Differentialgleichung f\"{u}r den Balken nach Theorie zweiter Ordnung lautet
+\begin{align}\label{Eq164}
+EI\,w^{IV}(x) + P\,w''(x) = p(x)
+\end{align}
+hierbei ist  $P$ die Druckkraft in dem Balken und $p(x)$ die Streckenlast, s. Abb. \ref{UE342} a. Dies ist eine lineare, selbstadjungierte Differentialgleichung vierter Ordnung mit konstanten Koeffizienten, aber das Problem ist, dass der Koeffizient $P$ Lastfall abh\"{a}ngig ist und daher h\"{a}ngt auch die Einflussfunktion von $P$ ab.
+
+Je mehr $P$ sich der Knicklast $P_{crit}$ n\"{a}hert, desto mehr w\"{o}lben sich die Einflussfunktionen f\"{u}r die Verdrehung am Balkenende, Abb. \ref{UE342} b,  bzw. f\"{u}r die Durchbiegung, Abb. \ref{UE342} c, auf.
+
+Diese Abh\"{a}ngigkeit von der Normalkraft $N$ in den einzelnen Stielen ist der Grund, warum es nicht m\"{o}glich ist, Einflussfunktionen f\"{u}r z.B. Hochregallager anzugeben. Erst muss die Gleichgewichtslage des Regals nach Theorie erster Ordnung gefunden werden und dann kann man diese L\"{o}sung iterativ korrigieren.
+
+Im Prinzip ist die Theorie zweiter Ordnung ein nichtlineares Problem, wo die L\"{a}ngsverschiebung $u(x)$ und die seitliche Auslenkung $w(x)$ gem\"{a}{\ss} dem System
+\begin{subequations}
+\begin{align}
+- EA \left(u' + \frac{1}{2}\, (w')^2\right)' &= p_x \\
+EI\,w^{IV} - \left(EA (u' + \frac{1}{2}\, (w')^2)\,w'\right)' &= p_z
+\end{align}
+\end{subequations}
+miteinander verkn\"{u}pft sind.
+
+Nur wenn die Normalkraft
+\begin{align}
+N = EA (u' + \frac{1}{2}\, (w')^2)
+\end{align}
+konstant ist und bekannt ist, kann dieses System auf die Gleichung (\ref{Eq164}) reduziert werden. Man beachte, dass ein negatives $N$ ein positives $P$ in (\ref{Eq164}) ist.
+
+

@@ -1,0 +1,129 @@
+\documentclass[graybox,envcountchap,sectrefs]{svmono}
+%\documentclass[12pt]{article}
+\usepackage{latexsym}
+\usepackage{ifpdf}
+\oddsidemargin0.12cm \evensidemargin0.12cm \topmargin-1.2cm \headheight0.7cm \headsep 0cm
+\textwidth16.5cm
+\parindent0cm
+\textheight25cm
+
+\ifpdf
+\newcommand{\Fpath}{d:/astatikbilder/pdf}
+%\newcommand{\Fpath}{C:/Users/Friedel/OneDrive/Dokumente/ASTATIK3/Pdf}
+\else
+\newcommand{\Fpath}{d:/astatikbilder/pictures}
+%\newcommand{\Fpath}{C:/Users/Friedel/OneDrive/Dokumente/ASTATIK3/Pictures}
+\fi
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{calligra}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{blindtext}
+\usepackage{german}
+\usepackage{deutengi}
+\usepackage{float}
+\usepackage[]{graphicx}        % standard LaTeX graphics tool
+\input{macrofh}
+\input{ebild}
+\begin{document}
+\pagestyle{empty}
+t = 0.2\,m
+
+
+\end{document}
+$a\,\,b\,\,x\,\,y\,\,\ell\,u_a\,\,v_a\,\,u_b\,\,v_b\,\,\Np_a\,\,\Np_b$\\
+$F_{x,a}$\nn
+$F_{y,a}$\nn
+$F_{x,b }$\nn
+$F_{y,b}$\nn
+$M_a$ \\
+$M_b$
+Verschiebungsgr\"{o}{\ss}en \\
+Kraftgr\"{o}{\ss}en\\
+(fem)\\
+\begin{align}
+u_i\,\,u_j\,\,u_k\,\,i\,\,j\,\,k\,\,x\,\,y\,\,u_1\,\,u_2\,\,u_3\,\,v_1, v_2\,\,v_3\,a\,\,d\,1\,\,2\,\,3 \nn
+\end{align}
+\begin{align}
+F_{x,i}\,\,F_{y,i}\,\,F_{x,j}\,\,F_{y,j}F_{x,k}\,\,F_{y,k}\,\,\nn
+\end{align}
+$p_{x,1}$ \\
+$p_{x,2}$ \\
+$p_{x,3}$ \\
+$p_{y,1}$ \\
+$p_{y,2}$ \\
+$p_{y,3}$ \\
+$p_{y,m,1}$ \\
+$p_{y,m,2}$ \\
+$F_{B,x}$ \\
+$F_{B,y}$ \\
+$M_B$ \\
+$x_B$ \\
+$y_B$ \\
+$F_{x,1}$ \\
+$F_{x,2}$ \\
+$F_{x,3}$ \\
+$F_{y,1}$ \\
+$F_{y,2}$ \\
+$F_{y,3}$ \\
+
+
+
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{...}}\\
+
+{\textcolor{blue}{\subsubsection*{Modellfehler}}}
+
+{\textcolor{blue}{\section{Mengenlehre}}}
+
+\textbf{ a)}
+
+\text{\normalfont\calligra G\,\,}(\Np_i,\Np_j)
+
+\pageref{SecAdaptiveVerfeinerung}
+
+\begin{subequations}
+
+\textcolor{red}{\delta w}
+
+\overset{?}{=}
+
+\backmatter
+
+\text{\normalfont\calligra B\,\,}(w,\textcolor{red}{\delta w}) =  A_{1,2} - A_{2,1} = 0
+
+ (\ref{Eq92:SubEq3})
+
+ %%% mondgr\"{u}n  sand
+ \barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r @{\hspace{2mm}} r} 1 & -1 & 0 & 0 \\ -1 & 1 & 0 & 0 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & -1 & 1 \\ \earr \right] \left[ \barr{cc} u_1^a \\ u_2^a \\ u_1^b \\ u_2^b \earr \right] = \vek K_E\,\vek u_E\,.
+
+ \boxed{O_c - O = -\frac{\Delta\,EI}{EI}\int_{x_a}^{\,x_b} \frac{M_c\,M_G}{EI_c}\,dy}
+
+\allowdisplaybreaks{4}
+
+CMYK 20 0 60 0
+
+\glq fast alles\grq\
+
+kurz nachtragen, warum
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u_h,\Np_i) = 0 \quad i = 1,2,\ldots, n
+\end{align}
+die Grundgleichung der FEM ist, s. S. \pageref{Eq190}.
+
+
+
+@{\hspace{2mm}}
+
+$^\circ$
+
+Um die Bewegung $\Np_i$ zu erzeugen, sind Kr\"{a}fte n\"{o}tig, die wir den Lastfall $p_i$ nennen und die wir uns hier, der Einfachheit halber als eine Streckenlast $p_i$ vorstellen. Die zu dem Lastfall $p_i$ geh\"{o}rigen \"{a}quivalenten Knotenkr\"{a}fte sind also komponentenweise ($j$)
+\begin{align}
+f_{ij}    = \int_0^{\,l} p_i\,\Np_j\,dx \qquad (\delta A_a)\,.
+\end{align}
+Wegen der ersten Greenschen Identit\"{a}t, $\text{\normalfont\calligra G\,\,}(\Np_i,\Np_j) = \delta A_a - \delta A_i = 0$, sind diese \"{a}u{\ss}eren Arbeiten gleich der inneren Arbeit, also der Wechselwirkungsenergie $f_{ij} = a(\Np_i,\Np_j) = k_{ij}$, und so sind die Spalten von $\vek K$ gerade die \"{a}quivalenten Knotenkr\"{a}ften der Kr\"{a}fte $p_i$, die die $\Np_i$ erzeugen. 

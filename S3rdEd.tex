@@ -1,0 +1,109 @@
+%\documentclass[graybox,envcountchap,sectrefs]{svmonoFH}
+\documentclass[envcountchap,monohd,sectrefs]{svmonoFH}
+
+\newcommand{\Fpath}{d:/astatikbilder/pdf}
+\newcommand{\Springerpath}{"d:/astatik5 Modern 3rdEd/springer"}
+
+\usepackage{\Springerpath/cropmark}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{type1cm}
+\usepackage[makeindex]{imakeidx}         % allows index generation
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+%\usepackage[draft]{graphicx}        % standard LaTeX graphics tool
+\usepackage[]{graphicx}        % standard LaTeX graphics tool
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{wasysym}
+\usepackage{rotate}  % FH
+\usepackage[T1]{fontenc}
+\usepackage{calligra}
+\usepackage{color}
+\usepackage{blindtext}
+\usepackage{german}
+\usepackage{deutengi}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage[bookmarksnumbered, hyperindex]{hyperref}
+
+\hypersetup{pdftitle={Statik und Einflussfunktionen - vom modernen Standpunkt aus},
+pdfsubject = {Statik, Einflussfunktionen, Stabtragwerke, Fl\"{a}chentragwerke},
+pdfauthor = {Friedel Hartmann, Peter Jahn},
+pdfkeywords = {Statik, Einflussfunktionen, Satz von Betti, Maxwell, finite Elemente, Randelemente, Energieprinzipe, Variationsprinzipe, Prinzip der virtuellen Verr\"{u}ckung, Prinzip der virtuellen Arbeit, Potentielle Energie, Gleichgewicht, Greensche Identit\"{a}ten, Dualit\"{a}t, Stabtragwerke, Fl\"{a}chentragwerke}}
+
+
+%\hypersetup{pdftoolbar=true}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{blau}{rgb}{.1,.1,.1}
+\definecolor{green2}{rgb}{0,0.39,0.0}
+
+\definecolor{chapterTitleBlue}{rgb}{.0,.2,.8}
+%\definecolor{sectionTitleBlue}{rgb}{.25,.5,1.0}
+\definecolor{sectionTitleBlue}{rgb}{.25,.5,1.0}  % helleres blau
+\definecolor{highlightBlue}{rgb}{.85,.964,1.0}
+
+% Make @ behave as per catcode 13 (active).  TeXbook p. 155.
+\mathcode`@="8000
+{\catcode`\@=\active\gdef@{\mkern1mu}}
+
+\definecolor{weiss}{gray}{1.0}
+\input{macrofh}
+\input{ebild}
+
+%\newtheoremstyle{dotlessP}{}{}{\color{db}}{}{\color{db}\bfseries}{}{ }{}
+%\theoremstyle{dotlessP}
+
+%\newtheorem{theorem}{{\textcolor{chapterTitleBlue}{Theorem}}
+%\newtheorem{theorem}{Theorem}[section]
+
+\floatstyle{boxed}
+\newfloat{Box}{h}{lop}[chapter]
+\makeindex
+
+\begin{document}
+
+\author{F. Hartmann, P. Jahn}
+\title{Statik und Einflussfunktionen --\\
+vom modernen Standpunkt aus\\
+\begin{large}{3. Auflage (3.73), Last edit: \today}\end{large}}
+%\begin{large}{3. Auflage}\end{large}}
+\maketitle
+
+%\frontmatter
+
+%\include{dedic}
+%\include{foreword}aaa
+\include{SVorwort}
+\include{SVorwort2}
+%\include{acknow}
+
+
+\tableofcontents
+%\include{acronym}
+
+\hyphenation{Gleich-ge-wicht Aus-gangs-punkt w\"{a}hr-end L\"{a}ngs-richtung ge-trost Gleich-ge-wichts-be-ding-ungen auf-ad-diert
+selbst-ver-st\"{a}ndlich Wechsel-wir-kungs-ener-gie Steif-ig-keiten Dif-feren-tial-gleich-ung Dif-fer-ential-gleich-ungen
+Ein-fluss-funk-ti-onen Ein-fluss-funk-ti-on}
+
+%\mainmatter
+%\include{srest}
+\include{S1}
+\include{S2}
+\include{S3}
+\include{S4}
+\include{S5}
+\include{S6}
+\include{S7}
+\include{S8}
+\include{SDownloads}
+\include{sref}
+
+\printindex
+%\include{sadd}
+\end{document}
+
+
+

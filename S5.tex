@@ -1,0 +1,1403 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{chapterTitleBlue}{\chapter{Steifigkeits\"{a}nderungen und Reanalysis}}}\label{Steifigkeits\"{a}nderungen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Das Thema in diesem Kapitel sind lokale Steifigkeits\"{a}nderungen in einzelnen Elementen, die sinngem\"{a}{\ss} zu einem neuen Satz von Gleichungen f\"{u}hren
+ \begin{align}
+(\vek K´+ \vek  \Delta \vek K)\,(\vek u + \vek \Delta \vek u) = \vek  f
+\end{align}
+und wir wollen die Effekte studieren, die solche Steifigkeits\"{a}nderungen in einem Tragwerk bewirken. Weil wir den Verschiebungsvektor $\vek u_c = \vek u + \vek \Delta \vek u$ des modifizierten Tragwerkes mittels der Matrix $\vek K$ des urspr\"{u}nglichen Tragwerkes
+\begin{align}
+\vek K\,\vek u = \vek f
+\end{align}
+berechnen, nennt man das auch {\em Reanalysis\/}\index{Reanalysis}.
+
+In der Literatur werden viele Techniken diskutiert, mit denen sich solche \glq St\"{o}rungsrechnungen\grq{} numerisch behandeln lassen, s. z.B. \cite{Haug}. Wir konzentrieren uns hier aber auf die M\"{o}glichkeiten, die die Einflussfunktionen bieten, d.h. wir konzentrieren uns auf die Inverse $\vek K^{-1}$, denn Einflussfunktionen und Inverse sind Synonyme.
+
+Die wesentliche Einsicht ist es, dass der neue Verschiebungsvektor $\vek u_c$ mit der urspr\"{u}nglichen Steifigkeitsmatrix berechnet werden kann, wenn man zur rechten Seite einen Vektor $\vek f^+$ addiert\index{$\vek f^+$}
+\begin{align}
+\vek K\,\vek u_c = \vek f + \vek f^+
+\end{align}
+und dass dieser Vektor $\vek f^+$ zu allen Starrk\"{o}rperbewegungen $\vek u_0 = \vek a + \vek x \times \vek b$ orthogonal ist, was impliziert, dass die Effekte von lokalen Steifigkeits\"{a}nderungen in der Regel rasch abklingen.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U230}
+\caption{Steifigkeits\"{a}nderung} \label{U230}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Ein erster Versuch}}
+
+Wir beginnen mit einem einfachen Beispiel, einem Stab, dessen L\"{a}ngsverschiebung $u(x)$ ja der Differentialgleichung $- EA\,u''(x) = p(x)$ gen\"{u}gt. Wenn man an dem Stab in Abb. \ref{U230} mit einer Kraft $f = 1 $ kN zieht, dann verl\"{a}ngert er sich, bei einer angenommenen L\"{a}ngssteifigkeit von $EA = 1$ kN, um den Betrag
+\begin{align}
+u = \frac{f \cdot l}{EA} = \frac{1 \cdot 2}{1} = 2\,\text{m}.
+\end{align}
+Wenn wir die L\"{a}ngssteifigkeit $EA$ verdoppeln, $EA = 2$, dann halbiert sich die L\"{a}ngsverschiebung
+\begin{align}
+u_c = \frac{f \cdot l}{EA} = \frac{1 \cdot 2}{2} = 1\,\text{m}.
+\end{align}
+Wir stellen uns jetzt die folgende Frage: Wie muss man die Zugkraft $f$ \"{a}ndern, $f \to f_c$, damit an dem urspr\"{u}nglichen Stab unter der Wirkung der modifizierten Zugkraft $f_c = f + f^+$ sich dieselbe  L\"{a}ngsverschiebung einstellt, wie an dem Stab mit der doppelten Steifigkeit?
+
+Das f\"{u}hrt auf die Gleichung
+\begin{align}
+\frac{(f + f^+) \cdot l}{EA} = \frac{f \cdot l}{2 \cdot EA}= u_c
+\end{align}
+oder
+\begin{align}
+f^+ = -\frac{f}{2}\,.
+\end{align}
+Man darf also an dem urspr\"{u}nglichen System nur mit der halben Kraft ziehen,
+\begin{align}
+f_c = f + f^+ = f - \frac{f}{2} = \frac{f}{2}\,,
+\end{align}
+wenn man denselben Effekt haben will, wie an dem versteiften Stab.
+
+Dieses Beispiel ist nat\"{u}rlich sehr einfach, aber wir erkennen hier schon die Grundidee.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.65\textwidth]{\Fpath/U231}
+\caption{Steifigkeits\"{a}nderung} \label{U231}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+Steifigkeits\"{a}nderungen f\"{u}hren dazu, dass sich die Steifigkeitsmatrix \"{a}ndert, $\vek K \to \vek K + \vek \Delta \vek K$, und damit auch der Vektor der Knotenverschiebungen, $\vek u \to \vek u_c$,
+\begin{align}
+(\vek K + \vek \Delta \vek K)\,\vek u_c = \vek f\,.
+\end{align}
+Durch einfaches Umstellen sieht man, dass diese Gleichung mit dem System
+\beq
+\vek K\,\vek u_c = \vek f - \vek \Delta\,\vek K\,\vek u_c = \vek f + \vek f^+
+\eeq
+identisch ist. Der neue Vektor $\vek u_c$ kann also als L\"{o}sung des urspr\"{u}nglichen Systems gelten, wenn man zu der rechten Seite $\vek f$ den Vektor
+\beq
+\vek f^+ := - \vek \Delta\,\vek K\,\vek u_c
+\eeq
+addiert.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Zweites Beispiel}}
+Bevor wir das weiter diskutieren, wollen wir noch ein zweites, einfaches Beispiel studieren. Der Stab in Abb. \ref{U231} ist in zwei Elemente mit der glei\-chen L\"{a}ngssteifigkeit $EA = 1$ kN unterteilt und eine Kraft $f_2 = 10$ kN zieht an seinem rechten Ende
+\begin{align} \label{Eq42}
+\left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r
+@{\hspace{4mm}}r @{\hspace{4mm}}r}
+      2 & -1  \\
+      -1 & 1 \\
+     \earr \right]\left [\barr{c}  u_1 \\  u_2\earr \right ]
+=  \left [\barr{c}  0 \\  10\earr \right ]\,.
+\end{align}
+Dieses System hat die L\"{o}sung $u_1 = 10\,\text{m}, u_2 = 20$ m.
+
+Nun verdoppeln wir die Steifigkeit des rechten Elementes, $EA \to 2 EA$,
+\begin{align}
+\left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r
+@{\hspace{4mm}}r @{\hspace{4mm}}r}
+      3 & -2  \\
+      -2 & 2 \\
+     \earr \right]\left [\barr{c}  u_1^c \\  u_2^c\earr \right ]
+=  \left [\barr{c}  0 \\  10\earr \right ]
+\end{align}
+und wir erhalten so die L\"{o}sung $u_1^c = 10, u_2^c = 15$ m.
+
+Wir fragen jetzt, wie muss man die rechte Seite $\vek f$ des Systems (\ref{Eq42}) modifizieren, damit das urspr\"{u}ngliche System dieselbe L\"{o}sung hat,
+\begin{align}
+\left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r
+@{\hspace{4mm}}r @{\hspace{4mm}}r}
+      2 & -1  \\
+      -1 & 1 \\
+     \earr \right]\left [\barr{c}  u_1^c \\  u_2^c\earr \right ]
+=  \left [\barr{c}  0 \\  10\earr \right ] + X\, \left[\barr{r}  1 \\  -1\earr \right ]\,.
+\end{align}
+Der letzte Vektor auf der rechten Seite ist der Vektor $\vek f^+$. Wir haben ihn von Anfang an so konstruiert, dass er ein Gleichgewichtsvektor ist, sich seine Komponenten gegenseitig aufheben.
+Die Rechnung ergibt in der Tat, dass diese Annahme richtig war, denn mit $X = 5 $ ergibt sich eine L\"{o}sung.
+
+Die gesuchten Knotenkr\"{a}fte lauten also
+\begin{align}
+\vek f + \vek f^+ = \left [\barr{c}  0 \\  10\earr \right ] + \left [\barr{r}  5 \\  -5\earr \right ] = \left [\barr{c}  5 \\  5\earr \right ]\,,
+\end{align}
+und wir \"{u}berzeugen uns leicht, dass die neuen Knotenverschiebungen $u_i^c $ genau die L\"{o}sungen des so modifizierten urspr\"{u}nglichen Systems sind
+\begin{align}
+\left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r
+@{\hspace{4mm}}r @{\hspace{4mm}}r}
+      2 & -1  \\
+      -1 & 1 \\
+     \earr \right]\left [\barr{c}  10 \\  15\earr \right ]
+=  \left [\barr{c}  5 \\  5\earr \right ]\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Strategie}}
+Diese Ergebnisse nehmen wir nun zum Anlass unsere Strategie wie folgt zu formulieren: Wir \"{a}ndern nicht die Steifigkeitsmatrix, sondern die rechte Seite.
+Wir suchen also eine Erg\"{a}nzung $\vek f^+$ zu dem Knotenkraftvektor $\vek f $ so, dass $\vek  f+ \vek f^+$ an dem System $\vek K $ dieselben Knotenverschiebungen verursacht, wie $\vek f $ an dem System $\vek K_c$.
+
+Die Schwierigkeit dabei ist nat\"{u}rlich, dass der Vektor $\vek f^+ = -\vek \Delta\,\vek K\,\vek u_c$ von dem neuen Vektor $\vek u_c$ abh\"{a}ngt, den wir ja nicht kennen. (N\"{a}herungsweise kann man f\"{u}r $\vek u_c$ den Vektor $\vek u$ setzen).
+Aber es geht uns nicht darum, eine neue Rechenmethode zur Nachverfolgung von Steifigkeits\"{a}nderungen in die Praxis einzuf\"{u}hren, sondern es geht uns prim\"{a}r um das statische Verst\"{a}ndnis.
+
+Wir werden sehen, dass alle Steifigkeits\"{a}nderungen verstanden werden k\"{o}nnen, als die Addition von solchen {\em Gleichgewichts\-kr\"{a}ften\/} $\vek f^+$.
+
+Das bedeutet: wenn $\vek u_0 = \vek a + \vek b \times \vek x$ eine Starrk\"{o}rperbewegung des Tragwerks ist, also eine Translation $\vek a$ plus einer m\"{o}glichen Drehung um eine Achse $\vek b$, dann ist die Arbeit der Kr\"{a}fte $\vek f^{+}$ null,
+\begin{align}
+\vek f^{+@T}\,\vek u_0 = 0\,.
+\end{align}
+Gleichgewichtskr\"{a}fte wie der Vektor $\vek f^+$ leisten also keine Arbeit auf Starrk\"{o}rperbewegungen. Daraus k\"{o}nnen wir, wie wir sehen werden, den folgenden Schluss  ziehen: \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{
+Steifigkeits\"{a}nderungen sind in ihren Auswirkungen lokal begrenzt, weil sich die Wirkungen der Gleichgewichtskr\"{a}fte $\vek f^+$ in der Ferne aufheben.}}\\
+
+%-----------------------------------------------------------------
+\begin{figure}
+\centering
+\if \bild 2 \sidecaption \fi
+{\includegraphics[width=0.6\textwidth]{\Fpath/U110}} \caption{Eine Steifigkeits\"{a}nderung $\vek K + \vek \Delta \vek K $ bedeutet, dass man ein Zusatzelement $\Omega_e^+$ mit der
+ Steifigkeit $\vek \Delta \vek K $ an das Tragwerk anheftet, \cite{Ha6}}
+\label{U110}%
+\end{figure}%\\
+%-----------------------------------------------------------------
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Addition oder Subtraktion von Steifigkeiten}}
+
+Die \"{A}nderung der Steifigkeit in einem Element kann man so deuten, dass man vor das urspr\"{u}ngliche Element ein zweites Element legt, dessen Steifigkeit gerade so gro{\ss} ist, dass die beiden Elemente zusammen die angezielte Steifigkeit haben, s. Abb. \ref{U110}.
+%-----------------------------------------------------------------
+\begin{figure}
+\centering
+\if \bild 2 \sidecaption \fi
+{\includegraphics[width=0.8\textwidth]{\Fpath/U97}}
+\caption{Zunahme und Abnahme der L\"{a}ngssteifigkeit $EA$ in dem ersten Element. Bei den Lastf\"{a}llen in der zweiten Reihe sind die L\"{a}ngsverformungen gleich den Lastf\"{a}llen in der ersten Reihe}
+\label{U97}%
+\end{figure}%
+%-----------------------------------------------------------------
+
+Das zus\"{a}tzliche Element muss nun durch Koppelkr\"{a}fte mit dem urspr\"{u}ng\-lichen Tragwerk synchron geschaltet werden, und die dazu n\"{o}tigen Koppelkr\"{a}fte sind gerade die Kr\"{a}fte $\vek f^+$. Das macht auch verst\"{a}ndlich, warum die Kr\"{a}fte $\vek f^+$ Gleichgewichtskr\"{a}fte sind, denn w\"{a}ren sie das nicht, dann w\"{u}rde das vorgeschaltete Element wegfliegen.
+
+Dies gilt f\"{u}r eine Zunahme der Steifigkeit ebenso, wie f\"{u}r eine Abnahme der Steifigkeit. Wenn die Steifigkeit des Elementes gr\"{o}{\ss}er wird, dann haben die Koppelkr\"{a}fte $\vek f^+ $ die Tendenz, die Verformung des Elementes zu behindern, sie steifen sozusagen das Element aus.
+%-----------------------------------------------------------------
+\begin{figure}
+\centering
+\if \bild 2 \sidecaption \fi
+{\includegraphics[width=0.8\textwidth]{\Fpath/U98}}
+\caption{Zunahme und Abnahme der Biegesteifigkeit $EI$ in dem ersten Element. }
+\label{U98}%
+\end{figure}%
+%-----------------------------------------------------------------
+Umgekehrt, wenn die Steifigkeit in dem Element abnimmt, dann erh\"{o}hen die Koppelkr\"{a}fte $\vek f^+$ noch die Verformungen des Elementes, sie wirken wie zus\"{a}tzliche Lasten in den Knoten des Elementes, s. Abb. \ref{U97} und Abb. \ref{U98}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Dipole und Monopole}}
+
+Zwei gegengleiche Kr\"{a}fte $f_i^+ = \pm 1/h$, die \"{u}ber alle Grenzen wachsen, wenn ihr Abstand $h$ gegen null geht, bilden ein Dipol.
+
+Bleiben die beiden gegengleichen Kr\"{a}fte hingegen auch im Grenzfall $h = 0$ endlich, dann nennen wir dies einen {\em Pseudo-Dipol\/}\index{Pseudo-Dipol}. Das Proton (+) und das Elektron (-) in einem Wasserstoffatom bilden einen solchen Pseudo-Dipol, und der Abstand der beiden entgegengesetzten Elementarladungen ist so klein, dass sich ihre Wirkungen auf eine Punktladung au{\ss}erhalb des Atomes praktisch aufheben.
+
+In \"{a}hnlicher Weise stellen die Kr\"{a}fte $f_i^+$ Pseudo-Dipole dar, d.h. zu jeder aufw\"{a}rts gerichteten Kraft $f_i^+$ gibt es eine entgegengesetzt wirkende Kraft $f_j^+$, so dass die beiden Kr\"{a}fte $f^+$ aus der Ferne betrachtet einem Pseudo-Dipol gleichen, s. Abb. \ref{U113}.
+
+Die Wirkung der Kr\"{a}fte $f_i^+$ auf irgendeinen Punkt $x$ des Tragwerks h\"{a}ngt davon ab, wie gro{\ss} die Laufzeitunterschiede von dem Punkt $x$ zu der Kraft $+f_i^+$ und der Gegenkraft $-f_i^+$ sind.
+Wenn zwei Kr\"{a}fte $\pm f_i^+$ fast deckungsgleich sind, weil das Element $\Omega_e$ sehr klein ist, dann heben sich ihre Wirkungen nahezu auf, weil die Einflussfunktion sich auf dem winzigen Element kaum \"{a}ndert, $g' \simeq 0$.
+
+Betrachten wir ein einfaches Beispiel. Ein Stabelement \"{a}ndere seine Steifigkeit, $EA_c = EA + \Delta EA$. In einem entfernten Element wird durch die Spreizung eines Punktes die Einflussfunktion f\"{u}r die Normalkraft in dem entfernten Element erzeugt.
+
+Diese Einflussfunktion pflanzt sich nun bis zu dem Element $EA_c = EA + \Delta EA$ fort und wir beobachten jetzt, was dort passiert. Vereinbarungsgem\"{a}{\ss} wirken dort zwei Zusatzkr\"{a}fte $\pm f^+$, die den Effekt der Steifigkeits\"{a}nderung in dem Element nachbilden.
+Am Anfang des Stabelementes mit der L\"{a}nge $l_e$ ziehe die Kraft $f_i^+$ nach links und am Ende ziehe eine gleichgro{\ss}e Kraft $f_{i + 1}^+$ nach rechts, und die Einflussfunktion f\"{u}r die Normalkraft
+\begin{align}
+G(y,x) = \sum_j g_j(x)\,\Np_j(y)
+\end{align}
+habe im linken Knoten den Wert $g_i$ und im rechten Knoten den Wert $g_{i + 1}$. Dann betr\"{a}gt der  Unterschied in der Normalkraft $N$, die wir als Funktional $N = J(u)$ lesen, also der Unterschied $N_{neu} - N_{alt} = N_c - N$,
+\begin{align}
+J(u_c) - J(u) = f_i^+ g_i - f_{i+1}^+ @g_{i+1} = f_i^+ \cdot (g_i - g_{i+1}) \simeq f_i^+ \cdot G'\cdot l_e\,.
+\end{align}
+Die Wirkung der Steifigkeits\"{a}nderung wird also nur dann merkbar sein, wenn die Einflussfunktion
+in dem ge\"{a}nderten Element halbwegs merkbar ansteigt oder f\"{a}llt, $G' \gg 0$. Die Wirkung der $\pm f^+$ lebt also von der Differenz zwischen Elementanfang und Elementende, also kurz gesagt von $G'$.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die Kr\"{a}ftepaare $\pm f_i^+$ registrieren die Unterschiede in den Einflussfunktionen (z.B.) am Elementanfang und Elementende, sie \glq differenzieren\grq{} die Einflussfunktionen. }}\\
+
+Bei einem Balken registrieren die $\pm f^+$, es sind jetzt Momente, die Unterschiede in der ersten Ableitung der Einflussfunktion an den Balkenenden,
+\begin{align}
+J(u_c) - J(u) = f_i^+ g_i' - f_{i+1}^+ @g_{i+1}' = f_i^+ \cdot (g_i' - g_{i+1}') \simeq f_i^+ \cdot G''\cdot l_e
+\end{align}
+sie reagieren also auf die Gr\"{o}{\ss}e der zweiten Ableitung, der  Momente der Einflussfunktion in dem Element. (Der Balken sei fest gelagert).
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U113}
+\caption{Steifigkeits\"{a}nderung in einem Element und die zugeh\"{o}rigen Koppelkr\"{a}fte $\vek f_i^+$. Diese Kr\"{a}fte folgen den Hauptspannungsrichtungen (- - -)  und es sind Gleichgewichtskr\"{a}fte, die Pseudo-Dipolen gleichen.}
+\label{U113}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Weggr\"{o}{\ss}en und Kraftgr\"{o}{\ss}en}}
+
+Betrachten wir nun die \"{A}nderungen und die Rolle, die der Vektor $\vek f^+$ dabei spielt, etwas systematischer. Es sei zun\"{a}chst $J(u)$ eine Weggr\"{o}{\ss}e, also etwa $u(x)$ oder $w(x)$. Die Ergebnisse vor und nach der Steifigkeits\"{a}nderung lauten
+\begin{align}
+J(u) = \vek g^T \vek f = \vek u^T \vek j
+\end{align}
+bzw.
+\begin{align}
+J(u_c) = \vek g_c^T \vek f = \vek u_c^T \vek j_c\,.
+\end{align}
+Nun ist kein Unterschied zwischen den beiden Vektoren $\vek j$ und $\vek j_c$, weil in die Definition der Weggr\"{o}{\ss}en die Steifigkeiten nicht eingehen.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U383}
+\caption{Steifigkeits\"{a}nderung in einem Stab unter einer Gleichstreckenlast, die $f_i^+$ sind antimetrisch, die EF-$u$ ist symmetrisch und die EF-$N$ ist antimetrisch. Man beachte aber, dass die genaue \"{A}nderung $N_c - N$ nicht einfach die $f_i^+$ mal den Knotenverschiebungen der Einflussfunktion EF-$N$ ist, s. (\ref{Eq137})}\label{Korrektur28}
+\label{U383}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Ist z.B. $J(u) = u(x)$ die Verschiebung in einem Punkt $x$, dann ist
+\begin{align}
+\vek j = \{\Np_1(x), \Np_2(x), \ldots, \Np_n(x) \}^T = \vek j_c
+\end{align}
+und so folgt
+\begin{align}
+J(u_c) - J(u) &= \vek j^T (\vek u_c - \vek u) = \vek j^T\vek K^{-1}(\vek f + \vek f^+) - \vek j^T \vek K^{-1} \vek f\nn\\
+ &= \vek j^T\,\vek K^{-1} \vek f^+ = \vek g^T \vek f^+\,.
+\end{align}
+Bei Kraftgr\"{o}{\ss}en ist das unter Umst\"{a}nden anders. Wenn der Aufpunkt $x$ auf dem Element liegt, dessen Steifigkeit sich \"{a}ndert, $EA \to EA_c$, dann sind, etwa im Fall $J(u) = EA\,u'(x)$, die Vektoren $\vek j$
+\begin{align}
+\vek j = \{EA\,\Np_1'(x), EA\, \Np_2'(x), \ldots, EA\,\Np_n'(x) \}^T
+\end{align}
+und
+\begin{align}
+\vek j_c = \{EA_c\,\Np_1'(x), EA_c\, \Np_2'(x), \ldots, EA_c\,\Np_n'(x) \}^T
+\end{align}
+nicht gleich\footnote{Nur die $\Np_i(x)$, die einen \glq Fu{\ss}\grq{} auf dem Element mit dem Aufpunkt $x$ haben, sind in dem Vektor $\vek j$ bzw. $\vek j_c$ nicht null, so dass diese Vektoren ziemlich leer sind. }, so dass nun das Ergebnis lautet
+\begin{align}\label{Eq102}
+J(u_c) - J(u) &= \vek j_c^T \vek K^{-1}(\vek f + \vek f^+) - \vek j^T \vek K^{-1}\vek f\nn \\
+&= (\vek j_c - \vek j)^T \vek u + \vek j_c^T \vek K^{-1}\,\vek f^+  \,.
+\end{align}
+Auf der rechten Seite stehen die Korrekturterme, um von $J(u)$ auf $J(u_c)$ zu kommen, wobei man die erste Korrektur, um den Fehler in der Steifigkeit, $EA$ statt $EA_c$, zu beheben, an $\vek u$ vornehmen kann, und der zweite Term ist der Einfluss der Kr\"{a}fte $\vek f^+$ auf die Schnittgr\"{o}{\ss}en.
+
+Setzen wir $\vek u^+ = \vek K^{-1}\,\vek f^+$\index{$\vek u^+$} und sei $\vek j_c = \alpha\,\vek j$, dann ist dasselbe wie
+\begin{align}\label{Eq137}
+J(u_c) - J(u) = \vek j_c^T (\vek u + \vek u^+) - \vek j^T\,\vek u = (\alpha -1)\,\vek g^T\,\vek f + \alpha\,\vek g^T\,\vek f^+\,.
+\end{align}
+Wenn der Punkt $x$ auf einem Element liegt, dessen Steifigkeit sich nicht \"{a}ndert, dann ist wegen $\vek j_c = \vek j$ die Formel dieselbe, wie bei den Weggr\"{o}{\ss}en
+\begin{align}
+J(u_c) - J(u) = \vek j^T\,\vek u^+ = \vek j^T\,\vek K^{-1} \vek f^+ = \vek g^T \vek f^+\,.
+\end{align}
+Bei dem Stab in Abb. \ref{U383} halbiert sich im zweiten Element die L\"{a}ngssteifigkeit von $EA = 1$ auf $EA_c = 0.5$. Die Belastung ist eine Gleichlast von 1 kN/m. Die Elementl\"{a}nge betr\"{a}gt $l_e = 1.0$ m. Die Matrizen lauten
+\begin{align}
+\vek K = \left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r} 2 & -1 & 0 & 0 \\ -1 & 2 & -1 & 0\\ 0 &-1 &2 &-1\\ 0 & 0 &-1 &2\earr \right]
+\qquad \vek  \Delta \vek K = \left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r} -0.5 & 0.5 & 0 & 0 \\ 0.5 & -0.5 & 0 & 0\\ 0 &0 &0 &0\\ 0 & 0 &0 &0\earr \right]
+\end{align}
+und die Vektoren haben die Gestalt
+\begin{align}
+\vek u = \left[ \barr {r } 2.0 \\ 3.0 \\ 3.0 \\ 2.0 \earr \right]\quad \vek u_c = \left[ \barr {r } 1.833 \\3.500 \\3.333 \\2.167 \earr \right] \quad \vek f^+ = \left[ \barr {r } -0.833 \\ 0.833 \\ 0.0 \\ 0.0 \earr \right] \quad \vek j =\left[ \barr {r } -1.0 \\ 1.0 \\ 0.0 \\ 0.0 \earr \right]\,.
+\end{align}
+Es ist $\vek j_c = 0.5 \cdot \vek j$ wegen $EA_c = 0.5\,EA$.
+
+Die Differenz der Normalkr\"{a}fte in der Mitte des zweiten Elements ergibt sich somit zu
+\begin{align}
+N_c - N = J(\vek u_c) - J(\vek u) = - 0.5\,\vek j^T\,\vek u + 0.5\,\vek j^T\,\vek K^{-1}\,\vek f^+ = -0.1665\,.
+\end{align}
+In der Praxis berechnet man $N_c - N$ nat\"{u}rlich direkt aus $\vek u_c$ und $\vek u$. Weil die Elemente linear sind ist $N_c = 0.5 \cdot (3.500 - 1.833) = 0.8335$ und $N = 1.0 \cdot (3.0 - 2.0) = 1.0 $. Es ging hier prim\"{a}r um den Nachweis, dass die obige Formel (\ref{Eq102}) das richtige Ergebnis liefert.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Symmetrie und Antimetrie}}\label{Korrektur26}
+Die Einflussfunktionen f\"{u}r Verschiebungen bei einem Stab (Scheibe) werden durch Monopole erzeugt
+und die Einflussfunktionen f\"{u}r Normalkr\"{a}fte (Spannungen) durch Dipole. Nun sind ja die $f_i^+$ antimetrisch und somit sollten die Effekte von Steifigkeits\"{a}nderungen bei den Spannungen ({\em antimetrisch $\times$ antimetrisch\/}) gr\"{o}{\ss}er sein als bei den Verschiebungen ({\em antimetrisch $\times$ symmetrisch\/}). Mit
+\begin{align}
+ \frac{N_c - N}{N} = \frac{0.8335 - 1.0}{1.0}= - 0.1665 \qquad \frac{u_c - u}{u} = \frac{2.667 - 2.5}{2.5} = 0.0666
+\end{align}
+best\"{a}tigt sich das bei diesem Beispiel.
+
+Bei statisch bestimmten Systemen ist es aber gerade umgekehrt: Die Verformungen \"{a}ndern sich, aber die Kr\"{a}fte nicht. Der Grund ist, dass die $f_i^+$ Gleichgewichtskr\"{a}fte sind, die auf den st\"{u}ckweise linearen Einflussfunktionen (f\"{u}r $N, M, V$) in der Summe null Arbeit leisten. Die Einflussfunktionen f\"{u}r die Verformungen sind jedoch \glq krumme\grq{} Linien zu denen die $f_i^+$ im energetischen Sinne nicht orthogonal sind. Deswegen \"{a}ndern sich die Verformungen. \label{Korrektur8}
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.99\textwidth]{\Fpath/U428}
+\caption{Einflussfunktion f\"{u}r eine Querkraft. In den Stielen des obersten Stockwerks ist der Verlauf praktisch konstant, was bedeutet, dass \"{A}nderungen $EI \pm \Delta EI$ in den Stielen sehr geringen Einfluss auf die Querkraft haben werden, weil die zugeh\"{o}rigen $f_i^+$ zu diesen Bewegungen orthogonal sind}\label{Korrektur34}
+\label{U428}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.99\textwidth]{\Fpath/U429}
+\caption{Einflussfl\"{a}che f\"{u}r das Moment $m_{yy}$ einer zweiseitig gelagerten Decke. Die lange Seite ist eingespannt, die kurze gelenkig gelagert. Im rechten Teil verl\"{a}uft die Fl\"{a}che nahezu linear, so dass Steifigkeits\"{a}nderungen in diesem Teil einen geringen Einfluss auf das Moment $m_{yy}$ im Aufpunkt haben sollten}\label{Korrektur35}
+\label{U429}
+\end{figure}%
+%-----------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Das Abklingen der Effekte}}
+
+Je weiter man sich vom Aufpunkt entfernt, um so \glq linearer\grq{} wird die Einflussfunktion, um so mehr dominieren die linearen Anteile in den Einflussfunktionen, d.h. der Vektor $\vek g$ der Knotenverschiebungen gleicht mit wachsendem Abstand mehr und mehr einem Vektor $\vek u_0= \vek a + \vek x \times \vek b$ und das bedeutet, weil der Vektor $\vek f^+$ orthogonal zu den Vektoren $\vek u_0$ ist, dass der Einfluss der Kr\"{a}fte $\vek f^+$ mit wachsendem Abstand vom Aufpunkt gegen null tendiert\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{
+\beq
+J(e) =  J(u_c) - J(u)  = \vek g^T\,\vek f^+ \simeq (\vek a + \vek x \times \vek b)^T\,\vek f^+ = 0\,.
+\eeq
+Dies ist der Grund, warum es m\"{o}glich ist, mit gemittelten Materialparametern genaue Ergebnisse zu erhalten.}}\\
+
+\vspace{0.7cm}
+
+Wenn $J(u)$ eine Kraftgr\"{o}{\ss}e ist und der Aufpunkt auf dem betroffenen Element liegt, dann ist, wie oben gezeigt, die Formel um die Korrektur $EA_c - EA$ auf dem Element zu erweitern
+\begin{align}
+J(e) = J(u_c) - J(u) &= \underbrace{(\vek j_c - \vek j)^T \vek u}_{Korrektur} + \vek j_c^T \vek K^{-1}\,\vek f^+\,.
+\end{align}
+Die erste Korrektur ist rein lokal, geschieht nur im Aufpunkt, w\"{a}hrend der zweite Term den Einfluss der Kr\"{a}fte $f_i^+$ erfasst, deren Effekte aber mit der Entfernung relativ rasch abklingen.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Die Bedeutung f\"{u}r die Praxis}}
+Die Bedeutung dieser Ergebnisse f\"{u}r die Praxis liegt darin, dass sie erkl\"{a}ren, warum {\em Homogenisierungsmethoden\/}\index{Homogenisierungsmethoden} erfolgreich sind.
+
+Beton setzt sich aus den unterschiedlichsten Kiessorten und Zementstein zusammen. Jedes Zuschlagskorn hat ja einen anderen Elastizit\"{a}tsmodul und daher m\"{u}ssten wir eigentlich jedes Zuschlagskorn durch ein eigenes finites Element modellieren. Stattdessen rechnen wir aber mit einem gemittelten Elastizit\"{a}tsmodul und erhalten durchaus glaubhafte Ergebnisse.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U114}
+\caption{Eigengewicht und Kr\"{a}fte $f_i^+$. Die Scheibe wurde erst mit einem einheitlichen E-Modul $E = 1$ berechnet und dann wurde der E-Modul in den Elementen
+zuf\"{a}llig, $0.5 < E_i < 1.5$, variiert, und es wurden die Kr\"{a}fte $f_i^+$ berechnet. Diese Kr\"{a}fte $f_i^+$ plus den Kr\"{a}ften $f_i$ aus dem Lastfall Eigengewicht
+erzeugen in dem Modell $\vek K$ den Verschiebungsvektor $\vek u_c$ der Scheibe, $\vek K\,\vek u_c = \vek f + \vek f^+$. Es ist derselbe Vektor $\vek u_c$ wie in dem
+Modell $\vek K_c\,\vek u_c = \vek f$ wobei die Matrix $\vek K_c$ auf den zuf\"{a}llig gestreuten Werten $E_i$ beruht. }
+\label{U114}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U421}\label{Korrektur27}
+\caption{Wandscheibe unter Eigengewicht, in den Elementen mit den Knotenkr\"{a}ften $f_i^+$ wurde der E-Modul um 90 \% verringert. Im Grunde verhalten sich die geschw\"{a}chten Bereiche wie \"{O}ffnungen. Bemerkenswert ist, dass die Kr\"{a}fte $f_i^+$ auf den Rand konzentriert sind, sie ziehen die \glq \"{O}ffnung\grq{} zusammen. Die Analogie ist naheliegend: In einem St\"{u}ck Blech, das man zur Verst\"{a}rkung mit Heftn\"{a}hten auf eine Stahlwand schwei{\ss}t, d\"{u}rften dieselben Kr\"{a}fte auftreten, nur dass sie kontinuierlich \"{u}ber den geschwei{\ss}ten Rand verteilt sind und die umgekehrte Richtung haben   }
+\label{U421}
+\end{figure}%
+%-----------------------------------------------------------------
+Dies d\"{u}rfte wesentlich daran liegen, dass die Knotenkr\"{a}fte $f_i^+$ auf der H\"{u}lle des Zuschlagskorns, mit denen wir ja die Abweichungen des Elastizit\"{a}tsmoduls vom Mittelwert korrigieren, Gleichgewichtskr\"{a}fte sind, die nahe beieinanderliegen, und ihre Fernwirkungen daher gegen null tendieren.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.95\textwidth]{\Fpath/U362}  % war UE234
+\caption{Ausfall einer St\"{u}tze zwischen zwei Decken und zwischen der untersten Decke und dem Fundament}
+\label{U362}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Eine Scheibe $\Omega$ bestehe z.Bsp. aus einer Reihe von unterschiedlichen Elementen, $\Omega = \Omega_1 \cup \Omega_2 \cup \ldots \Omega_n$, die alle einen eigenen $E$-Modul $E_i$ aufweisen, der um einen Betrag $\Delta E_i = E - E_i$ von dem Mittelwert $E$ abweicht, s. Abb. \ref{U114}. Der exakte Knotenverschiebungsvektor $\vek u_c$ w\"{a}re daher die L\"{o}sung des Systems
+\beq
+\vek K_c\,\vek u_c = \vek f\,,
+\eeq
+wobei die Matrix  $\vek K_c$ sich aus den unterschiedlichen Elementmatrizen $\vek K_e(E_i)$ zusammensetzt. Wenn man hingegen mit einem einheitlichen $E$-Modul rechnet, also einer vereinfachten Matrix $\vek K$,
+\beq
+\vek K\,\vek u = \vek f\,,
+\eeq
+dann ist der Fehler in einer Verschiebung
+\beq
+J(u_c) - J(u) = \vek g^T\,(\vek f + \vek f^+) -  \vek g^T\,\vek f = \vek g^T\,\vek f^+
+\eeq
+relativ klein, weil die Kr\"{a}fte $f_i^+$, die von den Fehlertermen $\Delta E_i = E_i - E$ herr\"{u}hren
+\beq
+\vek K\,\vek u_c = \vek f + \vek f^+\,,
+\eeq
+zum einen $(1)$ Gleichgewichtsgruppen bilden und $(2)$ zum andern sich positive Abweichungen $\Delta E_i > 0$ und negative Abweichungen $\Delta E_j < 0$ ungef\"{a}hr die Waage halten werden, so dass diese beiden Effekte zusammen daf\"{u}r sorgen, dass die Fernfeldfehler klein sein werden, s. Abb. \ref{U114}. Man muss nicht jedes Zuschlagskorn durch ein eigenes Element darstellen, die Mathematik sorgt daf\"{u}r, dass sich die Fehler aufheben.
+
+Bei der ersten Wandscheibe in Abb. \ref{U114} war die Streuung in den Steifigkeiten zuf\"{a}llig verteilt, jetzt in den Bildern \ref{U421} a und \ref{U421} b gibt es zwei Bereiche, in denen die Steifigkeit aller Elemente um denselben Betrag, um $90 \%$ reduziert wurde. Bemerkenswert ist hierbei die Dominanz der Kr\"{a}fte $f_i^+$ am Rand der beiden Bereiche, s. Abb. \ref{U421}.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.75\textwidth]{\Fpath/U243}
+\caption{Ausfall einer Eckst\"{u}tze, \textbf{ a)} Momente im LF $g$, \textbf{ b)} Kraft $f^+$ und zugeh\"{o}rige Momente, \textbf{ c)} a+ b = Momente nach Ausfall der Eckst\"{u}tze}
+\label{U243}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Man ist versucht, weil die Kr\"{a}fte $f_i^+$ Gleichgewichtskr\"{a}fte sind, die immer paarweise auftreten, die durch die $f_i^+$ ausgel\"{o}sten Effekte zu ignorieren. Wenn, wie in  Abb. \ref{U362},  eine St\"{u}tze zwischen zwei Geschossen ausf\"{a}llt, dann kann man das am Originaltragwerk durch den Angriff von zwei gegengleichen Knotenkr\"{a}ften $f_i^+$ korrigieren und weil beide gleich gro{\ss} sind, heben sich ihre Wirkungen in der Ferne auf. Das ist richtig.
+
+
+Wenn aber eine Fundamentst\"{u}tze ausf\"{a}llt, dann wirken zwar auch wieder zwei Kr\"{a}fte $\pm f_i^+$, aber die untere Kraft ist am Boden verankert und so bleibt von dem Paar $\pm f_i^+$ nur die Kraft $f_i^+$ am St\"{u}tzenkopf \"{u}brig, die, weil sie keinen Antagonisten hat, weiter ausstrahlen wird, als ein gegengleiches Kr\"{a}ftepaar $\pm f_i^+$. \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{
+Der Ausfall einer Fundamentst\"{u}tze ist kritischer, als der Ausfall einer Zwischenst\"{u}tze.}}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Rahmen}}
+In Abb. \ref{U243} a sind die Momente eines Rahmens im LF $g$ dargestellt und darunter, in Abb. \ref{U243} b, die Momente im selben Lastfall, wenn eine Gescho{\ss}st\"{u}tze ausf\"{a}llt. Statisch entspricht der \"{U}bergang von Bild a zu Bild c der Wirkung von Zusatzkr\"{a}ften $f_i^+$, wie in Abb. \ref{U243} b gezeigt,
+\begin{align}
+(\vek K + \vek \Delta \,\vek K)\,\vek u_c = \vek f \qquad \vek K\,\vek u_c = \vek f + \vek f^+\,.
+\end{align}
+Die Momente, die diese Kr\"{a}fte $f_i^+$ erzeugen, zu den Momenten des Ausgangszustandes addiert, ergeben die Momente des geschw\"{a}chten Systems.
+
+%Das Beispiel des aufgest\"{a}nderten Balkens in Abb. \ref{U246} soll demonstrieren, dass lokale \"{A}nderungen in den Steifigkeiten zu wellenf\"{o}rmigen Effekten f\"{u}hren, die aber rasch abklingen.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.8\textwidth]{\Fpath/U296}
+\caption{Biegebalken, \textbf{ a)} Gleichlast, \textbf{ b)} Einflussfunktion f\"{u}r $M(x)$ erzeugt durch zwei gegengleiche Momente $M_l = M_r$, \textbf{ c)} Lagersenkung $\Delta = 1$}
+\label{U296}
+\end{figure}%
+%-----------------------------------------------------------------
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Starre Lager}}
+Ein elastisches Lager ($k$) gibt unter Last um einen Weg $u$ nach. Ein eventueller Ausfall des Lagers entspricht einem Sprung $\Delta k = -k$ in der Lagersteifigkeit und so muss eine Kraft $f^+ = - (-k)\,u_c = k\,u_c$ zur rechten Seite addiert werden, um rechnerisch den Ausfall des Lagers zu kompensieren.
+
+Bei starren Lager ist die $f^+$-Technik nicht anwendbar, weil ein Lagerweg $u_c $ n\"{o}tig ist, um eine Kraft $f^+ = \Delta k\,u_c$ zu generieren. In einer solchen Situation w\"{u}rde man die Lagerkraft in umgekehrter Richtung auf das modifizierte Tragwerk aufbringen (nach dem Ausfall des Lagers) und die Ergebnisse zu den urspr\"{u}nglichen Ergebnissen addieren.
+
+Wie wir die Effekte erfassen, die der Ausfall eines starren Lagers auf die inneren Kr\"{a}fte hat, wollen wir beispielhaft an dem Tr\"{a}ger in Abb. \ref{U296} zeigen. Es soll untersucht werden, wie sich das Biegemoment in der Mitte des Balkens \"{a}ndert, wenn das starre Lager am Ende des Balkens ausf\"{a}llt. (Der Praktiker w\"{u}rde dieses Problem nat\"{u}rlich ganz anders und schneller l\"{o}sen, aber es geht hier um die Systematik, die auch noch greift, wenn 10 Stockwerke \"{u}bereinander liegen).
+
+Zuerst zeigen wir, dass die Lagerreaktion $R_G$, die zur Einflussfunktion f\"{u}r das Moment $M(x)$ in Abb. \ref{U296} b geh\"{o}rt, gleich dem Moment $M(x)$ ist, wenn sich das Lager um einen Meter senkt, $\Delta = 1$,\footnote{Das entspricht der Formel $J_1(G_2) = J_2(G_1)$ Mit $J_1(w) = R$ (Lagerreaktion die zu $w$ geh\"{o}rt) und $J_2(w) = M(x)$ (Moment von $w$ in Balkenmitte) mit $G_2$ wie in Abb. \textbf{ b)} und $G_1 = w_\Delta$ wie in Abb. \textbf{ c)}.}
+\begin{align}
+R_G = M(x) \qquad \text{aus Setzung $\Delta = 1$}\,.
+\end{align}
+Das ergibt sich aus dem {\em Satz von Betti\/} $\text{\normalfont\calligra B\,\,}(G_2,w_\Delta) = 0$
+\begin{align}
+A_{1,2} = \underbrace{M_l\,w_\Delta'(x_{-}) - M_r\,w_\Delta'(x_+)}_{= \,0} + R_G \cdot 1 = M(x) \cdot 1 + R_\Delta \cdot 0 = A_{2,1} \,.
+\end{align}
+Wenn das Lager unter einer Last $p$ ausf\"{a}llt, dann muss die vorherige Lagerkraft $R_p$ als \"{a}u{\ss}ere Kraft und in umgekehrter Richtung aufgebracht werden. Das f\"{u}hrt dazu, dass sich das Balkenende um den Betrag
+\begin{align}\label{Eq118}
+w(l) = R_p \cdot \frac{1}{k_S} \qquad k_S =  \frac{3\,EI}{l^3}
+\end{align}
+senkt. Wenn eine Setzung um einen Meter, $\Delta = 1$, ein Moment $M(x) = R_G$ verursacht, dann verursacht die Durchbiegung in (\ref{Eq118}) das Moment
+\begin{align}\label{Eq119}
+M(x) = R_G \cdot R_p \cdot \frac{1}{k_S} = R_G \cdot \text{Durchbiegung aus $R_p$} \,.
+\end{align}
+Das Moment $M(x) $ ist das $\Delta M(x) $, das zu dem urspr\"{u}nglichen Moment im Punkt $x$ addiert werden muss, um den Verlust des starren Lagers auszugleichen.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.99\textwidth]{\Fpath/U540}
+\caption{Das rasche Abklingen der Momente aus den $X_i$ bei einem Durchlauftr\"{a}ger (ein \glq Urph\"{a}nomen\grq{} der Statik) weist auf die enge Verwandtschaft zwischen den $f_i^+$ und den $X_i $ hin; die $f_i^+$ sind sozusagen die $X_i$ beim \"{U}bergang vom System $\vek K $ zum System $ \vek K + \vek \Delta \vek K$}
+\label{U540}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Die Zahl $k_S$ ist die Steifigkeit der Struktur -- nach dem Ausfall des Lagers -- in Richtung von $w$. Wenn in dem Lager eine gewisse Reststeifigkeit $k_R$ verbleibt, dann bilden $k_S$ und $k_R$ eine Federkette und dann muss $1/k_S$ sinngem\"{a}{\ss} durch $1/k$ ersetzt werden
+\begin{align}
+\frac{1}{k} = \frac{1}{k_S} + \frac{1}{k_R}\,.
+\end{align}
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.8\textwidth]{\Fpath/U394a}
+\caption{Berechnung der Einflussfunktion f\"{u}r eine Eckverschiebung mit einem Dirac Delta, das in diskreter Form einer Knotenkraft $j$ gleich ist. \"{A}ndert sich in einem Element die Steifigkeit, dann braucht man auf der rechten Seite, $\vek K\,\vek g_c = \vek j + \vek j^+$, zus\"{a}tzliche Knotenkr\"{a}fte $\vek j^+$, wenn man mit der Matrix $\vek K$ rechnet; s. auch Abb. \ref{U369} auf S. \pageref{U369}}
+\label{U394}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Das Kraftgr\"{o}{\ss}enverfahren}}
+
+Zwischen dem Kraftgr\"{o}{\ss}enverfahren und den  $f_i^+$ besteht ein enger Zusammenhang, denn beim Rechnen mit den $f_i^+$ \"{a}ndern wir nicht die Steifigkeitsmatrix, sondern wir \"{a}ndern die rechte Seite, aus dem Vektor $\vek f$ wird der Vektor $\vek f + \vek f^+$. Genauso geht auch das Kraftgr\"{o}{\ss}enverfahren vor.
+
+Das Kraftgr\"{o}{\ss}enverfahren w\"{a}hlt ein statisch bestimmtes {\em Hauptsystem\/} und in der Folge findet alles Rechnen an diesem System statt. Die statisch \"{U}berz\"{a}hligen $X_i $ spielen dabei dieselbe Rolle wie die $f_i^+$. W\"{a}hrend die $f_i^+ $ das zus\"{a}tzliche Element an die Struktur koppeln, beseitigen die  $X_i $ die Klaffungen. Beide, die $X_i$ wie die $f_i^+$, sind {\em Zusatzlasten\/}, die auf der rechten Seite erscheinen, w\"{a}hrend die eigentliche Analyse am unver\"{a}nderten Hauptsystem (Matrix $\vek K$) vor sich geht.
+
+Das hat den Vorteil, dass wir nicht zwei S\"{a}tze von Einflussfunktionen brauchen: Einen Satz f\"{u}r die Schnittgr\"{o}{\ss}en am Hauptsystem (Matrix $\vek K$) und einen zweiten Satz f\"{u}r das statisch unbestimmte System (Matrix $\vek K_c$).
+
+Es gibt aber noch, wie Abb. \ref{U540} zeigt, eine weitere Verwandtschaft zwischen den $f_i$ und den $X_i$. Die $f_i^+$ sind sozusagen die $X_i$, die das System $\vek K $ auf das Niveau $\vek K + \vek \Delta \vek K $ heben.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Kr\"{a}fte $\vek j^+$}} \label{Korrektur1}\label{jplus}
+
+Die Formel $J(e) = \vek g^T\,\vek f^+$ legt nahe zu probieren, ob es nicht auch eine Formel
+\begin{align}
+J(e) = \vek u^T\,\vek j^+
+\end{align}
+gibt, s. Abb. \ref{U394}.\index{$\vek j^+$}
+
+Und die gibt es in der Tat, denn die Verschiebung $u(x)$ in einem Punkt kann man auf zwei Arten berechnen
+\begin{align}
+u(x) = \int_0^{\,l} G(y,x)\,p(y)\,dy = \int_0^{\,l} u(y)\,\delta(y-x)\,dy\,.
+\end{align}
+In der linearen Algebra der finiten Elemente lautet die zweite Gleichung
+\begin{align}
+J(u) = u(x) = \vek u^T\,\vek j(x)\,,
+\end{align}
+wenn $\vek j(x)$ die \"{a}quivalenten Knotenkr\"{a}fte zu einem Dirac Delta sind, das im Punkt $x$ angreift. Aus $(\vek K + \vek \Delta \vek K)\,\vek g_c = \vek j$ folgt
+\begin{align}
+\vek K\,\vek g_c = \vek j - \vek \Delta \vek K\,\vek g_c = \vek j + \vek j^+
+\end{align}
+und nach Multiplikation von links mit $\vek u$ (es ist $\vek u^T\,\vek K = \vek f^T$)
+\begin{align}
+\underbrace{\vek u^T\,\vek K\,\vek g_c}_{J(\vek u_c)} = \underbrace{\vek u^T\vek j}_{J(\vek u)} - \vek u^T\vek \Delta \vek K\,\vek g_c = \vek u^T\vek j + \vek u^T\vek j^+\,,
+\end{align}
+ergibt sich
+\begin{align}\label{Eq104}
+J(\vek e) = u_c(x) - u(x) = \vek u^T\,\vek j^+
+\end{align}
+mit
+\begin{align}
+\vek j^+ = -\vek \Delta \,\vek K \,\vek g_c\,.
+\end{align}
+Wenn man z.B. mit Knotenkr\"{a}ften $\vek j$ die Einflussfunktion f\"{u}r die Querkraft in einem Riegel im 5. Stock generiert und im 1. Stock \"{a}ndert sich die Steifigkeit eines Stiels, dann muss man die Knoten dieses Stiels mit Knotenkr\"{a}ften $\vek j^+$ belasten, um am  urspr\"{u}nglichen Tragwerk durch L\"{o}sen des Systems $\vek K\,\vek g_c = \vek j + \vek j^+$ die ge\"{a}nderte Einflussfunktion, $\vek g \to \vek g_c$, zu berechnen. Von der Spreizung $\vek g_c$ im 5. Stock wird aber nicht viel im 1. Stock ankommen, so dass die notwendigen Zusatzkr\"{a}fte $\vek j^+$ klein sein werden.
+
+Das ganze ist insofern theoretisch, weil man ja $\vek g_c$ nicht kennt (man k\"{o}nnte $\vek g_c\sim \vek g $ setzen) und somit den Vektor $\vek j^+$ nicht berechnen kann, aber es veranschaulicht, was die $j_i^+$ bedeuten.
+
+Nehmen wir eine Verschiebung als Beispiel. Um auf dem \glq alten\grq{} Netz $G_c$ zu erzeugen, muss man zus\"{a}tzlich die Kr\"{a}fte $j_i^+$ anbringen. Formuliert man den Satz von Betti mit der {\em alten\/} L\"{o}sung $u$ und dem {\em neuen\/} $G_c$ so entsteht
+\begin{align}
+1 \cdot u + \sum_i\,j_i^+\,u_i = \int_{\Omega} G_c\,p\,d\Omega_{\vek y} = 1 \cdot u_c\,,
+\end{align}
+was bedeutet, dass die Arbeit der Kr\"{a}fte $\vek j$ und $\vek j^+$ auf den alten Wegen $\vek u$  gleich dem neuen $u_c$ im Aufpunkt ist.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Austausch als Alternative}}
+Statt mit den Kr\"{a}ften $f_i^+$ zu operieren, gibt es auch andere Techniken.
+Man stelle sich vor, dass eine St\"{u}tze zwischen zwei Decken, s. Abb. \ref{U126}, ausgetauscht werden muss. Wenn die neue St\"{u}tze dieselbe Steifigkeit $k = EA$ hat, dann
+\begin{itemize}
+  \item muss sie auf dem Bauhof dieselbe L\"{a}nge haben, wie die alte unbelastete St\"{u}tze
+  \item muss die neue St\"{u}tze so vorgespannt werden, dass sie bei dem Einbau dieselbe L\"{a}nge hat wie die alte St\"{u}tze.
+\end{itemize}
+Nach dem Einbau k\"{o}nnen die Pressen an der neuen St\"{u}tze weggenommen werden und  nichts hat sich ge\"{a}ndert\footnote{Eigentlich ist $k = EA/l$, aber zu Vereinfachungen lassen wir den Faktor $1/l$ weg}.\label{Korrektur3}
+%-----------------------------------------------------------------
+\begin{figure}
+\centering
+\if \bild 2 \sidecaption \fi
+{\includegraphics[width=0.9\textwidth]{\Fpath/U126}}
+\caption{Zunahme und Abnahme der L\"{a}ngssteifigkeit $EA$ in einer St\"{u}tze}
+\label{U126}%
+\end{figure}%
+%-----------------------------------------------------------------
+
+Wenn stattdessen die neue St\"{u}tze eine Steifigkeit $EA_c > EA$ hat, dann dr\"{u}cken Zusatzkr\"{a}fte (= $f_i^+$) gegen die obere und untere Decke, sobald die Pressen entfernt werden, s. Abb. \ref{U126}. Denn um eine St\"{u}tze mit $EA_c > EA$ zusammenzudr\"{u}cken, sind gr\"{o}{\ss}ere Kr\"{a}fte notwendig als im Fall $EA_c = EA$. Und wenn die Pressen entfernt werden, dann dr\"{u}cken diese Kr\"{a}fte gegen die Decken.
+
+Wenn die neue St\"{u}tze eine geringere Steifigkeit hat, $EA_c < EA$, dann ist die Situation im Grunde dieselbe, wir m\"{u}ssen nur das Vorzeichen der $f_i^+$ umdrehen.
+
+Statt also ein zweites Element $\Omega_e^+$ vor das erste Element $\Omega_e$ zu legen, k\"{o}nnen wir uns auch vorstellen, dass wir das Element als Ganzes ersetzen. Weil aber die Steifigkeit {\em neu -- alt\/} unterschiedlich ist, $EA_c \neq EA$, sind Zusatzkr\"{a}fte $f_i^+$ an den Enden des Elements notwendig. Es gibt vier m\"{o}gliche Szenarien:
+
+\begin{itemize}
+  \item $EA_c > EA$ und $N > 0$ (Zug), dann ziehen die $f_i^+$ die St\"{u}tze zusammen, ($\rightarrow\,\,\leftarrow$).
+  \item $EA_c > EA$ und $N < 0$ (Druck), dann dr\"{u}cken die $f_i^+$ die St\"{u}tze auseinander, ($\leftarrow \,\,\rightarrow$).
+  \item $EA_c < EA$ und $N > 0$, dann ziehen die $f_i^+$ die St\"{u}tze auseinander, ($\leftarrow \,\,\rightarrow$).
+\item $EA_c < EA$ und  $N < 0$, dann ziehen die $f_i^+$ die St\"{u}tze zusammen, ($\rightarrow\,\,\leftarrow$).
+\end{itemize}
+Wenn $EA_c > EA$ ist, dann nehmen die Verformungen der St\"{u}tze ab und wenn  $EA_c < EA$ ist, dann nehmen sie zu.
+
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=.99\textwidth]{\Fpath/UE352}
+\caption{Eine lokale Steifigkeits\"{a}nderung, \"{a}ndert die Einflussfunktion f\"{u}r  $V(x)$ im ganzen Rahmen}
+\label{UE352}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=.99\textwidth]{\Fpath/UE366}
+\caption{Risse in einem Balken}
+\label{UE366}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Integration \"{u}ber das defekte Element}}
+Auch wenn sich nur eine Zahl $k_{ij}$ in der Steifigkeitsmatrix $\vek K$ \"{a}ndert, \"{a}ndert sich die ganze Inverse $\vek K^{-1}$. Praktisch bedeutet dies z.B., dass die Schw\"{a}chung eines Elementes, $ EI \to EI + \Delta EI$, die Querkraft $V(x)$ in allen Punkten des Rahmens \"{a}ndert
+\begin{align}
+V_c(x) - V(x) = \sum_e \int_0^{\,l_e} (G_3^c(y,x) - G_3(y,x))\,p(y)\,dy\,,
+\end{align}
+weil sich eben die Einflussfunktion, $G_3(y,x) \rightarrow G_3^c(y,x)$, \"{u}berall \"{a}ndert, und somit die \"{U}berlagerung der Belastung mit $G_3^c(y,x)$ andere Werte ergibt, s. Abb. \ref{UE352}.
+
+Es gibt aber die M\"{o}glichkeit, das Nachrechnen auf das Element, das sich \"{a}ndert, zu beschr\"{a}nken. Wir betrachten hierzu den Zweifeldtr\"{a}ger in Abb. \ref{UE366}. Zu Anfang war die Steifigkeit $EI$ in beiden Feldern gleich gro{\ss} und so lautet die schwache Form der Balkengleichung $EI\,w^{IV} = p$
+\begin{align}
+\int_0^{\,l} EI\,w''\,\delta w''\,dx = \int_0^{\,l} p\,\delta w\,dx\,,
+\end{align}
+oder kurz
+\begin{align}
+a(w, \delta w) = (p, \delta w)\,.
+\end{align}
+Dann \"{a}ndert sich die Steifigkeit im zweiten Feld auf einen Wert $EI + \Delta EI$, die Biegelinie \"{a}ndert sich mit, $w \to w_c$, und die schwache Form geht \"{u}ber in
+\begin{align}\label{Eq177}
+\int_0^{\,l} EI\,w_c''\, \delta w''\,dx + \underbrace{\int_{l/2}^{\,l} \Delta EI\,w_c''\, \delta w''\,dx}_{d(w_c,\delta w)} = \int_0^{\,l} p\,\delta w\,dx
+\end{align}
+oder\footnote{Diese additive Zerlegung, $a(.,.) + d(.,.)$ ist der Schl\"{u}ssel zu $J(e) = - d(G,u_c)$.}
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=.90\textwidth]{\Fpath/U465}
+\caption{Die Integration \"{u}ber das gerissene Element oben links reicht aus, um die \"{A}nderung in der horizontalen Verschiebung zu bestimmen \textbf{ a)} Spannungsverteilung nach dem Auftreten der Risse im Element oben links \textbf{ b)} Spannungen aus der Einzelkraft $P = 1$ (Einflussfunktion f\"{u}r $u_x$) am oberen Kragarmende}
+\label{U465}
+\end{figure}%
+%-----------------------------------------------------------------
+\begin{align}
+a(w_c, \delta w) + d(w_c, \delta w) = (p, \delta w)\,.
+\end{align}
+Wenn wir die beiden Gleichungen voneinander abziehen, dann folgt
+\begin{align}
+a(w_c - w, \delta w) + d(w_c, \delta w) = 0
+\end{align}
+oder mit $e = w_c - w$
+\begin{align}\label{Eq10}
+a(e, \delta w) = -  d(w_c, \delta w)\,.
+\end{align}
+W\"{a}hlen wir als virtuelle Verr\"{u}ckung $\delta w$ die Einflussfunktion $G$ eines Funktionals $J(w)$, dann ist das Ergebnis die \"{A}nderung in dem Funktional
+$J(e) = a(e, G) = - d(w_c, G)$, also
+\begin{align}\label{Eq165}
+J(e) = - d(w_c, G)\,.
+\end{align}
+Man beachte, dass
+\begin{align}
+d(w_c,\delta w) = \int_{l/2}^{\,l} \Delta EI\,w_c''\, \delta w''\,dx = \frac{\Delta EI }{EI} \int_{l/2}^{\,l} \frac{M_c\,M}{EI_c}\,dx\,.
+\end{align}
+In der Notation der linearen Algebra ist die Herleitung noch einfacher. Bei einer \"{A}nderung der Steifigkeitsmatrix, $\vek K \to \vek K + \vek \Delta \vek K$, wird aus der urspr\"{u}nglichen schwachen Formulierung
+\begin{align}
+\vek \delta \vek u^T\,\vek K\,\vek u = \vek \delta \vek u^T\,\vek f
+\end{align}
+die Gleichung
+\begin{align}
+\vek \delta \vek u^T\,(\vek K + \vek \Delta\,\vek K)\,\vek u_c = \vek \delta \vek u^T\,\vek f\,,
+\end{align}
+so dass  der Vektor $\vek e = \vek u_c - \vek u$ der Gleichung
+\begin{align}\label{Eq143}
+\vek  \delta \vek u^T\,\vek K\,\vek e = - \vek \delta \vek u^T\,\vek \Delta \vek K\,\vek u_c \qquad \text{f\"{u}r alle} \,\vek \delta \vek u
+\end{align}
+gen\"{u}gt. An dem Zustandsvektor $\vek u$ eines Systems k\"{o}nnen wir mittels einer Einflussfunktion, dem Vektor $\vek g$, Messungen vornehmen
+\begin{align}
+J(\vek u) = \vek g^T\,\vek K\,\vek u
+\end{align}
+und so folgt, wenn wir in (\ref{Eq143}) f\"{u}r $\vek  \delta \vek u$ den Vektor $\vek g$ setzen, das Ergebnis
+\begin{align}\label{Eq188}
+J(\vek e) =  - \vek g^T\,\vek \Delta \vek K\,\vek u_c \qquad (= - d(w_c, G))\,,
+\end{align}
+zu dessen Berechnung wir nur auf dem oder den betroffenen Element(en) messen m\"{u}ssen, s. Abb. \ref{U465}. Diese Gleichung entspricht (\ref{Eq165}).
+
+Im Grunde steht in (\ref{Eq188}) die Wechselwirkungsenergie, denn die \"{A}nderung $J(\vek e)$ kann man, und das gilt f\"{u}r alle Bauteile, in der Form
+\begin{align}
+J(\vek e) = - d(w_c, G) = -\alpha\cdot a(G,w_c)_{\Omega_e}
+\end{align}
+schreiben, also als die Wechselwirkungsenergie zwischen der Einflussfunktion $G$ f\"{u}r $J(w)$ und der neuen L\"{o}sung $w_c$ in dem Element $\Omega_e$, dessen Steifigkeit sich \"{a}ndert, wobei
+\begin{align}
+\alpha = \frac{\Delta E}{E} =  \frac{\Delta EI}{EI} =  \frac{\Delta EA}{EA} =\frac{\Delta k}{k} = \frac{\Delta K}{K} \qquad \text{etc.}
+\end{align}
+das Verh\"{a}ltnis der Steifigkeits\"{a}nderung zur urspr\"{u}nglichen Steifigkeit ist.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Observable}}
+Nachdem nun klar ist, dass man die Effekte von \"{A}nderungen durch eine lokale Analyse ermitteln kann, wollen wir uns im folgenden etwas systematischer und im Kontext der klassischen Statik mit dieser Strategie besch\"{a}ftigen.
+
+Jede Gr\"{o}{\ss}e $O$ (\glq Observable\grq{})\index{Observable} in einem Tragwerk ist im Rahmen der Theorie I. Ordnung mittels einer Einflussfunktion berechenbar. Diese Einflussfunktionen sind aber selbst Verschiebungen, d.h. zu ihnen geh\"{o}ren Biegemomente $M_G$, Querkr\"{a}fte $V_G$ und Normalkr\"{a}fte $N_G$. Das ist wichtig, weil in der Methode, die wir jetzt erl\"{a}utern wollen, das Augenmerk auf die innere Energie gerichtet ist. Wir benutzen eine Variante des Mohrschen Arbeitsintegral, bei der die \"{A}nderungen in der Gr\"{o}{\ss}e $O$, der \glq Observablen\grq{},  anhand der Wechselwirkungsenergie zwischen der Einflussfunktion und den Tragwerksverschiebungen gemessen wird.
+
+Nehmen wir an, dass die Gr\"{o}{\ss}e $O = w(x)$ die Durchbiegung des Balkens in einem Punkt  $x$ ist.  Das Mohrsche Arbeitsintegral liefert f\"{u}r $O = w(x)$ den Wert
+\bfo\label{Eq142}
+O = \int_0^{\,l} \frac{M(y)\,M_G(y,x)}{EI} \,dy\,.
+\efo
+Dann entsteht eine neue Situation: In einem Element des Balkens \"{a}ndert sich die Steifigkeit, $EI \to EI + \Delta EI$. Das bedeutet, dass sich Momente $M \to M_c$ und $M_G \to M_G^c$ \"{a}ndern und wir m\"{u}ssen wieder von vorne anfangen
+\bfo
+O_c = \int_0^{\,l} \frac{M_c(y)\,M_G^c(y,x)}{EI_c} \,dy\,.
+\efo
+Hierbei ist $EI_c$ die {\em step function\/}
+\begin{align}
+EI_c = \left \{ \barr{l} EI + \Delta EI \qquad \,\,\,\text{im Intervall $[x_a,x_b]$} \\EI \qquad \qquad\qquad \text{sonst}  \earr \right. \,.
+\end{align}
+Nun kommt der interessante Punkt. \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Wie wir oben gezeigt haben, (\ref{Eq188}), kann man die \"{A}nderung von $O$ alleine durch Integration \"{u}ber das Element, in dem sich die Steifigkeit \"{a}ndert, berechnen}}\\
+
+\bfo\label{Eq100}
+\boxed{O_c - O = -\frac{\Delta\,EI}{EI}\int_{x_a}^{\,x_b} \frac{M_c\,M_G}{EI_c}\,dy}
+\efo
+Hier ist $M_c$ das Moment in dem Element {\em nach\/} der \"{A}nderung der Steifigkeit und $M_G$ ist das Moment der Einflussfunktion {\em vor\/} der \"{A}nderung.
+
+Wenn wir das Biegemoment durch seine Ableitungen ersetzen, $M = - EI w''$, wird die Gleichung vielleicht transparenter
+\bfo
+O_c - O = -\frac{\Delta\,EI}{EI}\int_{x_a}^{\,x_b} \frac{M_c\,M_G}{EI_c}\,dy = - \Delta EI\,\int_{x_a}^{\,x_b} w_c''\,G''\,dy\,.
+\efo
+Es ist auch nicht wichtig, ob wir $M_c$ mit $M_G$ kombinieren oder $M$ mit $M_G^c$
+\begin{align}
+M \times M_G^c \equiv M_c \times M_G\,,
+\end{align}
+das Ergebnis ist dasselbe
+\bfo
+\boxed{O_c - O = -\frac{\Delta\,EI}{EI}\int_{x_a}^{\,x_b} \frac{M\,M_G^c}{EI_c}\,dy}
+\efo
+Es sei betont, dass der Punkt $x$ {\bf an beliebiger Stelle} im Tragwerk liegen kann. Die \"{A}nderung von $O(x)$ im Punkt $ x$ kann man {\em allein\/} durch Integration \"{u}ber das gesch\"{a}digte Element $[x_a,x_b]$ berechnen. Der Punkt $x$ kann im zehnten Stock liegen und das Element $[x_a,x_b]$ im dritten Stock eingebaut sein. Entscheidend ist, was von der Einflussfunktion f\"{u}r $O(x)$, die im zehnten Stock startet, im dritten Stock ankommt, wie gro{\ss} das Moment $M_G$ der Einflussfunktion im Element $[x_a,x_b]$ noch ist -- und nat\"{u}rlich wie gro{\ss} das Lastmoment $M_c$ dort ist.
+
+Die Formel (\ref{Eq100}) hat allerdings den Nachteil, dass man den Momentenverlauf $M_c$ am ge\"{a}nderten System kennen muss. Aber wenn man den kennt, dann braucht man die Formel nicht mehr...
+
+Also ersetzen wir $M_c$ durch das Moment $M$ am urspr\"{u}nglichen Tragwerk und kommen so zur N\"{a}herung
+\bfo
+O_c - O \simeq -\frac{\Delta\,EI}{EI}\int_{x_a}^{\,x_b} \frac{M\,M_G}{EI_c}\,dy\,.
+\efo
+Je nach der Art der Steifigkeits\"{a}nderung muss man diese Formel nat\"{u}rlich modifizieren. Wenn sich die L\"{a}ngssteifigkeit $EA$ einer St\"{u}tze \"{a}ndert, dann lautet die Formel
+\bfo
+O_c - O \simeq  -\frac{\Delta EA}{EA}\int_{x_a}^{\,x_b} \frac{N  N_G}{EA_c} \,dy\,,
+\efo
+und \"{a}ndert sich bei einer Scheibe in einem Element $\Omega_e$ der E-Modul, dann lautet die Formel
+\begin{align}
+O_c - O \simeq -\frac{\Delta E}{E} \int_{\Omega_e} \sigma_{ij}\,\varepsilon_{ij}^G \,d\Omega_{\vek y}\,,
+\end{align}
+und so kann diese N\"{a}herung auf alle Tragwerke und alle interessierenden Gr\"{o}{\ss}en angewandt werden.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U186}
+\caption{Momente $M$, \textbf{ a)} aus Wind und \textbf{ b)} Momente $\bar{M}$ durch die Verdrehung des Fu{\ss}punktes, Einflussfunktion f\"{u}r das Fu{\ss}punktsmoment. Stabweise wird das Integral von $M$ und $M_G$ mit dem Quotienten $\Delta EI/EI$ gewichtet und man bestimmt so den Einfluss, den eine \"{A}nderung $\Delta EI$ in dem Stab auf das Fu{\ss}punktsmoment haben w\"{u}rde. Genau genommen m\"{u}sste man $M$ durch $M_c$ ersetzen, aber dies kann durch einen Korrekturfaktor, $M_c \simeq \alpha M$ n\"{a}herungsweise ausgeglichen werden.}
+\label{U186}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Das Erstaunliche an der Formel (\ref{Eq100}), die ja auf der ersten Greenschen Identit\"{a}t in der Formulierung als {\em Prinzip der virtuellen Kr\"{a}fte\/} beruht,
+\begin{align}\label{Eq121}
+\text{\normalfont\calligra G\,\,}(G,w) = \delta A_a^* - \delta A_i^* = 0\,,
+\end{align}
+ist, dass man mit ihr auch die Auswirkungen von Steifigkeits\"{a}nderungen auf Schnittgr\"{o}{\ss}en, etwa $V(x) \to V(x) + \Delta V$, voraussagen kann, w\"{a}hrend man ja sonst mit dem {\em Prinzip der virtuellen Kr\"{a}fte\/} Kraftgr\"{o}{\ss}en eigentlich nicht berechnen kann.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Nah und fern}}
+
+Die \"{A}nderung $O_c - O$ wird nur dann auffallend sein, wenn die Wechselwirkungsenergie $\delta A_i = a(G,w_c)_{\Omega_e}$ in dem Element \glq gro{\ss}\grq{} ist\footnote{Wir lassen das Sternchen an $\delta A_i^*$ weg, weil es mathematisch \glq Verzierung\grq{} ist}. Das ist dann der Fall, wenn die Schnittgr\"{o}{\ss}en aus der  Einflussfunktion und gleichzeitig die Schnittgr\"{o}{\ss}en aus der Belastung in dem Bauteil gro{\ss} sind.
+
+Weil die Einflussfunktionen (in der Regel) rasch abklingen, kann man davon ausgehen, dass Steifigkeits\"{a}nderungen in weit abliegenden Bauteilen nur sehr geringen Einfluss auf die Schnittgr\"{o}{\ss}en im \glq Vordergrund\grq{} haben werden.
+
+Und weil $\delta A_i$ ein Skalarprodukt ist, kann es, wie bei Vektoren, Funktionen $M$ und $M_G$ geben, die senkrecht aufeinander stehen, deren \"{U}berlagerung also null ergibt; wenn etwa $M$ antimetrisch ist und $M_G$ symmetrisch. In solchen F\"{a}llen ist, unabh\"{a}ngig von der Gr\"{o}{\ss}e von $M$ und $M_G$, die \"{A}nderung $O_c - O$ null.
+
+Vor jeder Berechnung kann man also, allein durch das Studium der Einflussfunktionen,
+absch\"{a}tzen, welche Steifigkeits\"{a}nderungen Effekt machen und welche nicht.
+
+
+Der Rahmen in Abb. \ref{U186} wird seitlich vom Wind angeblasen. Es soll abgesch\"{a}tzt werden, welche Steifigkeits\"{a}nderungen $\Delta EI$ in den Riegeln und Stielen das Anschnittsmoment im linken Fu{\ss}punkt am meisten beeinflussen ({\em Focus auf einen Punkt\/}).
+
+Hierzu wird die Einflussfunktion $G$ f\"{u}r das Moment aufgestellt. Allerdings interessiert nicht, wie sonst \"{u}blich, der Verlauf von $G$, sondern es interessieren die {\em Momente\/} $M_G$ aus der Einflussfunktion.
+
+\"{A}ndert sich in einem Stiel oder Riegel die Biegesteifigkeit, $EI \to EI + \Delta EI$, so ist die \"{A}nderung im Anschnittsmoment n\"{a}herungsweise gleich
+\bfo
+M_c - M \simeq -\frac{\Delta EI}{EI} \int_0^{\,l_e} \frac{M_G\,M}{EI}\,dy\,.
+\efo
+Die Bauteile, in denen die Momente $M_G$ und $M$ {\em beide\/} gro{\ss} sind, (und nicht orthogonal zueinander), sind die Bauteile mit dem gr\"{o}{\ss}ten Einfluss auf das Anschnittsmoment. Nicht \"{u}berraschend sind das die beiden Stiele im Erdgescho{\ss}.
+
+Eine verwandte Fragestellung ist die Suche nach dem maximalen Effekt den die Steifigkeits\"{a}nderung in {\em einem\/} Element in dem Rahmen hervorruft ({\em Focus auf ein Element\/}). Das kann man schreiben als
+\begin{align}
+max\,\, J(e) \qquad \text{{\em alle interessierenden\/} $G$}\,,
+\end{align}
+also als Suche nach der Kurve $M_G$, die mit $M_c$ auf dem Element \"{u}berlagert den gr\"{o}{\ss}ten Wert $J(e)$ liefert, wobei $M_G $ das Moment der Einflussfunktion ist, die zu $J(w)$ geh\"{o}rt.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U466}
+\caption{Elastische Einspannung eines Tr\"{a}gers}
+\label{U466}
+\end{figure}%
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Federn}}
+Beispiele f\"{u}r Federn sind drehelastische Einspannungen in Rahmenecken oder Fundamenten. Wenn sich die Drehsteifigkeit \"{a}ndert, muss man nicht das ganze Tragwerk neu berechnen, sondern man kann sich den Effekt zu nutze machen, dass die \"{A}nderung $J(e) = - d(G,w_c)$ eines Funktionals -- also {\em eines Moments, einer Querkraft, einer Durchbiegung\/} -- direkt an der Feder verfolgt werden kann. Gerade bei komplexen 3-D Modellen mit einer gro{\ss}en Anzahl von Freiheitsgraden ist das ein nicht zu untersch\"{a}tzender Vorteil.
+
+Die schwache Form der Balkengleichung des Tr\"{a}gers in Abb. \ref{U466} lautet\footnote{Wir schreiben die Drehfedersteifigkeit hier $k$ und nicht wie sonst $k_{\Np}$}
+\begin{align}
+\int_0^{\,l} \frac{M\,\delta M}{EI}\,dx + \delta w'\,w'\,k = \int_0^{\,l} p\,\delta w\,dx\,.
+\end{align}
+Vertrauter ist dem Leser wahrscheinlich der Ausdruck
+\begin{align}
+ \frac{\delta M\,M}{k} = \delta w'\,w'\,k \qquad (\delta M = k\,\delta w'\,, M = k\, w')\,.
+\end{align}
+\"{A}ndert sich die Drehfedersteifigkeit, $k \to k + \Delta k$, dann wird daraus
+\begin{align}
+\underbrace{\int_0^{\,l} \frac{M_c\,\delta M}{EI}\,dx + \delta w'\,w_c'\,k}_{a(w_c,\delta w)} +  \underbrace{\vphantom{\int_0^{\,l}} \Delta k\,w_c' \,\delta w'}_{d(w_c,\delta w)} = \int_0^{\,l} p\,\delta w\,dx\,.
+\end{align}
+Die \"{A}nderung in einem Funktional $J(w)$, $M_G$ ist das Moment der Einflussfunktion in der Feder vor der \"{A}nderung, ergibt sich somit zu
+\begin{align}\label{Eq152}
+J(e) = J(w_c) - J(w)  = - d(w_c,w_G) = - \Delta k\,w_c'\,w_G' = - \Delta k\,\frac{M_c}{k_c}\,\frac{M_G}{k} \,.
+\end{align}
+Zur Anwendung dieser Formel fehlt uns das Moment $M_c = k_c\,w_c'$. Dieses kann man jedoch, wenn man nicht die N\"{a}herung $M_c \sim M$ verwenden will, auf zwei Arten bestimmen: Durch {\em Iteration\/}, oder, wenn man auf die Inverse $K^{-1}$ Zugriff hat, durch {\em direkte L\"{o}sung\/}, \cite{Carl2}.
+
+Den Zugang zur Iteration finden wir, wenn wir als Funktional das Moment in der Feder w\"{a}hlen, $J(w) = M$. Dann ist (\ref{Eq152}) \"{a}quivalent mit
+\begin{align}
+J(e) = M_c - M = - \Delta k\,\frac{M_c}{k_c}\,\frac{M_G}{k} \,.
+\end{align}
+Daraus kann man eine Iterationsvorschrift f\"{u}r eine Folge $M_c^{(i)}$ ableiten, die, wie sich zeigt, schnell gegen $M_c$ konvergiert
+\begin{align}
+M_c^{(i+1)} = - \Delta k\,\frac{M_c^{(i)}}{k_c}\,\frac{M_G}{k}  + M \qquad M_c^{(0)} = M\,.
+\end{align}
+Hat man $M_c = k_c\,w_c'$ bestimmt, kennt man auch $w_c'$ und dann kann man mit (\ref{Eq152}) die \"{A}nderung in jedem Funktional $J(w)$ verfolgen. Man braucht nur das Moment $M_G$ der Einflussfunktion des Funktionals $J(w)$ in der Feder. Das kann man aber am \glq alten\grq{} System bestimmen.
+
+\"{A}ndern sich $m$ Federn in $m$ Punkten $x_i$, dann geht (\ref{Eq152}) in ein lineares Gleichungssystem \"{u}ber, das man wieder per Iteration l\"{o}sen kann, eventuell mit einer Konvergenzbeschleunigung wie auf S.  \pageref{Eq59} beschrieben,
+\begin{align} \label{Eq156}
+M_{c}^{(i+1)}(x_j) &= - \sum_{l = 1}^m \Delta k(x_l)\,\frac{M_{c}^{(i)}(x_l)}{k_{c}(x_l)}\,\frac{M_{G}(x_l,x_j)}{k(x_l)}  + M(x_j)  \quad j &= 1,2, \ldots m\,.
+\end{align}
+Hier ist $M_{G}(x_l,x_j)$ das Moment in der Feder $x_l$ (dem Ort), das von der Einflussfunktion f\"{u}r das Moment im Punkt $x_j$ (der Ursache) in $x_l$ erzeugt wird (Berechnung am \glq alten\grq{} System).
+
+Die Stahlhallen in Abb. \ref{CarlStahlbau1} und \ref{CarlStahlbau2} wurden so untersucht. Bei dem ersten System ging es um den \"{U}bergang von einem starren Anschluss in den Rahmenecken zu einer drehelastischen Einspannung. Bei dem zweiten System ging es um den Einfluss der drehelastischen Einspannung der St\"{u}tzen auf die horizontale Verschiebung der Kranbahn in einem ausgew\"{a}hlten Punkt $x_P$. In einer ersten Statik waren die St\"{u}tzen voll eingespannt gerechnet worden.
+
+Zuerst wurde der Punkt mit einer horizontalen Einzelkraft $P = 100$ kN belastet (100 wegen der \glq Sichtbarkeit\grq{}) und die Einspannmomente $M_{G}^P(x_i), i = 1,2,\ldots 8$ dieser Einflussfunktion (am \glq alten\grq{}, dem voll eingespannten System) in den acht Fundamenten berechnet. Dann wurde die Iterationsvorschrift (ein $8 \times 8$-System) zur Bestimmung der acht Einspannmomente $M_c(x_i)$ aus der Verkehrslast ({\em Kran (25t-Hublast) - vert. Randlasten + Schr\"{a}glaufkr\"{a}fte in Reihe 4\/}) an dem drehelastischen System aufgestellt und die $M_c(x_i)$ wie in (\ref{Eq156}) iterativ bestimmt. Wegen der urspr\"{u}nglichen Festeinspannung $k(x_i) = \infty$ aber mit der Modifikation wie in (\ref{Eq153}) beschrieben
+\begin{align}
+M_{c}^{(i+1)}(x_j) &= - \sum_{l = 1}^m \frac{1}{k_{c}(x_l)}\,M_{c}^{(i)}(x_l)\,M_{G}(x_l,x_j)  + M(x_j)  \quad j &= 1,2, \ldots m\,.
+\end{align}
+Mit den auf Eins normierten Momenten $M_{G}^P(x_i)/100$ und den $M_c(x_i)$ kann man dann die horizontale Verschiebung $u_c(x_P)$ berechnen
+\begin{align}\label{Eq157}
+u_c(x_P) = - \sum_{l = 1}^8 \frac{1}{k_c(x_l)} M_c(x_l)\, M_G^P(x_l) \frac{1}{100}\,.
+\end{align}
+Hat man einmal die Einspannmomente $M_c(x_l)$ der St\"{u}tzen aus dem ma{\ss}gebenden Lastfall ermittelt, dann kann man die \"{A}nderung in jeder anderen Weg- oder Kraftgr\"{o}{\ss}e $J(w)$ der Halle berechnen. Was man braucht, sind nur die acht Einspannmomente $M_G(x_l)$ (am \glq alten\grq{} System), die zu der Einflussfunktion f\"{u}r die jeweilige Weg- oder Kraftgr\"{o}{\ss}e $J(w)$ geh\"{o}ren, s. Abb. \ref{U474}. Diese mit den ge\"{a}nderten Momenten $M_c(x_l)$ aus der Verkehrslast \"{u}berlagert, sinngem\"{a}{\ss} wie in \ref{Eq157}, ergibt die \"{A}nderung $J(e)$.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/CarlStahlbau1}
+\caption{3D-Modell eines Rahmens mit 47 St\"{a}ben und 480 Freiheitsgraden. Die dreh\-elastische Einspannung reduzierte das Einspannmoment von $M = -86,6$ kNm auf $M_c = - 75,0$ kNm, \cite{Carl4} }
+\label{CarlStahlbau1}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Die Alternative zur Iteration ist die direkte L\"{o}sung. Ist das Funktional $J(w) = w'$ der Tangens des Drehwinkels in der Feder,
+\begin{align}\label{Eq151}
+J(e) = w_c' - w' = -\Delta k\,w_c'\,w_G'\,,
+\end{align}
+dann kann man das nach $w_c'$ aufl\"{o}sen
+\begin{align}
+w_c' =   w'\,\frac{1}{1 + \Delta k\,w_G'}\,.
+\end{align}
+Wenn die Feder den Drehfreiheitsgrad $u_7$ hat, dann ist $w_G'$ der Eintrag $f_{7,7}$ der Flexibilit\"{a}tsmatrix $\vek F = \vek K^{-1}$. Mit $w_c'$ kann man dann das ge\"{a}nderte Moment $M_c = (k + \Delta k)\,w_c'$ in der Feder berechnen oder die \"{A}nderung $J(e)$ in jedem anderen Funktional, z.B. der Verschiebung $u_3$ in einem Knoten. Man muss  nur f\"{u}r $w_G'$ in (\ref{Eq152}) den entsprechenden Wert einsetzen. Hat die Drehfeder, wie angenommen, den Freiheitsgrad $u_7$, dann ist $w_G'$ gleich dem Eintrag $f_{3,7}$ in der Flexibilit\"{a}tsmatrix $\vek F = \vek K^{-1}$
+\begin{align}
+J(e) = u_{c 3} - u_3 = - \Delta k\,w_c'\,f_{3,7}\,.
+\end{align}
+\"{A}ndern sich die Steifigkeiten in zwei Federn, die an den Stellen $x_1$ und $x_2$ liegen, dann lautet der Zusatzterm zur schwachen Form
+\begin{align}
+d(w_c, \delta w) = \Delta k_1\,w_c'(x_1)\,\delta w'(x_1) + \Delta k_2\,w_c'(x_2)\,\delta w'(x_2)\,.
+\end{align}
+Das Ziel ist die Bestimmung von $w_c'(x_1)$ und $w_c'(x_2)$, um daraus z.B. die Momente
+\begin{align}
+M_c(x_1) = (k_1 + \Delta k_1)\,w_c'(x_1) \qquad M_c(x_2) = (k_2 + \Delta k_2)\,w_c'(x_2)
+\end{align}
+in den Federn zu berechnen.
+
+Die Verdrehungen in den Federn sind zwei Funktionale
+\begin{align}
+J_1(w) &= w'(x_1) = \int_0^{\,l} G_1(y,x_1)\,p(y)\,dy \\
+J_2(w) &= w'(x_2) = \int_0^{\,l} G_2(y,x_2)\,p(y)\,dy
+\end{align}
+zu denen die Einflussfunktionen $G_i(y,x)$ geh\"{o}ren. Die \"{A}nderungen in den Verdrehungen ergeben sich zu
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.99\textwidth]{\Fpath/CarlStahlbau2}
+\caption{Stahlhalle, 1\,643 St\"{a}be, 5\,340 FG, 121 LF. Zu bestimmen war der Einfluss der drehelastischen Einspannung der acht St\"{u}tzen auf die horizontale Verschiebung in H\"{o}he der Kranbahn. Die hier vorgestellte Technik reduzierte das Problem auf ein $8 \times 8$ Gleichungssystem, das per Iteration gel\"{o}st wurde, \cite{Carl4}}
+\label{CarlStahlbau2}
+\end{figure}%
+%-----------------------------------------------------------------
+\begin{align}
+J_1(e) &= w_c'(x_1) - w'(x_1) = - \Delta k_1\,w_c'(x_1)\,w_{G_1}'(x_1) - \Delta k_2\,w_c'(x_2)\,w_{G_2}'(x_1) \nn \\
+J_2(e) &= w_c'(x_2) - w'(x_2) = - \Delta k_1\,w_c'(x_1)\,w_{G_1}'(x_2) - \Delta k_2\,w_c'(x_2)\,w_{G_2}'(x_2)\,,
+\end{align}
+was dem linearen (symmetrischen) Gleichungssystem
+\begin{align}
+\left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r
+@{\hspace{4mm}}r @{\hspace{4mm}}r}
+      1 + a_{11} &  a_{12} \\
+      a_{21} & 1 + a_{22}
+     \earr \right]\left [\barr{c}  w_c'(x_1) \\  w_c'(x_2)\earr \right ]
+=  \left [\barr{c}  w'(x_1) \\  w'(x_2)\earr \right ]
+\end{align}
+mit
+\begin{align}
+a_{11} = \Delta k_1\,w_{G_1}'(x_1) \qquad a_{12} = \Delta k_2\,w_{G_2}'(x_1)\qquad a_{22} = \Delta k_2\,w_{G_2}'(x_2)
+\end{align}
+entspricht. W\"{a}ren die Drehfreiheitsgrade in den beiden Federn $u_7$ und $u_9$, dann findet man die Koeffizienten $w_{G_i}'(x_j)$ wieder an den entsprechenden Stellen in der Inversen $\vek F = \vek K^{-1}$
+\begin{align}
+w_{G_1}'(x_1) = f_{7,7} \qquad w_{G_1}'(x_2) = f_{7,9} \qquad w_{G_2}'(x_1) = f_{9,7} \qquad w_{G_2}'(x_2) = f_{9,9}\,.
+\end{align}
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.99\textwidth]{\Fpath/U474}
+\caption{Die Einflussfunktion ($G$) f\"{u}r ein Moment, eine Querkraft, eine Durchbiegung erzeugt Momente ($M_y^G$) in den acht Fusspunkten der St\"{u}tzen, und dieser Vektor $\vek M_y^G$ skalar multipliziert mit dem Vektor $\vek M_c$ der acht Fusspunkts-Momente $k^{-1}_c(x_i)M_c(x_i)$ ergibt die \"{A}nderung $J(e) = \vek M_c^T \vek M_y^G$ des Moments, der Querkraft, etc. im Aufpunkt}
+\label{U474}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Die \"{A}nderung in der horizontalen Verschiebung $u_3$ erg\"{a}be sich dann sinngem\"{a}{\ss} wie folgt
+\begin{align}
+J(e) = u_{c 3} - u_3 =- \Delta k_1\,w_c'(x_1)\,f_{3,7} - \Delta k_2\,w_c'(x_2)\,f_{3,9} \,.
+\end{align}
+
+\begin{remark}
+Das hier dargestellte Verfahren ist theoretisch nicht anwendbar, wenn ein urspr\"{u}nglich starres Lager nachgibt, weil der neue Freiheitsgrad in dem System $\vek K$ nicht vorkommt. Dies sollte jedoch eine Ausnahme sein, weil man ja Lager mit ihrer nat\"{u}rlichen Steifigkeit $k < \infty$ rechnen sollte.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U469}
+\caption{Bestimmung des Einspannmoments $X_1$} \label{U469}
+\end{figure}%%
+%-----------------------------------------------------------------
+
+Man kann aber eine Umformung vornehmen, denn in der Grenze $k \to \infty$ gilt
+\begin{align}\label{Eq153}
+J(e) = -\Delta k\,w_c' \, w_G' = -\frac{k_c - k}{k_c\,k} M_c\, M_G = -(\frac{1}{k} - \frac{1}{k_c})\,M_c\, M_G = \frac{1}{k_c}\,M_c\, M_G\,,
+\end{align}
+wenn $M_G$ das Einspannmoment der Einflussfunktion ist.
+
+Angewandt auf das Lager selbst mit dem unbekannten $M_c$ ergibt sich
+\begin{align}\label{Eq154}
+M_c - M = \frac{1}{k_c}\,M_c\, M_G\,,
+\end{align}
+wobei $M_G$ das Moment ist, das das gelenkig gemachte Balkenende um $\tan\,\Np = 1$ spreizt, und nun kann man per Iteration eine Folge $M_i$  bestimmen, die gegen $M_c$ konvergiert
+\begin{align}
+M_{i+1} = \frac{1}{k_c}\,M_i\, M_G + M \qquad i = 0, 1, 2, \ldots \qquad M_0 = M\,.
+\end{align}
+Ist $M_c$ bestimmt, dann kann man mit (\ref{Eq153}) jede \"{A}nderung $J(e)$ verfolgen, wenn man f\"{u}r $M_G$ das Einspannmoment setzt, das zur Einflussfunktion f\"{u}r $J(w)$ am urspr\"{u}nglichen Tragwerk geh\"{o}rt.
+
+Das Moment $M_G$ in (\ref{Eq154}) ist das Moment $X_1$, das zwischen dem Balken und der Feder \"{u}bertragen wird, s. Abb. \ref{U469}. Mit
+\begin{align}
+\delta_{10 } = 1 \qquad \delta_{11} = \frac{\ell}{3\,EI} + \frac{1}{k} \qquad \delta_{11}\,X_1 + \delta_{10} = 0
+\end{align}
+folgt
+\begin{align}
+X_1 = \frac{-1}{\frac{\ell}{3\,EI} + \frac{1}{k}}
+\end{align}
+und damit in der Grenze, $k \to \infty$, $X_1 = 3\,EI/\ell = M_G$.
+\end{remark}
+
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U461}
+\caption{Semi-integrale Br\"{u}cke auf Pf\"{a}hlen\textbf{ a)} FE-Modell \textbf{ b)} Einflussfunktion f\"{u}r das Moment $M(x)$}
+\label{U461}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Integrale Br\"{u}cken}}
+Eine beispielhafte Anwendung finden diese Ideen auch bei integralen Br\"{u}cken, bei denen die Widerlager, die Pfeiler und der \"{U}berbau monolithisch miteinander verbunden sind, um die Wartungsarbeiten zu vereinfachen.
+
+Die Idee ist relativ neu und als daher im Zuge der Autobahnerneuerung der A3 die {\em Fahrbachtalbr\"{u}cke\/} bei Aschaffenburg, eine semi-integrale Br\"{u}cke (keine monolithische Verbindung mit den Widerlagern) errichtet werden sollte, hat das Br\"{u}ckenbauamt f\"{u}r Nordbayern darauf bestanden, dass Untersuchungen an Pf\"{a}hlen vorgenommen wurden, um den Einfluss der Grenzwerte $c \pm \Delta c$ der elastischen Bettung $c$ auf den \"{U}berbau absch\"{a}tzen zu k\"{o}nnen, \cite{Schiefer}.
+
+In einer Diplomarbeit wurden die hier entwickelten Ideen benutzt, um dies rechnerisch zu verfolgen, \cite{Sopoth}. Das Beispiel eignet sich gut, weil ja zwischen den Aufpunkten im \"{U}berbau der Br\"{u}cke und den Pf\"{a}hlen eine relativ lange \glq Strecke\grq{} liegt, s. Abb. \ref{U461}, und der Einfluss den Weg praktisch zweimal gehen muss, vom \"{U}berbau zu den Pf\"{a}hlen um die Kr\"{a}fte $\vek f^+$ zu erzeugen und die Kr\"{a}fte $\vek f^+$ gehen denselben Weg zur\"{u}ck, um die Schnittgr\"{o}{\ss}en zu \"{a}ndern, $M(x) \to M_c(x)$, $V(x) \to V_c(x)$ etc. Eine Situation, die typisch f\"{u}r {\em Substrukturen\/}\index{Substrukturen} ist.
+
+In Substrukturen spielen die Einfl\"{u}sse nach einer Steifigkeits\"{a}nderung \glq Ping-Pong\grq{}, wechseln die Signale zwischen dem Lastgurt und der Substruktur hin und her bis die Signale ausgeglichen sind. Die Kr\"{a}fte $\vek f + \vek f^+$ erzeugen die neue Gleichgewichtslage $\vek u_c$ und die muss genau so gro{\ss} sein, dass $\vek u_c$ die Kr\"{a}fte $\vek f^+$ erzeugt.
+
+Zur\"{u}ck zu der Br\"{u}cke: Betrachten wir zum Beispiel das Moment $M(x)$ im \"{U}berbau an einer Stelle $x$, das sich durch die \"{U}berlagerung der Einflussfunktion $G_2(y,x)$ mit der Belastung $p$ berechnen l\"{a}sst
+\begin{align}
+M(x) = \int_0^{\,l} G_2(y,x)\,p(y)\,dy = \vek g^T\,\vek f\,.
+\end{align}
+Die Frage, wie sich das Moment \"{a}ndert, wenn sich der Bettungsmodul der Pf\"{a}hle \"{a}ndert, $c \to c + \Delta c$, zielt auf den Unterschied zwischen der Einflussfunktion $G_2$ (Modul $c$, Matrix $\vek K$) und der Einflussfunktion $G_{2 c}$, die am System $\vek K + \vek \Delta \vek K$ mit dem Modul $c + \Delta c$ berechnet wird
+\begin{align}
+M_c(x) = \int_0^{\,l} G_{2 c}(y,x)\,p(y)\,dy= \vek g_c^T\,\vek f \,.
+\end{align}
+Wegen
+\begin{align}
+\vek g_c^T\,\vek f = \vek g^T\,(\vek f + \vek f^+)
+\end{align}
+kann man das auf die Bedeutung des Vektors $\vek f^+$ f\"{u}r das System $\vek K$ zur\"{u}ckspielen.
+
+Die Vektoren $\vek g$ und $\vek g_c$ sind die Knotenwerte der beiden Einflussfunktionen am Modell $\vek K$ bzw. $\vek K_c = \vek K + \vek \Delta \,\vek K$. Der Vektor $\vek f^+ = -\vek \Delta \vek K\,\vek u_c$  sind die Zusatzkr\"{a}fte in den Knoten der Pf\"{a}hle aus der \"{A}nderung des Bettungsmoduls, $c \to c + \Delta$.
+
+Schreiben wir die Biegeverformung im Bereich der Pf\"{a}hle elementweise als Taylorreihe
+\begin{align}
+w_c(x) = w_c(0) + w_c'(0) \cdot x + \frac{1}{2}\,w_c''(0) \cdot x^2 + \ldots
+\end{align}
+dann liefern nur die quadratischen Terme Beitr\"{a}ge zu $\vek f^+ = -\vek \Delta \vek K\,\vek u_c$, weil in jedem Element die Zeilen von $\vek \Delta\,\vek K_e$ orthogonal zu Starrk\"{o}rperbewegungen sind -- den ersten beiden Termen. Die quadratischen Terme werden jedoch die kleinsten der drei Terme sein, so dass auch $\vek f^+$ relativ klein sein wird. Dazu kommt noch, dass die Pf\"{a}hle relativ weit vom \"{U}berbau entfernt liegen, so dass der Einfluss der Pfahlkr\"{a}fte $\vek f^+$ auf den \"{U}berbau, unabh\"{a}ngig von ihrer Gr\"{o}{\ss}e, relativ klein sein wird. Die Rechenergebnisse best\"{a}tigten das, die Momente $M(x)$ und $M_c(x)$ weichen kaum voneinander ab.
+
+Man kann das Ganze auch andersherum aufz\"{a}umen, indem man direkt die \"{A}nderungen $G_2(y,x) \to G_{2c}(y,x)$ verfolgt. Die Knotenwerte $\vek g$ der Einflussfunktion $G_2$ sind die L\"{o}sung des Systems $\vek K\vek g = \vek j$ mit $j_i = M(\Np_i)(x)$ und die Knotenwerte $\vek g_c$ der Einflussfunktion $G_{2 c}$ sind die L\"{o}sung des Systems
+\begin{align}
+\vek K\,\vek g_c = \vek j + \vek j^+
+\end{align}
+mit dem Vektor $\vek j^+ = -\Delta \vek K\,\vek g_c$. Die durch die Spreizung des Aufpunktes $x$  erzeugte Bewegung $g_c(x) = g_c(0) + g_c'(0)\,x + 0.5 * g_c''(0)^2/x\ldots$ (in den Pf\"{a}hlen) d\"{u}rfte aber demselben Argument unterliegen wie oben. Die Eintr\"{a}ge in dem Vektor $\vek j^+ =-
+\vek \Delta\,\vek K\,\vek g_c$ sollten relativ klein sein und weil die Knoten der Pf\"{a}hle vom \"{U}berbau relativ weit weg liegen, sollte der Einfluss der $\vek j^+$ klein sein und somit auch der Unterschied zwischen den Einflussfunktionen $G_2(y,x)$ und $G_{2c}(y,x)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Klassische Formulierung}}
+In der Optimierung\index{Optimierung} nennt man das Operieren mit Einflussfunktionen die {\em adjoint method of analysis\/}\index{adjoint method of analysis}. Wir wollen daher zeigen, dass die Formel
+\begin{align}\label{Eq12}
+J(e) = J(u_c) - J(u) \simeq - d(G,u)
+\end{align}
+mit den klassischen Ergebnissen der Sensitivit\"{a}tsanalyse identisch ist. Die exakte Formel w\"{a}re $J(e) = -d(G_c,u)$ oder $J(e) = - d(G,u_c)$.
+
+
+Wir nehmen an, dass die Steifigkeitsmatrix
+\begin{align}
+\vek K = \vek K(p_1, p_2, \ldots, p_m)
+\end{align}
+eine Funktion von $m$ Modellparametern $p_i$ ist. Wir wollen die Sensitivit\"{a}t des Funktionals $J(\vek u) = \vek j^T\,\vek u $ bez\"{u}glich der Parameter $p_i$ bestimmen
+\begin{align} \label{Eq9}
+\frac{d\,J}{d p_i} = \frac{d\,}{d p_i} (\vek j^T\,\vek u) = \frac{d}{d p_i} \vek j^T\,\vek u + \vek j^T\,\frac{\partial }{\partial  p_i}\,\vek u\,.
+\end{align}
+Weil $\vek K\,\vek u - \vek f = \vek 0$ ein konstanter Vektor ist (als Funktion der $p_i$), sind die Ableitungen null
+\begin{align}
+\frac{d}{d p_i} (\vek K\,\vek u - \vek f) = \frac{\partial \vek K}{\partial p_i}\,\vek u + \vek K\,\frac{\partial \vek u}{\partial p_i} - \frac{\partial \vek f}{\partial p_i} =0\,,
+\end{align}
+was
+\begin{align} \label{F2}
+\frac{\partial \vek u}{\partial p_i} = - \vek K^{-1}\,\frac{\partial \vek K}{\partial p_i}\,\vek u
+\end{align}
+ergibt, wenn wir annehmen dass $\partial \vek f/\partial p_i = 0$ ist. Wenn wir dieses Ergebnis in (\ref{Eq9}) einsetzen, dann folgt
+\begin{align}\label{Eq11}
+\frac{d\,J}{d p_i} &= \frac{d}{d p_i} \vek j^T\,\vek u - \vek j^T\,\vek K^{-1}\,\vek u
+= \frac{d}{d p_i}\,\vek j^T\,\vek u - \vek j^T\,\vek K^{-1} \frac{\partial \vek K}{\partial p_i}\,\vek u \nn \\
+&= \frac{d}{d p_i} \vek j^T\,\vek u - \vek g^T \,\frac{\partial \vek K}{\partial p_i}\,\vek u\,.
+\end{align}
+Der Vektor
+\begin{align}
+\frac{\partial \vek K}{\partial p_i}\,\vek u
+\end{align}
+der genau dem Ausdruck $\vek \Delta \vek K\,\vek u$ entspricht, wird {\em Pseudo-Lastvektor\/}\index{Pseudo-Lastvektor} genannt.
+
+Man beachte, dass wir hier nicht die \"{A}nderung $J(u_c) - J(u)$ berechnen, sondern nur den Gradienten
+\begin{align}
+\vek \nabla J(u) = \{\frac{d\,J}{d p_1}, \ldots, \frac{d\,J}{d p_m}\}^T
+\end{align}
+ von $J(u)$, der dann erst mittels Taylor die N\"{a}herung
+\begin{align}
+J(u_c) - J(u) \simeq \vek \nabla J(u) \dotprod \vek \Delta \vek p = d(G,u)
+\end{align}
+ergibt, wenn $\vek p$ sich nach $\vek p + \vek \Delta \vek p$ entwickelt. Der Ausdruck $d(G,u) \equiv J' \cdot \Delta p$ in (\ref{Eq12}) ist sozusagen das  Differential, das Inkrement des Funktionals, w\"{a}hrend $dJ/dp_i = J'$ nur die Ableitung ist.
+
+Der erste Term in (\ref{Eq11}) spielt eine Rolle, wenn das Funktional von den $p_i$ abh\"{a}ngt. Das ist z.B. der Fall, wenn $J(\vek u)$ eine Kraftgr\"{o}{\ss}e in dem Element ist, dessen Steifigkeit sich \"{a}ndert, denn weil in die Definition der Schnittkr\"{a}fte die Steifigkeiten eingehen, etwa $J(u) = N(x)  = EA\,u'(x)$ muss auch das Funktional korrigiert werden, wenn sich $EA$ \"{a}ndert.
+
+Der Vektor $\vek g$ in (\ref{Eq11}) ist nat\"{u}rlich der Vektor $\vek g$, der zu dem Funktional
+geh\"{o}rt,
+\begin{align}
+J(\vek u) = \vek j^T\,\vek u = (\vek K\,\vek g)^T\,\vek u = \vek g^T\,\vek K\,\vek u = \vek g^T\,\vek f\,.
+\end{align}
+In der {\em adjoint method of analysis\/} hei{\ss}t $\vek g$ die {\em adjoint variable\/}\index{adjoint variable} und wird oft mit $\vek \lambda$ bezeichnet, also $\vek K\,\vek \lambda = \vek j$ statt $\vek K\,\vek g = \vek j$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Direkte Differentiation}}
+Noch k\"{u}rzer kann man die Ergebnisse mit der {\em direkten Differentiation\/}\index{direkte Differentiation} herleiten. Das Bauteil setze sich aus zwei Elementen zusammen und jedes Element habe einen eigenen E-Modul $E_i$, so dass die Steifigkeitsmatrix $\vek K$ eine Funktion dieser zwei Werte $E_i$ ist
+\begin{align}
+\vek K(E_1,E_2) \,\vek u = \vek f\,.
+\end{align}
+Mit $\vek K$ ist nat\"{u}rlich auch der Vektor $\vek u$ eine Funktion der $E_i$. Nun kann man fragen: Wie \"{a}ndert sich der Vektor $\vek u \rightarrow\,\vek u_c$, wenn sich der Wert $E_1$ im ersten Element \"{a}ndert?
+
+Bezeichnen wir die Ableitung nach $E_1$ mit $(')$, dann gilt, wenn wir annehmen, dass der Vektor $\vek f$ nicht von $E_1$ abh\"{a}ngt
+\begin{align}
+\vek K'\,\vek u + \vek K\,\vek u' = \vek 0
+\end{align}
+oder
+\begin{align}
+\vek u' = -\vek K^{(-1)}\,\vek K'\,\vek u\,.
+\end{align}
+Brechen wir die Taylor-Entwicklung nach dem ersten Glied ab, dann gilt n\"{a}herungsweise
+\begin{align}
+\vek u_c - \vek u \sim \vek u' \cdot \Delta E_1 = -\vek K^{(-1)}\,\vek K'\,\vek u \cdot \Delta E_1 = -\vek K^{(-1)} \vek \Delta \vek K\,\vek u = -\vek K^{(-1)}\,\tilde{\vek f}^+\,.
+\end{align}
+Wenn hier $\vek \Delta \vek K\,\vek u_c$ st\"{u}nde, dann w\"{a}re $\tilde{\vek f}^+$ der exakte Vektor $\vek f^+$.
+Der naheliegende Vorschlag, dass man $\vek f^+ = \vek \Delta\,\vek K\,\vek u_c$ durch $\vek f^+ \sim \vek \Delta\,\vek K\,\vek u$ ann\"{a}hert, entspricht also einer linearen Interpolation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Berechnung von $\vek u_c$}}\label{Eq59}
+Das Grundproblem bei der Reanalysis,
+\begin{align}
+J(\vek e) = - \vek g^T\,\vek \Delta \vek K\,\vek u_c
+\end{align}
+ist, dass die neue Gleichgewichtslage $\vek u_c$ des Tragwerks unbekannt ist bzw. ersatzweise durch den alten Vektor $\vek u$ angen\"{a}hert werden muss. Es gibt aber zwei Techniken {\em Iteration\/} und {\em direkte Bestimmung\/}, mit denen sich das Problem l\"{o}sen l\"{a}sst.
+
+\textcolor{sectionTitleBlue}{\subsection{Iteration}}
+Wir multiplizieren die Gleichung
+\begin{align}\label{F2}
+(\vek K + \vek \Delta \vek K)\,\vek u_c = \vek f
+\end{align}
+von links mit $\vek K^{-1}$
+\begin{align} \label{F7}
+(\vek I + \vek K^{-1}\,\vek \Delta\,\vek K)\,\vek u_c = \vek u
+\end{align}
+und schreiben Sie in der Form
+\begin{align}\label{F6}
+\vek u_c = - \vek K^{-1}\,\vek \Delta\,\vek K\,\vek u_c + \vek u
+\end{align}
+was die folgende {\em fixed-point iteration\/} f\"{u}r $\vek u_c$
+\begin{align}
+\vek u_c^{i+1} = - \vek K^{-1}\,\vek \Delta\,\vek K\,\vek u_c^i + \vek u \qquad i = 1,2,\ldots
+\end{align}
+mit $\vek u^0 = \vek u$ als Startvektor nahelegt.
+
+Die Konvergenz kann man beschleunigen, wenn man den Vektor $\vek u_c^{i+1}$ mit dem vorhergehenden Vektor $\vek u_c^i$ wichtet, \cite{Carl2},
+\begin{align}
+\vek u_c^{i+1} = \vek u_c^i \cdot c_{max} \cdot q + \vek u_c^{i+1} \cdot q = \frac{1}{1 + c_{max}} \cdot (\vek u_c^i \cdot c_{max} + \vek u_c^{i+1})
+\end{align}
+wobei $c_{max}$ der gr\"{o}{\ss}te Skalenfaktor $c_e$ unter den \"{A}nderungen, $\vek \Delta \vek K_e = c_e\,\vek K_e$ ist und
+\begin{align}
+q = \frac{1}{1 + c_{max}}\,.
+\end{align}
+Theoretisch versagt die Iteration, wenn das Tragwerk durch die Wegnahme eines Elementes kinematisch wird, wenn also die Steifigkeitsmatrix
+\begin{align}
+\vek K_c = \vek K + \vek \Delta \vek  K
+\end{align}
+singul\"{a}r ist. Denn dann gibt es einen Vektor $\vek u_0 \neq \vek 0$ so, dass
+\begin{align}
+(\vek K +  \vek \Delta \vek K) \vek u_0 = \vek 0\,,
+\end{align}
+und wenn wir diese Gleichung von links mit der Inversen $\vek K^{-1}$ multiplizieren, so zeigt sich,
+\begin{align}
+\vek K^{-1} (\vek K +  \vek \Delta \vek K) \vek u_0 = (\vek I - \vek K^{-1}  \vek K) \vek u_0 = \vek 0\,,
+\end{align}
+dass der Vektor $\vek u_0$ ein Eigenvektor von $\vek K^{-1} \vek \Delta \vek K$  mit dem Eigenwert 1 ist und der Fehler $\vek e_{i+1} = \vek u_{i+1} - \vek u_i$ daher nicht schrumpft
+\begin{align}
+\vek e_{i+1} = - \vek K^{-1}  \vek \Delta \vek K \vek e_i   \qquad    i = 1,2,\ldots\,,
+\end{align}
+weil eine Fixpunktiteration nur Erfolg hat, wenn die Eigenwerte der Iterationsmatrix kleiner als 1 sind.
+
+Man beachte, dass
+\begin{align}
+\vek e_{i+1} &= \vek u^{i+1} - \vek u^i = - \vek K^{-1} \vek \Delta  \vek K \vek u_i  + \vek u  + \vek K^{-1} \vek \Delta  \vek K \vek u_{i-1} - \vek u\\
+ &= - \vek K^{-1} \vek \Delta  \vek K (\vek u_i - \vek u_{i-1}) = - \vek K^{-1} \vek \Delta  \vek K \vek e_i\,.
+\end{align}
+Aber es ist bemerkenswert, dass bei nicht zu gro{\ss}en St\"{o}rungen die Iteration konvergiert, selbst dann wenn das Entfernen eines Elementes das Tragwerk instabil macht, weil das Programm nicht versucht, die nicht existierende Inverse der singul\"{a}ren Steifigkeitsmatrix $\vek K + \vek \Delta \vek K$ zu berechnen.
+
+\textcolor{sectionTitleBlue}{\subsection{Direkte Berechnung -- \glq von 2 auf 100\grq{}}}
+Wiederholen wir noch einmal die Gleichung, die zu l\"{o}sen ist
+\begin{align} \label{FX7}
+(\vek I + \vek K^{-1}\,\vek \Delta\,\vek K)\,\vek u_c = \vek u\,.
+\end{align}
+Das Produkt $ \label{F1} \vek K^{-1}\,\vek \Delta \vek K $
+ist eine schwach besetzte Matrix, weil die zur vollen Gr\"{o}{\ss}e $n \times n$ erweiterte Elementmatrix $\vek \Delta\,\vek K$ viel \glq Luft\grq{}, viele Nullen enth\"{a}lt. Nehmen wir an, dass die Matrix $\vek \Delta \vek K$ nur vier Eintr\"{a}ge enth\"{a}lt, die nicht null sind
+\begin{align}
+\vek \Delta \vek K = \left[\barr{r r r r r r r r}
+\phantom{0} & \phantom{0}  & \phantom{0}& ... & \phantom{0} &\phantom{0} &\phantom{0}\\
+.&0 & 0  & 0 & 0 &0 &0 &.\\
+.&0 & k^\Delta_{33}  & 0 & 0 &k^\Delta_{35} & 0&.\\
+.&0 & 0  & 0 & 0 &0 &0 &.\\
+.&0 & k^\Delta_{53}  & 0 & 0 &k^\Delta_{55} & 0&.\\
+.&0 & 0  & 0 & 0 &0 &0&.\\
+\phantom{0} &\phantom{0} & \phantom{0}  & ... & \phantom{0} &\phantom{0} &\phantom{0}
+\earr\right]
+\end{align}
+zwei in Zeile $3$ und zwei in Zeile $5$ (wenn wir zum Beispiel ein Federelement \"{a}ndern).
+
+Das Produkt von zwei $n \times n$ Matrizen $\vek A$ und $\vek B$ kann als die Summe von $n$ Matrizen geschrieben werden,
+\begin{align}
+\vek A \vek B = \vek c_1\,\vek r_1 + \vek c_2\,\vek r_2 + \ldots + \vek c_n \vek r_n\,,
+\end{align}
+Spalte $\vek c_1$ von $\vek A$ mal Zeile $\vek r_1$ von $\vek B$ plus Spalte $\vek c_2$ von $\vek A$ mal Zeile $\vek r_2$ von $\vek B$ etc. Jedes Produkt $\vek c_i\,\vek r_i$ ist eine $(n \times n)$ Matrix.
+
+Weil $\vek \Delta\vek K$ schwach besetzt ist, es enth\"{a}lt ja nur zwei Zeilen, die nicht null sind, folgt
+\begin{align}
+\vek K^{-1} \vek \Delta\vek K = \vek c_3\, \vek r_3 + \vek c_5\, \vek r_5 \qquad (\text{Summe von zwei $n \times n$ Matrizen})
+\end{align}
+was, wenn wir das in Spaltenform schreiben, das  Ergebnis
+\begin{align}
+\vek K^{-1} \vek \Delta\vek K = \left[\vek 0\quad \vek  0\quad \vek s_3 \quad \vek 0 \quad\vek s_5\quad\vek 0\,\ldots \,\vek 0\right] \qquad \text{Spaltenvektoren}
+\end{align}
+ergibt, mit den beiden Spalten
+\begin{align}
+\vek s_3 = k^\Delta_{33} \cdot \vek c_3 + k^\Delta_{5 3}\cdot \vek c_5  \qquad \vek s_5 = k^\Delta_{3 5}\cdot\vek c_3 + k^\Delta_{5 5}\cdot\vek c_5\,,
+\end{align}
+die Linearkombinationen der beiden Spalten $\vek c_3$ und $\vek c_5$ von $\vek K^{-1}$ sind.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U353}
+\caption{One-Click Reanalysis (ohne Neuberechnung der Steifigkeitsmatrix) \textbf{ a)} die angeklickten Elemente \textbf{ b)} die Momentenverteilung ohne die beiden St\"{u}tzen}
+\label{U353}
+\end{figure}%
+%-----------------------------------------------------------------
+Somit geht das System (\ref{FX7}) \"{u}ber in
+\begin{align}\label{Eq8}
+\vek u_c + \vek s_3\,u_{c 3} + \vek s_5 \,u_{c 5} = \vek u\,.
+\end{align}
+Wir w\"{a}hlen die Zeilen drei und f\"{u}nf dieses Systems und bestimmen an Hand dieser beiden Gleichungen die beiden Werte $u_{c 3}$ und $u_{c 5}$
+\begin{align} \label{F3}
+ \left[\barr{c c  } 1 + s_{33} & s_{35} \\
+ s_{53} & 1 + s_{55} \earr\right] \left[\barr{c } u_{c3} \\u_{c5}\earr\right]= \left[\barr{c } u_{3} \\u_{5}\earr\right]\,.
+\end{align}
+Die Kenntnis der beiden Zahlen $u_{c 3}$ und $u_{c 5}$ reicht aus, das ist das Erstaunliche, um die ganze L\"{o}sung zu bestimmen
+\begin{align}\label{Eq148}
+\vek u_c &= - \vek K^{-1}\,\vek \Delta \vek K\,\vek u_c + \vek u = - u_{c 3}\,\vek s_3 - u_{c 5}\,\vek s_5 + \vek u \nn \\
+&= - (u_{c3}\,k^\Delta_{33} + u_{c5}\,k^\Delta_{35})\,\vek c_3 - (u_{c5}\,k^\Delta_{53} + u_{c5}\,k^\Delta_{55})\,\vek c_5 + \vek u \nn \\
+&= \alpha_3 \cdot \vek c_3 + \alpha_5 \cdot \vek c_5 + \vek u\,.
+\end{align}
+Bei Betrachtung von (\ref{Eq148}) und (\ref{Eq149}) (s.u.) erkennt man das Muster: \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{
+Der neue Vektor $\vek u_c$ ist eine Summe aus den Spalten $\vek c_i$ der Steifigkeiten $k_i$, mit Vorfaktoren $\alpha_i$, die sich aus einem linearen System wie (\ref{F3}) ergeben, plus dem alten Vektor $\vek u$.}}\\
+
+Um die Technik allgemeiner zu fassen, schreiben wir die beiden Matrizen als eine Folge von Spaltenvektoren $\vek c_i$ bzw. Zeilenvektoren $\vek r_i$
+\begin{align}
+\vek K^{-1} = [\vek c_1, \vek c_2, \ldots, \vek c_n] \qquad \vek \Delta \vek K = [\vek r_1, \vek r_2, \ldots, \vek r_n]^T\,.
+\end{align}
+Das System $\vek K^{-1}\,\vek \Delta K = [\vek s_1, \vek s_2, \ldots, \vek s_n] $ hat dann die Spalten
+\begin{align}
+\vek s_i = \sum_{j = 1}^n\,\vek c_j\,r_{ji}
+\end{align}
+und so lautet das Gleichungssystem (\ref{FX7}) zeilenweise
+\begin{align}
+u_{ci} + \sum_{j = 1}^n s_{ij}\,u_{cj} = u_i \qquad i = 1,2,\ldots, n\,.
+\end{align}
+Weil die meisten Zeilen $\vek r_i$ null sein werden, wird sich das wieder auf ein wesentlich kleineres System reduzieren lassen, das man wie eben erl\"{a}utert behandeln kann.
+
+Man kann so auch die ganze Inverse $\vek K_c^{-1} = [\vek c_1^c, \vek c_2^c, \ldots, \vek c_n^c]$ spaltenweise berechnen, indem man f\"{u}r $\vek u$ nacheinander die alten Spalten $\vek c_i$ setzt.
+
+Die \glq offizielle\grq{} Methode um $(\vek K + \vek \Delta \vek K)^{-1}$ aus $\vek K^{-1}$ zu berechnen, ist die {\em Sherman-Morrison-Woodbury\/}-Formel, \cite{Golub},\index{Sherman-Morrison-Woodbury}\label{Korrektur14}
+\begin{align}
+(\vek K + \vek \Delta\,\vek K)^{-1} = \vek K^{-1} - \vek K^{-1} \vek U\,(\vek I + \vek V\,\vek K^{-1}\,\vek U)^{-1} \,\vek V\,\vek K^{-1}
+\end{align}
+wobei $\vek \Delta \vek K = \vek U\,\vek V^T$. Sie gleicht einer {\em black box\/}, bei der es schwerf\"{a}llt, den statischen Gehalt hinter der Formel zu entdecken.
+
+\"{A}ndert sich nur die L\"{a}ngssteifigkeit $k \to k + \Delta k$ in einer St\"{u}tze, dann muss man sogar nur eine skalare Gleichung l\"{o}sen, um die neue Gleichgewichtslage $\vek u_c$ zu finden.
+
+Sei $u_3$ die Zusammendr\"{u}ckung der St\"{u}tze, dann reduziert sich das obige System  auf die Gleichung
+\begin{align}
+(1 + s_{33})\, u_{c3} = u_3 \qquad s_{33} = \Delta k \cdot c_{33}\,,
+\end{align}
+wenn $\vek c_{3}$ die Spalte 3 der Inversen $\vek K^{-1}$ ist, und die ge\"{a}nderte L\"{o}sung ergibt sich somit zu
+\begin{align}\label{Eq149}
+\vek u_c = - u_{c 3}\,\vek s_3 + \vek u = \boxed{-\frac{u_3}{(1 + \Delta k \cdot c_{33})}\,\Delta k } \cdot \vek c_3\ + \vek u\,.
+\end{align}
+Der Vektor $\vek c_3$ sind die Koeffizienten der Einflussfunktion f\"{u}r die Zusammendr\"{u}ckung $u_3$ der St\"{u}tze und eine \"{A}nderung $\Delta k$ ist daher dann merklich, wenn der Vorfaktor vor $\vek c_3$ gro{\ss} ist und die Einflussfunktion weit ausstrahlt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{One-Click Reanalysis}}
+In dem Programm BE-FRAMES, s. S. \pageref{SoftwareDownload}, sind beide Techniken, Iteration und direkte L\"{o}sung, zu Lehrzwecken als {\em One-Click Reanalysis\/} implementiert, s. Abb. \ref{U353}. Der Student kann durch einfache Klicks Ver\"{a}nderungen an einem Rahmen vornehmen und die Effekte, die dadurch entstehen, studieren\index{BE-FRAMES}.
+
+Implementiert sind \"{A}nderungen der Art $\vek \Delta \vek K_e = c \cdot \vek K_e$,
+also eine Skalierung einzelner Elementmatrizen mit unterschiedlichen Faktoren $c$, wobei $c = 0$ einem kompletten Verlust des Elements entspricht.
+
+Eine Serie von Modifikationen, etwa \"{A}nderungen der Elemente  5, 7 und 9, bedeutet einfach, dass $\vek \Delta \vek K$ eine Ansammlung von skalierten Elementmatrizen $\vek \Delta \vek K_e$ ist
+\begin{align}
+\vek u_c = - \vek K^{-1}\,(\vek \Delta\,\vek K_5 + \vek \Delta\,\vek K_7 + \vek \Delta\,\vek K_9 )\,\vek u_c + \vek u \qquad \text{(direkte Lsg.)}
+\end{align}
+Nat\"{u}rlich k\"{o}nnen auch einzelne Lager entfernt werden, nachtr\"{a}glich Gelenke eingebaut werden (das geht mit Dirac Deltas) und Einflussfunktionen f\"{u}r alle interessierenden Gr\"{o}{\ss}en berechnet werden.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U363}
+\caption{Verschieblichkeiten in einem Rahmen lassen sich mit dem \glq zweifachen\grq{} Gauss entdecken}
+\label{U363}
+\end{figure}%
+%-----------------------------------------------------------------
+
+\textcolor{sectionTitleBlue}{\subsection{Wenn die Last \glq getroffen\grq{} wird}}
+
+Wenn der Student ein Element $\Omega_e$ entfernt, das eine Belastung tr\"{a}gt, dann ist der neue Vektor $\vek u_c$ die L\"{o}sung des Systems
+\begin{align}
+(\vek K + \vek \Delta \vek K)\,\vek u_c = \vek f - \vek f_e\,,
+\end{align}
+wobei die Eintr\"{a}ge in dem Vektor $\vek f_e$ die vorherigen \"{a}quivalenten Knotenkr\"{a}fte aus dem Element $\Omega_e$ sind. In diesem Fall muss das Programm also auch das Original der rechten Seite \"{a}ndern, $\vek f \to  \vek f - \vek f_e$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Singul\"{a}re Steifigkeitsmatrizen}}
+Weil es in dem Programm BE-FRAMES implementiert ist, sei noch erw\"{a}hnt, dass man mit dem Gau{\ss} Algorithmus auch Beweglichkeiten in Rahmen aufdecken kann. Der Gau{\ss} Algorithmus formt ja die Steifigkeitsmatrix in eine obere Dreiecksmatrix um. Geht man noch einen Schritt weiter, und wendet den Gau{\ss} Algorithmus auch auf die obere Dreiecksmatrix an, dann erh\"{a}lt man am Schluss -- bei regul\"{a}ren Matrizen -- die Einheitsmatrix. Wenn allerdings die Matrix singul\"{a}r ist, dann f\"{u}hren die letzten Spalten in dem Ergebnis auf die Eigenvektoren zu dem Eigenwert $\lambda = 0$, also einfach die  m\"{o}glichen Starrk\"{o}rperbewegungen, die in dem Rahmen stecken, $\vek K\,\vek u = \vek 0$. Die kann man dann auf dem Bildschirm anzeigen und so den Benutzer auf fehlende Festhaltungen aufmerksam machen, s. Abb. \ref{U363}.
+
+Die Matrix, die bei diesem \glq zweimaligen\grq{} Gauss entsteht, nennt man die {\em row reduced echelon form\/} \index{row reduced echelon form} einer Matrix und unter diesem Namen findet man den Algorithmus auch in der Literatur.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.95\textwidth]{\Fpath/U326D}
+\caption{Der Einbau von plastischen Gelenken in einem Durchlauftr\"{a}ger \textbf{ a)} urspr\"{u}ngliche Momentenverteilung, \textbf{ b)} nach dem Einbau der Gelenke, \textbf{ c)} Biegelinie}
+\label{U326}
+\end{figure}%
+%-----------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Nachtr\"{a}glicher Einbau von Gelenken}}
+Andere m\"{o}gliche Defekte, die sich unter Last ausbilden, sind plastische Gelenke. Mathematisch ist  ein Gelenk eine Nullstelle im Momentenverlauf, $M(x) = 0$. Was wir daher machen ist, dass wir ein Dirac Delta $\delta_2$ im Punkt $x$ wirken lassen, d.h. wir berechnen die Einflussfunktion f\"{u}r  $M(x)$ in diesem Punkt und wir berechnen, wie gro{\ss} das Moment $M_2(x)$ der Einflussfunktion selbst in diesem Punkt $x$ ist. Dann skalieren wir das Dirac Delta mit einem Faktor $a$ derart, dass $a \cdot M_2(x) + M(x) = 0$.
+
+So wurden die Ergebnisse in Abb. \ref{U326} erzielt. Auch dies steht als \glq {\em one-click\/}\grq{} operation in dem Programm zur Verf\"{u}gung.
+
+Im Detail geht es wie folgt: Es sei $x_0$  der Punkt, an dem ein Gelenk eingebaut werden soll -- oder besser -- ein Moment $M_p$ aus einem LF $p$ zu Null gemacht werden soll. Der Punkt muss nicht am Ende eines Feldes liegen, wie die Punkte in Abb. \ref{U326}.
+
+(1) Man berechnet zun\"{a}chst die Einflussfunktion $G_2$ f\"{u}r das Moment $M$ im Punkt $x_0$, indem man in den  Nachbarknoten die \"{a}quivalenten Knotenkr\"{a}fte, die zu der Einflussfunktion geh\"{o}ren, s. Abb. \ref{U451}, aufbringt. (2) Man addiert zu dieser L\"{o}sung die lokale L\"{o}sung, also die Einflussfunktion am beidseitig eingespannten Tr\"{a}ger. (3) Man berechnet das Moment $M_G(x)$ der so zusammengesetzten Einflussfunktion im Punkt $x_0$. (4) Man skaliert dann den LF Einflussfunktion so, dass das Moment $M_{G}(x_0)$ gerade $- M_p(x_0)$ ist. (5) Die Ergebnisse dieses Lastfalls zu dem LF $p$ addiert, sind die Ergebnisse mit einem Gelenk im Punkt $x_0$ im LF $p$.
+
+Werden mehrere Gelenke eingebaut, dann muss man die Spreizung der Gelenke untereinander abstimmen, also ein lineares Gleichungssystem l\"{o}sen, so dass in allen Punkten gleichzeitig die Momente gegengleich zu den Momenten im LF $p$ sind.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Knicklasten}}
+Auch die Knicklasten\index{Knicklasten} -- also  die Eigenwerte der Steifigkeitsmatrix $\vek K$ (nach Theorie II. Ordnung) -- \"{a}ndern sich, wenn sich Steifigkeiten \"{a}ndern. Das ist ein komplexes Thema, weil ja die Rechentechnik des Ingenieurs, Stichwort: {\em Nachweis am Einzelstab\/}, mindestens eine genauso gro{\ss}e Rolle spielt, wie die Mathematik f\"{u}r die wir z.B. auf \cite{Bangerth} verweisen.
+
+Wir wollen hier nur das {\em Hellmann-Feynman-Theorem\/} zitieren, das aus der Quantenmechanik stammt, und das festh\"{a}lt, wie sich die Eigenwerte eines Systems \"{a}ndern, wenn sich die Modellparameter \"{a}ndern.
+
+Gegeben sei das Eigenwertproblem
+\bfo
+(\vek K(\vek p)  - \lambda\,\vek  I)\,\vek x = \vek 0\,.
+\efo
+Die $(n \times n)$-Matrix $\vek K(\vek p)$ h\"{a}nge von $m$ Modellparametern $p_i$ ab. Es
+sei $\lambda$ ein Eigenwert und $\vek x$ ein zugeh\"{o}riger, normierter Eigenvektor, $|\vek
+x| = 1$.
+
+Dann gilt
+\bfo
+\frac{\partial \lambda}{\partial p_i} = \vek x^T\,\vek K,_{p_i}\,\vek x\,.
+\efo
+{\em Beweis:\/} Weil $\lambda$ ein Eigenwert ist, gilt
+\bfo
+\lambda = \vek x^T\,\vek K\,\vek x\,.
+\efo
+Differenziert man beide Seiten nach $p_i$ so folgt
+\bfo
+\frac{\partial \lambda}{\partial p_i} = \vek x^T\,\vek K,_{p_i}\,\vek x + \vek
+x,_{p_i}^T\,\vek K\,\vek x + \vek x^T\,\vek K\,\vek x,_{p_i}\,.
+\efo
+Nachdem $\vek x = \vek x(\vek p)$ ein Eigenvektor ist, kann dies geschrieben werden als
+\begin{align}
+\frac{\partial \lambda}{\partial p_i} &= \vek x^T\,\vek K,_{p_i}\,\vek x + \lambda(\vek
+p)\,\vek x,_{p_i}^T\,\vek x + \lambda(\vek p)\,\vek x^T\,\vek x,_{p_i} \nn \\
+&=  \vek x^T\,\vek
+K,_{p_i}\,\vek x + \lambda(\vek p) \left[\vek x,_{p_i}^T\,\vek x + \vek x^T\,\vek
+x,_{p_i}\right].
+\end{align}
+Weil die (normierte) L\"{a}nge des Eigenvektors invariant ist gegen\"{u}ber den Parametern $p_i$
+\bfo
+|\vek x| = \vek x^T\,\vek x = 1 \qquad \Rightarrow \qquad \vek x,_{p_i}^T\,\vek x + \vek
+x^T\,\vek x,_{p_i} =0
+\efo
+folgt schlie{\ss}lich
+\bfo
+\frac{\partial \lambda}{\partial p_i} &=& \vek x^T\,\vek K,_{p_i}\,\vek x\,.
+\efo
+Der praktische Nutzen dieses Theorems besteht darin, dass uns versichert wird, dass die \"{A}nderungen in den Eigenwerten proportional zu den Ableitungen der Steifigkeitsmatrix nach den Parametern $p_i$ sind.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Die Vektoren $\vek f^+, \vek u^+, \vek g^+, \vek j^+$}}\label{Korrektur2}
+Wir fassen zusammen: Die Vektoren $\vek u$ und $\vek g$ sind Wege, die Vektoren $\vek f$ und $\vek j$ sind \"{a}quivalente Knotenkr\"{a}fte.
+\index{$\vek f^+$}\index{$\vek j^+$}\index{$\vek u^+$}\index{$\vek g^+$}
+Das System $(\vek K + \vek \Delta \vek K)\,\vek u_c = \vek f$ ist identisch mit $\vek K\,\vek u_c = \vek f - \vek \Delta \vek K\,\vek u_c$ und hat die L\"{o}sung
+\begin{align}
+\vek u_c &= \vek u + \vek u^+ = \vek K^{-1}\,(\vek f + \vek f^+)
+\end{align}
+wobei
+\begin{align}
+\vek f^+ = - \vek \Delta\, \vek K\,\vek u_c \qquad \vek u^+ = \vek K^{-1}\,\vek f^+\,.
+\end{align}
+Das System $(\vek K + \vek \Delta \vek K)\,\vek g_c = \vek j_c$ zur Berechnung der Knotenwerte $g_i$ der Einflussfunktion f\"{u}r ein Funktional $J_c(\vek u_c) = \vek j_c^T\,\vek u_c = \vek g_c^T\,\vek f$ hat die L\"{o}sung
+\begin{align}
+\vek g_c &= \bar{\vek g} + \vek g^+ = \vek K^{-1}\,(\vek j_c + \vek j_c^+)\,,
+\end{align}
+wobei
+\begin{align}
+\bar{\vek g} = \vek K^{-1}\,\vek j_c \qquad \vek j_c^+ = - \Delta\, \vek K\,\vek g_c \qquad \vek g^+ = \vek K^{-1}\,\vek j_c^+\,.
+\end{align}
+Wenn sich die Steifigkeit des Elements, in dem $J_c(\vek u)$ ausgewertet wird, nicht \"{a}ndert, wenn also $J(\vek u) = J_c(\vek u)$ ist, dann ist $\vek j = \vek j_c$, und entsprechend nennen wir $\vek j_c^+ = \vek j^+$, und $\bar{\vek g} = \vek g$, so dass dann also mit (\ref{Eq104}) gilt
+\begin{align}
+J(\vek u_c) = (\vek g + \vek g^+)^T\,\vek f = (\vek j + \vek j^+)^T\,\vek u\,.
+\end{align}
+Vorsicht!  Es ist nicht $\vek j_c = \vek j + \vek j^+$. Der Vektor $\vek j^+$ ist nur eine Hilfsgr\"{o}{\ss}e, der die Formel
+\begin{align}\label{Eq80}
+J(\vek u_c) = (\vek j + \vek j^+)^T\,\vek u
+\end{align}
+m\"{o}glich macht, mit der man aus dem alten $\vek u$ die Werte des neuen $\vek u_c$ berechnen kann.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.95\textwidth]{\Fpath/U473}
+\caption{Das Federgesetz $u = 1/k \cdot f$ impliziert, dass Steifigkeits\"{a}nderungen, $\pm \Delta k$, zu unterschiedlich gro{\ss}en Korrekturen f\"{u}hren}
+\label{U473}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Wenn $\vek j_c = \vek j + \vek j^+$ der richtige Vektor $\vek j_c$ w\"{a}re, dann m\"{u}sste man mit ihm $J(\vek u_c)$ aus $\vek u_c$ berechnen k\"{o}nnen,
+\begin{align}
+J(\vek u_c) = (\vek j + \vek j^+)^T\,\vek u_c \qquad \text{(?)}
+\end{align}
+was aber (\ref{Eq80}) widerspricht. Es kann nicht beides richtig sein.
+
+Wie man an Abb. \ref{U394} sieht, sind die Kr\"{a}fte $j_i^+$ in den Ecken des ge\"{a}nderten Elements Zusatzkr\"{a}fte, um auf dem \glq alten\grq{} Netz (Matrix $\vek K$) die Wirkung des Dirac Deltas (Einzelkraft in der oberen rechten Ecke) darstellen zu k\"{o}nnen, also $\vek g_c$ zu generieren. Ohne die $j_i^+$ w\"{u}rde das Dirac Delta den Vektor $\vek g$ erzeugen, mit den $j_i^+$ nimmt das \glq alte\grq{} Netz die Form $\vek g_c$ an.
+
+In Abb. \ref{U369} auf S. \pageref{U369} wurde diese Technik bei dem 1-D Problem eines Stabes benutzt, um mit Hilfe von Kr\"{a}ften $j^+$ die Einflussfunktion des {\em stepped bars\/} an einem Stab mit konstantem Querschnitt zu berechnen.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Unsymmetrie in den Ausgleichsbewegungen}}
+Zum Schluss wollen wir noch anmerken, dass, wegen $u = 1/k \cdot f$, \"{A}nderungen $k \pm \Delta k$ unsymmetrisch ablaufen, s. Abb. \ref{U473}. Die Ausschl\"{a}ge $\Delta u$ bei einer Abnahme $-\Delta k$ sind gr\"{o}{\ss}er als die Verk\"{u}rzungen $\Delta u$ bei einer Zunahme $+\Delta k$. Anders gesagt: Wenn man die Steifigkeit $k$  einer Feder um $\Delta k$ verringert und dann wieder $\Delta k$ dazu addiert, ist man nicht da, wo man vor dem Man\"{o}ver war, sondern $f$ h\"{a}ngt tiefer.
+
+Der Grund ist, dass man sich bei der Abnahme auf der Kurve $u = 1/k \cdot f$ befindet und beim R\"{u}ckweg auf der Kurve $u = 1/(k - \Delta k) \cdot f$.
+
+Wenn man aus einem Reifen (5 l) ein Liter Luft (= 20 \%) herausl\"{a}sst und dann wieder hinzuf\"{u}gt, dann hat der Wagen seine alte H\"{o}he. Aber bezogen auf das reduzierte Volumen (4 l) ist 1 Liter Luft 25 \%. Rechnerisch h\"{a}tte man nur 0.8 l hinzuf\"{u}gen d\"{u}rfen, was nicht gereicht h\"{a}tte, um auf die alte H\"{o}he zu kommen. 

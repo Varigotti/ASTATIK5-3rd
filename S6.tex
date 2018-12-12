@@ -1,0 +1,557 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{chapterTitleBlue}{\chapter{Singularit\"{a}ten}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In diesem Kapitel geht es um die Frage, wann Spannungsspitzen auftreten, und wie man ihnen mit Einflussfunktionen auf die Spur kommen kann.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Singul\"{a}re Spannungen}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Spannungen sind proportional zu den Dehnungen, $\sigma = E\cdot \varepsilon$, also proportional zu den Ableitungen der Verschiebungen, s. Abb. \ref{U76}, und so entstehen singul\"{a}re Spannungen immer dann, wenn die Verschiebungen sich schlagartig \"{a}ndern, sie praktisch aus dem Stand heraus von null
+nach oben schie{\ss}en, s. Abb. \ref{U76} a.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.9\textwidth]{\Fpath/U76}
+\caption{Je nachdem, wie die Verschiebungen ausklingen, sind die Spannungen endlich oder
+unendlich. Die schnellste Verbindung von $A$ nach $B$ im Schwerefeld der Erde ist nicht die k\"{u}rzeste Verbindung ($---$), sondern eine
+Zykloide. Weil die Anfangsbeschleunigung in den tieferen Startpunkten $A_1$ bzw. $A_2$
+kleiner ist als in $A$ (flachere Tangenten), dauert die Reise von dort aus nach $B$
+genauso lange wie von $A$ aus} \label{U76}
+\end{figure}%%
+%----------------------------------------------------------------------------------------------------------
+
+
+Die {\em Brachystochrone\/}\index{Brachystochrone}, ($\beta\rho\alpha\chi\upsilon\sigma$ = kurz), illustriert die Situation am besten. Die Brachystochrone ist die Kurve, die zwei vorgegebene Punkte $A$ und $B$ so verbindet, dass man mit Hilfe des Schwerefelds der Erde m\"{o}glichst schnell von $A$ nach $B$ kommt. Die L\"{o}sung dieses ber\"{u}hmten Problems ist eine {\em Zykloide\/}, s. Abb. \ref{U76}\index{Zykloide}.
+
+Es ist also nicht der k\"{u}rzeste Weg, der am schnellsten zum Ziel f\"{u}hrt, sondern der Weg, bei dem wir am Anfang  m\"{o}glichst viel Geschwindigkeit holen, indem wir uns senkrecht nach unten fallen lassen.
+
+Genauso verhalten sich die Bauteile, denn das Material will m\"{o}glichst schnell weg aus der Gefahrenzone, wie etwa einem Riss, s. Abb. \ref{U244}, und so l\"{a}uft die vertikale Verschiebung $u_y$ mit unendlich gro{\ss}em \glq Tempo\grq{}, unendlich gro{\ss}er Steigung aus dem Rissgrund heraus und dies f\"{u}hrt damit nat\"{u}rlich zu unendlich gro{\ss}en Spannungen $\sigma_{yy}$.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.6\textwidth]{\Fpath/U244}
+\caption{Die Spannungen $\sigma_{yy}$ im Rissgrund sind unendlich gro{\ss}, weil $u_y$ mit unendlich gro{\ss}er Steigung aus dem Rissgrund herausl\"{a}uft ($\nu = 0$)} \label{U244}
+\end{figure}%%
+%----------------------------------------------------------------------------------------------------------
+
+Beim Auto sagt man: {\em  Wo der Weg (= Bremsweg) null ist, ist die Kraft
+unendlich\/} und was beim Auto die Beschleunigung $a = dv/dt$ ist, ist bei Tragwerken die Verzerrung $\varepsilon = du/dx$ (Scheiben) bzw. die Kr\"{u}mmung $\kappa = d^{\,2}w/dx^2$ (Platten).
+
+Rei{\ss}t eine Scheibe auf, dann ist, weil die Bruchfl\"{a}chen vorher den Abstand $dx = 0$ hatten, bei noch so kleiner Riss\"{o}ffnung $du$ die Verzerrung unendlich gro{\ss}, $du/dx = du/0 = \infty$.
+
+Sinngem\"{a}{\ss} dasselbe gilt f\"{u}r einen Knick in einer Platte, weil in einem solchen Punkt der Kr\"{u}mmungskreisradius $R$ null ist und der Kehrwert $\kappa = 1/R$ somit unendlich gro{\ss} wird.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.90\textwidth]{\Fpath/U108}
+\caption{Durchlauftr\"{a}ger \textbf{ a)}
+Je k\"{u}rzer das mittlere Feld wird, um so steiler werden die Momente und um so gr\"{o}{\ss}er damit die Querkraft, $V = M'$, \textbf{ b)}
+Einflussfunktion f\"{u}r die Querkraft in Feldmitte}
+\label{U108}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.90\textwidth]{\Fpath/U526}
+\caption{Vierendeeltr\"{a}ger als Kragtr\"{a}ger. Je k\"{u}rzer die vertikalen Sprossen werden, desto gr\"{o}{\ss}er werden die Querkr\"{a}fte in den Sprossen}
+\label{U526}%
+\end{figure}%
+
+%---------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Singul\"{a}re Lagerkr\"{a}fte}}}\label{Korrektur9}
+
+Mit der ungeschickten Plazierung von Festpunkten kann man sich beliebig gro{\ss}e Kr\"{a}fte, sprich Probleme, einhandeln, s. Abb. \ref{U108}.
+
+Die Momente in dem Durchlauftr\"{a}ger, die die Einzelkraft erzeugt, sind zickzackf\"{o}rmig und je enger die beiden Innenlager beieinander stehen, um so gr\"{o}{\ss}er wird die Querkraft, weil die Querkraft ja die Ableitung des Momentes ist
+\begin{align}
+V = \frac{dM}{dx}\,,
+\end{align}
+sie also dem Steigungsdreieck des Momentes entspricht. Sinngem\"{a}{\ss} dasselbe gilt f\"{u}r den Vierendeeltr\"{a}ger in Abb. \ref{U526}.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{\Fpath/U472}
+\caption{Blick auf eine Platte -- ein kleiner Versatz in den tragenden Innenw\"{a}nden und die gro{\ss}en Folgen. Die W\"{a}nde wurden mit $EA = \infty$ gerechnet. Elastische Lagerung d\"{u}rfte die Effekte d\"{a}mpfen}
+\label{U472}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Die Einflussfunktion f\"{u}r die Querkraft schwingt immer weiter aus, je k\"{u}rzer der Abstand der beiden Lager wird. Die Aktion, die die Einflussfunktion ausl\"{o}st, die Spreizung $\pm 0.5$, ist immer gleich gro{\ss}, aber die Flanken der Einflussfunktion werden mit $h \to 0$ immer steiler und so w\"{o}lbt sich die Einflussfunktion im Feld immer weiter auf.
+
+Bei der Deckenplatte in Abb. \ref{U472} ist es der Versatz der Innenw\"{a}nde, der diesen Effekt produziert. Den W\"{a}nden gelingt es, wegen ihres kurzen Abstandes, nur sehr schwer das Versatzmoment auszubalancieren und auch die Platte leidet unter der Situation, wie die Oszillationen in den  Hauptmomenten belegen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Einzelkr\"{a}fte}}}\label{EinzelF}
+Oft sind singul\"{a}re Spannungen ein R\"{a}tsel. \glq Liegt es an den Elementen oder liegt es an der Statik\grq? Dagegen ist die Situation klar, wenn eine Einzelkraft $ P = 1$ in der Mitte einer Scheibe angreift, s. Abb. \ref{U224} a.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{\Fpath/U224}
+\caption{Einzelkraft bei einer Scheibe und bei einer Platte. Bei einer Platte wachsen die Querkr\"{a}fte ($v_n$) auch wie $1/r$, aber weil $w$ das dreifache Integral der Querkr\"{a}fte ist, ist $w = r^2\,\ln\,r$ auch im Punkt $r = 0$ endlich; $v_n$ ist der Kirchhoffschub }
+\label{U224}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Wenn wir um den Aufpunkt Kreise mit dem Radius $r $ schlagen, dann m\"{u}ssen die \"{u}ber den Kreis aufintegrierten horizontalen Spannungen die Punktlast ergeben -- auch wenn $r \to 0$.
+
+Um dies nun genauer zu fassen, m\"{u}ssen wir etwas ausholen. Was wir \"{u}ber den Kreisumfang integrieren, sind nicht die horizontalen Spannungen, sondern die horizontalen {\em tractions\/}, um hier das englische Wort zu benutzen. Ist $\vek S$ der Spannungstensor in der Scheibe,
+\begin{align}
+\vek S =  \left[\barr{r r r} \sigma_{xx} &  \sigma_{xy}\\
+  \sigma_{yx} & \sigma_{yy}  \earr\right]\,,
+\end{align}
+dann geh\"{o}rt zu einem Schnitt mit der Schnittnormalen $\vek n = \{n_x,n_y\}^T$ der Spannungsvektor
+\begin{align}\label{PPX}
+\vek t = \vek S\,\vek n = \left[\barr{r r r} \sigma_{xx} &  \sigma_{xy}\\
+  \sigma_{yx} & \sigma_{yy}  \earr\right]\, \left[\barr{c} \cos\,\Np  \\ \sin\,\Np
+  \earr \right] \qquad \text{auf dem Kreisumfang}
+\end{align}
+und das Gleichgewicht verlangt, dass das Integral des Spannungsvektors \"{u}ber den Umfang des Kreises $\Gamma$ gleich der Einzelkraft ist
+\begin{align}\label{Ergebnis}
+\int_{\Gamma} \vek t\,ds + P\cdot \vek e_1  =  \int_{\Gamma}  \left [\barr{c}  t_x \\  t_y\earr \right ] \,ds + \left [\barr{c}  1 \\  0\earr \right ]=  \left [\barr{c}  0 \\  0\earr \right ]\,.
+\end{align}
+Nun geht mit immer kleiner werdendem Radius, $r \to 0$, der Umfang des Kreises, $U = 2\,\pi\,r$, gegen null und damit am Ende das Integral der horizontalen Spannungen weiterhin den Wert -1 ergibt, muss sich $t_x$ wie $-1/(2\,\pi\,r)$ verhalten
+\begin{align}
+\lim_{r \to 0} \int_{\Gamma}t_x\,ds = \int_0^{\,2\,\pi} t_x\,r\,d\Np = -\int_0^{\,2\,\pi}\frac{1}{2\,\pi\,r}\,r\,d\Np = -1\,,
+\end{align}
+und damit in der Grenze, $r \to 0$, unendlich gro{\ss} werden\footnote{Wegen Details s. S. \pageref{BeweisP}}.
+
+Frage: Um wieviel verschiebt sich der Aufpunkt? Dies finden wir heraus, indem wir die Verzerrungen integrieren. Setzen wir der Einfachheit halber die Querdehnungszahl $\nu = 0$, dann h\"{a}ngt die Dehnung $\varepsilon_{xx} = 1/E\cdot\sigma_{xx}$ nur von der horizontalen Spannung ab und wegen
+\begin{align}
+\sigma_{xx} =  -\frac{1}{2\,\pi\,r} =  E \cdot \varepsilon_{xx} =  E \cdot \frac{\partial u}{\partial x} \simeq -\frac{1}{r}
+\end{align}
+folgt, dass sich die horizontale Verschiebung $u $ wie $- \ln\,r$ verh\"{a}lt, weil dies die Stammfunktion von $-1/r$ ist. Dies bedeutet, dass die Verschiebung im Aufpunkt unendlich gro{\ss} wird, denn $-\ln 0 = \infty$.
+ %---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\if \bild 2 \sidecaption[t] \fi
+{\includegraphics[width=0.8\textwidth]{\Fpath/U66}}
+\caption{Haltekr\"{a}fte = Fl\"{a}chenkr\"{a}fte + Kantenkr\"{a}fte nahe einem Lagerknoten. Die Fl\"{a}chenkr\"{a}fte $\vek p_h$ sind nur \"{u}ber ihre Integrale, Glg. (\ref{Eq63}), das sind die Zahlen in den Elementen, dargestellt. Die Kantenkr\"{a}fte sieht man als Pfeile}
+\label{U66}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Es gilt also:
+\begin{itemize}
+  \item Unter Einzelkr\"{a}ften werden die Spannungen unendlich gro{\ss}
+  \item Die unendlich gro{\ss}en Spannungen f\"{u}hren dazu, dass das Material flie{\ss}t und der Aufpunkt unendlich weit wegwandert.
+  \item Punktlager (= Punktkr\"{a}fte) k\"{o}nnen eine Scheibe daher nicht festhalten und man kann auch keine Lagerverschiebung in einem solchen Lager vorschreiben.
+ \end{itemize}
+
+Nun kann man aber, all diesem zu Trotz, bei einer FE-Berechnung Knoten festhalten und auch Knotenverschiebungen vorgeben. Wie das?
+
+Des R\"{a}tsels L\"{o}sung ist nat\"{u}rlich, dass die FE-L\"{o}sung keine exakte L\"{o}sung ist. In einem Lagerknoten sind die Verschiebungen $u_i = 0$ in der Tat auf null abgebremst, aber das sind verteilte Kr\"{a}fte, die diesen Halt zuwege bringen, s. Abb. \ref{U66}, und keine echten Einzelkr\"{a}fte.
+
+Im Ausdruck steht zwar eine Knotenkraft $f_i$, aber das ist eine rein rechnerische Gr\"{o}{\ss}e, eine {\em \"{a}quivalente Knotenkraft\/}, die stellvertretend f\"{u}r die wahren Haltekr\"{a}fte wie in Abb. \ref{U66} steht. Es sind Linienkr\"{a}fte l\"{a}ngs den Elementkanten und Fl\"{a}chenkr\"{a}fte, die die Scheibe st\"{u}tzen. Die Zahlen in Abb. \ref{U66} sind die aufintegrierten Fl\"{a}chenkr\"{a}fte der FE-L\"{o}sung pro Element
+\begin{align}\label{Eq63}
+\int_{\Omega_e} (p_x^2 + p_y^2)\,d\Omega\,.
+\end{align}
+
+\vspace{-0.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Das Abklingen der Spannungen}}}
+Aus einem \"{a}hnlichen Grund wie oben, m\"{u}ssen die Spannungen und Verzerrungen mit wachsendem Abstand von der Last immer kleiner werden. Nur ist es  nicht das Gleichgewicht, sondern der {\em Energieerhaltungssatz\/}, der das zwingend vorschreibt.
+
+Schlagen wir um den Mittelpunkt der Last einen Kreis mit Radius $R$, dann muss die innere Energie in der Kreisscheibe (wir lassen den Faktor $1/2$ weg)
+\begin{align}
+A_i &= \int_{\Omega} \sigma_{ij}\,\varepsilon_{ij}\,d\Omega = \int_0^{\,R} \int_0^{\,2\,\pi}  \sigma_{ij}\,\varepsilon_{ij}\,r\,dr\,d\Np \nn \\
+&=  \int_0^{\,R} \int_0^{\,2\,\pi} ( \sigma_{11}\,\varepsilon_{11} + 2\, \sigma_{12}\,\varepsilon_{12} +  \sigma_{22}\,\varepsilon_{22})\,r\,dr\,d\Np
+\end{align}
+ %---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\if \bild 2 \sidecaption[t] \fi
+{\includegraphics[width=0.9\textwidth]{\Fpath/U21}}
+\caption{Der Energieerhaltungssatz impliziert, dass die Momente abklingen}
+\label{U21}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+gleich der \"{a}u{\ss}eren Arbeit $A_a(P)$ der Belastung sein, also \"{u}berschl\"{a}gig gleich der {\em Verformung aus der Belastung $\times$ der Belastung\/} plus der Arbeit $A_a(\Gamma)$ der Schnittkr\"{a}fte entlang dem Kreisumfang $\Gamma$. Ab einem gewissen Radius $R$ ist der Kreis gro{\ss} genug, um die ganze Belastung zu umfassen, und ab diesem Zeitpunkt \"{a}ndert sich die \"{a}u{\ss}ere Arbeit $A_a$ nur noch, weil mit $R$ auch der Umfang $\Gamma $ w\"{a}chst. Die Energiebilanz verlangt
+\begin{align}
+A_a = A_a(P) + A_a(\Gamma) = a(\vek u,\vek u)_{\Omega} = A_i
+\end{align}
+und daher ist der Term
+\begin{align}
+a(\vek u,\vek u)_{\Omega} - A_a(\Gamma) = A_a(P)
+\end{align}
+konstant. Mit wachsendem Radius $R$ muss sich die Verzerrungsenergie gegenl\"{a}ufig verhalten, um den Zuwachs an Fl\"{a}che $\Omega$ und Rand $\Gamma$ auszubalancieren
+\begin{align}
+\sigma_{ij}\, \varepsilon_{ij} \simeq \frac{1}{R^2}\,.
+\end{align}
+\"{A}hnlich muss bei dem Durchlauftr\"{a}ger in Abb. \ref{U21} die innere Energie $A_i$ in jedem rechten Teil $[x',\ell]$ -- von einem Punkt $x' $ im Innern bis zum Ende -- gleich der \"{a}u{\ss}eren Arbeit der Kragarmlast plus der Arbeit $A_a(x')$ der Schnittkraft an der Stelle $x'$ sein
+\begin{align}
+A_i = \int_{x'}^{\,\ell} \frac{M^2}{EI}\,dx = P \cdot w(\ell) + A_a(x') = A_a\,,
+\end{align}
+und dies impliziert, dass $M$ abf\"{a}llt, je weiter $x'$ nach links r\"{u}ckt.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Der Energieerhaltungssatz ist also der Grund, warum Einflussfunktionen in der Regel rasch abklingen.
+
+Die Ausnahme sind Einflussfunktionen in statisch bestimmten Tragwerken, weil kinematische Ketten null Energie haben und sie somit nicht gegen den Energieerhaltungssatz versto{\ss}en, wenn sie unter Umst\"{a}nden immer weiter anwachsen.}}\\
+
+
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+{\includegraphics[width=.9\textwidth]{\Fpath/U285}}
+\caption{Einzelkraft an Geb\"{a}udeecke (Stockwerkrahmen) }
+\label{U261}%
+\end{figure}%
+%---------------------------------------------------------------------------------\\
+
+\begin{remark}
+Je gr\"{o}{\ss}er der Abstand $R$ eines Betrachters von der Sonne ist, um so schw\"{a}cher scheint ihm das Licht, weil sich die abgestrahlte Energie $E$ \"{u}ber eine immer gr\"{o}{\ss}ere Sph\"{a}re $S$ verteilt
+\begin{align}
+E = \int_{S} q \,dS = q \cdot 4\,\pi\,R^2\,,
+\end{align}
+und die Energiedichte $q = E/S$ pro $m^2$ daher wie $1/R^2$ abnimmt.
+
+Dieses Argument benutzt implizit auch der Ingenieur, der Last\"{a}nderungen in abliegenden Punkten einer Platte ignoriert, weil er wei{\ss}, dass das, was an Biegeenergie hinzukommt, mit zunehmenden Abstand vom Quellpunkt, wie das Licht der Sonne, abklingen muss.
+
+Allerdings kann man die Regel nicht blindlings anwenden. Die Abmessungen und die  Lagerbedingungen spielen eine gro{\ss}e Rolle, wie etwa bei dem Stockwerkrahmen in Abb. \ref{U261}, bei dem die Fu{\ss}punkte zwar den gr\"{o}{\ss}ten Abstand vom Kraftangriffspunkt haben, aber die Fu{\ss}punktsmomente mit zu den gr\"{o}{\ss}ten Momenten geh\"{o}ren.
+
+Der Stockwerkrahmen tr\"{a}gt zwar wie ein Schubtr\"{a}ger, aber er ist \"{a}hnlich empfindlich wie ein sehr langer Kragtr\"{a}ger, bei dem eine Zusatzlast $\Delta P$ am Kragarmende zu einem gro{\ss}en zus\"{a}tzlichen Ausschlag $\Delta w$ am Kragarmende f\"{u}hrt und so die Energiebilanz
+\begin{align}
+\Delta P \cdot \Delta w = \int_0^{\,l} \frac{\Delta M^2}{EI}\,dx
+\end{align}
+geradezu verlangt, dass sich das Einspannmoment merklich \"{a}ndert.
+
+Anders gesagt, wenn die Zusatzbelastung gro{\ss}e Wege geht, ihre Eigenarbeit gro{\ss} ist, dann muss man genau hinschauen, w\"{a}hrend man in
+allen anderen F\"{a}llen davon ausgehen kann, dass die Effekte \glq versickern\grq{}.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Kragtr\"{a}ger}}}\index{Kragtr\"{a}ger}
+Wir wollen diese Beobachtungen zum Anlass nehmen, auf die besondere Rolle der Kragtr\"{a}ger hinzuweisen. Bei einem Durchlauftr\"{a}ger klingen Momente um so schneller ab, je mehr Felder er hat. Der Kragtr\"{a}ger ist das genaue Gegenteil. Wenn man einen Kragtr\"{a}ger nur lang genug macht, dann kann man das Einspannmoment beliebig gro{\ss} machen, ohne dass sich die Last am Kragarmende \"{a}ndert, weil die Einflussfunktion f\"{u}r das Einspannmoment eine Verdrehung des Tr\"{a}gers um $45^\circ$ ist.
+
+Richtet man einen sehr starken Laserstrahl von der Erde auf den Mond, dann bewegen sich die Lichtpunkte auf dem Mond bei einer winzigen Drehung des Lasers mit einer Geschwindigkeit, die gr\"{o}{\ss}er ist als die Lichtgeschwindigkeit! (Was kein Widerspruch zur Relativit\"{a}tstheorie von Einstein ist).
+
+Starrk\"{o}rperdrehungen sind also mit Vorsicht zu betrachten. Wenn diese m\"{o}glich sind, dann muss man mit allem rechnen... \\
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+{\includegraphics[width=1.0\textwidth]{\Fpath/U225}}
+\caption{Hauptspannungen in einer geschlitzten Scheibe, rechts die Spannungen $\sigma_{yy}$}
+\label{U225}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\if \bild 2 \sidecaption[t] \fi
+{\includegraphics[width=0.6\textwidth]{\Fpath/U226}}
+\caption{Eine Versetzung im Rissgrund, muss unendlich gro{\ss}e Verschiebungen verursachen}
+\label{U226}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Unendlich gro{\ss}e Spannungen}}}
+Singul\"{a}re Punkte \index{singul\"{a}re Punkte}, also Punkte, in denen die Spannungen unendlich gro{\ss} werden, liegen typischerweise auf dem Rand und dort in Eckpunkten oder Punkten, in denen sich die Lagerbedingungen \"{a}ndern, siehe Abb. \ref{U225}.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U227}
+\caption{\textbf{ a)} Dreiecksf\"{o}rmige Elemente, Erzeugung der Einflussfunktion f\"{u}r $2 \cdot \sigma_{yy}$ im Rissgrund, \textbf{ b)} die Kinematik, \textbf{ c)} am Au{\ss}enrand}
+\label{U227}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Wenn wir der Meinung sind, dass man mit Einflussfunktionen auch diese Spannungen -- vielleicht nicht direkt in der Ecke, aber in der N\"{a}he -- voraussagen kann, dann stehen wir vor einem Problem: Wie gelingt es einer Punktversetzung (= Einflussfunktion f\"{u}r die Spannung $\sigma_{yy}$ im Rissgrund)
+den oberen und unteren Rand der Scheibe in Abb. \ref{U226} in die Richtungen $\pm \infty$ zu dr\"{u}cken?  Anders kann es ja nicht sein, wenn wir der \"{U}berzeugung sind, dass die Einflussfunktionen auch in der N\"{a}he solcher singul\"{a}rer Punkte noch anwendbar sind
+\beq
+\sigma(\vek x) = \int_{\Gamma} \textcolor{chapterTitleBlue}{\vek G(\vek y, \vek x)}\dotprod \vek  p(\vek y) ds_{\vek y} =  \infty\,.
+\eeq
+Wie funktioniert das? Wie kann eine Punktversetzung ein unendlich weit ausschwingendes Verschiebungsfeld erzeugen?
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U49}
+\caption{In der einspringenden Ecke werden die Spannungen unendlich gro{\ss}}
+\label{U49}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Im Grunde haben wir das Ph\"{a}nomen schon bei der Einflussfunktion f\"{u}r die Querkraft kennengelernt. Stellen wir uns vor, wir benutzen dreiecksf\"{o}rmige Elemente, die Querdehnzahl $\nu$ sei null (der Einfachheit halber), und wir wollen die Einflussfunktion f\"{u}r die Summe $\sigma_{yy} + \sigma_{yy}$ der Spannungen in den beiden Elementen, die dem Rissgrund unmittelbar benachbart sind, berechnen. Weil wir die Summe berechnen, bleibt die Symmetrie des Problems erhalten.
+
+Wir m\"{u}ssen also die Spannungen $\sigma_{yy} $ der Ansatzfunktionen als Knotenkr\"{a}fte aufbringen. Das ergibt die Abb. \ref{U227} a, wenn wir die Knotenkr\"{a}fte, die sich gegenseitig aufheben, weglassen. In dem r\"{u}ckw\"{a}rtigen Knoten, der ja auf der Symmetrielinie liegt, muss die vertikale Verschiebung null sein. Damit ist die Situation im Grunde dieselbe wie bei einem Kragtr\"{a}ger. Wenn die beiden Kr\"{a}fte die Risskanten auseinander treiben, dann drehen sie praktisch die freien Schenkel um diesen r\"{u}ckw\"{a}rtigen Knoten und wenn $h $ gegen null geht, m\"{u}ssen sich die Schenkel um 90$^\circ$ aufstellen d.h. die vertikalen Verschiebungen werden unendlich gro{\ss}.
+
+Wie ist das nun, wenn wir dasselbe Man\"{o}ver an dem glatten Rand einer Scheibe fahren? Wir berechnen wieder die Einflussfunktion f\"{u}r $\sigma_{yy} + \sigma_{yy} $, aber nun ragt kein Teil der Scheibe \"{u}ber den Au{\ss}enrand hinaus, s. Abb. \ref{U227} c. Jetzt kann sich nichts verdrehen und daher bleiben die Verformungen (in den abliegenden Punkten) endlich.
+
+Auch die singul\"{a}ren Spannungen bei der L-Scheibe in Abb. \ref{U49} r\"{u}hren daher, dass die beiden Knotenkr\"{a}fte, die die Einflussfunktion f\"{u}r die Summe der beiden schr\"{a}gen Spannungen $2 \cdot \sigma_{\xi\xi}$ erzeugen, im Grenzfall, $h \to 0 $, die Schenkel um $90^\circ $ verdrehen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Symmetrie der Wirkungen}}\label{Symmetrie der Wirkungen}
+Es gibt noch ein theoretisches Argument, das diese \"{U}berlegungen unterst\"{u}tzt. Gehen wir noch einmal zur\"{u}ck zu der gerissenen Scheibe. Im Grunde sind hier zwei Einflussfunktionen am Werk: zum einen die Einflussfunktion f\"{u}r die Spannung $\sigma_{yy} $ im Rissgrund und zum anderen die Einflussfunktion f\"{u}r die vertikalen Verschiebungen am oberen bzw. unteren Rand der Scheibe. Der Einfachheit halber nehmen wir an, dass wir je einen Punkt auf dem oberen und unteren Rand als Aufpunkte w\"{a}hlen, in denen wir die vertikalen Verschiebungen berechnen. Durch die Wahl von zwei Punkten, unten und oben, bleibt die Symmetrie erhalten.
+
+Das sind also zwei Funktionale, die wir
+\begin{align}
+J_1(\vek u) = \sigma_{yy}(\vek u) \qquad J_2(\vek u) = u_y(oben \,\,Mitte) + u_y(unten\,\, Mitte)
+\end{align}
+nennen. Zu dem ersten Funktional geh\"{o}rt die Einflussfunktion $\vek G_1$ und zu dem zweiten Funktional die Einflussfunktion $\vek G_2$.
+
+Nun kann man zeigen, dass die beiden Funktionale \glq \"{u}ber Kreuz\grq{} gleich sind, d.h.
+\begin{align}
+J_1(\vek G_2) = J_2(\vek G_1)\,,
+\end{align}
+was \"{u}brigens f\"{u}r alle Paare von Funktionalen und deren Einflussfunktionen gilt -- nicht nur hier.
+
+Gleich bedeutet hier das folgende: $\vek G_2$ wird von zwei Einzelkr\"{a}ften $P = \pm 1$ generiert, die am oberen und unteren Rand der Scheibe ziehen. Die Wirkung dieser beiden Kr\"{a}fte f\"{u}hrt zu unendlich gro{\ss}en vertikalen Spannungen $\sigma_{yy} $ in der Rissfuge, also
+\begin{align}
+J_1(\vek G_2) = \infty \qquad J_1\,\,\text{misst $\sigma_{yy}$} \,\text{von $\vek G_2$}\,.
+\end{align}
+Umgekehrt f\"{u}hrt die Spreizung der Rissfuge, wie wir uns \"{u}berzeugt haben, zu unendlich gro{\ss}en Verschiebungen an der oberen und unteren Kante, also
+\begin{align}
+J_2(\vek G_1) = \infty \qquad J_2\,\,\text{misst $u_y(\text{oben/unten})$} \,\text{von $\vek G_1$}\,,
+\end{align}
+und die Theorie sagt, dass diese beiden Werte gleich gro{\ss} sind. Wenn also der eine Wert unendlich ist, dann muss es auch der andere sein.
+
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U228}
+\caption{Das Eigengewicht der Kragscheibe erzeugt unendlich gro{\ss}e Spannungen in den Randfasern}
+\label{U228}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=1.0\textwidth]{\Fpath/U229}
+\caption{Berechnung der Einflussfunktion f\"{u}r die Spannung $\sigma_{xx}$ im Eckpunkt,
+  \textbf{ a)} Netz,  \textbf{ b)}\"{a}quivalente Knotenkr\"{a}fte, \textbf{ c)} vertikale Verschiebung der oberen rechten Ecke in Abh\"{a}ngigkeit von der Elementl\"{a}nge $h$}
+\label{U229}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Kragscheibe}}}
+Aber selbst in einer scheinbar harmlosen Standardsituation, wie der Scheibe in Abb. \ref{U228}, treten im LF $g$ unendlich gro{\ss}e Spannungen in den \"{a}u{\ss}ersten Fasern auf. Wir d\"{u}rfen annehmen, dass das auch passieren w\"{u}rde, wenn das Eigengewicht durch eine Einzelkraft $P$ ersetzt w\"{u}rde, die in irgendeinem inneren Punkt $\vek y_P$ der Scheibe angreift.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+{\includegraphics[width=0.80\textwidth]{\Fpath/U46}}
+\caption{Kragscheibe, \textbf{ a)} Hauptspannungen (\glq Stromlinien\grq{}) (BE-Scheibe), \textbf{ b)} Krafteck in verschiedenen Schnitten, \textbf{ c)} nahe dem linken Rand wird das Krafteck nahezu unendlich flach und unendlich lang, \textbf{ d)} Stra{\ss}enlaterne---dasselbe Prinzip }
+\label{U46}%
+\end{figure}%
+
+Wenn dies richtig ist, dann muss die Einflussfunktion f\"{u}r die obere Randspannung $\sigma_{xx}$ den Wert $\infty $ in fast allen Punkten der Scheibe haben
+\beq
+\sigma_{xx} (\vek x) = \textcolor{chapterTitleBlue}{\vek G(\vek y_P, \vek x) }\dotprod  \vek P = \textcolor{chapterTitleBlue}{\vek \infty} \dotprod  \vek P\,.
+\eeq
+Wir rechnen das nach: In dem FE-Modell muss man zur Berechnung der Einflussfunktion die Spannungen $\sigma_{xx}$ der Ansatzfunktionen des Netz in dem Eckpunkt als Belastung aufbringen.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+{\includegraphics[width=0.75\textwidth]{\Fpath/U47}}
+\caption{Wenn man die Ecken ausrundet, dann k\"{o}nnen sich die \glq Stromlinien\grq{} (= Hauptspannungen) verdrehen und dann haben sie es leichter der vertikalen Belastung das Gleichgewicht zu halten}
+\label{U47}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{\Fpath/U48}
+\caption{Spannungsverteilung ($\sigma_{xx}$) in der Einspannfuge, wenn die Ecken ausgerundet werden}
+\label{U48}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Weil nur die Ansatzfunktionen des Eckelementes selbst in der Ecke Spannungen $\sigma_{xx}\neq 0$ generieren, werden nur die Knoten des Eckelementes mit diesen Spannungen als Knotenkr\"{a}fte, $f_i = \sigma_{xx}(\vek \Np_i)$ belastet, und diese Kr\"{a}fte/Spannungen sind proportional zu $E/h$, wobei $E$ der Elastizit\"{a}tsmodul des Materials ist, $E = 2.1 \cdot 10^5$ N/mm$^2$, und $h$ ist die Elementl\"{a}nge.
+
+Beim numerischen Test, siehe Abb. \ref{U229}, mit adaptiver Verfeinerung wuchs die Eckverschiebung in der Tat exponentiell mit $h \to 0$ an.
+
+Um hinter das Geheimnis der singul\"{a}ren Spannungen zu kommen, ersetzen wir in Gedanken die Hauptspannungen durch paarweise orthogonale Pfeile (\glq Stromlinien\grq{}), siehe Abb. \ref{U46} a und  \ref{U46} b. Die Vektorsumme der Pfeile muss dann gleich der Resultierenden der aufgebrachten Belastung sein. Anders gesagt, die Versetzung, die die beiden Pfeile verursachen, muss den Angriffspunkt der Resultierenden um eine L\"{a}ngeneinheit anheben.
+
+Damit ist auch klar, warum die Spannungen in den \"{a}u{\ss}ersten Fasern singul\"{a}r werden. Je n\"{a}her die Stromlinien dem linken Rand kommen, um so flacher m\"{u}ssen sie verlaufen, weil der Rand in vertikaler Richtung festgehalten wird, und das bedeutet, dass sich die Stromlinien weiter strecken m\"{u}ssen, damit ihre immer kleiner werdenden vertikalen Komponenten der Belastung das Gleichgewicht halten k\"{o}nnen.
+
+Das ist wie bei einer Stra{\ss}enlaterne, die an einem Seil zwischen zwei H\"{a}usern h\"{a}ngt. Bevor man das Seil richtig straff ziehen kann, rei{\ss}t das Seil.
+
+Wenn die Ecken ausgerundet werden, dann k\"{o}nnen die Stromlinien sich drehen, und dann haben sie es leichter, das Gleichgewicht mit der vertikalen Belastung zu halten, siehe Abb. \ref{U47} und \ref{U48}. Dann besteht kein Grund mehr, unendlich gro{\ss}e Spannungen zu generieren.\\
+
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{\Fpath/U147}
+\caption{Die Biegespannungen $\sigma_{xx}$ in der Einspannfuge bleiben in diesen Lastf\"{a}llen endlich}
+\label{U147}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+\begin{remark}
+ Numerische Tests belegen, dass horizontale Lasten, die mit einem Lastmoment einhergehen,  nicht zu singul\"{a}ren Spannungen in der Einspannfuge f\"{u}hren, s. Abb. \ref{U147}, und ebenso gilt das f\"{u}r vertikale Kr\"{a}ftepaare.
+ \end{remark}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Standardsituationen}}
+Es braucht aber nicht eine Kragscheibe, um Singularit\"{a}ten zu produzieren. Singularit\"{a}ten treten auch an so harmlos scheinenden Stellen wie den Ecken von \"{O}ffnungen auf, s. Abb. \ref{U269}. In der Praxis bemerkt man diese Singularit\"{a}ten in der Regel nicht, weil man nicht so stark verfeinert, gleichwohl wird man aber auch auf gr\"{o}beren Netzen schon erste Anzeichen daf\"{u}r entdecken. Die konstruktive Bewehrung ist aber in der Regel in der Lage, solche Effekte aufzufangen.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{\Fpath/U269}
+\caption{Wandscheibe mit adaptiv verfeinertem Netz. Die Spannungen in den Ecken der \"{O}ffnungen werden konstruktiv, wie angedeutet, durch L\"{a}ngs- und Schr\"{a}gbewehrung aufgenommen. Nur die Punktlager sollte man besser durch kurze Linienlager ersetzen}
+\label{U269}% % Pos. U28A
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Wenn man aber wirklich in die Ecken hineingeht wie in Abb. \ref{U134}, dann sieht man, dass die Spannungen in der Tat unendlich gro{\ss} werden. Bei hochbelasteten Bauteilen im Maschinenbau, etwa Turbinenschaufeln, sind solche Spannungsspitzen durchaus bemessungsrelevant.
+
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{\Fpath/U134}
+\caption{Wandscheibe unter Eigengewicht \textbf{ a)} Hauptspannungen \textbf{ b)} Spannungen $\sigma_{yy} $ in einigen horizontalen Schnitten (Randelementl\"{o}sung)}
+\label{U134}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Singularit\"{a}ten in Einflussfunktionen}}\label{SingInf}
+Zu dem Thema  {\em pollution\/} geh\"{o}rt noch ein anderes Ph\"{a}nomen, n\"{a}mlich die Auswirkung von Singularit\"{a}ten auf die Ergebnisse. Bei Fl\"{a}chentragwerken treten in der Regel immer Singularit\"{a}ten auf, d.h. Lagerkr\"{a}fte oder Spannungen neigen dann zu den typischen  Oszillationen. Der Ingenieur tut das in der Regel mit der Bemerkung ab, {\em \glq das Material ist kl\"{u}ger\grq{}\/}, und achtet nicht weiter darauf, weil er aus Erfahrung wei{\ss}, dass au{\ss}erhalb der gest\"{o}rten Zone die Ergebnisse doch ganz vern\"{u}nftig aussehen und er sich nicht vorstellen kann, dass Singularit\"{a}ten in abliegenden Ecken die Genauigkeit negativ beeinflussen sollen.
+%---------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{\Fpath/UE340}
+\caption{Membran \"{u}ber L-f\"{o}rmigem Grundriss unter Winddruck}
+\label{U171}%
+\end{figure}%
+%---------------------------------------------------------------------------------
+
+Die Singularit\"{a}ten propagieren aber in die Einflussfunktionen hinein, sie verschlechtern die Qualit\"{a}t der Einflussfunktionen -- auch \glq im Feld\grq{}, denn auch die finiten Elemente sind in einem versteckten Sinn Randelemente.
+
+Um dies zu verstehen, betrachten wir ein Segeltuch, also eine vorgespannte Membran, die \"{u}ber einen L-f\"{o}rmigen Grundriss gespannt ist und dem Winddruck standhalten muss, s. Abb. \ref{U171}.
+
+Es ist klar, dass die Querkr\"{a}fte $v_x$ und $v_y$ in der Membran an der einspringenden Ecke unendlich gro{\ss} werden, weil die Querkr\"{a}fte proportional zu den Neigungen der Biegefl\"{a}che $w$ sind
+\begin{align}
+v_x = H\,w,_x \qquad v_y = H\,w,_y \qquad \text{$H$ = Vorspannung}\,,
+\end{align}
+und in der einspringenden Ecke sich die Membran an die W\"{a}nde anlegen wird, $w,_x = \infty$ und $w,_y = \infty$, dort also ein singul\"{a}rer Punkt liegt.
+
+Die Querkr\"{a}fte sind am Rand die Aufh\"{a}ngekr\"{a}fte.
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U263}
+\caption{Gelenkig gelagerte Platte; Plot der Momente aus dem LF $P = 1$. Das sind also die Momente der Einflussfunktion $G_0(\vek y,\vek x)$ f\"{u}r die Durchbiegung $w(\vek x)$. In den einspringenden Ecken werden die Momente singul\"{a}r und das hat einen negativen Einfluss auf die G\"{u}te der FE-Einflussfunktion }
+\label{U263}
+\end{figure}%% % Position ZK
+%----------------------------------------------------------
+
+Wenn wir nun, wie gewohnt, die Durchbiegung (FE-L\"{o}sung) der Membran durch ihre Einflussfunktion darstellen
+\begin{align}
+w_h(\vek x) = \int_{\Omega} G_h(\vek y,\vek x)\,p(\vek y)\,d\Omega_{\vek y}\,,
+\end{align}
+dann deutet nichts darauf hin, dass der Kern $G_h(\vek y,\vek x)$ der Einflussfunktion von minderer Qualit\"{a}t sein soll. Wo versteckt sich die Singularit\"{a}t?
+
+Wir wollen die Antwort nur skizzieren\footnote{F\"{u}r mehr Details siehe \cite{Ha2} und \cite{Ha6}}. Wer sich mit der {\em Potentialtheorie\/} oder der Methode der Randelemente auskennt, wei{\ss}, dass man jede L\"{o}sung  der Gleichung $- \Delta w = p$ wie folgt darstellen kann\footnote{{\em Jede\/} $C^2$-Funktion $w$ kann man also aus ihren Randwerten $w$ und $\partial w/\partial n$ und dem $- \Delta w$ im Feld generieren.}
+\begin{align}
+w(\vek x) = \int_{\Gamma} (g(\vek y,\vek x)\,\frac{\partial w}{\partial n}(\vek y) - \frac{\partial g(\vek y,\vek x)}{\partial n}\,w(\vek y))\,ds_{\vek y} + \int_{\Omega} g(\vek y,\vek x)\,p(\vek y) \,d\Omega_{\vek y}\,.
+\end{align}
+Die Funktion
+\begin{align}
+g(\vek y,\vek x) = - \frac{1}{2\,\pi}\,\ln |\vek y - \vek x|
+\end{align}
+hei{\ss}t {\em Fundamentall\"{o}sung\/}\index{Fundamentall\"{o}sung}, weil sie der Gleichung $-\Delta g(\vek y,\vek x) = \delta(\vek y-\vek x)$ gen\"{u}gt.
+
+Man rekonstruiert also die Biegefl\"{a}che $w $ mit Hilfe von $g(\vek y,\vek x)$ aus ihren Randwerten $w$ und $\partial w/ \partial n$ und dem Winddruck $p$, der auf ihr lastet.
+
+
+Diese Integraldarstellung kann man auch auf die Einflussfunktion $G(\vek y,\vek x)$ anwenden. Nun ist aber das $p$, das zu $G(\vek y,\vek x)$ geh\"{o}rt, ein Dirac Delta $\delta(\vek y-\vek x)$ und $G(\vek y,\vek x)$ ist null auf dem Rand $\Gamma$, so dass sich die Einflussfunktion auf
+\begin{align}
+G(\vek y,\vek x) &=  \int_{\Gamma}[ g(\vek \xi,\vek y)\,\frac{\partial G_h}{\partial n}(\vek \xi, \vek x) - \frac{\partial g(\vek \xi,\vek y)}{\partial n}\,G(\vek \xi, \vek x)]\,ds_{\vek \xi} \nn \\ &+ \underbrace{\int_{\Omega} g(\vek \xi,\vek y)\, \delta(\vek \xi - \vek x)\,d\Omega_{\vek \xi}}_{= \,{\displaystyle g}(\vek y,\vek x)}
+=  \int_{\Gamma} g(\vek \xi,\vek y)\,\frac{\partial G}{\partial n}(\vek \xi, \vek x)\,ds_{\vek \xi} + g(\vek y,\vek x)
+\end{align}
+verk\"{u}rzt.
+
+Diese Formel gilt sinngem\"{a}{\ss} auch f\"{u}r die FE-N\"{a}herung $G_h(\vek y,\vek x)$, die ja die L\"{o}sung des Randwertproblems
+\begin{align}
+- \Delta G_h(\vek y,\vek x) = \delta_h(\vek y,\vek x) \qquad G_h = 0 \qquad \text{auf $\Gamma$}
+\end{align}
+ist, wobei $\delta_h(\vek y,\vek x)$ allerdings ein Flickenteppich von Lasten ist, die versuchen einer Punktlast nahe zu kommen, sie zu simulieren. Also gilt f\"{u}r $G_h(\vek y,\vek x)$ die Darstellung
+\begin{align}\label{Eq97}
+G_h(\vek y,\vek x) &=  \int_{\Gamma} g(\vek \xi,\vek y)\,\underset{\uparrow}{\frac{\partial G_h}{\partial n}}(\vek \xi, \vek x)\,ds_{\vek \xi} + \int_{\Omega}g(\vek \xi,\vek y) \,\delta_h(\vek \xi,\vek x)\,d\Omega_{\vek \xi}\,.
+\end{align}
+Und jetzt sieht man die kritische Stelle. Spannungsspitzen an der einspringenden Ecke bedeuten, dass dort die Normalableitung des Segeltuchs $\partial G_h/ \partial n$,
+also die Neigung des Segeltuchs zum Rand hin, unendlich gro{\ss} ist, weil sich das Segeltuch dort wahrscheinlich an die W\"{a}nde anlegt. (Wir reden jetzt \"{u}ber den Lastfall $\delta_h(\vek y,\vek x)$).
+
+Solche singul\"{a}ren Verl\"{a}ufe kann man aber mit finiten Elementen sehr schlecht ann\"{a}hern, d.h. die Normalableitung $\partial G_h/\partial n$ der FE-L\"{o}sung wird in der  Ecke sehr ungenau sein. Und weil diese Ungenauigkeit nun gem\"{a}{\ss} (\ref{Eq97}) auf $G_h(\vek y,\vek x)$ durchschl\"{a}gt, ist auch $G_h(\vek y,\vek x)$ von minderer Qualit\"{a}t -- nicht nur in der Ecke, sondern \"{u}berall im Feld, wo immer der Aufpunkt $\vek x$ liegt.
+
+Das ist der Grund, warum Singularit\"{a}ten das Ergebnis negativ beeinflussen. Sie machen es dem FE-Programm schwer, die Einflussfunktionen, von denen ja alles abh\"{a}ngt, gut anzun\"{a}hern.\\
+
+\begin{remark}
+Genau genommen m\"{u}sste man das Gebietsintegral in (\ref{Eq97}) noch um die Anteile aus den Linienkr\"{a}ften $l_h$ (= Spr\"{u}nge in der Normal\-ableitung der Biegefl\"{a}che, also den Knicken) auf den Elementkanten $\Gamma_i$ erweitern
+\begin{align}
+\int_{\Omega}g(\vek \xi,\vek y) \,\delta_h(\vek \xi,\vek x)\,d\Omega_{\vek \xi} + \sum_i \int_{\Gamma_i} g(\vek \xi,\vek y) \,l_h(\vek y)\,ds_{\vek y}\,.
+\end{align}
+Wir k\"{o}nnen das aber in Gedanken dem Gebietsintegral zuschlagen. Hier, an dieser Stelle, geht es nur um die Normalableitung auf dem Rand und deren Beitrag. {\em Der ist kritisch\/}.
+\end{remark}
+
+Bei einer Platte sind es die Momente und der Kirchhoffschub (Querkr\"{a}fte) auf dem Rand, von deren Qualit\"{a}t die FE-Einflussfunktionen im wesentlichen abh\"{a}ngen, s. Abb. \ref{U263}. Die Formel lautet hier, in der Notation stark vereinfacht,
+\begin{align}\label{Eq144}
+w(\vek x) = \int_{\Gamma} (g\,w''' + g' w'' + g'' w' + g''' w)\,ds_{\vek y} + \int_{\Omega} g\,p\,d\Omega_{\vek y}
+\end{align}
+wobei
+\begin{align}
+g(\vek y,\vek x) = \frac{1}{2\,\pi\,K}\,r^2\,\ln\,r \qquad K = \frac{E\,h^3}{12\,(1 - \nu^2)}
+\end{align}
+die Fundamentall\"{o}sung ist und $K$ die Plattensteifigkeit.
+
+Symbolisch steht hier $w'$ f\"{u}r die Verdrehung (Normalableitung) am Rand, $w''$ f\"{u}r das Moment senkrecht zum Rand und $w'''$ f\"{u}r den Kirchhoffschub. Die exakte Einflussfunktion $G$ hat die Randwerte $G = 0$ und $G'' = 0$ (gelenkig gelagerter Rand), so dass sich die Formel f\"{u}r die Einflussfunktion einer solchen Platte auf
+\begin{align}
+G(\vek y,\vek x) = \int_{\Gamma} (g\,G''' + g'' \,G')\,ds_{\vek y} + g(\vek y,\vek x)
+\end{align}
+verk\"{u}rzt.
+
+Die FE-Einflussfunktion erf\"{u}llt die Momentenbedingung $G'' = 0$ auf dem gelenkig gelagerten Rand aber nur n\"{a}herungsweise, so dass man $G_h''$ mit ber\"{u}cksichtigen muss
+\begin{align}
+G_h(\vek y,\vek x) = \int_{\Gamma} (g\,G_h''' + g' G_h'' + g'' G_h')\,ds_{\vek y} + \int_{\Omega} g \,\delta_h\,d\Omega_{\vek y}\,,
+\end{align}
+woran man abliest, dass die Qualit\"{a}t der FE-Einflussfunktion von $G_h'$, (der Neigung am Rand), und den Randmomenten $G_h''$ und den Randkr\"{a}ften $G_h'''$ der Einflussfunktion abh\"{a}ngt. Wenn nun in den Ecken die Momente
+\begin{align}
+G_h'' \equiv m_{xx}\, n_x^2 + 2\,m_{xy}\,n_x\,n_y + m_{yy}\,n_y^2
+\end{align}
+oder die Randkr\"{a}fte $G_h'''$ singul\"{a}r werden, dann hat das offensichtlich einen negativen Einfluss auf die Qualit\"{a}t der Einflussfunktion.
+
+Sinngem\"{a}{\ss} gilt all dies auch f\"{u}r die Einflussfunktionen der Schnittkr\"{a}fte einer Platte, also
+\begin{align}
+m_{xx}(\vek x) &= \int_{\Gamma} (G_2\,w''' + \ldots  \qquad v_x(\vek x) = \int_{\Gamma} (G_3\,w''' + \ldots
+\end{align}
+und diese reagieren eher noch empfindlicher auf Singularit\"{a}ten, weil sie ja zweite bzw. dritte Ableitungen berechnen. Man sieht das sehr sch\"{o}n, wenn man (\ref{Eq144}) f\"{u}r alle vier Gr\"{o}{\ss}en $w, w', w'', w'''$ anschreibt und nur die charakteristischen Singularit\"{a}ten der Kerne zitiert
+\begin{align}\label{Eq150}
+\left[\barr{l} w \\ w'\\ w''\\ w'''\earr\right] = \int_{\Gamma}\left[\barr{r @{\hspace{2mm}}r @{\hspace{2mm}}r @{\hspace{2mm}}r} \boxed{r^{-1}} & \ln r & r \ln r & r^2\ln r \\ r^{-2} &\boxed{r^{-1}} & \ln r & r\ln r\\ r^{-3} & r^{-2} & \boxed{r^{-1}} & \ln\, r\\ r^{-4} & r^{-3} & r^{-2} &\boxed{r^{-1}}\earr\right]
+\,\left[\barr{c} w \\w' \\ w'' \\ w''' \earr \right] \,ds_{\vek y} + \int_{\Omega} \left[\barr{l} G_0 \\ G_1\\ G_2\\ G_3\earr\right]\,p\,d\Omega_{\vek y}\,.
+\end{align}
+In Spalte 1 steht der Kirchhoffschub der $G_i$, in Spalte 2 stehen die Momente, dann die Normalableitungen und schlie{\ss}lich die $G_i$ selbst. Solange der Aufpunkt $\vek x$ nicht auf dem Rand liegt, $r > 0$, sind die Integrale berechenbar.
+
+Das $r^{-1} = \varepsilon^{-1}$ macht, dass bei der Herleitung der obigen Einflussfunktionen
+  \begin{align}
+  \text{\normalfont\calligra B\,\,}(G_i,w) = \lim_{\varepsilon \to 0} \text{\normalfont\calligra B\,\,}(G_i,w)_{\Omega_\varepsilon} = w^{(i)}(\vek x) - \int_{\Gamma} \ldots - \int_{\Omega} \ldots = 0
+    \end{align}
+ in der Grenze, $\varepsilon \to 0$, aus dem Integral \"{u}ber den Umkreis $\Gamma_{N_{\varepsilon}}$ des Aufpunktes $\vek x$ das $w, w', w'', w'''$ herausspringt
+\begin{align}
+w^{(i)}(\vek x) = \lim_{\varepsilon \to 0} \int_0^{2\pi} \frac{1}{\varepsilon}\,w^{(i)}(\vek y)\,\varepsilon \,d\Np \qquad \vek y = \vek x + \varepsilon \,\left[\barr{l} \cos\,\Np \\ \sin\,\Np\earr\right]\,.
+\end{align}
+So sind die Punktwerte auf der linken Seite entstanden. Wie man sieht, muss in dem Kern noch ein Faktor $(2\,\pi)^{-1}$ vorkommen.
+
+So weit die Theorie. In der Praxis d\"{u}rften jedoch die Auswirkungen von Singularit\"{a}ten in der Regel nicht so dramatisch sein, wie man das nach diesen Ausf\"{u}hrungen vielleicht vermuten k\"{o}nnte, denn im Bauwesen sind die Toleranzen doch relativ gro{\ss} und der erfahrene Ingenieur hat zudem ein gut entwickeltes Gesp\"{u}r daf\"{u}r, was glaubhaft ist und was nicht. \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Finite Elemente im Bauwesen sind ja immer beides: Modellierung und \glq Rechenschieber\grq{} und der Ingenieur ist daher sehr flexibel -- um nicht zu sagen: nachsichtig -- bei der Interpretation von FE-Ergebnissen.}}\\
+
+Vielleicht passt an diese Stelle auch ein Wort \"{u}ber die unterschiedliche Rolle der finiten Elemente in der Mathematik und in der Praxis. Der Mathematiker versteht unter finiten Elementen die {\em shape functions\/} -- Ansatzfunktionen mit endlicher, finiter Ausdehnung, w\"{a}hrend f\"{u}r den Ingenieur finite Elemente kleine Balken, Scheiben und Platten sind, mit denen er ein Tragwerk nachbildet und daher interessiert den Ingenieur  nicht nur der Approx\-imationsfehler, sondern auch der Modellfehler.
+
+Beide Fehler sind miteinander verschr\"{a}nkt. Anders als beim Hausbau, muss man bei finiten Elementen die Fundamente nachbessern, wenn man schon am Dachstuhl ist, das Modell bleibt st\"{a}ndig in der Schwebe. Die Analyse des Modellfehlers muss daher {\em gleichgewichtig\/} neben der Analyse des Approx\-imationsfehlers stehen und hier ist vor allem der Sachverstand des Ingenieurs gefragt.
+
+Lange Zeit konzentrierte man sich eigentlich nur auf den numerischen Fehler, ging das Problem rein mathematisch an, entwickelte ausgekl\"{u}gelte asymptotische Fehlersch\"{a}tzer, das sind Ausdr\"{u}cke vom Typ $O(h^n)$, aber nun versucht man auch Absch\"{a}tzungen f\"{u}r den Modellfehler zu entwickeln, wie wir das im vorhergehenden Kapitel (Steifigkeits\"{a}nderungen) getan haben. Daf\"{u}r eignen sich Einflussfunktionen sehr gut, weil sie ja direkt die Sensitivit\"{a}ten eines Tragwerks repr\"{a}sentieren und damit n\"{a}her an der Kernproblematik der numerischen Modellbildung sind.
+
+Die Stichworte an dieser Stelle lauten {\em Verification and Validation\/}\index{Verification and Validation}. Wurde die Gleichung richtig gel\"{o}st -- {\em Verification\/} -- und ist das Modell \"{u}berhaupt in der Lage die gew\"{u}nschte Antwort zu liefern -- {\em Validation\/}? Diese Frage zu beantworten, ist Aufgabe des Ingenieurs.
+
+
+

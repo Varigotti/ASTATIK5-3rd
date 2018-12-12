@@ -1,0 +1,1945 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{chapterTitleBlue}{\chapter{Erg\"{a}nzungen}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Grundlagen}}}
+Bevor wir den Katalog der Differentialgleichungen erweitern und Erg\"{a}nzungen anf\"{u}gen, wollen wir kurz den Zugang zu den Gleichungen der Statik in diesem Buch schildern.
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Euler Gleichung}}}\label{Korrektur41}
+Der Ausgangspunkt in diesem Buch sind die {\em Euler Gleichungen\/}, wie die Gleichung $- EA u'' = p$, die das Gleichgewicht an einem infinitesimalen Stab\-element  $dx$, s. Abb. \ref{UE357}, formuliert
+\begin{align}
+- N + N + dN + p\,dx = 0 \qquad (N = EA u')\,.
+\end{align}
+Wir \"{u}berlagern die linke Seite von $- EA\,u'' = p$ mit einer Testfunktion $\delta u$
+\begin{align}\label{Eq173}
+\int_0^{\,l} - EA\,u''\,\delta u\,dx \,,
+\end{align}
+formen das Integral mir partieller Integration um und kommen so zur ersten Greenschen Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,{\delta u}) = \underbrace{\int_0^{\,l} - EA\,u''(x)\,{\delta u(x)}\,dx + [N\,{\delta u}]_{@0}^{@l}}_{\text{virt. \"{a}u{\ss}ere Arbeit}} - \underbrace{\int_0^{\,l} \frac{N\,{\delta N}}{EA}\,dx}_{\text{virt. innere Energie}} = 0\,,
+\end{align}
+und damit zu den Variationsprinzipien der Statik.
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.4\textwidth]{\Fpath/UE357}
+\caption{Stabelement $dx$}
+\label{UE357}
+\end{figure}%
+%-----------------------------------------------------------------
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Prinzip der virtuellen Verr\"{u}ckungen}}}
+Bei der umgekehrten Formulierung startet man mit dem {\em Prinzip der virtuellen Verr\"{u}ckungen\/}. Das bedeutet: Man definiert, was $\delta A_a$ sein soll, wie $\delta A_i$ aussehen soll und verlangt, dass diese beiden Ausdr\"{u}cke f\"{u}r alle $\delta u$ gleich sein sollen\footnote{Hier bei der Modellbildung ist ein Argument wie $\delta u =$ {\em klein\/} legitim, weil der Ingenieur damit ja die Kinematik festlegt, die er dem Modell zu Grunde legt}
+\begin{align}\label{Eq141}
+\delta A_a = \int_0^{\,l} p\,\delta u\,dx = \int_0^{\,l} \frac{N\, \delta N}{EA}\,dx = \delta A_i\,.
+\end{align}
+Was diesen Zugang so beliebt macht, ist, dass man so die Statik scheinbar aus einem \glq Naturgesetz\grq{} entwickelt: {\em Wenn ein Tragwerk im Gleichgewicht ist, dann ist bei jeder virtuellen Verr\"{u}ckung $\delta A_a = \delta A_i$\/}\footnote{Die Euler Gleichungen beruhen, wenn man so will, auf $\delta A_a = 0$, weil am infinitesimalen Element mit Starrk\"{o}rperbewegungen getestet wird, was auf $\sum H = 0$ oder $\sum V = 0$ f\"{u}hrt}.
+
+Aber der Zugang ist nicht ungef\"{a}hrlich, weil man ja $\delta A_i$ partiell integrieren kann und da muss dann  $\delta A_a$ herauskommen. In den Lehrb\"{u}chern werden, wenn, so vor allem die Standardgleichungen der Stabtheorie bzw. der Elastizit\"{a}tstheorie eingef\"{u}hrt und da hat man mit der ersten Greenschen Identit\"{a}t eine Vorlage, wei{\ss} wie man $\delta A_a$ und $\delta A_i$ zu definieren hat, damit am Schluss alles zusammenpasst. Die eigentliche Herausforderung entsteht, wenn sich mehrere Bewegungen \glq \"{u}berlagern\grq{}, wie etwa bei der Verformung (3-D) von offenen Profilen im Stahlbau, wo vor allem die Kinematik gemeistert werden muss, um zu einem stimmigen $\delta A_a = \delta A_i$ zu kommen.
+
+Was den Zugang $\delta A_a = \delta A_i $ in den Augen des Ingenieurs weiter favorisiert ist die Tatsache, dass das $\delta A_a = \delta A_i $ auch die Grundlage der finiten Elemente ist und man so direkt mit der Diskretisierung anfangen kann, ohne jemals eine Differentialgleichung angeschrieben zu haben. Aber die Differentialgleichung ist trotzdem \glq da\grq{}, sie zieht die F\"{a}den. {\em Mit dem Begriff der schwachen L\"{o}sung ist man die Differentialgleichung nicht los!\/}
+
+Sie kommt durch die Hintert\"{u}r herein, denn wenn man (\ref{Eq141}) partiell integriert (Annahme: $\delta u(0) = \delta u(l) = 0$), dann zeigt sich, dass (\ref{Eq141})  \"{a}quivalent ist mit
+\begin{align}
+\int_0^{\,l} \underbrace{(- EA\,u'' - p)}_{Euler\,\, Glg.}\,\delta u\,dx = 0 \qquad \text{f\"{u}r alle $\delta u$}\,,
+\end{align}
+was besagt:\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die Forderung $\delta A_a = \delta A_i $ ist {\em gleichbedeutend\/} damit, dass $u$ die L\"{o}sung einer Differentialgleichung ist, der Euler Gleichung.}}\\
+
+Das ganze mathematische Ger\"{u}st, das zu dem statischen Problem geh\"{o}rt, steckt in der Differentialgleichung, in der Euler-Gleichung, sie bildet, zusammen mit der zugeh\"{o}rigen Greenschen Identit\"{a}t, den eigentlichen Kern und alles, was die finiten Elemente machen, geht konform mit der ersten Greenschen Identit\"{a}t. Ja man kann mit Fug und Recht behaupten:\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Ein FE-Programm ist die erste Greensche Identit\"{a}t in {\em bits\/} und {\em bytes\/}}}\\
+
+{\textcolor{sectionTitleBlue}{\subsubsection*{Zus\"{a}tzliche Gleichungen}}}
+In den ersten Kapiteln dieses Buches haben wir uns zun\"{a}chst auf die wichtigsten Differentialgleichungen der Statik konzentriert und in diesem Kapitel wollen wir diese Liste erweitern\footnote{Eine nahezu vollst\"{a}ndige, und sehr pr\"{a}zise Darstellung der Differentialgleichungen der Stabstatik und der zugeh\"{o}rigen Energieprinzipe findet der Leser in \cite{Ramm}}.
+
+Solange eine Differentialgleichung linear und selbstadjungiert ist, ist die Algebra dieselbe wie zuvor unabh\"{a}ngig von der Form der einzelnen Gleichungen. Insbesondere ist die Wechselwirkungsenergie symmetrisch, $a(u, v) = a(v, u)$.
+
+Bei nichtlinearen Problemen geht die Symmetrie verloren, $a(u,v) \neq a(v,u)$. Wenn wir die Elastizit\"{a}tstheorie als Beispiel nehmen, dann ist die Wechselwirkungsenergie nicht mehr das Skalarprodukt zwischen dem Spannungs- und Verzerrungstensor der beiden Verschiebungsfelder $\vek u$ und $\vek \delta \vek u$
+\begin{align}
+a(\vek u, \vek \delta\, \vek u) = \int_{\Omega} \vek S(\vek u) \dotprod  \vek E(\vek \delta \vek u) \,d\Omega \qquad \text{Lineare Theorie}\,,
+\end{align}
+sondern
+\begin{align}
+a(\vek u, \vek \delta \vek u) = \int_{\Omega} \vek E_{\vek u}(\vek \delta \vek u) \dotprod \vek S\,d\Omega\qquad \text{Nichtlineare Theorie}
+\end{align}
+ist das Skalarprodukt der Gateaux Ableitung des Verzerrungstensors mit dem Spannungstensor und dieser Ausdruck ist nicht symmetrisch.
+
+Die Konsequenz ist, dass die einfache Algebra
+\begin{align}
+\text{\normalfont\calligra B\,\,}(u,\hat{u}) &= \text{\normalfont\calligra G\,\,}(u, \hat{u}) - \text{\normalfont\calligra G\,\,}(\hat{u}, u)= 0\,,
+\end{align}
+auf der der Satz von Betti beruht, nicht zur Verf\"{u}gung steht. Bei nichtlinearen Problemen gibt es keinen \glq Betti\grq{}.
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Notation}}
+Bei den folgenden Integrals\"{a}tzen benutzen wir die partielle Integration\index{partielle Integration}, die in zwei und drei Dimensionen die Gestalt
+\begin{align}\label{Eq19}
+\int_{\Omega} u,_{x_i}\,\delta u \,d\Omega = \int_{\Gamma} u \, n_i\, \delta u\,ds - \int_{\Omega} u\,\delta u,_{x_i} \,d\Omega
+\end{align}
+hat, wobei $n_i$ die $i$-te Komponente des Normalenvektors $\vek n$ mit $|\vek n| = 1$ auf dem Rand $\Gamma$ ist.
+
+Der Gradient\index{Gradient} einer skalarwertigen Funktion $u$ ist ein Vektor und der Gradient einer vektorwertigen Funktion
+$\vek u = \{u_1, u_2\}^T$ ist eine Matrix\index{$\nabla$},
+\bfo
+\nabla u = \left [ \barr {c} u,_1 \\ u,_2 \earr \right] \qquad \nabla \vek u = \left [
+\barr {c @{\hspace{2mm}} c} u_1,_1 & u_1,_2 \\ u_2,_1 & u_2,_2 \earr \right] \qquad u_i,_j :=
+\frac{\partial u_i}{\partial x_j}\,.
+\efo
+Das formale Gegenst\"{u}ck hierzu ist der Operator div\index{$\mbox{div}$}, denn die Divergenz einer
+matrixwertigen Funktion ist eine vektorwertige Funktion und die Divergenz einer vektorwertigen Funktion
+$\vek q = \{q_1,q_2\}^T$ ist eine skalarwertige Funktion
+\bfo
+\mbox{div \vek S} = \left[\barr{c} \sigma_{11},_1 + \sigma_{12},_2 \\ \sigma_{21},_1 +
+\sigma_{22},_2\earr \right] \qquad \mbox{div} \,\vek q = q_1,_1 + q_2,_2\,.
+\efo
+Die folgende Identit\"{a}t verkn\"{u}pft mittels (\ref{Eq19}) diese beiden Operatoren
+\bfo
+\int_{\Omega} \mbox{div} \,\vek S \dotprod \vek \delta \vek u \,d\Omega = \int_{\Gamma} \vek
+S\,\vek n \dotprod \vek \delta \vek u \,ds - \int_{\Omega} \vek S \dotprod  \nabla \,\vek \delta \vek u \,d\Omega\,.
+\efo
+Wenn $\vek S $ symmetrisch ist, $\vek S = \vek S^T$, dann gilt
+\bfo
+\int_{\Omega} - \mbox{div} \,\vek S \dotprod \vek \delta \vek u \,d\Omega +\!\! \int_{\Gamma} \vek
+S\,\vek
+n \dotprod \vek \delta \vek u \,ds &=& \!\!\int_{\Omega} \vek S \dotprod  \nabla \,\vek \delta \vek u \,d\Omega\nn \\
+&=&\!\!\int_{\Omega} \vek S \dotprod \frac{1}{2}(\nabla \vek \delta \vek u + \nabla  \vek \delta \vek u^T) \,d\Omega
+\efo
+was das {\em Prinzip der virtuellen Verr\"{u}ckungen\/} f\"{u}r eine Scheibe ist, $\delta A_a = \delta A_i$, wenn man $\vek \delta \vek u = \{\delta u_x, \delta u_y\}^T$ als virtuelle Verr\"{u}ckung interpretiert.
+
+Vektorwertige Funktionen $\vek u= \{u_x, u_y\}^T$ gen\"{u}gen der gleichen Regel
+\bfo
+\int_{\Omega} \mbox{div}\,\vek  u \, \delta u \,d\Omega = \int_{\Gamma} (\vek u \dotprod
+\vek n)\, \delta u\,ds - \int_{\Omega} \vek u\,\dotprod \nabla \delta u \,d\Omega\,,
+\efo
+und bei eindimensionalen Problemen sind div = $( )'$ und $\nabla = ( )'$ dasselbe
+\bfo
+\int_0^{\,l} u'\,\delta u\,dx = [u\,\delta u]_{@0}^{@l} - \int_0^{\,l} u\,\delta u'\,dx \,.
+\efo
+Vektoren sind Spaltenvektoren und ein Punkt kennzeichnet das Skalarprodukt zwischen zwei Vektoren
+\bfo
+ \vek f \dotprod \vek  u = f_x \,u_x + f_y\, u_y \,.
+\efo
+Gelegentlich benutzen wir auch die Notation $ \vek f \dotprod \vek  u  = \vek f^T \vek  u$. Der Punkt
+bezeichnet ebenso das Skalarprodukt zwischen zwei Matrizen, wie etwa dem Verzerrungs- und Spannungstensor
+\index{Skalarprodukt von Matrizen}
+\bfo
+A_i &=& \frac{1}{2} \int_\Omega \vek E \dotprod \vek S \, d\Omega\nn \\
+ &=&\frac{1}{2} \int_{\Omega}\underbrace{[ \varepsilon_{xx} \, \sigma_{xx} + \varepsilon_{xy} \, \sigma_{xy} +
+\varepsilon_{yx} \, \sigma_{yx} + \varepsilon_{yy} \, \sigma_{yy}]}_{\mbox{{\em Skalarprodukt\/}}} \,d\Omega \,.
+\efo
+In der Literatur werden auch die Bezeichnungen
+\bfo
+ \vek E \dotprod \vek S = \mbox{tr}\,(\vek E \otimes \vek S) = \vek E : \vek S \qquad \mbox{(tr = trace)}
+\efo
+benutzt, wobei $\vek E \otimes \vek S$ das {\em direkte Produkt\/} der beiden Tensoren $\vek E$
+und $\vek S$ ist. Das direkte Produkt \index{direktes Produkt}\index{$\otimes$} zweier Vektoren ist eine Matrix
+\bfo
+\vek f \otimes \vek u = \left[ \barr{c} f_x \\ f_y \earr \right] \otimes \left[ \barr{c}
+u_x \\ u_y \earr \right] = \left[ \barr{c @{\hspace{2mm}} c} f_x \cdot u_x & f_x \cdot u_y \\ f_y \cdot
+u_x & f_y \cdot u_y \earr \right] = \vek f\,\vek u^T = \vek A
+\efo
+mit $a_{ij} = f_i \cdot u_j$. Solche Matrizen haben immer den Rang 1.
+
+Die Multiplikationstabelle $\vek T_{10 \times 10} = \vek z\,\vek z^T$ der Zahlen von 1 bis 10 ist das direkte Produkt des Vektors $\vek z = \{1, 2, \ldots, 10\}^T$ mit sich selbst.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{FE-Notation}}
+Ein Spaltenvektor $\vek a$ mal einem Zeilenvektor $\vek b^T$ ergibt eine Matrix
+\begin{align}
+\vek M = \vek a\,\vek b^T = \left [ \barr{c @{\hspace{4mm}} c} a_1 \cdot b_1 & a_1 \cdot b_2 \\
+a_2 \cdot b_1 & a_2 \cdot b_2\earr \right]\,.
+\end{align}
+In der FE-Literatur wird daher die Steifigkeitsmatrix eines Stabes mit zwei linearen Ansatzfunktionen $\Np_1(x)$ und $\Np_2(x)$ meist wie folgt geschrieben
+\begin{align}
+\vek K^e_{(2 \times 2)} = \int_0^{\,l_e} \left [ \barr{l} \Np_1' \\ \Np_2' \earr \right] \,\underbrace{\left [ \barr{c} EA  \earr \right]}_{\vek E}\,\left [ \barr{c c} \Np_1' & \Np_2' \earr \right]\vphantom{]}\,dx= \int_0^{\,l_e} \vek B^T_{(2 \times 1)}\,\vek E_{(1 \times 1)}\, \vek B_{(1 \times 2)}\,dx
+\end{align}
+was elementweise
+\begin{align}
+k_{ij}^e = a(\Np_i,\Np_j) = \int_0^{\,l_e} \Np_i'\,EA\,\Np_j'\,dx
+\end{align}
+entspricht.
+
+Bei einem Balkenelement mit seinen vier Einheitsverformungen $\Np_i(x)$ ist
+\begin{align}
+\vek B = \{-\frac{6}{l_e^2} + \frac{12\,x}{l_e^3},\,\, \,\,- \frac{4}{l_e} + \frac{6\,x}{l_e^2}, \,\,\,\,\frac{6}{l_e}^2 - \frac{12\,x}{l_e^3}, \,\,\,\,- \frac{2}{l_e} + \frac{6\,x}{l_e^2}\}\,,
+\end{align}
+der Vektor der zweiten Ableitungen der $\Np_i(x)$ und die Steifigkeitsmatrix kann man schreiben als
+\begin{align}
+\vek K^e_{4 \times 4} = \int_0^{\,l_e} \vek B^T\,EI\,\vek B\,dx\,.
+\end{align}
+Bei Scheibenelementen mit $n$ Verschiebungsfeldern, z.B. $n = 3 \cdot 2 = 6$ bei einem {\em CST-Element\/} mit drei Knoten, die sich in $x$- und $y$-Richtung verschieben k\"{o}nnen, stehen in
+\begin{align}
+\vek B = \{ \vek \varepsilon(\vek \Np_1), \vek \varepsilon(\vek \Np_2), \ldots, \vek \varepsilon(\vek \Np_n) \}
+\end{align}
+die Verzerrungen der $n$ Felder als Vektoren
+\begin{align}
+\vek \varepsilon(\vek \Np_i) = \{\varepsilon_{xx}^{(i)}, \varepsilon_{yy}^{(i)}, \varepsilon_{xy}^{(i)}\}^T
+\end{align}
+und in\footnote{$\vek E$ = Ebener Spannungszustand mit $2 (1-\nu)$ wegen $2\,\sigma_{xy}$}
+\begin{align}
+\vek E \vek B =  \{ \vek \sigma(\vek \Np_1), \vek \sigma(\vek \Np_2), \ldots, \vek \sigma(\vek \Np_n) \} \qquad\vek E = \frac{E}{1 - \nu^2}\left [ \barr{c  @{\hspace{2mm}} c  @{\hspace{2mm}} c} 1 & \nu & 0 \\ \nu & 1 & 0 \\ 0 & 0 & 2(1-\nu) \earr \right]
+\end{align}
+die Spannungen
+\begin{align}
+\vek \sigma(\vek \Np_i) = \{\sigma_{xx}^{(i)}, \sigma_{yy}^{(i)}, 2 \sigma_{xy}^{(i)}\}^T\,,
+\end{align}
+so dass wir unseren gewohnten Ausdruck wiederfinden
+\begin{align}
+k_{ij }^e &= a(\vek \Np_i,\vek \Np_j) = \int_{\Omega_e} \vek \sigma^{(i)} \dotprod \vek \varepsilon^{(j)} \,d\Omega \nn \\
+&= \int_{\Omega_e} (\sigma_{xx}^{(i)}\,\varepsilon_{xx}^{(j)} + \sigma_{yy}^{(i)}\,\varepsilon_{yy}^{(j)}+ 2 \cdot \sigma_{xy}^{(i)}\,\varepsilon_{xy}^{(j)} ) \,d\Omega\,.
+\end{align}
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Die Algebra der Identit\"{a}ten}}
+Mit Matrizen l\"{a}sst sich das Thema am einfachsten behandeln, wir entschuldigen uns aber zugleich, wenn das Thema trotzdem noch zu mathematisch geraten ist.
+
+Die zweite Greensche Identit\"{a}t  ist nicht auf quadratische Matrizen $\vek A$ beschr\"{a}nkt
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\vek u,\vek v)  = \vek v_m^T\,\vek A_{m \times n}\,\vek u_{n} - \vek u^T_n\,\vek A^T_{n \times m}\vek v_m = 0\,.
+\end{align}
+Bezeichne $C(\vek A) \subset \mathbb{R}^m$ den Spaltenraum \index{Spaltenraum}, $R(\vek A) = C(\vek A^T) \subset \mathbb{R}^n$ den Zeilenraum \index{Zeilenraum} und $N(\vek A) \subset \mathbb{R}^n$ bzw. $N(\vek A^T) \subset \mathbb{R}^m$ den Nullraum \index{Nullraum} von $\vek A $ bzw. $\vek A^T$, dann folgt aus der obigen Identit\"{a}t, dass die Vektoren $\vek u_0 \in N(\vek A)$ orthogonal zu den Vektoren in $C(\vek A^T)$ sind\footnote{Jede der $m$ Spalten $\vek c_i$ von $\vek A^T$ ist orthogonal zu $\vek u_0$, also $\vek u_0^T \vek c_i = 0$.}
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\vek u_0,\vek v)  = \vek v_m^T\,\vek 0 - \underbrace{\vek u_0^T \,\vek A^T}_{[0,0,\ldots 0]}\,\vek v = 0\,,
+\end{align}
+und analog die Vektoren $\vek v_0 \in N(\vek A^T)$ orthogonal zu den Vektoren in $C(\vek A)$.
+
+%$R(\vek A)$ und $C(\vek A)$ haben die gleiche Dimension $r$ und $N(\vek A)$ hat die Dimension $n - r$ und $N(\vek A^T)$ hat die Dimension $m - r$. Die Dimension eines Raums\index{Dimension eines Raums} ist die Zahl der linear unabh\"{a}ngigen Vektoren, die den Raum aufspannen. Es gilt
+%\begin{subequations}
+%\begin{alignat}{3}
+%\text{dim} \,C(\vek A) + \text{dim} \,N(\vek A^T) &= m &&\quad \text{dim}\,C(\vek A^T) + \text{dim} %\,N(\vek A) &&= n\\
+%C(\vek A) + N(\vek A^T) &= \mathbb{R}^m &&\quad C(\vek A^T) + N(\vek A) = \mathbb{R}^n \\
+%N(\vek A) &\perp C(\vek A^T) &&\quad N(\vek A^T) \perp C(\vek A)
+%\end{alignat}
+%\end{subequations}
+Jeder Vektor $\vek x = \vek x_C + \vek x_{N'} \in \mathbb{R}^m$ ist ein Teil $\vek x_C$ aus $C(\vek  A)$ und ein Teil $\vek x_{N'}$ aus $N(\vek A^T)$ und analog ist eine solche Aufspaltung des $\mathbb{R}^n$ m\"{o}glich, $\vek x = \vek x_R + \vek x_N \in \mathbb{R}^n$, {\em \glq The four fundamental subspaces\grq{}\/} \cite{Strang4}.
+
+In der Statik ist $\vek K = \vek A$ die symmetrische Steifigkeitsmatrix eines Tragwerks und $C(\vek K) = R(\vek K)$ und $N(\vek K) = N(\vek K^T)$ enth\"{a}lt, wenn das Tragwerk nicht kinematisch ist, nur den Nullvektor $\vek 0$. Ist es beweglich, dann ist eine Gleichgewichtslage $\vek u$ nur m\"{o}glich, wenn die Kr\"{a}fte $\vek f$ orthogonal zu den $\vek u_0$ sind, $\vek u_0^T\,\vek f = 0$, wenn es also Gleichgewichtskr\"{a}fte sind -- denn dann ist garantiert, dass $\vek f$ in $C(\vek K)$ liegt, dass es eine L\"{o}sung $\vek K\vek u = \vek f$ gibt. Die Regel lautet
+\begin{align}
+\vek f \in C(\vek K) \qquad \Leftrightarrow \qquad \vek f \perp N(\vek K^T)
+\end{align}
+Man nehme die $2 \times 2$ Steifigkeitsmatrix eines Stabelements
+\begin{align}
+\vek K = \frac{EA}{l}\left [ \barr{r r} 1 & -1 \\ -1 & 1 \earr \right ]\,.
+\end{align}
+Jeden Vektor $\vek u = \vek u_R + \vek u_N \in \mathbb{R}^2$ kann man in eine Translation $\vek u_N = c\,\{1, 1\}^T$, $c$ beliebig, des Elements und eine Streckung $\vek u_R$ (ungleiche Verschiebungen der Enden) des Elements aufspalten. F\"{u}r jedes $\vek u_R$ sind die Kr\"{a}fte $\vek f = \vek K\,\vek u_R$ im Gleichgewicht, sind sie orthogonal zu den $\vek u_{N'} = c\,\{1 , 1\}^T \in N(\vek K^T) = N(\vek K)$.
+
+Der Vektor $\vek f = \{1,0\}^T$ steht nicht senkrecht auf $N(\vek K^T)$, liegt also nicht in $C(\vek K)$ und daher hat $\vek K\,\vek u = \vek f$ keine L\"{o}sung $\vek u$.
+
+Wir haben diese Beispiele aus der linearen Algebra hier so ausf\"{u}hrlich diskutiert, weil die Greenschen Identit\"{a}ten ja im Grunde auch solche Null-Summen sind und viele wichtige Ergebnisse, man denke nur an die Galerkin Orthogonalit\"{a}t, $a(u-u_h\,,\Np_i) = 0$, algebraischer Natur sind.
+
+Bei Funktionen, wie etwa beim Stab,
+\begin{align}
+\text{\normalfont\calligra B\,\,}(u,\hat{u}) &= \int_0^{\,l} - EA\,u''(x)\,\hat{u}(x)\,dx + [N\,\hat{u}]_{@0}^{@l}\nn \\
+&- [u \hat{N}]_{@0}^{@l} - \int_0^{\,l} u(x)\,(- EA\,\hat{u}''(x))\,dx = 0\,,
+\end{align}
+f\"{u}hrt die Orthogonalit\"{a}t, das Operieren mit den Null-L\"{o}sungen, $\hat{u}(x) = 1$, zum Beispiel gerade auf die Gleichgewichtsbedingungen
+\begin{align}
+\text{\normalfont\calligra B\,\,}(u,1) = \int_0^{\,l} - EA\,u''(x) \cdot 1\,dx + N(l) \cdot 1 - N(0) \cdot 1 = 0\,.
+\end{align}
+Am freigeschnittenen Stab m\"{u}ssen also die Normalkr\"{a}fte an den Stabenden die Streckenlast ausbalancieren.
+
+Ein anderes Beispiel: Die Einheitsverformungen $\Np_i(x)$ eines Stabes oder Balken sind orthogonal zu den L\"{o}sungen $u_p$ oder $w_p$ des fest eingespannten Stabes, $a(u_p,\Np_i) = 0$. Genauso sind die Momente $M_i$ der $X_i$ beim Kraftgr\"{o}{\ss}enverfahren orthogonal zum endg\"{u}ltigen Momentenverlauf, $(M_i,M) = 0$ und jede Biegelinie $w$ aus einer Lagersenkung ist orthogonal zu den virtuellen Verr\"{u}ckungen des Systems, $a(w,\,\delta w) = 0$.
+
+Oder man nehme die singul\"{a}re Steifigkeitsmatrix eines nicht festgehaltenen Stabes aus zwei Elementen. Das Produkt $\vek K\,\vek u$ ergibt den Vektor
+\begin{align}
+\frac{EA}{l_e}\left[ \barr {r @{\hspace{4mm}}r @{\hspace{4mm}}r}
+      1  & -1 & 0\\
+      -1 & 2 & -1\\
+      0 &-1 & 1    \earr \right] \left[ \barr {c }
+      u_1\\
+      u_2\\
+      u_3   \earr \right] = \frac{EA}{l_e}\left[ \barr {c }
+      u_1 - u_2\\
+      - u_1 + 2 \cdot u_2 - u_3\\
+      -u_2 + u_3   \earr \right]\,.
+\end{align}
+Die Zeilensumme dieses Vektors ist null
+\begin{align}
+(u_1 - u_2) + (- u_1 + 2 \cdot u_2 - u_3) + (- u_2 + u_3) = 0
+\end{align}
+wie immer auch die $u_i$ aussehen und das bedeutet, dass das singul\"{a}re System $\vek K\,\vek u = \vek f$ nur eine L\"{o}sung hat, wenn $f_1 + f_2 + f_3 = 0$ ist, was nat\"{u}rlich gerade die Gleichgewichtsbedingung ist.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.3\textwidth]{\Fpath/U544}
+\caption{Der Dreier-Schritt, hier am Stab, $-d/dx\,(EA\,d/dx)\, u = p$} \label{U544}
+\end{figure}%
+
+%----------------------------------------------------------------------------------------------------------
+Im Sinne der obigen Formulierungen ist es die Forderung $\vek f \perp N(\vek K^T) = N(\vek K)$ also $\vek f^T\,\vek u_0 = f_1 + f_2 + f_3 = 0$, denn $\vek u_0 = \{1,1,1\}^T$ ist der Vektor, der $\vek N(\vek K^T)$ aufspannt.
+
+Jede Biegelinie $w$ eines Balkens gen\"{u}gt den Gleichgewichtsbedingungen
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,a\,x + b) = 0 \qquad a\,x + b = \text{Null-Eigenl\"{o}sungen}\,.
+\end{align}
+Analog gilt, dass das Produkt der Balkenmatrix $\vek K$ mit einem beliebigen Vektor $\vek w$ Knotenkr\"{a}fte $\vek f = \vek K\,\vek w$ ergibt, die orthogonal zu den Null-Eigenvektoren $\vek \delta \vek w_0$, Translationen und Rotationen, von $\vek K$ sind, $\vek \delta \vek  w_0^T\,\vek f = 0$, der Vektor $\vek f$ also den Gleichgewichtsbedingungen gen\"{u}gt.
+
+Zur Algebra geh\"{o}rt in gewissem Sinn auch die Tatsache, dass man die Steifigkeitsmatrix $\vek K = \vek A^T\,\vek C \vek A$ eines Stabes (und anderer Bauteile analog) als Produkt dreier Matrizen schreiben kann, entsprechend der Zerlegung der Gleichung $-EA\,u'' = p$ in die drei Teile
+\begin{align}
+u' = \varepsilon \qquad EA\,\varepsilon = N \qquad - N' = p\,.
+\end{align}
+Die Matrix $\vek A = [\ldots 0\,\, \,1/l_i\,\,-1/l_i\,\,\,0 \ldots]$ ($1/l_i$ auf der Diagonalen und $-1/l_i$ auf der rechten Nebendiagonalen) und ihre Transponierte $\vek A^T = - \vek A$ \glq differenzieren\grq{}, sie bilden $d/dx$ und $-d/dx$ nach und die Diagonalmatrix $\vek C$ enth\"{a}lt auf ihrer Diagonalen die Steifigkeiten $EA_i$ der einzelnen Elemente $i$ mit der L\"{a}nge $l_i$. Dieses Schema, s. Abb. \ref{U544}, durchzieht die ganze Mechanik, \cite{Strang4}.
+
+Ein Fachwerk ist genau dann {\em statisch bestimmt\/}\index{statisch bestimmt}, wenn $\vek A$ quadratisch ist, weil man dann aus $\vek A^T\,\vek N = \vek f$ die Normalkr\"{a}fte $N_i$ berechnen kann  und aus diesen dann im Nachlauf, $ \vek C\,\vek A \,\vek u = \vek N$,  die Knotenverschiebungen $u_i$.
+
+Wenn das Fachwerk {\em statisch unbestimmt\/}\index{statisch unbestimmt} ist, es gibt mehr St\"{a}be, als Knotenverschiebungen, $ \vek A$ ist ein rechteckige Matrix, f\"{u}hren die Handmethoden wie der {\em Ritterschnitt\/} nicht zum Ziel, dann braucht man einen Computer, dann muss man erst aus $\vek K\,\vek u = \vek f $ die Knotenverschiebungen $u_i$ berechnen und aus den Dehnungen der St\"{a}be dann die Normalkr\"{a}fte $N_i $.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Die Algebra der finiten Elemente}}
+FE-L\"{o}sungen $u_h = \sum_i u_i\Np_i(x)$ sind Variationsl\"{o}sungen
+\begin{align}
+a(u_h,\Np_i) - (p,\Np_i) = 0 \qquad i = 1,2,\ldots, n
+\end{align}
+und daher lassen sich eine ganz Reihe von Gleichungen und Ungleichungen mit der FE-L\"{o}sung linearer Probleme formulieren, \cite{Ha4} Chapter 7.12, {\em Important equations and inequalities\/}. Wir pr\"{a}sentieren einen Ausschnitt.
+
+Der L\"{o}sungsraum $\mathcal{V}$ enth\"{a}lt alle $u$, die die geometrischen Lagerbedingungen erf\"{u}llen und $\mathcal{V}_h \subset \mathcal{V}$ ist der Ansatzraum der finiten Elemente. Es ist $u$ die exakte L\"{o}sung, $u_h$ die FE-L\"{o}sung, $e = u - u_h$ ist der Fehler und $v_h$ ist eine Testfunktion aus $\mathcal{V}_h$. In einem LF $p$ gilt:\\
+
+\begin{itemize}
+\item Auf $\mathcal{V}$ gilt (Achtung, dieser Ausdruck ist nur auf $\mathcal{V}_h$ null, s. (\ref{E7Portho}))
+\bfo\label{Theo199}
+a(e,v) = (p,v)- a(u_h,v) = (p,v) - (p_h,v) \qquad v \in \mathcal{V}\,.
+\efo
+\item Insbesondere also
+\bfo
+(p,u) - (p,u_h) = (p,e) = a(e,u) = (p,u) - (p_h,u)
+\efo
+und daher auch
+\bfo
+(p,u_h) = (p_h, u) \qquad \mbox{{\em Symmetrie\/}}
+\efo
+\item Galerkin Orthogonalit\"{a}t
+\begin{equation}
+a(e, v_h)=0\quad  v_h\in \mathcal{V}_h \,.
+\end{equation}
+\item Die Fehlerkr\"{a}fte $p - p_h$ sind orthogonal zu den Testfunktionen
+\begin{equation}\label{E7Portho}
+a(e, v_h)= (p,v_h) - (p_h,v_h)=0\quad  v_h\in \mathcal{V}_h.
+\end{equation}
+\item Der FE-Lastfall $p_h$ ist orthogonal zu $e$
+\begin{equation}
+a( u_h,  e)= (p_h, e)=0.
+\end{equation}
+\item Die Einheitslastf\"{a}lle $p_i$, die {\em shape forces\/}, sind orthogonal zu $e$
+\begin{equation}
+a( \Np_i,  e) = (p_i, e)=0.
+\end{equation}
+\item Die FE-L\"{o}sung minimiert den Fehler in der inneren Energie
+\begin{equation}\label{E7Ungla}
+a( e, e)\leq a( u-  v_h, u - v_h)\quad  v_h\in \mathcal{V}_h\,,
+\end{equation}
+denn f\"{u}r jedes $v_h \in \mathcal{V}_h$ gilt
+\bfo\label{E7Proof1}
+a(e + v_h,e + v_h) = \underbrace{a(e,e)}_{>\, 0} + 2\underbrace{a(e,v_h)}_{=\, 0} +
+\underbrace{a(v_h,v_h)}_{>\, 0}\,.
+\efo
+Die Energie $a(e,e)$, die n\"{o}tig ist, um die FE-L\"{o}sung \glq zurechtzur\"{u}cken\grq{}, $u_h \to u$, ist bei der FE-L\"{o}sung im Vergleich mit allen anderen N\"{a}herungen $v_h$ in $\mathcal{V}_h$ am kleinsten.
+\item Die innere Energie der FE-L\"{o}sung ist kleiner als die exakte Energie (hier ohne den Faktor $1/2$)
+\begin{equation}
+a( u_h, u_h)\leq a( u, u) \qquad \mbox{in einem LF $p$}\,,
+\end{equation}
+weil
+\bfo\label{IneqE7Proof}
+0 < a(u,u) &=& a(u_h + e,u_h + e)\nn\\ &=& a(u_h,u_h) + 2\,\underbrace{a(e,u_h)}_{=\, 0}
++ \underbrace{a(e,e)}_{>\, 0}\,.
+\efo
+\item Es gilt
+\begin{equation}
+\Pi( u)\leq \Pi( u_h)\,,
+\end{equation}
+weil
+\bfo
+\Pi(u_h) &=& \Pi(u - e) = \frac{1}{2}\,a(u,u) - a(u,e) + \frac{1}{2}\,a(e,e) - (p,u) +
+(p,e)\nn \\
+&=& \Pi(u) \underbrace{- a(u,e) + (p,e)}_{G(u,e) = 0} +
+\frac{1}{2}\,\underbrace{a(e,e)}_{>\, 0}\,,
+\efo
+\item und ebenso
+\bfo
+(p,u_h) = a(u_h,u_h) < a(u,u) = (p,u)\,.
+\efo
+\end{itemize}
+In einem LF $\Delta$ (Lagersenkung) enth\"{a}lt der L\"{o}sungsraum $\mathcal{S} = w_\delta \oplus \mathcal{V}$ nicht die Funktion $w = 0$, denn $\mathcal{V}$ wird um eine feste Funktion $w_\delta $, die die Lagersenkung beschreibt, \glq geshiftet\grq{}, ist $\mathcal{S}$ also kein Vektorraum, sondern nur noch eine Mannigfaltigkeit (die Summe $u + v$ zweier Funktionen aus $\mathcal{S}$ liegt nicht in $\mathcal{S}$) und daher muss man bei der Anwendung der obigen Formeln aufpassen, \cite{Ha5}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Galerkin}}
+Bei der Methode von Galerkin ist die FE-L\"{o}sung
+\begin{align}
+u_h = \sum_i\,u_i\,\Np_i(\vek x)
+\end{align}
+die Projektion der exakten L\"{o}sung auf den Ansatzraum $\mathcal{V}_h$
+\begin{align}
+a(u - u_h,\Np_i) = 0 \qquad \text{f\"{u}r alle $\Np_i \in \mathcal{V}_h$}\,.
+\end{align}
+Da man das, was man projizieren will, die exakte L\"{o}sung $u$, nicht kennt, ersetzt man mittels der ersten Greenschen Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(w,\Np_i) &= \delta A_a - \delta A_i = 0
+\end{align}
+die virtuelle innere Arbeit $\delta A_i = a(u,\Np_i)$ durch die virtuelle \"{a}u{\ss}ere Arbeit der Lasten $\delta A_a = (p,\Np_i) = f_i$ und kommt so zu dem System
+\begin{align}
+\vek K\,\vek u = \vek f\,.
+\end{align}
+Es geht aber nat\"{u}rlich auch direkt.
+
+Die Biegelinie $w(x)$ eines zwischen zwei W\"{a}nden aufgeh\"{a}ngten Seils $w(x)$
+\begin{align}\label{Eq3}
+- H\,w''(x) = p(x)  \qquad w(0) = w(l) = 0
+\end{align}
+ist wegen der ersten Greenschen Identit\"{a}t auch die L\"{o}sung des Variationsproblems: {\em Finde ein $w$ so, dass\/}
+\begin{align}\label{Eq25}
+\text{\normalfont\calligra G\,\,}(w,\delta w) = \int_0^{\,l} p\,\delta w\,dx - \int_0^{\,l} H\,w'\,\delta w'\,dx = 0 \qquad \text{f\"{u}r alle $\delta w \in \mathcal{V} $}\,.
+\end{align}
+Mit finiten Elementen formuliert man dieses Problem auf einem Teilraum $\mathcal{V}_h \subset \mathcal{V} \,(= \text{alle $w$ mit null Randwerten})$ und kommt so direkt auf das System
+\begin{align}
+\vek K\,\vek u = \vek f\,,
+\end{align}
+w\"{a}hrend Galerkin ja den Zwischenschritt $a(w,\Np_i) = (p,\Np_i)$ einschalten muss.
+
+Die klassischen L\"{o}sungen der Statik sind {\em Minimumsl\"{o}sungen\/}\index{Minimumsl\"{o}sung}, sie machen die potentielle Energie des Tragwerks zum Minimum. L\"{o}st man die Probleme nur n\"{a}herungsweise, weil man nur auf einem Teilraum $\mathcal{V}_h \subset \mathcal{V}$ sucht, dann f\"{u}hrt das auf dasselbe Gleichungssystem $\vek K\,\vek u = \vek f$ wie das Galerkin Verfahren. Das $\vek K\,\vek u - \vek f = \vek 0$ ist sozusagen die Bedingung $\Pi'(x) = 0$ (horizontale Tangente) in der Schulmathematik. Damit die Funktion $\Pi(x) = 1/2\,a\,x^2 - f\,x$ im Punkt $x$ ein Extremum hat, muss $\Pi'(x) = a\,x - f = 0$ sein.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Schwache L\"{o}sung}}
+Die L\"{o}sung des Randwertproblems (\ref{Eq3}) nennt man eine {\em starke L\"{o}sung\/}\index{starke L\"{o}sung} und die L\"{o}sung des Variationsproblems (\ref{Eq25}) eine {\em schwache L\"{o}sung\/}\index{schwache L\"{o}sung}.
+
+Diese Bezeichnung wird gew\"{o}hnlich damit erkl\"{a}rt, dass eine schwache L\"{o}sung nicht zweimal differenzierbar sein muss, wie das $w$ in der Differentialgleichung $-H\,w'' = p$, sondern nur einmal, wie das $w'$ im Integral der Wechselwirkungsenergie.
+
+Treffender scheint uns die folgende Interpretation. In der Mathematik kennt man den Begriff der {\em schwachen Konvergenz\/}\index{schwache Konvergenz}. Man \"{u}berzeugt sich nicht direkt davon, dass eine Schar von Funktionen $f_n(x)$ gegen eine Zielfunktion $f(x)$ konvergiert, sondern indirekt. Die Ann\"{a}herung der $f_n(x)$ an $f(x)$ wird mit einer Schar von Kontrollfunktionen $\Np_i(x)$ getestet. Man sagt, dass die Folge $f_n(x)$ {\em schwach\/} gegen $f(x)$ konvergiert, wenn
+\begin{align}
+\lim_{n \to \infty} \int_0^{\,l} f_n(x)\,\Np_i(x)\,dx = \int_0^{\,l} f(x)\,\Np_i(x)\,dx \qquad \text{f\"{u}r alle $\Np_i$}\,.
+\end{align}
+Schwache Konvergenz ist so etwas, wie die Konvergenz von Funktionalen. Jede Funktion $f_n(x)$ kann man ja einem Funktional $J_n(.)$  gleichsetzen
+\begin{align}
+J_n(\Np_i) = \int_0^{\,l} f_n(x)\,\Np_i(x)\,dx
+\end{align}
+und schwache Konvergenz bedeutet, dass die Funktionale $J_n(.)$ gegen das Zielfunktional
+\begin{align}
+\int_0^{\,l} f(x)\,\Np_i(x)\,dx
+\end{align}
+konvergieren -- das ist wieder die \glq Wackel\"{a}quivalenz\grq{}.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.9\textwidth]{\Fpath/WAAGE4D}
+\caption{Die Marktfrau kontrolliert das Gleichgewicht einer Waage mittels des Prinzips
+der virtuellen Verr\"{u}ckungen} \label{Waage}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Und diese Terminologie passt genau auf die finiten Elemente. Die FE-L\"{o}sung ist eine schwache L\"{o}sung, weil ihre \"{U}bereinstimmung mit der exakten L\"{o}sung nicht an der Differentialgleichung festgemacht wird, sondern sie indirekt durch $i = 1,2,\ldots$ \glq Wackeltests\grq{} kontrolliert wird
+\begin{align}
+\lim_{h \to 0} a(u_h,\Np_i) = a(u, \Np_i) \qquad \text{f\"{u}r alle $\Np_i$}\,.
+\end{align}
+Wegen $\delta A_i = \delta A_a$ ist dies mit
+\begin{align}
+\lim_{h \to 0} \int_0^{\,l} p_h\,\Np_i\,dx = \int_0^{\,l} p\,\Np_i\,dx  \qquad \text{f\"{u}r alle $\Np_i$}
+\end{align}
+identisch, also der \"{A}quivalenz in den \"{a}u{\ss}eren virtuellen Arbeiten. Praktisch ist es nat\"{u}rlich so, dass die finiten Elemente die Grenze $h \to 0$ nie erreichen und auch nur endlich viele Tests gefahren werden, weil es auf einem Netz nur endlich viele {\em shape functions\/} $\Np_i$ gibt.\\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{
+Formal betrachtet kann man die Methode der finiten Elemente als ein Verfahren ansehen, ein Funktional $J(\delta u) = (p, \delta u)$ durch ein Funktional $J_h(\delta u) = (p_h, \delta u)$ zu ersetzen, bzw., wenn man unendlich viel Geduld hat, $h \to 0$, durch eine Folge von Funktionalen $J_h(\delta u) = (p_h, \delta u)$ anzusteuern.}}\\
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.8\textwidth]{\Fpath/ROLLEN}
+\caption{Der Werkzeugmacher pr\"{u}ft die Exzentrizit\"{a}t, indem er den Zylinder \"{u}ber den Tisch rollt} \label{Rollen}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Die gro{\ss}e praktische Bedeutung des Begriffs der schwachen L\"{o}sung erkennt man, wenn man der Marktfrau zuschaut, s. Abb. \ref{Waage}. Auch sie schlie{\ss}t indirekt. Sie muss die Gleichung
+\begin{align}
+P_l \cdot h_l = P_r \cdot h_r
+\end{align}
+l\"{o}sen. Diese Gleichung bedeutet, wie sie wei{\ss}, dass bei jeder Drehung $\delta \Np$ des Waagebalkens die Arbeiten auf der linken und rechten Seite gleich sind
+\begin{align}
+P_l \cdot h_l = P_r \cdot h_r \qquad \Rightarrow \qquad P_l \cdot h_l \cdot \tan \delta \Np = P_r \cdot h_r \cdot \tan\delta \Np
+\end{align}
+und so schlie{\ss}t sie, indem sie an der Waage wackelt, indirekt, schlie{\ss}t sie \glq r\"{u}ckw\"{a}rts\grq{}
+\begin{align}
+P_l \cdot h_l = P_r \cdot h_r \qquad \Leftarrow \qquad P_l \cdot h_l \cdot \tan\delta \Np = P_r \cdot h_r \cdot \tan\delta \Np\,.
+\end{align}
+Dasselbe macht der Werkzeugmacher, der einen Zylinder mit den Fingern hin und her rollt, s. Abb. \ref{Rollen}. Er wei{\ss}: Wenn der Zylinder eine perfekte Kreisform hat, dann ver\"{a}ndert der Schwerpunkt bei einer  Drehung des Zylinders seine H\"{o}he \"{u}ber der Tischkante nicht. Wenn der Test fehlschl\"{a}gt, wenn die Finger eine leichte vertikale Bewegung sp\"{u}ren, dann ist es kein perfekter Zylinder.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.4\textwidth]{\Fpath/CIRCLE}
+\caption{Das Achteck ist einem Zylinder f\"{u}r alle Drehungen, die ein Vielfaches von $45^\circ$ sind, \"{a}quivalent } \label{Circle}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Der Lehrling, der aus einem quadratischen Eisen einen Zylinder schleifen soll, macht es wie die finiten Elemente. Zu Beginn ist das quadratische Eisen einem Zylinder hinsichtlich aller Drehungen $\delta \Np$, die ein Vielfaches von $90^\circ$ sind, \"{a}quivalent, \"{a}ndert der Schwerpunkt bei einer $90^\circ$-Drehung seine H\"{o}he nicht. Indem der Lehrling nun in das Profil mehr und mehr Kanten ($n$) schleift, vergr\"{o}{\ss}ert er den Testraum, $\mathcal{V}_4 \to \mathcal{V}_8 \to \mathcal{V}_{16} \ldots$
+\begin{align}
+\mathcal{V}_n = \{\text{alle Vielfachen von} \,\delta \Np = \frac{360}{n}\} \qquad n = 4, 8, 16 \ldots \text{Kanten}
+\end{align}
+und er n\"{a}hert sich so indirekt (auf dem Weg der \glq Dreh\"{a}quivalenz\grq{}) dem Zylinder, s. Abb. \ref{Circle}, \cite{Ha4}, \cite{Ha5}.
+
+{\em \"{A}quivalenz\/} ist, wenn wir hier weiter ausholen d\"{u}rfen, der Schl\"{u}sselbegriff der finiten Elemente. Die FEM l\"{o}st nicht den urspr\"{u}nglichen Lastfall, sondern einen dazu \"{a}quivalenten Lastfall. Eine \"{A}quivalenzrelation liegt vor, wenn aus $a \sim b $ und $b \sim c $ folgt, dass auch $a \sim c$, also
+\begin{align}
+p \sim \Np_i \qquad \text{und} \qquad p_h \sim \Np_i \qquad \Rightarrow \qquad p \sim p_h
+\end{align}
+Das Merkmal der finiten Elemente ist, dass diese \"{A}quivalenz \glq endlich\grq\ ist, d.h. wir stellen die \"{A}quivalenz nur bez\"{u}glich endlich vieler Testfunktionen $\Np_i, i = 1,2,\ldots n$ her.
+
+Auch wenn wir mit einem Zollstock die L\"{a}nge zweier Bretter $A$ und $B$ vergleichen, nutzen wir eine \"{A}quivalenzrelation. Die Bretter sind gleich lang, sind zueinander \"{a}quivalent, wenn sie mit dem Zollstock in identischen Relationen stehen. \"{A}quivalenz ist indirekte Gleichheit, ist wie die schwache Konvergenz, und sie m\"{u}ndet in eine echte Identit\"{a}t, $A \equiv B$, (alle Stellen nach dem Komma sind gleich), wenn die Relation alle Tests besteht, also auch den Test mit dem Urmeter in Paris.\\
+
+\begin{remark}
+Dem Begriff der schwachen Konvergenz ist auch der Unterschied zwischen {\em schwachen} und {\em starken Randbedingungen\/}\index{schwache Randbedingung} \index{starke Randbedingung}geschuldet. Geometrische Lagerbedingungen, wie $w = 0$ werden von allen Ansatzfunktionen $\Np_i \in \mathcal{V}_h$ erf\"{u}llt, sind starke Randbedingungen, w\"{a}hrend eine statische Randbedingung wie $m_n = 0$ am gelenkig gelagerten Plattenrand nur im integralen Mittel -- im schwachen Sinne -- erf\"{u}llt ist, $(m_n,\Np_i) = 0$, aber nicht punktweise. Deswegen nennt man statische Randbedingungen schwache Randbedingungen. Ihre Einhaltung ist erst in der Grenze $h \to 0 $ garantiert.
+\end{remark}
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Variation und Greensche Identit\"{a}t}}
+
+Die potentielle Energie eines links festgehaltenen Stabes, $u(0) = 0$, mit einem freien Ende, $ N(l) = 0 $, lautet
+\begin{align}
+\Pi(u) = \frac{1}{2} \int_{0}^{l} \frac{N^2}{EA}\,dx - \int_{0}^{l}p\,u\,dx = \frac{1}{2} a(u,u) - (p,u)\,.
+\end{align}
+Wenn $u $ die Gleichgewichtslage des Stabs unter der Streckenlast $p$ ist, dann sollte die erste Variation der potentiellen Energie in diesem Punkt Null sein, $\Pi(u)$ dort eine \glq horizontale Tangente\grq\  haben.
+
+Der Wert von $\Pi$ in einem benachbarten Punkt $u + \varepsilon \,\delta u$ betr\"{a}gt
+\begin{align}
+\Pi(u + \varepsilon \delta u) &= \frac{1}{2} a(u + \varepsilon \delta u,u + \varepsilon \delta u) - (p,u + \varepsilon \delta u) \nn \\
+&= \frac{1}{2}a(u,u) + \varepsilon \cdot a(u,\delta u) + \varepsilon^2 \cdot \frac{1}{2} a(\delta u, \delta u) - (p,u) - \varepsilon \cdot (p,\delta u)
+\end{align}
+und damit lautet die erste Variation
+\begin{align}
+\delta \Pi(u, \delta u) &= \frac{d}{d\varepsilon} \Pi(u + \varepsilon \delta u)|_{\varepsilon = 0}
+= a(u, \delta u) - (p, \delta u)
+\end{align}
+was mit
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\textcolor{red}{\delta u}) = \int_0^{\,l} p \,\textcolor{red}{\delta u(x)}\,dx - \int_0^{\,l} \frac{N\,\textcolor{red}{\delta N}}{EA}\,dx = (p, \delta u) - a(u, \delta u) = 0
+\end{align}
+identisch ist, denn die Randarbeiten $[\ldots]$ fallen wegen $N(l) = 0 $ und $\delta u(0) = 0$ weg.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Kraftgr\"{o}{\ss}enverfahren versus Weggr\"{o}{\ss}enverfahren}}
+Die Statik ist nicht das einzige Gebiet, in dem es die Wahl zwischen einer Weggr\"{o}{\ss}en- und einer Kraftgr\"{o}{\ss}enformulierung gibt. In der Elektrotechnik kann man zwischen der {\em Kirchhoffschen Maschenregel\/}: Summe der Spannungsabf\"{a}lle in einer Masche ist null, (dem entspricht, dass die Einheitsspannungszust\"{a}nde der $X_i$ Gleichgewichtszust\"{a}nde sind), und der {\em Kirchhoffschen Knotenregel\/}: Summe der Str\"{o}me in jedem Knoten ist null, (\glq Knotengleichgewicht\grq{}) w\"{a}hlen.
+
+In der {\em computational mechanics\/} werden, wie {\em Gilbert Strang\/} bemerkt hat, die Knotenpunktsmethoden den Maschengleichungen (= Einheitsspannungszust\"{a}nde $X_i$) vorgezogen, {\em \glq Loop equations versus nodal equations\grq{}\/}, \cite{Strang4} p. 158. Die Maschengleichungen haben heute nur noch als Handmethode bei kleinen Problemen eine Chance, sind den Knotenpunktsmethoden dann sogar \"{u}berlegen. Man darf sie nur nicht  in Matrizenschreibweise formulieren, das wirkt umst\"{a}ndlich und fremd.
+
+Unbesehen davon ist das Kraftgr\"{o}{\ss}enverfahren nat\"{u}rlich ein hervorragendes Mittel, um Statik zu lernen!
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.7\textwidth]{\Fpath/U426}
+\caption{Drehung eines Balkens und daraus abgelesene Einflussfunktionen f\"{u}r die horizontale Lagerkraft $H$ bei vertikal bzw. horizontal gerichteter Wanderlast. Genau genommenen m\"{u}sste man, bei der angenommenen Wirkrichtung der Wanderlasten, die 1 und das $1/\tan\, \alpha$ im Antrag der beiden EF mit  (-1) multiplizieren } \label{U426}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Pseudodrehungen}}\label{Korrektur33}
+Wir hatten in Kapitel 1 erw\"{a}hnt, dass in der linearen Statik alle Drehungen Pseudodrehungen sind\index{Pseudodrehungen}. Die Frage eines Studenten hat uns jedoch klar gemacht, dass wir dieses Thema noch etwas deutlicher herausarbeiten sollten.
+
+Auch in der Statik sind Drehungen echte Drehungen, sind die Ausl\"{o}ser von Einflussfunktionen echte Drehungen, nur nimmt sich die Statik die Freiheit beim {\em Auswerten\/} der Drehungen die Dinge zu vereinfachen.
+
+Um die Einflussfunktion f\"{u}r die horizontale Lagerkraft des Balkens in Abb. \ref{U426} zu berechnen, wird das Lager gel\"{o}st und der Balken um sein linkes Lager gedreht und zwar so weit, bis die horizontale Lagerkraft den Weg -1 gegangen ist. Es handelt sich also um eine physikalisch echte Drehung, wie die Drehung einer Kompassnadel. Was die Statik aber dann macht ist, dass sie annimmt, dass bei dieser Drehung alle Punkte sich so bewegen, als ob sie der Tangente an den Drehkreis (der f\"{u}r jeden Punkt einen anderen Radius hat) folgen w\"{u}rden. So entstehen die Einflussfunktion in Abb. \ref{U426}. {\em Es wird also richtig gedreht, aber \glq falsch\grq{} gemessen\/}.
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.5\textwidth]{\Fpath/Einfluss6}
+\caption{Die Lagerkraft $A_z$ wird nur dann null, wenn sich $P_x$ auf der Tangente an den Drehkreis um $A_z$ bewegt} \label{Einfluss6}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+Die urspr\"{u}ngliche Begr\"{u}ndung f\"{u}r diese Vereinfachung, ist die Beobachtung, dass bei kleinen Drehungen der Fehler vernachl\"{a}ssigbar klein ist -- so wird die Linearisierung ja motiviert. Ist man mit dieser Argumentation durchgekommen, hat keine Autorit\"{a}t dagegen gemurrt, dann hat man freie Fahrt, und wendet das Ergebnis nun bedenkenlos auch auf gro{\ss}e Drehungen an, wie das ja auch Archimedes tat, als er sein Hebelgesetz bewies. Der Hebelarm $h$ hat f\"{u}r ihn immer dieselbe L\"{a}nge, egal wie gro{\ss} $\delta \Np$ ist, weil sich (in \"{U}bereinstimmung mit dem Kreuzprodukt: {\em Moment = Kraft $\times$ Ortsvektor\/}) seine Hand auf der Tangente an den Drehkreis bewegt. Das ist der Punkt, an dem sich die Physik \"{a}ndert. Aus dem zugestandenen {\em infinitesimal kleinen $\delta \Np$\/} wird ein gro{\ss}es $\delta \Np$ und die virtuellen Verr\"{u}ckungen des Balkens k\"{o}nnen beliebig gro{\ss} werden.
+
+Das Gl\"{u}ck f\"{u}r den Statiker ist, dass die Mathematik derselben Meinung ist. Sie braucht das Vehikel infinitesimal klein gar nicht, sie hat sich die Welt von Anfang an schon immer so gedacht, sind die Starrk\"{o}rperbewegungen $\delta w = a + b\,x $ des mathematischen Balkens $EI\,w^{IV} = p$ genau von diesem Typ, sind es Bewegungen auf der Tangente an den Drehkreis.
+
+Man kann es aber auch anders sehen: Die Mathematik betritt die Szene erst, nachdem die Schlachten geschlagen sind, die Modellbildung, die eben die Linearisierung beinhaltet, abgeschlossen ist und das Ergebnis in der Gleichung $EI\,w^{IV} = p$ in kanonisierter Form vorliegt und die Mathematik dann in ruhigem Fahrwasser ihre ganze formale Kraft ausspielen kann.
+
+Die Abb. \ref{Einfluss6} soll zeigen, dass man nur mit einer \glq falschen Messung\grq{} auf den korrekten Wert $A_z = 0$ kommt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Der adjungierte Operator und die Greensche Funktion}}
+Wenn es ein Skalarprodukt gibt, dann gibt es zu einem Operator $L$ den adjungierten Operator $L^*$ und zu jedem linearen Funktional existiert eine Greensche Funktion, die in der linearen Algebra auch ein Vektor sein kann. \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{
+Die Greensche Funktion $g$ des linearen Funktionals $J(u) = (j, u)$ ist die L\"{o}sung der adjungierten Gleichung $L^* g = j$.}}\\
+
+Zu der symmetrischen, selbstadjungierten Matrix $\vek K$ geh\"{o}rt die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\vek u,\vek v)  = \vek v^T\,\vek K\,\vek u - \vek u^T\,\vek K\vek v = 0\,.
+\end{align}
+Ist $\vek J(\vek u) = \vek j^T\,\vek u$ ein lineares Funktional angewandt auf die L\"{o}sung von $\vek K\,\vek u = \vek f$, dann folgt
+\begin{align}
+J(\vek u) = \vek j^T\,\vek u = \vek j^T\,\vek K^{-1}\,\vek f = \vek g^T\,\vek f\,,
+\end{align}
+wenn $\vek g$ die L\"{o}sung des adjungierten Systems $\vek K\,\vek g = \vek j$ ist.
+
+Der Operator $- EA u''$ in dem Randwertproblem
+\begin{align}
+- EA\,u''(x) = p(x) \qquad u(0) = u(1) = 0
+\end{align}
+ist ebenfalls selbstadjungiert, denn
+\begin{align}\label{Eq14}
+\text{\normalfont\calligra B\,\,}(u,v) &= \int_0^{\,l} - EA\,u''(x)\,v(x)\,dx + \ldots  - \int_0^{\,l} u\,(-EA\,v'') \,dx = 0\,.
+\end{align}
+Ist nun
+\begin{align}
+J(u) = \int_0^{\,l} j(x)\,u(x)\,dx
+\end{align}
+ein lineares Funktional und ist $g(x)$ die L\"{o}sung des adjungierte Randwertproblems
+\begin{align} \label{Eq1}
+- EA\,g''(x) = j(x) \qquad g(0) = g(1) = 0\,,
+\end{align}
+dann folgt nach zweimaliger partiellen Integration, s. (\ref{Eq14}),
+\begin{align}
+J(u) = \int_0^{\,l} j(x)\,u(x)\,dx = \int_0^{\,l}-EA\, g''(x)\,u(x)\,dx = \int_0^{\,l} g(x)\,p(x)\,dx\,,
+\end{align}
+was sinngem\"{a}{\ss} $\vek J(\vek u) = \vek j^T\,\vek u = \vek g^T\,\vek f$ entspricht. Die L\"{o}sung $g(x)$ von (\ref{Eq1}) ist also die Greensche Funktion des Funktionals $J(u)$.
+
+Nun betrachten wir das {\em Anfangswertproblem\/}
+\begin{align}
+u'(t) = f(t) \qquad u(0) = 0
+\end{align}
+zu dem die Identit\"{a}t, ($T > 0$ beliebig),
+\begin{align}
+\text{\normalfont\calligra B\,\,}(u,v) &= \int_0^{\,T} u'(t)\,v(t)\,dt  - [u\,v]_{@0}^{@T} + \int_0^{\,T} u(t)\,v'(t) \,dt = 0
+\end{align}
+geh\"{o}rt. Der Operator $d/dt$ ist, wie man sieht, nicht selbstadjungiert, denn $(u',v) = (u,-v')$ (ohne Randwerte).
+
+Ist
+\begin{align}
+J(u) = \int_0^{\,T} j(t)\,u(t)\,dt
+\end{align}
+ein lineares Funktional und ist $g(t)$ die L\"{o}sung des adjungierten Problems
+\begin{align}
+-g'(t) = j(t) \qquad g(T) = 0\,,
+\end{align}
+dann liefert partielle Integration die Darstellung
+\begin{align}
+J(u) &= \int_0^{\,T} j(t)\,u(t)\,dt = [g\,u]_0^T + \int_0^{\,T} g(t)\,u'(t)\,dt = \int_0^{\,T} g(t)\,f(t)\,dt\,.
+\end{align}
+Partielle Integration hat zwei Grenzen, $(0,l)$ oder $(0,T)$. Bei Randwertproblemen werden beide Grenzen bedient, bei Anfangswertproblemen dagegen nur die untere und deswegen muss man die Greensche Funktion bei solchen Problemen am {\em oberen Ende\/} $T$ festmachen, $g(T) = 0$. Die Greensche Funktion l\"{a}uft, wenn man so will, \glq r\"{u}ckw\"{a}rts\grq{}.
+
+Wenn man einen Berg hinaufschaut, dann ist die Steigung positiv. Wenn man, oben angekommen ($t = T$), zur\"{u}ckschaut, dann ist die Steigung negativ. Das mag als Erkl\"{a}rung f\"{u}r den Wechsel im Vorzeichen
+\begin{align}
+ u'(t) = f(t) \qquad \qquad -g'(t) = j(t)
+\end{align}
+dienen.\\
+\begin{flushleft}{\em Beispiel\/} \end{flushleft} Gegeben sei das Anfangs\-wert\-problem
+\begin{align}
+u' = 1- t \qquad u(0) = 0
+\end{align}
+und $J(u)$ sei das Integral der L\"{o}sung $u(t) = t - 0.5\,t^2$
+\begin{align} \label{Eq2}
+J(u) = \int_0^{\,T} 1 \cdot u(t)\,dt =  \frac{T^2}{2} - \frac{T^3}{6} \qquad j(t) = 1\,.
+\end{align}
+Die adjungierte Gleichung
+\begin{align}
+- g' = 1 \qquad g(T) = 0
+\end{align}
+hat die L\"{o}sung $g(t) = T - t$ und das Skalarprodukt von $g(t)$ und $f(t) $ ist genau der Wert in (\ref{Eq2})
+\begin{align}
+J(u) = \int_0^{\,T} g(t) f(t) dt = \int_0^{\,T}(T - t) \cdot  (1 - t) \,dt = \frac{T^2}{2} - \frac{T^3}{6}\,.
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Gateaux Ableitung}}
+Bei nichtlinearen Problemen tritt eine neue Ableitung auf, die sogenannte {\em Gateaux Ableitung\/}. Sei
+\begin{align}
+J(u) = \int_0^{\,l} F(u)\,dx
+\end{align}
+ein (m\"{o}glicherweise nichtlineares) Funktional, dann bezeichnet man den Ausdruck
+\begin{align}
+J_{u}(\delta u) = \frac{d}{d\varepsilon} J(u + \varepsilon \delta u) _{|_{\varepsilon = 0}}
+\end{align}
+als die Gateaux Ableitung von $J(u)$ in Richtung des Inkrements $\delta u$.
+
+Man bildet mit einer Testfunktion $\delta u$ (virtuellen Verr\"{u}ckung) den Ausdruck $J(u + \varepsilon \delta u)$, differenziert nach $\varepsilon$, und setzt am Schluss den Faktor $\varepsilon = 0$.
+
+Diese Ableitung sieht ganz wie ein Notbehelf aus, wenn man etwas nicht richtig differenzieren kann, dann ersetzt man es durch einen Differenzenquotient.
+
+\"{U}berraschenderweise erscheint diese Ableitung jedoch {\em automatisch\/} in vielen nichtlinearen Formulierungen, wie zum Beispiel der Greenschen Identit\"{a}t der nichtlinearen Elastizit\"{a}tstheorie
+\beq\label{E4Gfb}
+\text{\normalfont\calligra G\,\,}(\vek u, \vek \delta \vek u) = \int_{\Omega} \vek p \dotprod \vek \delta \vek u\,d\Omega +
+\int_{\Gamma_N}  \bar{\vek t} \dotprod \vek \delta \vek u\,ds - \int_{\Omega} \vek E_{\vek
+u}(\vek \delta \vek u) \dotprod \vek S\,d\Omega = 0\,,
+\eeq
+wo
+\beq
+\vek E_{\vek u}(\vek \delta \vek u) := \frac{1}{2}\,(\nabla\vek \delta \vek u + \nabla\vek \delta \vek u^T
++ \nabla \vek u^T\,\nabla\,\vek \delta \vek u + \nabla\,\vek \delta \vek u^T\,\nabla\,\vek u)
+\eeq
+die Gateaux Ableitung \index{Gateaux Ableitung} des Verzerrungstensors $\vek E(\vek u)$ ist,
+\beq
+\frac{d}{d\varepsilon} [\vek E(\vek u + \varepsilon\,\vek \delta \vek u)]_{|_{\varepsilon = 0}}
+=\vek E_{\vek u}(\vek \delta \vek u)\,.
+\eeq
+Was -- auf den ersten Blick -- wie ein Trick aussieht, ist also ein wesentlicher Bestandteil der Integralformulierungen nichtlinearer Probleme.
+
+Bei nichtlinearen Problemen tritt in der ersten Greenschen Identit\"{a}t an die Stelle des symmetrischen Integrals
+\begin{align}
+a(\vek u, \vek \delta \vek u) = \int_{\Omega} \vek E(\vek \delta \vek u) \dotprod \vek S(\vek u)\,d\Omega  = \int_{\Omega} \vek E(\vek u) \dotprod \vek S(\vek  \delta\vek u)\,d\Omega  = a(\vek \delta \vek  u, \vek u) \,,
+\end{align}
+-- symmetrisch wegen\footnote{$\vek S(\vek u) = \vek C[\vek E(\vek u)]$ ist der Spannungstensor des Feldes $\vek u$, beim Stab ist $C[\varepsilon(u)] = EA u'$}
+\begin{align}
+\vek E(\vek \delta \vek u) \dotprod \vek S(\vek u) = \vek E(\vek \delta \vek u) \dotprod \vek C[\vek E(\vek u)] = \vek E( \vek u) \dotprod \vek C[\vek E(\vek \delta \vek u)] = \vek E(\vek u) \dotprod \vek S(\vek \delta \vek u)
+\end{align}
+das unsymmetrische Integral
+\begin{align}
+a(\vek u, \vek \delta \vek u) =\int_{\Omega} \vek E_{\vek
+u}(\vek \delta \vek u) \dotprod \vek S(\vek u)\,d\Omega \,,
+\end{align}
+das sozusagen den Zuwachs an innerer Energie beschreibt, wenn $\vek u$ sich in Richtung $\vek u + \vek \delta \vek u$ entwickelt.
+
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.8\textwidth]{\Fpath/U453a}
+\caption{Die Statik des Seils} \label{U453}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Bei nichtlinearen Problemen ist die erste Greensche Identit\"{a}t so etwas, wie eine \glq Inkrement-Betrachtung\grq{} der Null-Summe $ \delta A_a - \delta A_i = 0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Das Seil}}\index{Seil}\label{Seilstatik}
+Wir beschr\"{a}nken uns hier auf den Fall des urspr\"{u}nglich geraden Seils, das mit einer Kraft $H$ vorgespannt wird. Die Seilkraft $S$ und die vertikale Kraft $V$ und der Horizontalzug $H$ bilden ein rechtwinkliges Dreieck, $V/H = \tan\,\Np = w'$, s. Abb. \ref{U453}. Aus dem Gleichgewicht am Element, $V + \Delta V - V + p\,\Delta x = 0$ folgt $-V' = p$ und das ergibt zusammen mit $V = H\,w'$ die Seilgleichung $-H\,w'' = p$.
+
+Soll unter Gleichlast $p$ der Durchhang des Seils auf einen Wert $f$ beschr\"{a}nkt sein, dann muss die Zugkraft den Wert
+\begin{align}
+H = \frac{p\,l^2}{8\,f}
+\end{align}
+haben und die L\"{a}nge $L$ des Seils darf nicht gr\"{o}{\ss}er sein als
+\begin{align}
+L = \int_0^{\,l} ds \simeq l \cdot (1 + \frac{8\,f^2}{3\,l^2})\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Der vollst\"{a}ndige Balken (Bernoulli-Balken)}}\index{Balken, vollst\"{a}ndig}\index{Bernoulli-Balken}
+Die Differentialgleichung $EI\,w^{IV}(x) = p(x)$ basiert auf dem System
+\begin{subequations}\label{Eq139}
+\begin{alignat}{3}
+\hspace{-2cm} \mbox{Kr\"{u}mmungen}\qquad && \kappa - w'' &= \kappa_0  \\
+\hspace{-2cm} \mbox{Materialgesetz}\qquad &&EI\,\kappa + M  &= M_0 \\
+\hspace{-2cm} \mbox{Gleichgewicht}\qquad&&-M'' &= m' + p&
+\end{alignat}
+\end{subequations}
+mit Vorkr\"{u}mmungen $\kappa_0$, z.B. aus Temperatur $\kappa_0 = \alpha_T \Delta T/h$, eingepr\"{a}gten Momenten $M_0$, Linienmomenten $m$ [kNm/m] und der Streckenlast $p$. Wenn $EI$ konstant ist, die Vorkr\"{u}mmungen null sind und keine Linienmomente wirken, $m = 0$, dann reduziert sich das System auf $EI\,w^{IV} = p$.
+Dieser \glq Dreier-Schritt\grq{} wiederholt sich im folgenden und kann sinngem\"{a}{\ss} auch f\"{u}r die anderen Differentialgleichungen wie $-EA\,u'' = p_x$, $- GA\,w_s'' = p_z$ etc. formuliert werden. Man braucht ja nur die Scheiben- bzw. Plattengleichung als Vorbild nehmen. Die {\em gemischten Verfahren\/} \index{gemischte Verfahren} basieren auf diesen Formulierungen.
+
+Vordehnungen und Vorkr\"{u}mmungen, bei Fl\"{a}chentragwerken sind das Tensoren $\vek E_0$ und $\vek K_0$, haben ihre Ursache meist in Temperatur\"{a}nderungen oder \"{a}hnlichen Effekten und lassen sich mit dem \glq Dreier-Schritt\grq{} verfolgen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Die zugeh\"{o}rigen Identit\"{a}ten}}\label{Korrektur40}\label{TempIdentit}
+Die Effekte von Temperatur\"{a}nderungen werden in der Mohrschen Arbeitsgleichung von zwei einfachen Zusatztermen erfasst
+\begin{align}
+\textcolor{red}{1} \cdot \delta = \ldots \int \textcolor{red}{\bar{M}}\,\alpha_T\,\frac{\Delta T}{h}\,dx + \int \textcolor{red}{\bar{N}}\,\alpha_T\,T\,dx
+\end{align}
+und so scheint es, dass sich Einflussfunktionen f\"{u}r den Lastfall Temperatur nahtlos aus den Gleichungen $EI\,w^{IV} = p_z$ und $-EA\,u'' = p_x$ entwickeln lassen. Das ist aber nicht richtig, sondern man muss dazu \"{u}ber das obige System  (\ref{Eq139}) gehen. Wie man dabei vorgeht, soll hier f\"{u}r den Balkenanteil gezeigt werden. Die Herleitung f\"{u}r den Stabanteil findet man in \cite{Ha5} S. 399.
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U433}
+\caption{Lastfall Temperatur bei einem Balken } \label{U433}
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+Zun\"{a}chst ben\"{o}tigen wir die zweite Greensche Identit\"{a}t des obigen Systems, das wir als die Anwendung eines Operators $\text{\normalfont\calligra A\,\,}(\vek S)$ auf das Tripel $\vek S = \{w, \kappa, M\}$ aus {\em Biegelinie, Kr\"{u}mmung\/} und {\em Moment\/} lesen k\"{o}nnen. Ist $ \vek \delta \vek S = \{\delta w, \delta \kappa, \delta M\} $ eine beliebige Testfunktion (virtuelle Verr\"{u}ckung), dann ist die virtuelle \"{a}u{\ss}ere Arbeit der Ausdruck
+\begin{align}
+<\text{\normalfont\calligra \!A\,\,}(\vek S), \vek  \delta \vek S\!> := \int_0^{\,l} [(\kappa - w'')\,\delta M + (EI\,\kappa + M)\,\delta \kappa - M''\,\delta w]\,dx\,.
+\end{align}
+Partielle Integration f\"{u}hrt auf die erste Greensche Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek S, \vek \delta \vek S)
+&= <\text{\normalfont\calligra \!A\,\,}(\vek S), \vek  \delta\vek S\!>
+ + [w'\,\delta M + M'\,\delta w]_0^l + a(\vek S, \vek  \delta \vek S) = 0
+\end{align}
+mit der symmetrischen Wechselwirkungsenergie
+\begin{align}
+a(\vek S, \vek  \delta \vek S) = \int_0^{\,l} [EI\,\kappa\, \delta \kappa + \kappa \,\delta M + M\,\delta \kappa + w'\,\delta M' + M'\,\delta w']\,dx
+\end{align}
+und dann direkt weiter zur zweiten Greenschen Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra B\,\,}(\vek S, \vek \delta \vek S)
+&= <\text{\normalfont\calligra \!A\,\,}(\vek S), \vek  \delta\vek S\!>
+ + [w'\,\delta M + M'\,\delta w]_0^l\nn \\
+  &- [\delta w'\, M + \delta M'\, w]_0^l - <\vek S,\text{\normalfont\calligra \!A\,\,}(\vek  \delta \vek S)\!> = 0\,.
+\end{align}
+In einem Lastfall $\Delta T$ stehen auf der rechten Seite des Systems (\ref{Eq139}) die drei Funktionen $\{\alpha_T\,\Delta T/h, 0, 0\}$ und die \"{a}u{\ss}ere virtuelle Arbeit im Feld reduziert sich daher auf das Integral
+\begin{align}
+<\text{\normalfont\calligra \!A\,\,}(\vek S), \vek  \delta \vek S\!> = \int_0^{\,l} \alpha_T\,\frac{\Delta T}{h} \,\delta M\,dx\,.
+\end{align}
+Die Einflussfunktion f\"{u}r das Moment $M(x)$ in einem Punkt $x$ entsteht durch die Spreizung eines dort eingebauten Gelenks. Sei $\vek S_2 = \{w_2, M_2, \kappa_2\}$ die Einflussfunktion (in drei Teilen), also $M_2$ das zugeh\"{o}rige Biegemoment, dann folgt nach den \"{u}blichen Schritten (Zweiteilung des Felds im Aufpunkt)
+\begin{align}\label{Eq140}
+\text{\normalfont\calligra B\,\,}(\vek S_2, \vek S)
+&= - M(x) + \int_0^{\,l} \alpha_T\,\frac{\Delta T}{h}\,M_2\,dx = 0
+\end{align}
+was genau der Mohrschen Arbeitsgleichung entspricht, wenn man $\bar{M} = M_2$ setzt. In Temperaturlastf\"{a}llen kann man also mit der Mohrschen Arbeitsgleichung Schnittkr\"{a}fte berechnen, was ja eigentlich nicht gehen sollte. Es geht, weil der Ausdruck (\ref{Eq140}) eine starke Einflussfunktion ist, die bei der Mohrschen Arbeitsgleichung als (angebliche) schwache Einflussfunktion \glq mitsegelt\grq{}.
+
+Im Temperaturlastfall in Abb. \ref{U433} ist die rechte Seite des Systems $\{\kappa_0,0,0\}$. Die Lagerbedingungen verlangen einen Ansatz $w(x) = c\,(x^3 - x^2)$, was auf $\kappa = \kappa_0 + c\,(6\,x - 2)$ und $M(x) = - EI\,(\kappa_0 + c\,(6\,x - 2))$ f\"{u}hrt. Aus $M(1) = 0$ ergibt sich $c = - \kappa_0/4$ und damit die Verl\"{a}ufe in Abb. \ref{U433}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Der schubweiche Balken (Timoshenko Balken)}}\index{schubweicher Balken}\index{Timoshenko Balken}
+%------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.4\textwidth]{\Fpath/U238}
+\caption{Schubweicher Balken} \label{WinkelAngle}
+\end{figure}%%
+%------------------------------------------------------------------
+
+Ein schubweicher Balken bildet unter einer Einzelkraft einen Knick aus, und der Balken kann auch mit einem Knick aus der Wand herauslaufen, was f\"{u}r einen schubstarren Balken unm\"{o}glich w\"{a}re. Solche Balken \"{a}hneln also von der Form her vorgespannten Seilen, nur dass sie, anders als Seile, eine Biegesteifigkeit haben und sich damit Biegemomente ausbilden k\"{o}nnen.
+
+Wie \"{u}blich setzen wir voraus, dass die Biegesteifigkeit $EI$, der Schubquerschnitt  $A_s$
+und der Schubmodul $G$ l\"{a}ngs des Balkens konstant sind.
+
+Die Kinematen sind die Durchbiegung $w$ und die Verdrehung $\theta$ (s. Abb. \ref{WinkelAngle}).
+
+Das grundlegende System besteht aus den Gleichungen
+\begin{subequations}
+\begin{alignat}{3}
+\hspace{-2cm} \mbox{Verzerrungen}\qquad && \theta' - \kappa &= 0 & \qquad w' + \theta - \gamma &= 0 \\
+\hspace{-2cm} \mbox{Materialgesetz}\qquad &&GA_s \gamma - V &= 0 & \qquad EI\,\kappa - M &= 0 \\
+\hspace{-2cm} \mbox{Gleichgewicht}\qquad&&M' - V &= 0& \qquad - V' &= p
+\end{alignat}
+\end{subequations}
+oder
+\begin{subequations}
+\bfo\label{TimoshenkoDGL}
+- EI\,\theta'' + GA_s\,(w' + \theta) &=& 0\\
+\label{TimoshenkoDGL2} - GA_s\,(w'' + \theta') &=& p \,.
+\efo
+\end{subequations}
+Das System kann als die Anwendung eines Operators $- \vek L$ auf die vektorwertige Funktion $\vek u = \{w, \theta\}^T$ gelesen werden. Die zugeh\"{o}rige erste Greensche Identit\"{a}t lautet
+\bfo
+\text{\normalfont\calligra G\,\,}(\vek u,\vek \delta \vek u) = \!\!\int_0^{\,l}\!\!\! - \vek L\,\vek u \dotprod \vek \delta \vek u\,dx +
+\left[V\,\delta w+ M\,\delta \theta\right]_{@0}^{@l} - a(\vek u,\vek \delta \vek u) = 0\,,
+\efo
+wobei
+\bfo
+a(\vek u,\vek \delta \vek u) &=& \int_0^{\,l} [V\,\delta \gamma + M\,\delta \kappa ]\,dx \nn \\
+&=& \int_0^{\,l} [GA_s(w' + \theta)\,(\delta w' + \delta \theta) +
+EI\,\theta'\,\delta \theta' \, ]\,dx
+\efo
+die Wechselwirkungsenergie ist.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.9\textwidth]{\Fpath/U272}
+\caption{Der \"{U}bergang vom Seil zum Segeltuch, \cite{Int1}} \label{U272}
+\end{figure}%%
+%-----------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Poisson Gleichung}}
+Die {\em Poisson Gleichung\/} beschreibt u.a. die Durchbiegung $u(\vek x)$ einer vorgespannten Membran unter Winddruck $p$, s. Abb. \ref{U272},
+\begin{align}\label{Eq66}
+- \Delta u(\vek x) = p(\vek x) \qquad u = 0\quad \,\,\text{auf dem Rand $\Gamma$}\,.
+\end{align}
+Zu ihr geh\"{o}rt die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\delta u) = \int_{\Omega} - \Delta u(\vek x)\,\delta u(\vek x)\,d\Omega + \int_{\Gamma} \frac{\partial u(\vek x)}{\partial n}\,\delta u(\vek x)\,ds - a(u,\delta u) = 0
+\end{align}
+mit der Wechselwirkungsenergie
+\begin{align}
+a(u,\delta u) = \int_{\Omega} \nabla u(\vek x) \dotprod \nabla\,\delta u(\vek x)\,d\Omega = \int_{\Omega} (u,_{x_1}\,\delta u,_{x_1} + u,_{x_2}\,\delta u,_{x_2})\,d\Omega\,.
+\end{align}
+Die Bedeutung der Poisson Gleichung beruht darauf, dass man mit ihren Fundamentall\"{o}sungen
+\begin{align}
+ g(\vek y, \vek x) = - \frac{1}{2\,\pi}\ln r \qquad \text{(2-$D$)} \qquad g(\vek y, \vek x) = \frac{1}{4\,\pi}\frac{1}{r} \qquad \text{ (3-$D$)} \qquad
+\end{align}
+jede $C^2$-Funktionen \"{u}ber einem Gebiet $\Omega$ aus den Randwerten $u $ und $\partial u/\partial n $ und den zweiten Ableitungen $\Delta u = u,_{x_1 x_1} + u,_{x_2 x_2}$ berechnen kann
+\begin{align}\label{Eq175}
+u(\vek x) = &\int_{\Gamma} [g(\vek y, \vek x) \,\frac{\partial u(\vek y)}{\partial n} - \frac{\partial g(\vek y, \vek x)}{\partial n}\,u(\vek y)]\,ds_{\vek y} + \int_{\Omega} g(\vek y, \vek x)\,(- \Delta u(\vek y))\,\,d\Omega_{\vek y}\,.
+\end{align}
+Diese Gleichung ist praktisch die Erweiterung der Gleichung (partielle Integration)
+\begin{align}
+w(x) &= w(0) + \int_{0}^{x} w'(y)\,dy = \int_{\Gamma} \ldots + \int_{\Omega} \ldots \,,
+\end{align}
+auf h\"{o}here Dimensionen und sie ist der eigentliche Hauptsatz der Differential-und Integralrechnung\index{Hauptsatz der Differential- und Integralrechnung}. {\em Eine Fl\"{a}che ist durch ihre \glq Spur\grq{} auf dem Rand, $u$ und $\partial u/\partial n$, und ihre \glq Kr\"{u}mmung\grq{} $\Delta u$ eindeutig bestimmt\/}.
+
+Die L\"{o}sungen $- \Delta u(\vek x) = 0$ nennt man {\em harmonische Funktionen\/}\index{harmonische Funktion}. Der Wert in einem Punkt $\vek x $ ist der Mittelwert  aus den Nachbarn im Norden, Osten, S\"{u}den und Westen. Eine Gerade, $- u'' = 0$, ist z.B. eine harmonische Funktion.
+
+Harmonische Funktionen kann man also allein aus ihren Randwerten berechnen. Umgekehrt folgt daraus aber auch,  dass das Integral der Normal\-ab\-leitung einer harmonischen Funktion \"{u}ber den Rand null sein muss, denn
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,1) = \int_{\Omega} - \Delta u(\vek x)\cdot 1\,d\Omega + \int_{\Gamma} \frac{\partial u(\vek x)}{\partial n} \cdot 1\,ds =  \int_{\Gamma} \frac{\partial u(\vek x)}{\partial n} \cdot 1\,ds = 0\,.
+\end{align}
+Ist es nicht null, dann ist $u$ keine harmonische Funktion und dann muss man, damit die Integraldarstellung richtig bleibt, eine Belastung $p$ als \glq Gegengewicht\grq{} so w\"{a}hlen, dass das Integral von $p = - \Delta u$ \"{u}ber $\Omega$ gerade das Integral der Normalableitung ist -- das ist einfach die Gleichgewichtsbedingung. Man kann auch nicht einfach zwei Randfunktionen $a = u, b = \partial u/\partial n$ und eine dritte Funktion $c = - \Delta u$ frei w\"{a}hlen und dann glauben, dass die damit konstruierte Funktion (\ref{Eq175}) diese Werte annimmt. Das geht nur gut, wenn die drei Funktionen die Integralgleichung (\ref{Eq175}), setze f\"{u}r $\vek x$ die Punkte auf dem Rand, erf\"{u}llen\footnote{Im Unterschied dazu stammen in (\ref{Eq175}) ja alle Funktionen von demselben $u$}.
+
+Das ist dieselbe Logik, wie beim Zugstab, wo man ja auch nicht die L\"{a}ngsverschiebung $u $ und die Kraft $P$ unabh\"{a}ngig voneinander w\"{a}hlen kann, sondern die beiden Zahlen m\"{u}ssen zueinander passen, m\"{u}ssen eben der \glq Integralgleichung\grq{} $u = P\,l/EA$ gen\"{u}gen.
+
+Die Poisson Gleichung kann in ein System erster Ordnung
+\begin{subequations}
+\begin{align}
+\nabla w - \vek \sigma &= \vek 0_{\,(2)}  \\
+- \text{div} \,\vek \sigma &= p_{\,(1)}
+\end{align}
+\end{subequations}
+f\"{u}r zwei Funktionen, $u$ und $\vek \sigma$ oder $\vek v = \{u, \vek \sigma\}^T$ aufgespalten werden.
+
+Zu diesem System geh\"{o}rt die Identit\"{a}t
+\begin{align}
+ \text{\normalfont\calligra G\,\,}(\vek v,\vek  \delta \vek v) &= \int_{\Omega} \left[(\nabla w - \vek \sigma) \dotprod \vek \delta \vek \sigma - \text{div} \,\vek \sigma\, \delta w\right]\,d\Omega
++ \int_{\Gamma} \vek \sigma \dotprod \vek n\,\delta w\,ds \nn \\
+&- \underbrace{\int_{\Omega} (\nabla w \dotprod \vek  \delta \vek \sigma + \nabla \delta w \dotprod \vek \sigma\,- \vek \sigma \dotprod \vek  \delta \vek \sigma) \,d\Omega}_{a(\vek v, \vek  \delta \vek v)} = 0\,.
+\end{align}
+
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp] %415
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=0.99\textwidth]{\Fpath/U439}
+\caption{Gelochte Scheibe unter Zug} \label{U439}
+%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Die Scheibengleichung}}
+Die konstitutiven Gleichungen lauten in der Reihenfolge {\em Verzerrungen, Spannungen, Gleichgewicht\/}
+\begin{subequations}\label{Eq54}
+\begin{align}
+\vek E(\vek u) - \vek E &= \vek E_0 \\
+\vek C[\vek E] - \vek S &= \vek 0 \\
+- \text{div}\,\vek S &= \vek p\,,
+\end{align}
+\end{subequations}
+wobei $\vek E = [\varepsilon_{ij}]$ und $\vek S = [\sigma_{ij}]$ der Verzerrungs- bzw. Spannungstensor sind, $\vek  E_0$ sind Anfangsdehnungen (z.B. aus Temperatur) und $\vek E()$ ist der Operator
+\begin{align}\label{Eq48}
+\vek E(\vek u) = \frac{1}{2}\,(\nabla \vek u + \nabla \vek u^T) = \frac{1}{2}\,\left[ \barr {c @{\hspace{4mm}}c }
+      2 \,u_1,_1 & u_1,_2 + u_2,_1\\
+      u_2,_1 + u_1,_2 & 2\,u_2,_2
+    \earr \right]\,.
+\end{align}
+Mit dem Operator
+\begin{align}\label{Eq60}
+\vek C[\vek E] = 2\mu\cdot\vek E + \lambda\,(\text{tr}\,\vek E)\cdot\vek I
+\end{align}
+wird der Spannungstensor $\vek S$ aus dem Verzerrungstensor berechnet. Es ist
+\begin{align}
+\lambda = \frac{2\,\mu\,\nu}{1 - 2\,\nu} \qquad \text{tr}\,\vek E = \varepsilon_{11} + \varepsilon_{22} \qquad \text{(trace)}
+\end{align}
+und $\vek I$ ist der Einheitstensor  (Einheitsmatrix).
+
+Die linke Seite des Systems (\ref{Eq54}) kann man als die Anwendung eines Operators $\vek A(\, )$ auf das Triple $\vek \Sigma = \{\vek u, \vek E, \vek S\}$ lesen und
+\begin{align}
+<\vek A(\vek \Sigma), \vek  \delta \vek \Sigma> &= \int_{\Omega} (\vek E(\vek u) - \vek E) \dotprod \vek  \delta \vek S \,d\Omega + \int_{\Omega} (\vek C[\vek E] - \vek S)\dotprod  \vek  \delta E \,d\Omega \nn \\
+&+ \int_{\Omega} - \text{div}\,\vek S \dotprod  \vek  \delta \vek  u\,d\Omega
+\end{align}
+ist dann die zugeh\"{o}rige virtuelle Arbeit mit  $\vek  \delta \vek \Sigma = \{\vek \delta \vek u, \vek  \delta \vek E, \vek  \delta \vek S\}$ als \glq virtueller Verr\"{u}ckung\grq{} oder  \glq Testfeld\grq{}.
+
+Der Punkt $\dotprod $ bezeichnet hier das Skalarprodukt von zwei Matrizen
+\begin{align}
+\vek S \dotprod  \vek E = \sigma_{11}\,\varepsilon_{11} + \sigma_{12}\,\varepsilon_{12} + \sigma_{21}\,\varepsilon_{21} + \sigma_{22}\,\varepsilon_{22}\,.
+\end{align}
+Ist $\vek S \in C^1(\Omega)$ eine symmetrische Matrix und $\vek \delta \vek u \in C^1(\Omega) $ ein beliebiges Verschiebungsfeld, dann gilt wegen den Regeln der partiellen Integration
+\begin{align}
+\int_{\Omega} - \text{div}\,\vek S \dotprod \vek \delta \vek u \,d\Omega = - \int_{\Gamma} \vek S\,\vek n \dotprod \vek \delta \vek u \,ds + \int_{\Omega} \vek S \dotprod \vek E(\vek \delta \vek u)\,d\Omega
+\end{align}
+und mit diesem Hilfssatz folgt
+\begin{align}
+<\vek A(\vek \Sigma), \vek  \delta \vek \Sigma> &=\int_{\Omega} (\vek E(\vek u) - \vek E) \dotprod \vek  \delta \vek S \,d\Omega + \int_{\Omega} (\vek C[\vek E] - \vek S)\dotprod  \vek \delta \vek E \,d\Omega \nn \\
+&+ \int_{\Omega} \vek S \dotprod \vek E(\vek \delta \vek u) \,d\Omega - \int_{\Gamma} \vek S\,\vek n \dotprod  \vek \delta \vek u \,ds\,.
+\end{align}
+Die drei Gebietsintegrale bilden wegen der Symmetrie $\vek C[\vek E] \dotprod  \vek  \delta \vek E = \vek E \dotprod \vek  C[\vek  \delta \vek E]$ eine symmetrische Bilinearform
+\begin{align}
+a(\vek \Sigma, \vek  \delta \vek \Sigma) :&= \int_{\Omega} (\vek E(\vek u) - \vek E) \dotprod \vek  \delta\vek S \,d\Omega + \int_{\Omega}\vek C[\vek E] \dotprod  \vek  \delta\vek E\,d\Omega \nn \\
+&+ \int_{\Omega} \vek S \dotprod (\vek E(\vek \delta \vek u) - \vek  \delta\vek E) \,d\Omega\,,
+\end{align}
+die wir die Wechselwirkungsenergie zwischen $\vek \Sigma$ und $\vek  \delta \vek \Sigma $ nennen.
+
+Damit lautet die erste Greensche Identit\"{a}t des Operators $\vek A(\vek \Sigma)$
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek \Sigma,\vek  \delta \vek \Sigma) = <\vek A(\vek \Sigma), \vek  \delta \vek \Sigma> + \int_{\Gamma}\vek S\,\vek n \dotprod  \vek \delta \vek u\,ds - a(\vek \Sigma, \vek  \delta\vek \Sigma) = 0\,,
+\end{align}
+aus der alles weitere, insbesondere auch der {\em Satz von Betti\/} und das {\em Hu-Washizu-Prinzip\/}\index{Hu-Washizu-Prinzip} folgt, \cite{Ha1}.
+
+Das System $\vek A(\vek \Sigma)$ f\"{u}r das Tripel $\vek \Sigma = \{\vek u, \vek E, \vek S\}$ kann man nun auf ein System f\"{u}r das Verschiebungsfeld $\vek u$ allein reduzieren, indem man die Gleichungen (\ref{Eq4}) ineinander einsetzt ($\vek S_0 = \vek C[\vek E_0]$)
+\begin{align}
+- \vek L\,\vek u := - [\mu\,\Delta \vek u + \frac{\mu}{1 - 2\,\nu} \,\nabla\,\text{div}\,\vek u ]= \vek p - \text{div} \,\vek S_0\,.
+\end{align}
+Zu dem Operator geh\"{o}rt die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek u,\vek  \delta u) &= \underbrace{\int_{\Omega}- \vek L\,\vek u \dotprod  \vek \delta \vek u\,d\Omega + \int_{\Gamma} \vek \tau(\vek u) \dotprod \vek \delta \vek u\,ds}_{\delta A_a}\nn \\
+ &- \underbrace{\int_{\Omega} \vek E(\vek u) \dotprod \vek C[\vek E(\vek  \delta\vek u)] \,d\Omega}_{\delta A_i} = 0\,,
+\end{align}
+wobei $\vek \tau(\vek u)$ der Spannungsvektor $\vek S\,\vek n$ des Feldes $\vek u$ auf dem Rand $\Gamma$ ist.
+
+Bei einer wie folgt belasteten Scheibe mit Rand $\Gamma = \Gamma_D \cup \Gamma_N$
+\begin{align}
+- \vek L\,\vek  u = \vek p \qquad \vek \tau(\vek u) = \bar{\vek t} \,\,\text{auf $\Gamma_N$} \qquad \vek u = \vek 0 \,\,\text{auf $\Gamma_D$}
+\end{align}
+lautet also das {\em Prinzip der virtuellen Verr\"{u}ckungen\/}, wenn $\vek \delta \vek u = \vek 0$ auf $\Gamma_D$ ist,
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek u,\vek  \delta \vek u) = \underbrace{\int_{\Omega} \vek p \dotprod  \vek  \delta \vek u\,d\Omega + \int_{\Gamma_N} \bar{\vek t} \dotprod \vek  \delta \vek u\,ds}_{\delta A_a} - \underbrace{\int_{\Omega} \vek E(\vek u) \dotprod \vek C[\vek E(\vek \delta \vek  u] \,d\Omega}_{\delta A_i} = 0\,.
+\end{align}
+Mit Anfangsdehnungen $\vek E_0$ ist $\delta A_a$ um das Gebietsintegral $(- \text{div}\,\vek S_0 \dotprod$ \vek  \delta \vek u, 1) zu erweitern.
+
+Die Elemente der Steifigkeitsmatrix $\vek K$ einer Scheibe sind die Wechselwirkungsenergien zwischen den Knotenverschiebungen $\vek \Np_i$ und $\vek \Np_j$, die ja selbst Verschiebungsfelder sind, also aus horizontalen und vertikalen Komponenten bestehen
+\begin{align}
+k_{ij} = \int_{\Omega} \vek E(\vek \Np_i) \dotprod \vek C[\vek E(\vek \Np_j] \,d\Omega  =\int_{\Omega} (\sigma_{xx}^{(i)}\,\varepsilon_{xx}^{(j)} + 2\,\sigma_{xy}^{(i)}\,\varepsilon_{xy}^{(j)} + \sigma_{yy}^{(i)}\,\varepsilon_{yy}^{(j)})\,d\Omega\,.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Die schubstarre Platte (Kirchhoff)}}\index{Kirchhoffplatte}
+Bei einer schubstarren Platte (Kirchhoffplatte) lauten die entsprechenden Gleichungen
+\begin{subequations}
+\begin{align}\label{Eq65}
+\vek K - \vek K(w) &= \vek K_0 \\
+\vek C[\vek M] + \vek M &= \vek 0 \\
+- \text{div}^2\,\vek M &= p\,,
+\end{align}
+\end{subequations}
+was als die Anwendung eines Operators $\vek A()$ auf das Tripel $\vek \Sigma = \{w, \vek K, \vek M\}$ gelesen werden kann. $\vek K_0$ sind m\"{o}gliche Anfangskr\"{u}mmungen.
+
+Der Operator $\vek K()$ angewandt auf $w$ sind nat\"{u}rlich die zweiten Ableitungen (\glq Kr\"{u}mmungen\grq{})
+\begin{align}
+\vek K(w) = \left[ \barr {r @{\hspace{4mm}}r  }
+      w,_{11} & w,_{12} \\
+      w,_{21} & w,_{22} \\
+     \earr \right]\,.
+\end{align}
+Mit partieller Integration erh\"{a}lt man mit symmetrischen Matrizen $\vek M \in C^2(\Omega)$ und Funktionen $\delta w \in C^2(\Omega)$ das Resultat
+\begin{align}
+\int_{\Omega} - \text{div}^2\,\vek M\,\delta w \,d\Omega &= - \int_{\Gamma} (V_n\,\delta w - M_n\,\frac{\partial \delta w}{\partial n}) \,ds - [[M_{nt}\,\delta w]] \nn \\
+&- \int_{\Omega} \vek M \dotprod \vek K(\delta w)\,d\Omega\,,
+\end{align}
+wobei (in Tensorschreibweise)
+\begin{align}
+V_n = \frac{d}{ds}\,M_{nt} + Q_n \quad M_{nt} = M_{ij}\,n_i\,t_j \quad M_n = M_{ij}\,n_i\,n_j \quad Q_n = M_{ij,i}\,n_j\,,
+\end{align}
+und $\vek n = \{n_1, n_2\}^T$  und $\vek t = \{t_1, t_2\}^T$ sind der Normalen- und Tangentenvektor auf dem Rand (jeweils mit der L\"{a}nge 1).
+
+Das System (\ref{Eq65}) kann man als die Anwendung eines Operators $\vek A()$ auf das Triple $\vek \Sigma = \{w, \vek K, \vek M\}$ lesen und
+\begin{align}
+<\vek A(\vek \Sigma), \vek  \delta\vek \Sigma> &= \int_{\Omega} (\vek K(w) - \vek K) \dotprod \vek  \delta\vek M \,d\Omega + \int_{\Omega} (\vek C[\vek K] - \vek M)\dotprod  \vek  \delta K \,d\Omega \nn \\
+&+ \int_{\Omega} - \text{div}^2\,\vek M \, \delta w\,d\Omega
+\end{align}
+ist dann die zugeh\"{o}rige \glq Paarung\grq{} mit  $\vek  \delta \vek \Sigma = \{\delta w, \vek  \delta \vek K, \vek  \delta \vek M\}$ als \glq virtueller Verr\"{u}ckung\grq{}.
+
+Die drei Gebietsintegrale in diesem Ausdruck,
+\begin{align}
+a(\vek \Sigma, \vek  \delta\vek \Sigma) &= \int_{\Omega} (\vek K(w) - \vek K) \dotprod \vek  \delta\vek M \,d\Omega + \int_{\Omega}\vek C[\vek K] \dotprod  \hat{\vek K}\,d\Omega \nn \\
+&+ \int_{\Omega} \vek M \dotprod (\vek K(\delta w) - \vek  \delta\vek K) \,d\Omega\,,
+\end{align}
+bilden eine symmetrische Bilinearform und so werden wir auf die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek \Sigma,\vek  \delta\Sigma) &= <\vek A(\vek \Sigma),\vek  \delta\vek \Sigma> + \int_{\Gamma} (V_n\,\delta w - M_n\,\frac{\partial \delta w}{\partial n}) \,ds + [[M_{nt}\,\delta w]] \nn \\
+&- a(\vek \Sigma, \vek  \delta\vek \Sigma) = 0
+\end{align}
+gef\"{u}hrt.
+
+Das Symbol
+\begin{align}
+[[M_{nt}\,\delta w]] = \sum_i\,F_i\,\delta w(\vek x_i)
+\end{align}
+steht f\"{u}r die virtuellen Arbeit der Eckkr\"{a}fte $F_i$, die sich ja aus den Spr\"{u}ngen des Torsionsmoment $M_{nt}$ in den Ecken $\vek  x_i$ herleiten.
+
+
+Das System $\vek A(\vek \Sigma)$ f\"{u}r das Tripel $\vek \Sigma = \{w, \vek K, \vek M\}$ kann man nun auf ein System f\"{u}r die Durchbiegung $w$ allein reduzieren, indem man die Gleichungen (\ref{Eq65}) ineinander einsetzt
+\begin{align}
+ K\,\Delta\Delta w = p\,.
+\end{align}
+Zur linken Seite geh\"{o}rt die Identit\"{a}t
+\begin{align}\label{GPlatte}
+\text{\normalfont\calligra G\,\,}(w,\delta w) &= \underbrace{\int_{\Omega}K\,\Delta \Delta w \,\delta w\,d\Omega + + \int_{\Gamma} (V_n\,\delta w - M_n\,\frac{\partial \delta w}{\partial n}) \,ds + [[M_{nt}\,\delta w]]}_{\delta A_a}\nn \\
+ &- \underbrace{\int_{\Omega} \vek K(w) \dotprod \vek C[\vek K(\delta w)] \,d\Omega}_{\delta A_i} = 0\,,
+\end{align}
+die das {\em Prinzip der virtuellen Verr\"{u}ckungen\/} bzw. das {\em Prinzip der virtuellen Kr\"{a}fte\/} formuliert. Und selbstverst\"{a}ndlich ist
+\begin{align}
+\text{\normalfont\calligra B\,\,}(w,\delta w) = \text{\normalfont\calligra G\,\,}(w,\delta w) - \text{\normalfont\calligra G\,\,}(\delta w,w) = 0
+\end{align}
+der {\em Satz von Betti\/}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Die schubweiche Platte (Reissner-Mindlin)}}\index{Reissner-Mindlin Platte}
+Die Kinematen sind die Durchbiegung und die Verdrehungen um die beiden Achsen
+\begin{align}
+w(\vek x) \qquad \vek \Np = \{\Np_1,\Np_2\}\,.
+\end{align}
+Die zugeh\"{o}rigen Verzerrungen bestimmen sich gem\"{a}{\ss}
+\begin{subequations}
+\begin{align}
+\vek E(\vek \Np) - \vek E &= \vek 0_{\,\,(2 \times 2)} \\
+\vek \varepsilon(\vek \varphi ,w) - \vek \varepsilon &= \vek 0_{\,\,(2)}\,.
+\end{align}
+\end{subequations}
+Die konstitutiven Gleichungen sind
+\begin{subequations}
+\begin{align}
+\vek C[\vek E] - \vek M &= \vek 0_{\,\,(2 \times 2)}  \\
+a\,\vek \varepsilon - \vek q = \vek 0_{\,\,(2)}
+\end{align}
+\end{subequations}
+und die Gleichgewichtsbedingungen lauten
+\begin{subequations}
+\begin{align}
+- \text{div}\,\vek M + \vek q = b\,\nabla\,p_{\,\,(2)} \\
+- \text{div}\,\vek q = p_{\,\,(1)}\,.
+\end{align}
+\end{subequations}
+Es ist
+\begin{align}
+\vek E(\vek \varphi ) &= \left[ \barr {r @{\hspace{4mm}}r  }
+      \varphi_1,_1 & \frac{1}{2}\,(\varphi_1,_2 + \varphi_2,_1) \\
+      \text{sym.} & \varphi_2,_2 \\
+     \earr \right] \qquad \vek \varepsilon(\vek \varphi ,w) = \left[ \barr {r }
+      \varphi_1 + w,_1 \\
+      \varphi_2 + w,_2
+     \earr \right]
+\end{align}
+und
+\begin{align}
+ \vek C[\vek E] = K\,(1 - \nu)\,\vek E + \nu\,K\,(\text{tr}\,\vek E)\,\vek I\,.
+\end{align}
+Die Parameter lauten
+\begin{align}
+K = \frac{E\,h^3}{12\,(1 - \nu^2)} \qquad a = K\,\frac{1 - \nu}{2}\,\bar{\lambda}^2 \qquad b = \frac{\nu}{1 - \nu}\,\frac{1}{\bar{\lambda}^2} \qquad \bar{\lambda}^2 = \frac{10}{h^2}\,.
+\end{align}
+Setzt man die Gleichungen ineinander ein, dann erh\"{a}lt man das folgende Differentialgleichungssystem f\"{u}r die drei Kinematen $w, \Np_1, \Np_2$
+\begin{subequations}
+\begin{align}
+- \text{div}\,\vek C[\vek E(\vek \varphi )] + a\,\vek \varepsilon(\vek \varphi, w) &= b\,\nabla\,p_{\,\,(2)} \\
+- \text{div}\,(a\,\vek \varepsilon(\vek \varphi ,w)) = p_{\,\,(1)}\,.
+\end{align}
+\end{subequations}
+Zu diesem System geh\"{o}rt die Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(\vek \varphi ,w; \hat{\vek \varphi} ,\hat{w}) &= \!\!\int_{\Omega} [- \text{div}\,\vek C[\vek E(\vek \varphi )] \dotprod \hat{\vek \varphi } - a\,\text{div}(\vek \varepsilon(\vek \varphi ,w)\,\hat{w}\,d\Omega \nn \\
+& \!\!+ \int_{\Gamma} (\vek C[\vek E(\vek \varphi )]\,\vek n \dotprod  \vek \varphi + a\,\vek \varepsilon(\vek \varphi ,w) \dotprod \vek n\,\hat{w}\,)ds
+- a(\vek \varphi, w; \hat{\vek \varphi }, \hat{w}) = 0
+\end{align}
+mit der symmetrischen Bilinearform
+\begin{align}
+a(\vek \varphi, w; \vek  \delta \vek \varphi , \delta w) = \int_{\Omega} (\vek C[\vek E(\vek \varphi )] \dotprod  \vek E(\vek  \delta\vek \varphi ) + a\,\vek \varepsilon (\vek \varphi , w) \dotprod  \vek \varepsilon(\vek  \delta \vek \varphi , \delta w) \,d\Omega\,.
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Nichtlineare Formulierungen}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Das wichtigste vorweg: Auch bei nichtlinearen Problemen gibt es eine erste Greensche Identit\"{a}t
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\delta u) = a_u(u,\delta u) - (p, \delta u) = 0 \,,
+\end{align}
+die als Vorlage f\"{u}r die FE-L\"{o}sung $u_h = \sum_j u_j\,\Np_j(x)$ dient
+\begin{align}
+a_u(u_h,\Np_i) - (p,\Np_i) = 0 \qquad i = 1,2, \ldots, n\,.
+\end{align}
+Entscheidend bei einer nichtlinearen Formulierung ist, dass man die Gleichungen, also die drei Schritte  $u \to \varepsilon \to \sigma \to p$, im Griff hat. Ist dieser Pfad verstanden und richtig gesetzt, dann ergibt sich die erste Greensche Identit\"{a}t von selbst und dann ist der Rest nur noch Algebra und ein schneller Computer.
+
+Auf der rechten Seite der Gleichung
+\begin{align}
+\vek k(\vek u) = \vek f
+\end{align}
+steht weiterhin die Arbeit der Belastung $p$ auf den Wegen $\Np_i $, aber die linke Seite ist nicht mehr die dazu \"{a}quivalente Arbeit $\vek f_h$ der {\em shape forces\/}, sondern es ist das Inkrement der inneren Arbeit auf den Wegen $\Np_i $. Man bewegt sich sozusagen aus dem Gleichgewichtspunkt $\vek u $ probeweise in eine Richtung $\Np_i$ und kontrolliert, ob dabei der Zuwachs an innerer Energie gleich dem Zuwachs an \"{a}u{\ss}erer Arbeit ist.
+
+Das ist wie in der Schule. Wenn die Funktion $F(x) = f(x) - p \cdot x $ im Punkt $x $ ein Minimum hat, dann muss in erster N\"{a}herung das Inkrement $df = f'(x)\,dx$ bei einer St\"{o}rung $dx $  gleich dem Inkrement von $p$ sein, $f'(x)\,dx = p\,dx$.
+
+Dass die Eintr\"{a}ge $k_i$ des Vektors $\vek k(\vek u)$ die Inkremente der inneren Energie sind, liest man an der ersten Greenschen Identit\"{a}t ab
+\begin{align}
+\text{\normalfont\calligra G\,\,}(u,\Np_i) = a_u(u,\Np_i) - (p, \Np_i) \equiv f'(x)\,dx - p\,dx = 0\,,
+\end{align}
+denn bei nichtlinearen Problemen steht dort nicht $ a(u,\Np_i)$, sondern die {\em Gateaux-Ableitung\/} $a_u(u,\Np_i)$ der inneren Energie im Punkt $u$ in  Richtung von $\Np_i$, also sinngem\"{a}{\ss} das $f'(x)\,dx$ mit $dx = \Np_i$.
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die partielle Integration des Arbeitsintegrals $(L\,u,\Np_i)$ f\"{u}hrt bei nichtlinearen Problemen automatisch(!) auf diese inkrementelle Betrachtungsweise.}}\\
+Anlass, sich einmal mehr zu wundern, wieviel Intelligenz in die partielle Integration eingebaut ist\footnote{$L$ = der Differentialoperator des Problems}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Nichtlinearer Stab}}}\index{nichtlinearer Stab}\label{Korrektur5}
+Zum Einstieg betrachten wir den nichtlinearen Stab, \cite{Ha5} S. 404.
+\begin{subequations}
+\begin{alignat}{3}
+\hspace{-2cm} \mbox{Verzerrungen}\qquad && \varepsilon - (u' + \frac{1}{2}\, \,(u')^2) &= 0  \\
+\hspace{-2cm} \mbox{Materialgesetz}\qquad &&\sigma - E\,\varepsilon  &= 0 \\
+\hspace{-2cm} \mbox{Gleichgewicht}\qquad&&-N' &= p&
+\end{alignat}
+\end{subequations}
+mit der Normalkraft
+\begin{align}
+N = A\,(\sigma + u'\,\sigma) \,.
+\end{align}
+Diese Definition stimmt sinngem\"{a}{\ss} mit der Definition $\vek S + \vek \nabla \vek u\, \vek S$ bei der Scheibe \"{u}berein, s. S. \pageref{Eq54}.
+
+Partielle Integration des Arbeitsintegrals
+\begin{align}
+\int_0^{\,l} - N'\,\delta u\,dx = -[N\,\delta u]_0^l+ \int_0^{\,l} N \,\delta u'\,dx = 0
+\end{align}
+ergibt die zugeh\"{o}rige erste Greensche Identit\"{a}t
+\begin{align} \label{Eq105}
+\text{\normalfont\calligra G\,\,}(u,\delta u) = \int_0^{\,l} - N'\,\delta u\,dx + [N\,\delta u]_0^l- \underbrace{\int_0^{\,l} \varepsilon_u(\delta u)\,\sigma\,A\,dx}_{a_u(u, \delta u)} = 0
+\end{align}
+wobei
+\begin{align}
+\varepsilon_u(\delta u) = (1 + u')\,\delta u'
+\end{align}
+die Gateaux Ableitung
+\begin{align}
+\frac{d}{d\eta} \varepsilon(u + \eta \,\delta u)|_{\eta = 0}
+\end{align}
+von $\varepsilon(u)$ in Richtung von $\delta u$ ist.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\subsection{Finite Elemente}}}
+Zu bestimmen sei zum Beispiel die L\"{a}ngsverschiebung $u(x) $ eines links festgehaltenen Stabes, $u(0) = 0$, mit einem freien Ende, $N(l) = 0$.
+
+F\"{u}r die FE-L\"{o}sung machen wir den Ansatz
+\begin{align}
+u_h = \sum_j u_j\,\Np_j(x)
+\end{align}
+und bestimmen die Knotenverschiebungen $u_i $ so, dass
+\begin{align}
+a_u(u_h,\Np_i) - \int_{0}^{l} p\,\Np_i\,dx = k_i(\vek u) - f_i = 0 \qquad i = 1,2, \ldots, n\,.
+\end{align}
+Diese $n$ Gleichungen bilden ein System\footnote{Der Vektor $\vek k(\vek u)$ h\"{a}ngt von dem Vektor $\vek u$ ab. In der linearen Statik ist $\vek k(\vek u) = \vek K\,\vek u$} von $n$ nichtlinearen Gleichungen $\vek k(\vek u) = \vek f$, das iterativ mit dem {\em Newton-Verfahren\/}\index{Newton-Verfahren} gel\"{o}st wird
+\begin{align}\label{Eq184}
+\vek K_T(\vek u_i)\,(\vek u_{i+1} - \vek u_i) = \vek f - \vek k(\vek u_i)\,,
+\end{align}
+oder
+\begin{align}
+\vek u_{i+1}= \vek u_i + \vek K_T^{-1}(\vek u_i)\,(\vek f - \vek k(\vek u_i))\,.
+\end{align}
+Schreibt man das Newton-Verfahren f\"{u}r eine Gleichung $g(x) = k(x) - f = 0$ daneben
+\begin{align}
+x_{i+1} = x_i - \frac{g(x_i)}{g'(x_i)} \qquad \text{oder} \qquad g'(x_i)\,(x_{i + 1} -x_i) = f - k(x_i)\,,
+\end{align}
+dann erkennt man, wie (\ref{Eq184}) entsteht. Die tangentiale Steifigkeitsmatrix $\vek K_T $
+entspricht dem $g'$, ist also die Ableitung von $\vek k(\vek u)$ nach den $u_i$ (genauer, ist der Gradient von $\vek k(\vek u)$).\index{tangentiale Steifigkeitsmatrix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Geometrisch nichtlinearer Balken}}
+Die Biegesteifigkeit $EI$ und L\"{a}ngssteifigkeit $EA$ l\"{a}ngs des Balkens sind konstant und die Streckenlasten lauten $p_x$ und $p_z$. Die Kinematen sind die L\"{a}ngsverschiebung $u$ und die Durchbiegung $w$, die man zu $\vek v = \{u, w\}^T$ zusammenfassen kann,
+\begin{subequations}
+\begin{alignat}{3}
+&& \varepsilon &= u' + \frac{1}{2}\,(w')^2 &\quad \kappa &= w''\\
+&&N &= EA\,\varepsilon & \quad M &= - EI\,\kappa \\
+&&- N' &= p_x& \quad - M'' - (N\,w')' &= p_z\,.
+\end{alignat}
+\end{subequations}
+Daraus ergibt sich das folgende System von Differentialgleichungen f\"{u}r $u$ und $w$
+\begin{subequations}
+\begin{align} \label{Eq98}
+- EA\,(u' + \frac{1}{2}\, (w')^2)' &= p_x \\
+EI\,w^{IV} - (EA\,(u' + \frac{1}{2}\, (w')^2)\,w')' &= p_z\,,
+\end{align}
+\end{subequations}
+oder in einer etwas \glq transparenteren\grq{} Fassung
+\begin{subequations}
+\begin{align}
+- N'\, &= p_x \\
+EI\,w^{IV} - (N\,w')' &= p_z\,.
+\end{align}
+\end{subequations}
+Es sei
+\begin{align}
+N = N(\vek v) = EA\,(u' + \frac{1}{2}\, (w')^2)\,, \qquad M = M(w) = - EI\,w''\,,
+\end{align}
+und $\vek L\,\vek v$ bezeichne die linke Seite des obigen Systems, dann l\"{a}sst sich das Arbeitsintegral
+mittels partieller Integral wie folgt umschreiben
+\begin{align}
+\int_0^{\,l} \vek L\,\vek v \dotprod \vek \delta\,\vek v\,dx &= \int_0^{\,l} ((Eq_1) \cdot \delta u + (Eq_2) \cdot \delta w)\, dx \nn \\
+&= \int_0^{\,l} [(- N'\,\delta u - (M'' + (N\,w')')\,\delta w]\,dx \nn \\
+&= - [ N\,\delta u + (M' + N\,w')\,\delta w - M\,\delta w']_{@0}^{@l} + a_{\vek v}(\vek v, \vek \delta\,\vek v)\,,
+\end{align}
+wobei
+\begin{align}
+a_{\vek v}(\vek v, \vek \delta\,\vek v) &= \int_0^{\,l} (- M \,\delta w'' + N\,(\delta u' + w'\, \delta w'))\,dx \nn \\
+&= \int_0^{\,l} (\frac{M(w)\,M_w(\delta w)}{EI} + \frac{N(\vek v)\,N_{\vek v}(\vek \delta \vek v)}{EA})\,dx
+\end{align}
+das Inkrement der Wechselwirkungsenergie ist, das wir im zweiten Teil unter Benutzung der {\em Gateaux-Ableitungen\/} von $M$ bzw. $N$,
+\begin{align}
+M_w(\delta w) = [\frac{d}{d\varepsilon} M(w + \varepsilon\,\delta w)]_{|_{\varepsilon} = 0} \qquad N_{\vek v}(\vek \delta \vek v) = [\frac{d}{d\varepsilon} N(\vek v + \varepsilon\,\vek \delta \vek v)]_{|_{\varepsilon} = 0}
+\end{align}
+angeschrieben haben. Die erste Greensche Identit\"{a}t lautet somit
+\begin{align}
+G(\vek v, \vek  \delta \vek  v) &= \int_0^{\,l} \vek L\,\vek u \dotprod \vek \delta u\,dx +  [ N\,\delta u + (M' + N\,w')\,\delta w - M\,\delta w']_{@0}^{@l} \nn \\
+&- a_{\vek v}(\vek v, \vek \delta\,\vek v) = 0\,.
+\end{align}
+Auf diesen Gleichungen beruht die Theorie II. Ordnung bei Balken, nur ist es so, dass man von einer konstanten Normalkraft $N$ ausgeht, die zudem als bekannt angenommen wird, so dass sich das System (\ref{Eq98}) auf
+\begin{subequations}
+\begin{align}
+- EA\,N'\, &= 0 \\
+EI\,w^{IV} - N\,w'' &= p_z
+\end{align}
+\end{subequations}
+reduziert, also in dem letzten Ausdruck die bekannte Gleichung der Theorie II. Ordnung \"{u}brig bleibt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Geometrisch nichtlineare Kirchhoffplatte}}
+Die Formulierung verl\"{a}uft im Grunde wie bei dem geometrisch nichtlinearen Balken, nur sind noch mehr Gleichungen anzuschreiben. Wir verweisen daher interessierte Leser auf  S. 325-328 in \cite{Ha1}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Nichtlineare Elastizit\"{a}tstheorie}}
+In dem Triple $\{\vek u,\vek E, \vek S\}$ ist der Tensor $\vek E$ der Green-Lagrange Verzerrungstensor\index{Green-Lagrange Verzerrungstensor} und $\vek S$ ist der zweite Piola-Kirchhoff Spannungstensor\index{zweiter Piola-Kirchhoff Spannungstensor}. Wir nehmen an, dass das Material hyperelastisch\index{hyperelastisches Material} ist, d.h. es gibt eine Verzerrungsenergiefunktion $\vek W$ derart, dass $\vek S = \partial \vek W/\partial \vek E$.
+
+In der Gegenwart von Volumenlasten $\vek
+p$ gen\"{u}gt der elastische Zustand $ \vek \Sigma = \{\vek u,\vek E, \vek S\}$ in jedem Punkt
+$\vek x$ des unverformten K\"{o}rpers dem System
+\begin{subequations}\label{E4NlS}
+\begin{alignat}{3}
+\vek E(\vek u) - \vek E &= \vek 0 &\qquad \frac{1}{2}\,(u_i,_j + u_j,_i + u_k,_i\,u_k,_j)
+-
+\varepsilon_{ij} &= 0  \\
+\vek W'(\vek E) - \vek S &= \vek 0 &\qquad \frac{\partial W}{\partial \varepsilon_{ij}} -
+\sigma_{ij}&= 0 \\
+- \mbox{div}(\vek S + \nabla\,\vek u\,\vek S) &= \vek p &\qquad - (\sigma_{ij } +
+u_i,_k\,\sigma_{kj}),_j &= p_i
+\end{alignat}
+\end{subequations}
+mit passenden Verschiebungsrandbedingungen $\vek u = \bar{\vek u}$ auf dem Teil
+$\Gamma_D$ des Randes und Spannungsrandbedingungen $\vek t(\vek S,\vek u) =
+\bar{\vek t}$ auf dem anderen Teil $\Gamma_N$ des Randes wobei
+\beq
+\vek t(\vek S,\vek u) := (\vek S + \nabla\vek u\,\vek S)\,\vek n
+\eeq
+der Spannungsvektor in einem Randpunkt mit der nach Au{\ss}en gerichteten Randnormalen $\vek n$ ist.
+
+Symmetrische Spannungstensoren $\vek S$ gen\"{u}gen der Identit\"{a}t
+\begin{align}
+\int_{\Omega} - \mbox{div} (\vek S &+ \nabla\,\vek u\,\vek S)\dotprod \vek \delta \vek u
+\,d\Omega \nn \\
+&= - \int_{\Gamma} \vek t(\vek S,\vek u) \dotprod \vek \delta \vek u\,ds + \int_{\Omega}\vek
+E_{\vek u}(\vek \delta \vek u) \dotprod \vek S\,d\Omega\,,
+\end{align}
+wobei
+\beq
+\vek E_{\vek u}(\vek \delta \vek u) := \frac{1}{2}\,(\nabla\vek \delta \vek u + \nabla\vek \delta \vek u^T
++ \nabla \vek u^T\,\nabla\,\vek \delta \vek u + \nabla\,\vek \delta \vek u^T\,\nabla\,\vek u)
+\eeq
+die Gateaux Ableitung \index{Gateaux Ableitung} des Tensors $\vek E(\vek u)$ ist,
+\beq
+\frac{d}{d\varepsilon} [\vek E(\vek u + \varepsilon\,\vek \delta \vek u)]_{|_{\varepsilon = 0}}
+=\vek E_{\vek u}(\vek \delta \vek u)\,.
+\eeq
+Wir k\"{o}nnen so die erste Greensche Identit\"{a}t des Operators $\vek A(\vek \Sigma )$, also des Systems (\ref{E4NlS}), anschreiben
+\beq\label{E4Gfa}
+\text{\normalfont\calligra G\,\,}(\vek \Sigma ,\vek \delta \vek \Sigma) = \underbrace{\langle\vek
+A(\vek \Sigma ),\vek  \delta \vek \Sigma \rangle +\int_{\Gamma} \vek t(\vek S,\vek u) \dotprod
+\vek \delta \vek u\,ds }_{\delta A_a} - \underbrace{\!\!\!\!
+\phantom{\int_{\Gamma}}a_{\vek \Sigma}(\vek \Sigma,\vek  \delta \vek \Sigma)}_{\delta A_i} = 0\,,
+\eeq
+wobei
+\begin{align}\label{E4Similar}
+\langle A(\vek \Sigma ),\vek  \delta \vek \Sigma \rangle :&= \int_0^{\,l} (\vek E(\vek u) - \vek
+E) \dotprod \vek  \delta\vek S \,d\Omega +
+\int_{\Omega} (\vek C[\vek E] - \vek S)\dotprod \vek  \delta\vek E\,d\Omega \nn \\
+&+ \int_{\Omega} - \mbox{div}\,\vek S \dotprod \vek \delta \vek u\,d\Omega
+\end{align}
+und
+\begin{align}
+a_{\vek \Sigma}(\vek \Sigma ,\vek  \delta \vek \Sigma) &= \int_{\Omega} (\vek E(\vek u) - \vek E) \dotprod
+\vek  \delta\vek S\,d\Omega \nn \\&+ \int_{\Omega} (\vek W'(\vek E) - \vek S)\dotprod
+\vek  \delta\vek E\,d\Omega + \int_{\Omega} \vek E_{\vek u}(\vek \delta \vek u)\dotprod \vek S
+\,d\Omega\,.
+\end{align}
+Bei einer reinen Verschiebungsformulierung, bei der alles aus $\vek u$ abgeleitet wird, $\vek \Sigma = \{\vek u, \vek E(\vek u),
+\vek W'(\vek E(\vek u))\}$, und mit der Randbedingung $\vek \delta \vek u = \vek 0$ auf $\Gamma_D$, reduziert sich das System
+(\ref{E4Gfa}) auf
+\beq\label{E4Gfb}
+\text{\normalfont\calligra G\,\,}(\vek u, \vek \delta \vek u) = \int_{\Omega} \vek p \dotprod \vek \delta \vek u\,d\Omega +
+\int_{\Gamma_N}  \bar{\vek t} \dotprod \vek \delta \vek u\,ds - \int_{\Omega} \vek E_{\vek
+u}(\vek \delta \vek u) \dotprod \vek S\,d\Omega = 0\,,
+\eeq
+wobei $\vek S = \vek W'(\vek E(\vek u))$.
+
+Die FE-L\"{o}sung $\vek u_h = \sum_j u_j\,\vek \Np_j$ bestimmt man aus, $\vek S_h = \vek W'(\vek E(\vek u_h))$,
+\begin{align}
+\int_{\Omega} \vek p \dotprod \vek \delta \vek \Np_i\,d\Omega +
+\int_{\Gamma_N}  \bar{\vek t} \dotprod \vek \delta \vek \Np_i\,ds - \int_{\Omega} \vek E_{\vek
+u}(\vek \delta \vek \Np_i) \dotprod \vek S_h\,d\Omega = 0 \qquad i = 1,2,\ldots n\,.
+\end{align}
+Alternativ kann man nat\"{u}rlich andere Variationsformulierungen aus dem Grundsystem (\ref{E4Gfa}) herleiten, etwa gemischte Verfahren bei denen die Verschiebungen $\vek u$ und die Spannungen, also der Tensor $\vek S$, als unabh\"{a}ngige Gr\"{o}{\ss}en behandelt werden, \cite{Ha1}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\textcolor{sectionTitleBlue}{\section{Der Linearisierungspunkt}}}
+Arbeit als das Produkt von {\em Kraft und Weg\/}, ist eine distributive Verkn\"{u}pfung, wie die \"{U}berlagerung von Funktionen, das $L_2$-Skalar\-pro\-dukt\index{$L_2$-Skalarprodukt},
+\begin{align}
+\int_0^{\,l} p\,(w_1 + w_2)\,dx = \int_0^{\,l} p\,w_1\,dx + \int_0^{\,l} p\,w_2\,dx \,.
+\end{align}
+Dasselbe gilt f\"{u}r die Differentialgleichungen der linearen Statik
+\begin{align}
+-EA\,(u_1 + u_2)'' = -EA\,u_1'' - EA\,u_2''\,.
+\end{align}
+aber nicht f\"{u}r eine nichtlineare Differentialgleichung wie
+\begin{align}
+-EA\,u''\,(1 + u') = p\,.
+\end{align}
+Sie ist auch nicht selbstadjungiert und daher gibt es keinen {\em Satz von Betti\/} und das enthebt uns des Problems dar\"{u}ber nachdenken zu m\"{u}ssen, wie denn eine Einflussfunktion f\"{u}r eine nichtlineare Gleichung aussehen k\"{o}nnte.
+
+Aber im Linearisierungspunkt des Newton-Algorithmus kann man Einflussfunktionen aufstellen und das Verfahren des {\em goal-oriented refinement\/} mit Erfolg anwenden. Uns fehlt hier leider der Raum auf diese Dinge n\"{a}her einzugehen, sie sind auch sehr technisch und im Bauwesen nicht unbedingt das prim\"{a}re Problem, deswegen sei an dieser Stelle auf die Literatur verwiesen, \cite{Ha1}, \cite{Ha6}.
+
+
+F\"{u}r weitere Beispiele zu dem Thema nichtlineare Probleme, erste Greensche Identit\"{a}t und finite Elemente sei auf \cite{Ha5}, Chapter 4.21, verwiesen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Potentialtheorie}}\index{Potentialtheorie}
+Die Potentialtheorie besch\"{a}ftigt sich mit den Eigenschaften der Felder, die von Punktladungen erzeugt werden. Das Charakteristikum dieser Felder
+\begin{align}
+ g(\vek y, \vek x) = - \frac{1}{2\,\pi}\ln r \qquad \text{2-$D$} \qquad g(\vek y, \vek x) = \frac{1}{4\,\pi}\frac{1}{r} \qquad \text{ 3-$D$} \qquad
+\end{align}
+ist, dass sie in allen Punkten $\vek y \neq \vek x$  L\"{o}sungen der {\em Laplace Gleichung\/} sind
+\begin{align}
+\Delta g = \frac{\partial^2 g}{\partial y_{1}^2 } +\frac{\partial^2 g}{\partial y_{2}^2 } = 0\,.
+\end{align}
+Wir differenzieren hier nach der Laufvariablen $\vek y = (y_1,y_2)$.
+
+Mit diesen {\em Fundamentall\"{o}sungen\/}\index{Fundamentall\"{o}sung} kann man Integraldarstellungen f\"{u}r beliebige Funktionen $u$ herleiten
+\begin{align} \label{U207}
+u(\vek x) = &\int_{\Gamma} [g(\vek y, \vek x) \,\frac{\partial u(\vek y)}{\partial n} - \frac{\partial g(\vek y, \vek x)}{\partial n}\,u(\vek y)]\,ds_{\vek y} + \int_{\Omega} g(\vek y, \vek x)\,(- \Delta u(\vek y))\,\,d\Omega_{\vek y}\,,
+\end{align}
+wenn man von den Funktionen den Randwert $u$ und die Normalableitung $\partial u/\partial n = \nabla u \dotprod \vek n$ auf dem Rand $\Gamma$ kennt und im Feld $\Omega$ die Summe der zweiten Ableitungen $\Delta u = u,_{y_1 y_1} + u,_{y_2 y_2}$.
+
+Worauf wir an dieser Stelle hinaus wollen ist, dass sich das Gleichungssystem $\vek K\,\vek u_c = \vek f + \vek f^+$ auch aus dieser Gleichung herleiten l\"{a}sst.
+
+Wir stellen uns eine Membran vor, die mit einer Kraft $H_a$  vorgespannt wird und unter Winddruck $p$ steht. Die Fundamentall\"{o}sung hat in diesem Fall die Gestalt
+\begin{align}
+g(\vek y, \vek x) = - \frac{1}{2\,\pi} \,\frac{1}{H_a}\,\ln\,r\,.
+\end{align}
+In einem Teil $\Omega_b$ im Innern der Membran habe die Vorspannung jedoch davon abweichend den Wert $H_b$ (wie so etwas zu realisieren sei, interessiert hier nicht). Technisch bedeutet dies, dass die Biegefl\"{a}che $u$ den beiden Differentialgleichungen
+\begin{align}
+- H_a\,\Delta u = p \quad \text{in $\Omega_a$} \qquad - H_b\,\Delta u = p \quad \text{in $\Omega_b$}
+\end{align}
+gen\"{u}gt.
+
+Man kann nun zeigen\footnote{\cite{Ha3}, S. 139, dort findet man die genauen Details}, dass man in diesem Fall die Einflussfunktion (\ref{U207}) um ein Integral erweitern muss
+\begin{align}
+u(\vek x) = \ldots + \int_{\Gamma_i} g_i(\vek y, \vek x)\,t(\vek y)\,ds_{\vek y} \qquad g_i(\vek y, \vek x) = - \frac{1}{2\,\pi}\frac{H_b - H_a}{H_a\,H_b}\,\ln\,r\,.
+\end{align}
+Hier ist $\Gamma_i$ das {\em interface\/}, die Grenzlinie zwischen $\Omega_a$ und $\Omega_b$ und
+\begin{align}
+t(\vek y) = H_a\,\frac{\partial u}{\partial n}(\vek y) = -  H_b\,\frac{\partial u}{\partial n}(\vek y)
+\end{align}
+sind die gegengleichen Zugkr\"{a}fte auf $\Gamma_i$, einmal aus der Sicht von $\Omega_a$ bzw. aus der Sicht von $\Omega_b$; die Normalenvektoren $\vek n$ weisen jeweils in das andere Gebiet. Weil aber die Differenz $g_a\,t - g_b\,t =: g_i\,t$ nicht null ist, wirkt auf $\Gamma_i$ die mit dem Kern $g_i$ gewichtete Zugkraft $t$ als \"{a}u{\ss}ere Kraft.
+
+Die Zugkr\"{a}fte $t$ auf $\Gamma_i$ f\"{u}hren, wenn man die Durchbiegung der Membran mit finiten Elementen ann\"{a}hert, genau auf die $f_i^+$
+\begin{alignat}{2}
+\vek K\,\vek u &= \vek f \qquad &&\text{\"{u}berall die gleiche Vorspannung $H_a$} \nn \\
+\vek K\,\vek u_c &= \vek f + \vek f^+ \qquad &&\text{Vorspannung $H_a$ in $\Omega_a$ und $H_b$ in $\Omega_b$} \nn
+\end{alignat}
+Man sieht die $f_i^+$ sehr sch\"{o}n in Abb. \ref{U421} S. \pageref{U421}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\section{Erg\"{a}nzungen}}
+Die weiteren Texte sollen die Ausf\"{u}hrungen im vorderen Teil des Buchs abrunden und vertiefen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Einzelkraft in einer Scheibe}}\label{BeweisP}
+Das folgende ist eine Erg\"{a}nzung zu dem Text auf S. \pageref{PPX}. Greift eine Einzelkraft in einer Scheibe an, dann kann man sich das wie folgt zurechtlegen. Man l\"{a}sst die Einzelkraft in einer unendlichen Scheibe wirken (LF 1) und addiert zu diesem Lastfall einen zweiten Lastfall (LF 2) derart, dass die Randbedingungen an der endlichen Scheibe von den beiden L\"{o}sungen zusammen eingehalten werden.
+
+Die Spannungen aus dem LF 1 werden im Aufpunkt singul\"{a}r, aber die aus dem LF 2 sind endlich, sie sind beschr\"{a}nkt, und daher tendieren auch die Integrale der Spannungen aus dem LF 2 \"{u}ber sich immer enger zusammenschn\"{u}rende Kreise um den Aufpunkt gegen null, weil der Umfang der Kreise ja schrumpft. Wir m\"{u}ssen also nur das Integral der singul\"{a}ren Spannungen betrachten.
+
+Das Spannungsfeld in der unendlich ausgedehnten Scheibe kennt man genau. Wenn in einem Punkt $\vek x$ eine Kraft $\vek e_i$ angreift, dann hat der Spannungsvektor in einem Punkt $\vek y$ mit der Schnittnormalen $\vek \nu = \{\nu_1, \nu_2\}^T$ die Komponenten, \cite{Ha3}, Glg. (4.7),
+\begin{align}\label{Eq122}
+T_{ij}(\vek y,\vek x) &= - \frac{1}{4\,\pi\,(1-\nu)\,r}\,[\frac{\partial r}{\partial \nu}(( 1- 2\,\nu)\,\delta_{ij} + 2\,r,_i\,r,_j) \nn\\
+&- (1- 2\,\nu) (r,_i \,\nu_j(\vek y) - r,_j\,\nu_i(\vek y))]
+\end{align}
+mit
+\begin{align}
+r,_i := \frac{\partial r}{\partial y_i} =  \frac{y_i - x_i}{r}\,.
+\end{align}
+Liegt der Punkt $\vek y$ auf einem Kreis mit Radius $r$ um $\vek x$, dann sind die $\nu_i$ und die $r,_i$ gleich
+\begin{align}
+\nu_1 = r,_1 = \cos\,\Np \qquad \nu_2 = r,_2 = \sin\,\Np\,,
+\end{align}
+und somit gilt auf dem Kreis
+\begin{align}
+\frac{\partial r}{\partial \nu} = \nabla r \dotprod \vek \nu = \left [\barr{c}  \cos\,\Np \\  \sin\,\Np\earr \right ] \dotprod  \left [\barr{c}  \cos\,\Np \\  \sin\,\Np\earr \right ] = \cos^2\,\Np + \sin^2\,\Np = 1\,.
+\end{align}
+Da die Kraft in $x$-Richtung wirkt, setzen wir in (\ref{Eq122}) $i = 1$, und  so hat der Spannungsvektor auf dem Kreis die beiden Komponenten
+\begin{align}
+t_x &= T_{11} = - \frac{1}{4\,(1-\nu)\, \pi\,r} \cdot [(1- 2\,\nu) + 2\,\cos^2\,\Np] \\
+t_y &= T_{12} = - \frac{1}{4\,(1-\nu)\,\pi\,r} \cdot [2\,\cos \Np \,\sin\,\Np]
+\end{align}
+und die Integration ergibt
+\begin{align}
+\int_0^{\,2\,\pi} t_x\,d\Np = -\frac{1}{r} \qquad \int_0^{\,2\,\pi} t_y\,d\Np = 0\,.
+\end{align}
+\begin{remark}
+Gelegentlich gibt es auch einen Richtungsvektor im Aufpunkt $\vek x$, der dann $\vek n$ hei{\ss}t, und deshalb nennen wir, um die Vektoren auseinanderzuhalten, den Normalenvektor im Integrationspunkt $\vek y$ hier $\vek \nu$ und nicht $\vek n$ wie auf S. \pageref{Ergebnis}.
+\end{remark}
+%----------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption[t] \fi
+\includegraphics[width=1.0\textwidth]{\Fpath/U303}
+\caption{Erg\"{a}nzung zu S. \pageref{Footnote1}, Monopol---Dipol---Quadropol---Octopol und finite Differenzen} \label{U303}
+\end{figure}%%
+%----------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Multipole}}\label{Multipole}
+Die Abb. \ref{U303} und der folgende Text ist eine Erg\"{a}nzung zu S. \pageref{Footnote1}. Die Taylorreihe f\"{u}r $w(x)$
+\begin{align}
+w(x) = w(0) + w'(0)\, x + \frac{1}{2}\,w''(0)\,x^2 + \ldots
+\end{align}
+f\"{u}hrt auf die Darstellung
+\begin{align}
+w(x) &= \int_0^{\,l} G_0(y,0)\,p(y)\,dy + \int_0^{\,l} G_1(y,0)\,p(y)\,dy \cdot x \nn \\
+&+ \frac{1}{2}\, \int_0^{\,l} G_2(y,0)\,p(y)\,dy \cdot x^2 + \ldots
+\end{align}
+wenn wir mit $G_1$ und $G_2$ die Einflussfunktionen f\"{u}r $w'$ bzw. $w''$ bezeichnen.
+
+Es ist aber ebenso gut m\"{o}glich, den Kern $G_0(y,x)$ in eine Taylorreihe um den Schwerpunkt $y_s$ der Linienlast zu entwickeln, was dann auf
+\begin{align}
+w(x) &= \int_0^{\,l} G_0(y,x)\,p(y)\,dy \nn\\
+&= G_0(y_s,x) \int_0^{\,l} \,p(y)\,dy + \frac{d}{dy}\, G_0(y_s,x)\int_0^{\,l} \,p(y)\,(y - y_s)\,dy \nn \\
+&+ \frac{1}{2}\,\frac{d^2}{dy^2}\, G_0(y_s,x) \int_0^{\,l} \,p(y)\,(y-y_s)^2\,dy + \ldots
+\end{align}
+f\"{u}hrt, also
+\begin{align}\label{Eq136}
+w(x) &=  G_0(y_s,x)\,R + \frac{d}{dy}\, G_0(y_s,x)\,M + \frac{1}{2}\, \frac{d^2}{dy^2}\, G_0(y_s,x)\,M_2 \,+ \ldots
+\end{align}
+wenn $R$ die Resultierende der Belastung ist, $M (= 0)$ das Moment der Belastung um $y_s$ ist und $M_2$ das \glq quadratische\grq{} Moment der Belastung um $y_s$ ist. Diese Entwicklung nennt man auch die {\em multipole expansion\/} von $w(x)$.
+
+Mit der Anziehungskraft der Erde ist es \"{a}hnlich. Wenn die Erde eine perfekte, homogene Kugel w\"{a}re, dann k\"{o}nnte man die ganze Masse der Erde im Mittelpunkt der Erde konzentrieren und die Satelliten w\"{u}rden auf perfekten Kreisbahnen die Erde umkreisen. So braucht man Computer, um die Bahnkurven der Satelliten zu bestimmen.
+
+An Hand von (\ref{Eq136}) kann man den Fehler absch\"{a}tzen, den man begeht, wenn man z.B. eine Trapezlast durch ihre Resultierende ersetzt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Die Dimension der $f_i$}}\label{Dimensionsbetrachtung}
+Eine oft diskutierte Frage ist, welche Dimension die $f_i$ beim Balken haben
+\begin{align}
+ \frac{EI}{l^3} \left[
+\begin{array}{r r r r}
+ 12 & -6l & -12 &-6l \\
+ -6l & 4l^2 & 6l &2l^2 \\
+ -12 & 6l & 12 & 6l \\
+ -6l &2l^2 &6l &4l^2
+ \end{array}
+  \right]\,\left [\barr{c} u_1 \\ u_2 \\ u_3 \\ u_4 \earr \right ] = \left [\barr{c}  f_1 \\ f_2 \\ f_3 \\ f_4 \earr \right ]\,.
+\end{align}
+Die Antwort lautet -- je nachdem. Wenn man die Eintr\"{a}ge $k_{ij}$ der Steifigkeitsmatrix mit der Formel
+\begin{align}\label{Eq1280}
+k_{ij } = a(\Np_i,\Np_j) = EI\,\int_0^{\,l} \Np_i''\,\Np_j''\,dx = \text{kNm$^2$ } \frac{1}{\text{m}}\frac{1}{\text{m}}\,\text{m} = \text{kNm}
+\end{align}
+berechnet, wie man das bei finiten Elementen tut, dann sind die $k_{ij}$ Arbeiten, die $u_i$ sind dimensionslos und so sind die $f_i$ Arbeiten.
+
+Zur Erl\"{a}uterung von (\ref{Eq1280}): wenn $\Np_1(x)$ die Dimension Meter hat, dann haben die Ableitungen die Dimension
+\begin{align}
+\Np_1(x) \,\,\text{[m]} \qquad \Np_1'\,\,[\,] \qquad\Np_1'' = [\frac{1}{\text{m}}] \qquad\Np_1''' = [\frac{1}{\text{m$^2$}}]\,,
+\end{align}
+weil bei jeder Ableitung $d/dx$ durch Meter dividiert wird.
+
+Man kann die Matrix $\vek K$ aber auch auf statischem Wege herleiten, indem man die  Balkenendkr\"{a}fte und -momente der Einheitsverformungen $\Np_i(x)$ berechnet und diese Werte in die jeweilige Spalte $i$ eintr\"{a}gt. Wenn man so vorgeht, dann sind die $k_{ij}$ der Dimension nach Kr\"{a}fte  bzw. Momente pro Auslenkung/Verdrehung $w_i = 1$ und das Ergebnis, $\vek K\,\vek w = \vek f$, sind dann die Kr\"{a}fte und Momente, die zur Auslenkung $\vek w$ geh\"{o}ren, $\vek K\,\vek w = \vek f$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Transformationen}}
+Mit den Bezeichnungen in Abb. \ref{U371} und der orthogonalen Matrix
+\begin{align}
+\vek T = \left[\barr{r r } \cos \alpha & - \sin \alpha \\ \sin \alpha  & \cos \alpha\earr\right] \qquad \vek T^{-1} = \vek T^T
+\end{align}
+transformiert sich ein Vektor $\vek f = \{f_x, f_z\}^T$ wie folgt
+\begin{align}
+\vek f = \vek T\,\bar{\vek f} \qquad  \bar{\vek f} = \vek T^T\,\vek f\,.
+\end{align}
+%------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.95\textwidth]{\Fpath/U371}
+\caption{ Globales und lokales Koordinatensystem} \label{U371}
+\end{figure}%%
+%------------------------------------------------------------------
+Die auf die Gr\"{o}{\ss}e $4 \times 4$ aufgeweitete Stabmatrix\footnote{Ein oberer Index $e$ bedeutet, dass sich die Matrix $\vek K^e$ auf das lokale Koordinatensystem bezieht.}
+\begin{align}
+\vek K_{4 \times 4}^e = \frac{EA}{\ell} \left[\barr{r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r} 1 & 0 & -1 & 0 \\  0 & 0 & 0 & 0\\ -1 & 0 & 1 &0 \\ 0 & 0 & 0 &0\earr\right]\,,
+\end{align}
+wird die Matrix
+\begin{align}
+\vek K_e = \vek T^T\,\vek K^e \vek T = \frac{EA}{\ell }
+ \left[\barr{r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r} c^2 & - cs & -c^2 & cs \\ - cs & s^2 & cs & -s^2\\ -c^2 & cs & c^2 &-cs \\ cs & -s^2 & -cs &c^2\earr\right]
+\end{align}
+wobei die Transformationsmatrix $\vek T$ die Gestalt
+\begin{align}
+\vek T =
+\left[\barr{r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r} c & - s & 0 & 0 \\ s & c &0 & 0\\0 & 0 & c & -s \\ 0 & 0 & s & c\earr \right]
+ \qquad c = \cos \alpha\,, s = \sin \alpha
+\end{align}
+hat, und aus der $4 \times 4$-Seilmatrix ($S$ = Zugkraft im Seil)
+\begin{align}
+\vek K^e = \frac{S}{\ell} \left[\barr{r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r} 0 & 0 & 0 & 0\\ 0 & 1 & 0 & -1 \\  0 & 0 & 0 & 0\\ 0 & -1 & 0 &1 \earr\right]\,.
+\end{align}
+wird die Matrix
+\begin{align}
+\vek K_e = \vek T^T\,\vek K^e \vek T = \frac{S}{\ell }
+ \left[\barr{r r r r} s^2 &  cs & -s^2 & -cs \\ cs & c^2 & -cs & -c^2\\ -c^2 & -cs & c^2 &cs \\ -cs & -c^2 & cs &c^2\earr\right]\,.
+\end{align}
+Die beiden Matrizen zusammen bilden die Steifigkeitsmatrix eines Kabelelements, s. Abb. \ref{CableElement},
+\bfo
+\vek K_e = \frac{EA}{\ell}\left[
+\begin{array}{r r r r}
+ c^2 & -c\cdot s & -c^2 & c \cdot s \\
+ -c\cdot s & s^2 & c\cdot s & -s^2 \\
+ -c^2 & c\cdot s & c^2 & -c\cdot s \\
+ c\cdot s & -s^2 & -c\cdot s & s^2
+\end{array}
+\right] + \frac{S}{l}\left[
+\begin{array}{r r r r}
+ s^2 & c\cdot s & -s^2 & -c\cdot s \\
+ c\cdot s & c^2 & -c\cdot s & -c^2 \\
+ -s^2 & -c\cdot s & s^2 & c\cdot s \\
+ -c\cdot s & -c^2 & c\cdot s & c^2
+\end{array}
+\right]\,.
+\nn \\
+\efo
+In der Praxis bestimmt man $S$ iterativ. Man rechnet mit einem gesch\"{a}tzten $S$ und kontrolliert, ob die L\"{a}nge der Seilkurve gleich der ungedehnten L\"{a}nge $L$ plus der Dehnung des Seils ist
+\begin{align}
+\int_0^{\,l} ds  = \int_0^{\,l} \sqrt{1 + (w')^2}\,dx = L + \int_0^{\,l} \frac{S}{EA}\,ds\,.
+\end{align}
+%----------------------------------------------------------------------------------------------------------
+\begin{figure}[tbp]
+\centering
+\if \bild 2 \sidecaption \fi
+\includegraphics[width=.69\textwidth]{\Fpath/CABLEELEMENT}
+\caption{Kabelelement}
+\label{CableElement}%
+\end{figure}%
+%----------------------------------------------------------------------------------------------------------
+Die Transformation der Steifigkeitsmatrix des Balkenelements beruht auf der Matrix
+\begin{align}\label{Eq72}
+\vek T =
+\left[\barr{r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r @{\hspace{4mm}}r} c &-s & 0 & 0 & 0 &0\\
+s & c & 0 & 0 & 0 &0\\
+0 & 0 & 1 & 0 & 0 &0\\
+0 & 0 & 0 & c &-s &0\\
+0 & 0 & 0 & s & c &0\\
+0 & 0 & 0 & 0 & 0 &1
+\earr \right]\,.
+\end{align}
+Aus der Matrix
+\begin{align}\label{Eq167}
+\vek K^e = \left[ \barr{c c c c c c} \displaystyle{\frac{EA}{\ell}} & \displaystyle{0} & \displaystyle{0} &-\displaystyle{\frac{EA}{\ell}} & \displaystyle{0} & \displaystyle{0} \vspace{0.2cm}\\
+\displaystyle{0} & \displaystyle{\frac{12\,EI}{\ell^3}} & - \displaystyle{\frac{6\,EI}{\ell^2}} &\displaystyle{0} &- \displaystyle{\frac{12\,EI}{\ell^3}} &  - \displaystyle{\frac{6\,EI}{\ell^2}} \vspace{0.2cm}\\
+\displaystyle{0} & - \displaystyle{\frac{6\,EI}{\ell^2}} & \displaystyle{\frac{4\,EI}{\ell}} & \displaystyle{0}  & \displaystyle{\frac{6\,EI}{\ell^2}} & \displaystyle{\frac{2\,EI}{\ell}}\vspace{0.2cm}\\
+-\displaystyle{\frac{EA}{\ell}} & \displaystyle{0} & \displaystyle{0} &\displaystyle{\frac{EA}{\ell}} & \displaystyle{0} & \displaystyle{0} \vspace{0.2cm}\\
+\displaystyle{0} & -\displaystyle{\frac{12\,EI}{\ell^3}} & \displaystyle{\frac{6\,EI}{\ell^2}} &\displaystyle{0}  &\displaystyle{\frac{12\,EI}{\ell^3}} &   \displaystyle{\frac{6\,EI}{\ell^2}}\vspace{0.2cm}\\
+\displaystyle{0} & - \displaystyle{\frac{6\,EI}{\ell^2}} & \displaystyle{\frac{2\,EI}{\ell}} & \displaystyle{0}  & \displaystyle{\frac{6\,EI}{\ell^2}} & \displaystyle{\frac{4\,EI}{\ell}} \earr \right]
+\end{align}
+wird die Matrix
+\renewcommand{\arraystretch}{2.2}
+
+\begin{multline}\label{Eq166}
+\hspace*{-3mm}  \vek K_e ={\vek  T}^T{\vek  K}^e{\vek  T}= \\[.5cm]
+  \footnotesize{\left[\begin{array}{c c c c c c} c^2\,\frac{\displaystyle
+          EA}{\displaystyle \ell}+s^2\, 12\frac{\displaystyle
+          EI}{\displaystyle \ell^3}&
+        -cs\, \frac{\displaystyle
+          EA}{\displaystyle \ell}+cs\, 12\frac{\displaystyle EI}{\displaystyle
+          \ell^3}&
+        -s\, 6\frac{\displaystyle EI}{\displaystyle
+          \ell^2}& -c^2\,\frac{\displaystyle EA} {\displaystyle
+          \ell}-s^2\, 12\frac{\displaystyle EI}{\displaystyle
+          \ell^3}& cs\,\frac{\displaystyle EA}{\displaystyle
+          \ell}-cs\,12\frac{\displaystyle EI}{\displaystyle \ell^3}
+        &
+        -s\,6\frac{\displaystyle EI}{\displaystyle \ell^2}\\
+        -cs\, \frac{\displaystyle
+          EA}{\displaystyle \ell}+cs\, 12\frac{\displaystyle EI}{\displaystyle
+          \ell^3}&
+        s^2\, \frac{\displaystyle EA}{\displaystyle \ell}+c^2\, 12\frac{\displaystyle EI}{\displaystyle \ell^3}&
+        -c\, 6\frac{\displaystyle EI}{\displaystyle \ell^2}&
+        cs\,\frac{\displaystyle EA} {\displaystyle \ell}-cs\, 12\frac{\displaystyle EI}{\displaystyle \ell^3}&
+        -s^2\,\frac{\displaystyle EA}{\displaystyle \ell}-c^2\,12\frac{\displaystyle EI}{\displaystyle \ell^3}&
+        -c\,6\frac{\displaystyle EI}{\displaystyle \ell^2}\\
+        -s\, 6\frac{\displaystyle EI}{\displaystyle
+          \ell^2}&-c\, 6\frac{\displaystyle EI}{\displaystyle \ell^2}&
+        4\frac{\displaystyle EI}{\displaystyle \ell}&
+        s\, 6\frac{\displaystyle EI}{\displaystyle \ell^2} &
+        c\,6\frac{\displaystyle EI}{\displaystyle \ell^2} &
+        2\frac{\displaystyle EI}{\displaystyle \ell}\\
+        -c^2\,\frac{\displaystyle EA} {\displaystyle
+          \ell}-s^2\, 12\frac{\displaystyle EI}{\displaystyle
+          \ell^3}&cs\,\frac{\displaystyle EA} {\displaystyle \ell}-cs\, 12\frac{\displaystyle EI}{\displaystyle \ell^3}&s\,6\frac{\displaystyle EI}{\displaystyle \ell^2}&
+        c^2\,\frac{\displaystyle EA} {\displaystyle \ell}+s^2\, 12\frac{\displaystyle EI}{\displaystyle \ell^3}&
+        -cs\,\frac{\displaystyle EA}{\displaystyle \ell}+cs\,12\frac{\displaystyle EI}{\displaystyle \ell^3}&
+        s\,6\frac{\displaystyle EI}{\displaystyle \ell^2}\\
+        cs\,\frac{\displaystyle EA}{\displaystyle
+          \ell}-cs\,12\frac{\displaystyle EI}{\displaystyle \ell^3}&-s^2\,\frac{\displaystyle EA}{\displaystyle \ell}-c^2\,12\frac{\displaystyle EI}{\displaystyle \ell^3}&c\,6\frac{\displaystyle EI}{\displaystyle \ell^2}&-cs\,\frac{\displaystyle EA}{\displaystyle \ell}+cs\,12\frac{\displaystyle EI}{\displaystyle \ell^3}&
+        s^2\,\frac{\displaystyle EA}{\displaystyle \ell}+c^2\,12\frac{\displaystyle EI}{\displaystyle \ell^3}&
+        c\,6\frac{\displaystyle EI}{\displaystyle \ell^2}\\
+        -s\,6\frac{\displaystyle EI}{\displaystyle \ell^2}&-c\, 6\frac{\displaystyle EI}{\displaystyle \ell^2}&2\frac{\displaystyle EI}{\displaystyle \ell}&s\,6\frac{\displaystyle EI}{\displaystyle \ell^2}&c\,6\frac{\displaystyle EI}{\displaystyle \ell^2}&
+        4\frac{\displaystyle EI}{\displaystyle \ell}
+      \end{array}\right]}
+\end{multline}
+\\[0.5cm]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{N\"{a}herungen}}
+Bei den Steifigkeitsmatrix f\"{u}r elastisch gebettete Balken und f\"{u}r die Theorie zweiter Ordnung benutzt man in der Praxis oft N\"{a}herungen, indem man die Wechselwirkungsenergien
+\begin{alignat}{2}
+k_{ij} &= \int_0^{\,\ell} (EI\,\Np_i''\,\Np_j'' + c\,\Np_i\,\Np_j)\,dx \qquad &&\text{elast. gebetteter Balken} \\
+k_{ij} &= \int_0^{\,\ell} (EI\,\Np_i''\,\Np_j'' + P\,\Np_i'\,\Np_j')\,dx \qquad &&\text{Th. II. Ordnung}
+\end{alignat}
+mit den vier Balken-Einheitsverformungen $\Np_i(x)$ (\ref{Phi1Bis4}) des normalen Balken formuliert und nicht mit den exakten Einheitsverformungen. F\"{u}r einen elastisch gelagerten Balken ergibt das die Matrix
+\bfo\label{N1}
+\tilde{\vek K}^e = \frac{EI}{\ell^3} \left[
+\begin{array}{r r r r}
+ 12 & -6\,\ell & -12 &-6\,\ell \\
+ -6\,\ell & 4\,\ell^2 & 6\,\ell &2\,\ell^2 \\
+ -12 & 6\,\ell & 12 & 6\,\ell \\
+ -6\,\ell &2\,\ell^2 &6\,\ell &4\,\ell^2
+ \end{array}
+  \right] + \frac{c}{420}
+\left[ \begin{array}{r r r r}
+ 156\,\ell  & -22\,\ell^2  & 54\,\ell  &13 \,\ell^2  \\
+ -22\,\ell^2 & 4\,\ell^3  & -13 \,\ell^2 &-3\,\ell^3  \\
+ 54\,\ell & 13 \,\ell^2 & 156\,\ell  & 22\,\ell^2  \\
+ 13 \,\ell^2 &-3\,\ell^3 &22\,\ell^2 &4\,\ell^3
+ \end{array}  \right]\nn \\
+\efo
+und f\"{u}r einen Druckstab die Matrix
+\bfo\label{IIN} \tilde{ \vek K}^e =
+\frac{EI}{\ell^3}\left[ \begin{array}{r r r r}
+ 12 & -6\ell & -12 &-6\ell \\
+ -6\ell & 4\ell^2 & 6\ell &2\ell^2 \\
+ -12 & 6\ell & 12 & 6\ell \\
+ -6\ell &2\ell^2 &6\ell &4\ell^2
+ \end{array}
+  \right] - \frac{P}{30\,\ell}
+ \left[ \begin{array}{r r r r}
+ 36 & -3\,\ell & -36 & -3\,\ell \\
+ -3\,\ell & 4\ell^2 & 3\,\ell &-\ell^2 \\
+ -36 & 3\ell & 36 & 3\,\ell \\
+ -  3\,\ell &-\ell^2 &3\,\ell &4\,\ell^2
+ \end{array}
+  \right]\,.
+\efo
+Die zweite Matrix ist die sogenannte {\em geometrische Elementsteifigkeitsmatrix\/}\index{geometrische Elementsteifigkeitsmatrix}.
+
+Auch f\"{u}r die Steifigkeitsmatrix eines {\em Timoshenko Balkens\/}\index{Timoshenko Balken} gibt es solche N\"{a}herungen, \cite{Ha5} Chapter 3.5 und ebenso f\"{u}r die W\"{o}lbkrafttorsion, \cite{Kindmann}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Schwache und starke Einflussfunktionen}}
+Noch ein Wort zu diesem Thema: Eine Einflussfunktion ist ein Ausdruck, in den man etwas einsetzt, und man bekommt eine Durchbiegung, ein Moment, etc. heraus. Ist es eine schwache Einflussfunktion, dann setzt man das Moment aus der Belastung ein und ist es eine starke Einflussfunktion, dann setzt man die Belastung selbst ein. Akzeptiert man diese Definition, dann  gilt, dass es keine schwachen Einflussfunktionen f\"{u}r Schnittgr\"{o}{\ss}en wie Momente und Querkr\"{a}fte gibt.
+
+Was man allerdings machen kann, ist, dass man z.B. eine Folge $G_2^{\varepsilon}$ von glatten Funktionen definiert, die gegen einen Knick konvergieren, so dass am Ende aus der Wechselwirkungsenergie das Moment herausspringt, s. \cite{Ha6} S. 67 {\em \glq A sequence that converges to $G_1$'\/}, (dort $N(x)$, hier $M(x)$)
+\begin{align}
+\lim_{\varepsilon \to 0} a(w,G_2^\varepsilon) = M(x)\,.
+\end{align}
+Nehmen wir ein Einfeldtr\"{a}ger und machen wir's unkompliziert, und ersetzen den Grenzprozess durch Dirac Deltas. Die Einflussfunktion $G_2$ f\"{u}r das Moment ist ein Dreieck. Die erste Ableitung des Dreiecks ist eine Sprungfunktion und die zweite Ableitung ist ein Dirac Delta $\delta_0$ und so liefert die  Wechselwirkungsenergie das gew\"{u}nschte Ergebnis
+\begin{align}
+a(w, G_2) = \int_0^{\,l} M(y)\,\delta_0(y-x) \,dy = M(x)\,.
+\end{align}
+Bei der Querkraft ist es dasselbe. Die Einflussfunktion ist eine Scherbewegung, s. Abb. \ref{U117} d. Die erste Ableitung ist ein $\delta_0$ und die zweite Ableitung ist ein $\delta_1$, was das Resultat
+\begin{align}
+a(w, \delta_1) = \int_0^{\,l} M(y)\,\delta_1(y-x)\,dy = M'(x) = V(x)
+\end{align}
+ergibt. Auf diesem Wege geht es also schon, aber es sind keine Ergebnisse in dem Sinne, dass man sie als Formeln im Betonkalender abdrucken k\"{o}nnte. Der Grenzprozess liefert ein Ergebnis, aber operiert man mit der \glq geknickten\grq{} Zielfunktion $G_2$ der Folge $G_2^{\varepsilon}$, dann ist das Ergebnis, wenn man das Loch $N_{\varepsilon}(x)$ um den Knick schlie{\ss}t, $\Omega_{\varepsilon} = \Omega - N_{\varepsilon}(x) \to \Omega$, null
+\begin{align}
+\lim_{\varepsilon \to 0} a(w,G_2^\varepsilon) = M(x) \qquad \lim_{\varepsilon \to 0}\,a(w,G_2)_{\Omega_\varepsilon} = 0\,.
+\end{align}
+Und noch eine Bemerkung zur Beobachtung, dass man mit finiten Elementen Spannungen (scheinbar) mit schwachen Einflussfunktionen berechnen kann, s. S. \pageref{EE7Equationforz}. Das sieht nur so aus,  denn in Wirklichkeit berechnen auch finite Elemente Spannungen, wie etwa die Normalkraft in einem Stab, mit einer starken Einflussfunktion
+\begin{align}\label{Eq155}
+N_h(x) = \int_0^{\,l} G_1^h(y,x)\,p(y)\,dy = \int_0^{\,l} \sum_i\,j_i\,\Np_i(y)\,p(y)\,dy = \vek j^T\,\vek f\,,
+\end{align}
+nur ist es so, dass man das wegen $\vek f = \vek K\,\vek u$ in die schwache Form
+\begin{align}
+N_h(x) = \vek j^T\,\vek f = \vek j^T\,\vek K\,\vek u
+\end{align}
+umschreiben kann, was dann so aussieht, als k\"{o}nnten finite Elemente $N_h(x)$ mit einer schwachen Einflussfunktion berechnen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Wie kommt der Einbettungssatz zu seinem Namen?}}\index{Sobolevscher Einbettungssatz}
+So, wie man die Einwohner einer Stadt nach verschiedenen Kriterien ordnen kann, {\em Alter, Gr\"{o}{\ss}e, $\ldots$\/}, so kann man auch die Biegefl\"{a}chen $w(\vek x)$ einer Platte $\Omega$ in verschiedener Weise klassifizieren. Eine dieser m\"{o}glichen Skalen ist die sogenannte {\em Sobolevnorm\/}\index{Sobolevnorm}. Die Sobolevnorm der Ordnung $m = 2$ einer Biegefl\"{a}che $w$ ist der Ausdruck
+\begin{align}\label{Eq71}
+\|w\|_2 = \sqrt{\int_{\Omega} (w^2 + w,_x^2 + w,_y^2 + w,_{xx}^2 + w,_{xy}^2 + w,_{yy}^2) \,d\Omega}\,.
+\end{align}
+Man kann nach diesem Muster Sobolevnormen $\|w\|_m$ beliebig hoher Ordnung $m$ definieren: Die Ableitungen bis zur Ordnung $m$ werden quadrat-integriert und aus der Summe die Wurzel gezogen.
+Die Funktionen, die eine endliche Sobolevnorm der Ordnung $m$ haben, bilden den Sobolevraum\footnote{Zu 99\% sind das die Standardfunktionen $\sin(x), x^3\cdot  y^2, e^x  \ldots$} $H^m(\Omega)$.
+
+Eng damit verwandt ist der sogenannte {\em Energieraum\/}, das sind alle Funktionen, die eine endliche Biegeenergie/Verzerrungsenergie $|a(u,u)| < \infty$ haben.
+
+Es zeigt sich nun, dass der Energieraum einer Platte mit dem Sobolevraum $H^2$ identifiziert werden kann, und der Energieraum einer Scheibe mit $\vek H^1 = H^1 \times H^1$ (horizontale $u_x$ und vertikale Verschiebung $u_y$). Weil endliche Energie endliche Sobolevnormen $\|w\|_2$ bzw. $\|\vek u\|_1$ bedeutet, behandelt man die Begriffe Sobolevnorm und Energienorm\index{Energienorm} wie Synonyme\footnote{Technisch ist es so, dass die Energienorm $\|w\|_E = \sqrt{a(w,w)}$ und die Sobolevnorm $\|w\|_m$ \"{a}quivalente Normen sind, wenn die Starrk\"{o}rperbewegungen ausgeschlossen sind.}.
+
+Der russische Mathematiker Sobolev hat gezeigt, dass der Raum $H^m(\Omega)$ in den Raum $C(\Omega)$ der stetigen Funktionen \"{u}ber $\Omega$ eingebettet ist,
+\begin{align}
+H^m(\Omega) \subset C(\Omega)
+\end{align}
+und die Einbettung sogar stetig ist
+\begin{align} \label{Eq24}
+\text{max}\, |w| < c \cdot \|w\|_m\,,
+\end{align}
+wenn die folgende Ungleichung gilt
+\begin{align} \label{Eq22}
+m > \frac{n}{2}\,,
+\end{align}
+wenn also der Index $m$ des Sobolevraums gr\"{o}{\ss}er als die \glq halbe Dimension\grq{} des Raums ist. Bei einer Platte ist $n = 2$. Der Wert $\text{max}\, |w|$ ist die Norm von $w$ auf $C(\Omega)$ und (\ref{Eq24}) bedeutet, dass die Norm des Bildes kleiner als die Ausgangsnorm mal einem Skalenfaktor $c$ ist. Wenn das gilt, dann sagt man, dass die Abbildung, also hier $w \in H^2(\Omega) \to w \in C(\Omega)$ stetig ist. Die Zahl $c$ in der Ungleichung (\ref{Eq24}) ist eine feste Konstante, die nur von der Gestalt von $\Omega$ abh\"{a}ngt.
+
+Das Interessante an diesem Ergebnis ist der \"{U}bergang vom Integral zum Punkt. Die Sobolevnorm ist ja ein integrales Ma{\ss}, aber wenn die Ungleichung (\ref{Eq22}) gilt, und f\"{u}r eine Platte, $m = 2, n = 2$, gilt sie, dann ist die maximale Auslenkung der Platte durch die Biegeenergie begrenzt. Geht die Biegeenergie gegen null, dann geht auch die Durchbiegung der Platte gegen null -- \"{u}berall, in jedem Punkt! {\em Ein Integral majorisiert Punktwerte!\/}
+
+Bei einer Scheibe ist das anders. Ihr Energieraum ist $\vek H^1$, aber die Zahlen $m = 1, n = 2$ erf\"{u}llen die Ungleichung (\ref{Eq22}) nicht, und daher garantiert eine endliche Energie $\|\vek u\|_1 < \infty$ nicht, dass die Einbettung stetig ist in dem Sinne, dass wenn zwei Verschiebungsfelder $\vek u_1$ und $\vek u_2$ eine kleinen Abstand in der Energie haben, dass dann auch ihre maximalen Verschiebungen nahezu gleich sind, was bei einer Platte gilt
+\begin{align}
+\text{max}\,  |w_1 - w_2|  < c \cdot \|w_1 - w_2\|_2\,.
+\end{align}
+
+Wenn der Leser noch etwas Geduld hat, k\"{o}nnen wir diese Ideen noch etwas weiter verfolgen.
+
+Menschen kann man nach ihrem Alter ($A$) klassifizieren oder nach ihrem Gewicht ($G$). Auf der Menge $A$ ist das Funktional \glq Schuhgr\"{o}{\ss}e\grq{} nicht stetig, weil ein kleiner Abstand im Alter nicht garantiert, dass auch die Schuhgr\"{o}{\ss}en \"{a}hnlich ausfallen. Auf der Menge $G$ erwarten wir hingegen (n\"{a}herungsweise) einen solchen Zusammenhang.
+
+Ein Funktional ist also dann stetig, wenn aus einem kleinen Abstand im Input eine kleine Differenz im Ergebnis folgt
+\begin{align}
+|J(u_1) - J(u_2) | < c \cdot \|u_1 - u_2\|\,.
+\end{align}
+Genauer gesagt, wenn es eine globale Konstante $c$ gibt, die f\"{u}r alle Funktionen $u$ in der Ausgangsmenge gilt. Stetigkeit ist also immer davon abh\"{a}ngig, welche Abstandsma{\ss}e man auf der Ausgangsmenge und der Zielmenge hat. Setzt man $u_2 = 0$, dann steht $|J(u)| < c \cdot \|u\|$ da. \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Wenn ein lineares Funktional stetig ist, dann ist es auch beschr\"{a}nkt.}}\\
+
+Bei einer Kirchhoffplatte ist das Punktfunktional
+\begin{align}
+J(w) = w(\vek x) \qquad \text{Durchbiegung in einem Punkt $\vek x$}
+\end{align}
+auf $H^2(\Omega)$ ein stetiges und beschr\"{a}nktes Funktional, weil die stetige Einbettung (\ref{Eq24}) garantiert, dass die Differenz in zwei Werten durch die Differenz in der Energie nach oben begrenzt ist
+\begin{align}
+|J(w_1) - J(w_2)| = |w_1(\vek x) - w_2(\vek x)| < c \cdot \|w_1 - w_2\|_2\,,
+\end{align}
+aber bei einer Scheibe gilt dies nicht mehr. Die Differenz in der horizontalen Verschiebung zweier Verschiebungsfelder in einem Punkt $\vek x$
+\begin{align}
+|J(\vek u) - J(\vek v)| = |u_{x}(\vek x) - v_{x}(\vek x)|  \nless  c \cdot \|\vek u - \vek v\|_1
+\end{align}
+l\"{a}sst sich nicht {\em f\"{u}r alle (!)\/} $\vek u \in \vek H^1(\Omega)$ durch die Sobolevnorm $\|\vek u - \vek v\|_1$ nach oben begrenzen.
+
+Die Betonung liegt auf {\em f\"{u}r alle\/}. Die Membranbiegefl\"{a}che $u = - \ln (- \ln^{-1} r)$ hat im Punkt $r = 0$ den Wert unendlich, $J(u) = \infty$, aber in einem Kreis $\Omega$ mit Radius $R = 0.5$ um den Nullpunkt ist die $H^1$-Norm beschr\"{a}nkt, s. \cite{Ha6} S. 98. Es gibt demnach keine Zahl $c $ so, dass
+\begin{align}
+J(u) = u(\vek x) = \infty < c \cdot \|u\|_1 \qquad\text{?}
+\end{align}
+Auf $H^1(\Omega)$ ist $J(u)$ also kein stetiges und beschr\"{a}nktes Funktional. Ein Gegenbeispiel reicht aus, um dieses Urteil f\"{a}llen zu k\"{o}nnen.
+
+Bei einem Stab, $n = 1$, $m = 1$, ist der Energieraum $H^1(0,l)$, und daher gilt dort
+\begin{alignat}{2}
+J(u) &= u(x) \qquad &m - i = 1 - 0 = 1 > \frac{1}{2} \qquad &\text{stetig} \\
+J(u) &= u'(x)\qquad &m - i = 1 - 1 = 0 \ngtr \frac{1}{2} \qquad &\text{unstetig}
+\end{alignat}
+Der Energieraum eines Balkens, $n = 1$, $m = 2$, ist der $H^2(0,l)$, und daher gilt, in der Reihenfolge $i = 0, 1, 2, 3$,
+\begin{align}\label{Eq21}
+\underbrace{J(w) = w(x) \qquad J(w) = w'(x)}_{stetig} \qquad \underbrace{J(w) = w''(x) \qquad J(w) = w'''(x)}_{nicht\,\, stetig}
+\end{align}
+{\em Wenn ein Funktional stetig ist, dann ist die Energie der Greenschen Funktion endlich, sonst unendlich und dann ist es auch die \"{a}u{\ss}ere Arbeit $A_a = Weg \times Kraft$. Einer der beiden Gr\"{o}{\ss}en muss im Aufpunkt unendlich sein\/}.\\
+
+Die Greensche Funktion f\"{u}r das (unstetige) Funktional $J(u) = EA\,u'(x)$ der Normalkraft $N(x)$ in einem Stab ist eine Einheitsversetzung, die sich nur unter dem Einsatz von unendlich gro{\ss}en Kr\"{a}ften erzeugen l\"{a}sst
+\begin{align}
+\int_0^{\,l} \frac{N^2}{EA}\,dx = \infty \qquad N = \text{Normalkraft aus Versatz}\,.
+\end{align}
+Wir folgen hier dem Mathematiker, der die Sprungfunktion in eine Fourierreihe entwickelt, s. S. \pageref{Fourierreihe}, und nicht dem Ingenieur, der erst ein Normalkraftgelenk einbaut und dann das Gelenk spreizt.
+
+Nun noch ein Kommentar zur Ungleichung aus Kapitel 1, (\ref{Eq23}), die wir hier wiederholen
+\begin{align}
+m - i > \frac{n}{2}\,.
+\end{align}
+Wenn man eine Funktion, die in $H^m(\Omega)$ liegt, differenziert, dann liegt ihre Ableitung (m\"{o}glicherweise) nur noch in $H^{m-1}(\Omega)$. Dies erkl\"{a}rt, warum wir von $m$ den Index $i = 0, 1, 2, 3$ des Dirac Delta $\delta_i$ abziehen, also das Signal wie oft das Dirac Delta die Funktion $u$ differenziert
+\begin{align}
+J(u) = \int_{\Omega} \delta_i(\vek y - \vek x)\,u(\vek y)\,d\Omega_{\vek y} \cong \text{Ableitung $i$-ter Ordnung}\,.
+\end{align}
+
+\begin{remark}
+Nicht stetig hei{\ss}t in (\ref{Eq21}): $J(w) = - EI\,w''(x) = M(x)$ ist auf $H^2(0,l)$ kein stetiges {\em Funktional\/}. Es gibt kein $c$ so, dass {\em f\"{u}r alle\/} Biegelinien $w \in H^2(0,l)$ die Ungleichung
+\begin{align}\label{Eq130}
+|J(w)| = |M(x)| < c \cdot \|w\|_2
+\end{align}
+gilt. Eine Biegelinie $w$ mit einer logarithmischen Singularit\"{a}t im Momentenverlauf, $M(x) = \ln (x-x_0)^2$ in einem Punkt $x_0 \in (0,l)$, hat eine endliche Norm, $\|w\|_2 < \infty$, aber $M(x_0) = \infty$.
+
+%-----------------------------------------------------------------
+\begin{figure}[tbp]
+\if \bild 2 \sidecaption \fi
+\makebox[\textwidth]{%
+\includegraphics[width=.8\textwidth]{\Fpath/FELDLINIENA}}
+\caption{In der N\"{a}he der Einzelkraft sind die Kraftlinien so dicht gepackt, dass das Material einer Scheibe zu flie{\ss}en anf\"{a}ngt, w\"{a}hrend eine Linienlast die hohe Konzentration der Kraftlinien in einem Punkt vermeidet---die Energie bleibt endlich, \cite{Ha5}} \label{Feldlinien}
+\end{figure}%
+%-----------------------------------------------------------------
+
+Man kann es auch so lesen: Das singul\"{a}re $M(x)$ liegt in $H^0(0,l)$, weil man $M(x)^2$ integrieren kann, aber die Norm auf $H^0$, also das Integral $\|M\|_0 = (M,M)^{1/2}$, kann  Punktwerte nicht majorisieren, $\text{max}\, |M| < c \cdot \|M\|_0$ gilt nicht, weil die Einbettung von $H^0(0,l)$ in $C^0(0,l)$ nicht stetig ist, es gibt Ausrei{\ss}er und einer davon ist das obige Moment. Noch einfacher: \\
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth} {Daraus, dass man eine Funktion $M(x)$ quadrat-integrieren kann, folgt nicht, dass die Funktion $M(x)$ auf dem Intervall $(0,l)$ beschr\"{a}nkt ist.}}\\
+
+Wenn aber auch die Ableitung $M'(x)$ quadrat-integrierbar ist, wenn $M(x)$ also in $H^1(0,l)$ liegt, dann ist der Schluss zul\"{a}ssig, weil die Ungleichung $m > n/2$, setze $m = 1, n = 1$, dann erf\"{u}llt ist.
+
+Die Ableitung $M'(x) = 2/(x-x_0)$ von $M(x) = \ln \,(x-x_0)^2$ ist aber nicht quadrat-integrierbar, das \glq Schlupfloch\grq{} $M \in H^1(0,l)$ steht also nicht zur Verf\"{u}gung.
+
+\end{remark}
+
+\begin{remark}
+Die mathematische Theorie der finiten Elemente hat sich parallel zu der Anwendung der finiten Elemente in den Ingenieurwissenschaften entwickelt und liegt heute in abgeschlossener Form vor.
+Uns interessiert hier ein Satz aus der Theorie der schwachen L\"{o}sungen:\\
+
+ {\em Eine Einflussfunktion
+\begin{align}
+J(u) = \int_{0}^{l}G(y,x)\,p(y)\,dy
+\end{align}
+existiert genau dann, wenn das Funktional $J(u)$ linear und beschr\"{a}nkt ist, $|J(u)| < c\,\|u\|$\/}.\\
+
+
+Folgt man dieser Vorgabe, dann d\"{u}rfte es keine Einflussfunktion $G_2(y,x)$ f\"{u}r das Moment in einem Balken geben, weil ja das Funktional $J(w) = M(x)$ auf dem Energieraum $H^2(0,l)$ unbeschr\"{a}nkt ist. Dies steht aber im Widerspruch zum Vorgehen des Ingenieurs, der in der Mitte des Balkens einfach einen Knick erzeugt und mit dieser Einflussfunktion das exakte Biegemoment erh\"{a}lt.
+
+Der obige Satz meint aber nur, dass es keine Einflussfunktion mit {\em endlicher Energie\/} gibt, keine Einflussfunktion $G_2(y,x) \in H^2(0,l)$, was sich, wenn wir nachrechnen s. S. \pageref{Fourierreihe}, best\"{a}tigt: Die abgeknickte Biegelinie hat eine unendliche Energie, liegt nicht in $H^2(0,l)$. Jetzt kann man nat\"{u}rlich sagen, was liegt daran: Wenn Mathematiker so spitzfindig sind und so enge Grenzen ziehen, dann muss das den Ingenieur nicht k\"{u}mmern.
+
+Es zeigt sich hier aber eine Schw\"{a}che der mathematischen Theorie der finiten Elemente, nach der ja die FEM eine {\em Energieraummethode\/} ist und L\"{o}sungen, die unendliche Energie haben, liegen au{\ss}erhalb dieser Theorie. Wie will man den Abstand in der Energie minimieren,
+\begin{align}
+a(u-u_h,u-u_h) = \| u - u_h\|^2 \qquad \rightarrow \,\,\text{Minimum}\,,
+\end{align}
+wenn die Energie der exakten L\"{o}sung, $\|u\| = \infty$, unendlich ist?
+
+Es ergibt sich so eine kuriose Situation: Ein FE-Programm berechnet alle Schnittgr\"{o}{\ss}en mit Einflussfunktionen, die N\"{a}herungsl\"{o}sungen von {\em schlecht gestellten Problemen\/} sind, schlecht gestellt, weil die exakten L\"{o}sungen nicht im L\"{o}sungsraum, im Energieraum liegen -- alle Einflussfunktionen f\"{u}r Schnittgr\"{o}{\ss}en haben eine unendliche Energie.
+
+Eine Situation, vor der jeder Mathematiker warnt: Man soll sich doch bitte vorher davon \"{u}berzeugen, dass \"{u}berhaupt eine L\"{o}sung existiert, bevor man den Computer startet...
+\end{remark}
+%--------------------------------------------------------------------------------------
+\begin{table}\caption{{Endliche ($\checkmark$) und unendliche ($\infty$) Energie}}\label{janein}
+%\vspace{0.2cm}
+\begin{tabular}{r  c  c  c  c}
+\toprule \noalign{\smallskip}
+\multicolumn{2}{c }{}  &    &    &   \\[-1.0cm]
+\multicolumn{2}{c }{} Dimension & $n=1$       & $n=2$    &   $n=3$
+\\ \multicolumn{2}{c }{}  &    &    &
+\\[-0.6cm]\noalign{\hrule\smallskip} \multicolumn{2}{c}{}  &    &    &
+\\[-0.9cm] \multicolumn{2}{c }{$m=1$}   & Seil, Stab, &  &   \\[-0.2cm]
+\multicolumn{2}{c }{} & Timoshenko Balken & Reissner--Mindlin Platte & E-Th. \\
+\noalign{\hrule\smallskip} & & & & \\[-0.8cm]
+&Punktlasten & & &  \\[-0.1cm]
+$i=0:$ & {\LARGE $\downarrow$} & $\large{\checkmark}$ & $\large{\infty}$ & $\large{\infty}$ \\[0.2cm]
+$i=1:$ & \versetzung &  $\large{\infty}$ & $\infty$ & $\infty$ \\[0.2cm]
+\noalign{\hrule\smallskip} \multicolumn{2}{c}{}  &    &    & \\[-0.5cm]
+\multicolumn{2}{c}{$m=2$} & Euler--Bernoulli Balken  & Kirchhoff Platte & \\
+\noalign{\hrule\smallskip} &  & & & \\[-0.6cm]
+$i=0:$ & {\LARGE $\downarrow$} & $\large{\checkmark}$ & $\large{\checkmark}$ & \\[0.2cm]
+$i=1:$ & {\LARGE $\curvearrowright$} & $\large{\checkmark}$ & $\large{\infty}$
+&  \\[0.2cm] $i=2:$ & \knick & $\large{\infty}$ & $\large{\infty}$ & \\[0.2cm]
+$i=3:$ & \versetzung & $\large{\infty}$ & $\large{\infty}$ & \\[0.2cm]
+\bottomrule
+\end{tabular}
+\end{table}\label{TabelleSobolev}\index{Sobolev, Tabelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Punktlasten und ihre Energie}}\index{Punktlasten, Energie}
+Zum Schluss sei noch eine Tabelle nachgetragen, in der verzeichnet ist, welche Punktlasten, $i = 0, 1, 2, 3$, also {\em Einzelkr\"{a}fte, Momente, Knicke\/} oder {\em Versetzungen\/} Verschiebungen mit endlicher Energie erzeugen.\index{Sobolevscher Einbettungssatz}
+
+Die Tabelle \ref{janein} wertet die Bedingung $m -i > n/2$ aus, die erf\"{u}llt sein muss, damit die Energie endlich bleibt. Es ist $m$ die Ordnung der Energie
+
+\bfo
+m&=&1 \qquad\mbox{Timoshenko Balken, Reissner--Mindlin Platten, Scheiben, {\em 3-D solids\/}}\nn\\
+m&=&2 \qquad\mbox{Euler--Bernoulli Balken, Kirchhoff Platten}\nn
+\efo
+Die Ordnung der Energie entspricht der h\"{o}chsten Ableitung in der Wechselwirkungsenergie $a(u,u)$. Sie ist immer halb so gro{\ss} wie die Ordnung $2\,m$ der Differentialgleichung.
+
+Der {\em Timoshenko-Balken\/} ist der schubweiche Balken im Gegensatz zum schubstarren Euler-Bernoulli Balken $EI\,w^{IV} = p$. Schubtr\"{a}ger, wie kurze Konsolen, sind {\em Timoshenko-Balken\/}.
+
+Abb. \ref{Feldlinien} illustriert, warum man Punktlasten besser in kurze Linienlasten umwandeln sollte.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{sectionTitleBlue}{\subsection{Early Birds}}\index{early birds}
+Wir kennen inzwischen neben der Arbeit von {\em Tottenham\/} (Southampton), \cite{Tottenham},  eine zweite zeitgleich erschienene Arbeit von {\em Kol\'{a}\v{r}\/} (Br\"{u}nn), \cite{Kolar}, beide aus 1970, die das Thema finite Elemente und Einflussfunktionen behandeln.
+
+Wahrscheinlich gibt es noch andere, fr\"{u}he Arbeiten. F\"{u}r Hinweise w\"{a}ren wir dankbar.
+
+

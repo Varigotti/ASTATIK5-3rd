@@ -1,0 +1,24 @@
+$ cat .gitignore
+*.pdf 
+*.log 
+*.out 
+*.dvi 
+*.bak 
+*.sty 
+*.aux 
+*.ind 
+*.idx 
+*.ilg
+*.synctex
+*.zip
+*.sav
+*.bat
+*.idx
+*.ilg
+*.ind
+*.toc
+*.bbl
+*.msg
+DICT\
+SPRINGER\
+MATERIAL\
