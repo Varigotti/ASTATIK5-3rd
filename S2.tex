@@ -1023,7 +1023,7 @@ mit entsprechenden Eigenschaften, s. Abb. \ref{U117},
 \end{subequations}
 Die Dirac Deltas sind sozusagen die Akteure, die aus der Biegelinie $w$ die interessierende Gr\"{o}{\ss}e herauspr\"{a}parieren.
 
-Das Operieren mit Dirac Deltas is ein sehr eleganter Kalk\"{u}l, mit dem man sehr einfach die vielen Schritte, die zur Herleitung einer Einflussfunktion n\"{o}tig sind, wie die Zweiteilung des Intervalls, die genaue Verfolgung des Sprungs in der Querkraft, etc., umgehen kann, aber auf der anderen Seite darf man nicht vergessen, dass man nur auf diesem analytischen Weg
+Das Operieren mit Dirac Deltas ist ein sehr eleganter Kalk\"{u}l, mit dem man sehr einfach die vielen Schritte, die zur Herleitung einer Einflussfunktion n\"{o}tig sind, wie die Zweiteilung des Intervalls, die genaue Verfolgung des Sprungs in der Querkraft, etc., umgehen kann, aber auf der anderen Seite darf man nicht vergessen, dass man nur auf diesem analytischen Weg
 \begin{align}
 \text{\normalfont\calligra B\,\,}(G_0,w) = \text{\normalfont\calligra B\,\,}(G_{@0}^{@l},w)_{(0,x)} + \text{\normalfont\calligra B\,\,}(G_0^R,w)_{(x,l)} = 0 + 0
 \end{align}
@@ -1061,7 +1061,7 @@ Hier bedeutet $M(\Np_i)(x)$ das Moment der Ansatzfunktion $\Np_i$ im Aufpunkt $x
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\textcolor{sectionTitleBlue}{\section{Dirac Energie}}}\index{Dirac Energie}
-Das Geheimnis des Flaschenzuges ist, dass die Kraft, die am Seilende zieht, und das Gewicht dieselbe Arbeit verrichten , s. Abb. \ref{U220}.
+Das Geheimnis des Flaschenzuges ist, dass die Kraft, die am Seilende zieht, und das Gewicht dieselbe Arbeit verrichten, s. Abb. \ref{U220}.
 
 Auch Einflussfunktionen dr\"{u}cken eine solche Balance aus, eine Energiebalance. Die Arbeit, die eine Einzelkraft $P = 1$
 auf dem Weg $w(x)$ verrichtet
@@ -1118,13 +1118,13 @@ wie aus dem {\em Satz von Betti\/}, $A_{1,2} = A_{2,1}$ folgt. (Die Arbeit $A_{2
 
 Zu jeder Schnittgr\"{o}{\ss}e $V(x), N(x), M(x)$ etc., geh\"{o}rt also ein gewisser Mechanismus, eine gewisse Schaukel, s. Abb. \ref{U258}, und wenn wir das Gelenk l\"{o}sen und die Arbeit berechnen, die die Belastung auf den Wegen leistet, die durch die Spreizung des Gelenks verursacht werden, dann lernen wir, wie gro{\ss} die Schnittgr\"{o}{\ss}e in dem Gelenk sein muss, damit sie die Arbeit der \"{a}u{\ss}eren Belastung ins Gleiche setzt.
 
-Bei einer FE-Berechnung behindern wir die freie Bewegung eines Tragwerks, wir legen dem Tragwerk sozusagen Fesseln an, weil die {\em shape functions\/} $\Np_i(x)$ zu \glq ungelenk\grq{} sind, und daher bekommt das Gelenk das falsche Signal. Die Verschiebung im Fu{\ss}punkt von $P$ ist $w_h$
+Bei einer FE-Berechnung behindern wir die freie Bewegung eines Tragwerks, wir legen dem Tragwerk sozusagen Fesseln an, weil die {\em shape functions\/} $\Np_i(x)$ zu \glq ungelenk\grq{} sind, und daher bekommt das Gelenk das falsche Signal. Die Verschiebung im Fu{\ss}punkt von $P$ ist ein Wert $w_h$
 \beq
--V_h(x) \cdot 1 + P \, w_h = 0
+-V_h(x) \cdot 1 + P \cdot w_h = 0
 \eeq
 und nicht der exakte Wert $w$
 \beq
--V(x) \cdot 1  + P \, w = 0\,,
+-V(x) \cdot 1  + P \cdot w = 0\,,
 \eeq
 und so ist $V_h(x) \neq V(x)$. {\em Ein FE-Programm versch\"{a}tzt sich bei den Dirac Energien\/}\footnote{Vor allem bei Fl\"{a}chentragwerken. Bei Stabtragwerken ist die Kinematik meist exakt, es sei denn $EA$ oder $EI$ sind nicht konstant.}.
 
@@ -1241,7 +1241,7 @@ Eine Steifigkeitsmatrix kann man bekanntlich als die Abbildung eines Vektors $\v
 \begin{align}
 \vek K\,\vek  u = \vek f\,.
 \end{align}
-Nun stellen wir uns vor, wir kennen den Vektor $\vek f$, der etwa die Knotenkr\"{a}fte eines Fachwerks darstellt, und wir wollen die Komponente $u_1$ des Vektors $\vek u$ im LF $\vek f$ wissen.
+Stellen wir uns vor, wir kennen den Vektor $\vek f$, der etwa die Knotenkr\"{a}fte eines Fachwerks darstellt, und wir wollen die Komponente $u_1$ des Vektors $\vek u$ im LF $\vek f$ wissen.
 
 Um $u_1$ zu bestimmen, l\"{o}sen wir das Gleichungssystem
 \begin{align}\label{Eq38}

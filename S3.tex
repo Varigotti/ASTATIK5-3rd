@@ -49,7 +49,7 @@ auf $\mathcal{V}_h$, das ist die Menge aller Seilecke, die sich mit den $\Np_i(x
 \end{figure}%%
 %----------------------------------------------------------
 
-Der Ansatz (\ref{Eq112}) gewinnt den Wettbewerb genau dann, wenn der Vektor $\vek w$ der Knotenverformungen (die \glq Adresse\grq{} des Ansatzes auf $\mathcal{V}_h$) dem Gleichungssystem $\vek K\,\vek w = \vek f$, oder
+Der Ansatz (\ref{Eq112}) gewinnt den Wettbewerb genau dann, $\partial \Pi(w_h)/ \partial w_i = 0$ f\"{u}r $i = 1,2,3,4$, wenn der Vektor $\vek w$ der Knotenverformungen (die \glq Adresse\grq{} des Ansatzes auf $\mathcal{V}_h$) dem Gleichungssystem $\vek K\,\vek w = \vek f$, oder
 \beq\label{Eq69}
 \frac{H}{l_e} \,  \left[\barr{r r r r} 2 & - 1 & 0 & 0 \\ - 1 & 2 & -1 & 0\\ 0 & -1 & 2 &-1 \\ 0 & 0 & -1 &2\earr\right]
 \,\left[\barr{c} w_1 \\w_2 \\ w_3 \\ w_4 \earr \right] = \left[\barr{c} 1 \\ 1  \\
@@ -123,7 +123,7 @@ w_h(\vek x_i) = \int_{\Omega} G_h(\vek y, \vek x_i)\,g(\vek y)\,\,d\Omega_{\vek 
 \end{align}
 Wir sagen theoretisch, weil nat\"{u}rlich das FE-Programm die Knotenwerte durch das L\"{o}sen von $\vek K\,\vek w = \vek f$ bestimmt hat, aber diese sind  genau so gro{\ss}, {\em als ob\/} das FE-Programm die Einflussfunktion (\ref{Eq78}) benutzt h\"{a}tte.
 
-Das System $\vek K\,\vek w = \vek f$ ist der \glq kurze\grq{} Weg zu den $w_i$, die Formel (\ref{Eq78}) ist der \glq lange\grq{} Weg, aber die Ergebnisse sind dieselben\footnote{Wenn es der Leser nicht glaubt, kann er die rechte Seite von (\ref{Eq189}) partiell integrieren}
+Das System $\vek K\,\vek w = \vek f$ ist der \glq kurze\grq{} Weg zu den $w_i$, die Formel (\ref{Eq78}) ist der \glq lange\grq{} Weg, aber die Ergebnisse sind dieselben\footnote{Ungl\"{a}ubige Leser d\"{u}rfen die rechte Seite von (\ref{Eq189}) partiell integrieren}
 \begin{align}\label{Eq189}
 w_h(\vek x_i) = w_i = \sum_j\,k_{ij}^{(-1)}\,f_j = \int_{\Omega} G_h(\vek y, \vek x_i)\,g(\vek y)\,\,d\Omega_{\vek y}\,.
 \end{align}
@@ -232,11 +232,11 @@ Die Notation ist symbolisch zu nehmen, weil $p^e(x)$ zwei Richtungen haben kann,
 
 Eine $6 \times 6$ Matrix $\vek T_e$ ($\ldots \sin\,\alpha, \cos\,\alpha, \ldots$), s. (\ref{Eq72}), transformiert diese Vektoren $\vek d^e$ in das globale Koordinatensystem $\vek d_e = \vek T_e\,\vek d^e$, wo dann aus den $2 \times 6$ Komponenten die 5 Komponenten des Vektors
 \begin{align}
-\vek d\leftarrow \{\vek d_1,\, \vek d_2\}
+\{\vek d_1,\, \vek d_2\} \rightarrow \vek d
 \end{align}
 zusammengestellt werden, der die \"{a}quivalenten Knotenkr\"{a}fte aus der verteilten Belastung in die 5 Richtungen $u_i$ enth\"{a}lt.
 
-Im zentralen, dritten Schritt l\"{o}st das Programm das System
+Im zentralen dritten Schritt l\"{o}st das Programm das System
 \begin{align}\label{Eq160}
 \vek K\,\vek u = \vek f_K + \vek d
 \end{align}
@@ -349,7 +349,7 @@ Bei jeder Ableitung wird mit $[L]^{-1}$ multipliziert
 \begin{align}
 \Np_i\,\,[L] \qquad \Np_i' = \frac{d\,\Np_i}{dx} = [\phantom{L}] \qquad \Np_i'' = \frac{d\,\Np_i'}{dx} = \frac{1}{[L]}\,.
 \end{align}
-Bei dreidimensionalen Problemen f\"{u}hrt die Dimensionsbetrachtung auf
+Bei 3-D Problemen f\"{u}hrt die Dimensionsbetrachtung auf
 \begin{align}
 \int_{\Omega} \sigma_{ij}\,\varepsilon_{ij} \,dV = \frac{[F]}{[L^2]}\,\frac{[L]}{[L]} \,[L^3] = [F \cdot L]\,,
 \end{align}
@@ -425,7 +425,7 @@ und bei einem Balken sind es die kubischen Polynome, s. Abb. \ref{U89},
 \efo
 }
 \efo
-Die $d_i^e$ sind dann die Gr\"{o}{\ss}en
+Die \"{a}quivalenten Knotenkr\"{a}fte $d_i^e$ sind dann die Gr\"{o}{\ss}en
 \begin{align}
 d_i^e &= \int_0^{\,l_e} \,\underset{\rightarrow}{p(x)}\,\Np_i^e(x)\,dx \qquad i = 1,2 &&\qquad \text{Stab} \\
 d_i^e &= \int_0^{\,l_e} \,\underset{\downarrow}{p(x)}\,\Np_i^e(x)\,dx \qquad i = 1,2, 3, 4 &&\qquad \text{Balken}\,.
@@ -477,13 +477,13 @@ Um einen Knoten eines Netzes um einen Meter horizontal oder vertikal zu verschie
 \end{figure}%
 %----------------------------------------------------------------------------------------------------------\\
 
-Die Summe dieser {\em shape-forces\/} -- mit den Knotenverschiebungen $u_j$ gewich\-tet -- stellt den FE-Lastfall\index{FE-Lastfall} dar, das sind die Kr\"{a}fte, die $\vek u$ erzeugen
+Die Summe dieser {\em shape-forces\/} -- mit den Knotenverschiebungen $u_j$ gewich\-tet -- stellt den FE-Lastfall\index{FE-Lastfall} dar, also die Kr\"{a}fte, die $\vek u$ erzeugen
 \begin{align}\label{Eq70}
 \vek p_h = \sum_j\,u_j\,\vek p_j\,.
 \end{align}
 Nun kann man fragen, wenn die einzelnen $\vek p_j$ alle Gleichgewichtskr\"{a}fte sind, was wandert dann eigentlich in die Lager? Das kommt zum Vorschein, wenn man einen Schnitt neben einem Lager f\"{u}hrt, wie in Abb. \ref{U127} b, wo der Schnitt durch die Mitte des ersten Elements geht. Durch diesen Schnitt wird das Gleichgewicht in dem ersten Element gest\"{o}rt und eine entsprechend gro{\ss}e Schnittkraft von 2.5 kN muss das Gleichgewicht wieder herstellen. Dass es nicht die volle Belastung von 3.0 kN ist, liegt daran, dass das FE-Programm ja die \"{a}quivalente Knotenkraft $f = 0.5$ in dem Lager ignoriert, weil sie nicht statisch wirksam ist.
 
-W\"{a}hrend bei Fl\"{a}chentragwerken einiger Aufwand n\"{o}tig ist, um den FE-Lastfall $\vek p_h$ zu berechnen, s. Abb. \ref{U28}, muss man bei Stabtragwerken ($EA$ und $EI$ konstant) gar nichts tun, denn bei Stabtragwerken ist der FE-Lastfall mit den Knotenkr\"{a}ften $f_i = f_{K @ i} + d_i$ identisch.\\
+W\"{a}hrend bei Fl\"{a}chentragwerken einiger Aufwand n\"{o}tig ist, um den FE-Lastfall $\vek p_h$ zu berechnen, s. Abb. \ref{U28}, muss man bei Stabtragwerken ($EA$ und $EI$ konstant) gar nichts tun, denn bei Stabtragwerken ist der FE-Lastfall mit den \"{a}quivalenten Knotenkr\"{a}ften $f_i = f_{K @ i} + d_i$ identisch.\\
 
 \begin{remark}
 Die Abb. \ref{U28} illustriert auch sehr gut, die \glq Doppelb\"{o}digkeit\grq{} der Statik im Umgang mit finiten Elementen. Gehalten wird die Scheibe in der N\"{a}he der Lagerknoten eigentlich von einem konzentrierten System von Fl\"{a}chen- und Linienkr\"{a}ften. Im Ausdruck stehen aber nur die \"{a}quivalenten Knotenkr\"{a}fte $f_i$, die diese Haltekr\"{a}fte in der \glq Summe\grq{} repr\"{a}sentieren, und der Ingenieur findet (zu Recht) gar nichts dabei mit diesen $f_i$ weiter zu rechnen, aus ihnen echte Kr\"{a}fte zu machen.
@@ -492,11 +492,11 @@ Die Abb. \ref{U28} illustriert auch sehr gut, die \glq Doppelb\"{o}digkeit\grq{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\textcolor{sectionTitleBlue}{\subsubsection*{Die Rolle der $u_i$}}}\index{die Rolle der $u_i$}
 
-Der FE-Lastfall $\vek p_h$ wird mit Hilfe der $u_i$ so austariert, dass die zugeh\"{o}rigen Knotenkr\"{a}fte $f_{h @i}$ mit den \"{a}quivalenten Knotenkr\"{a}ften aus der Belastung \"{u}bereinstimmen, also im Fall der Scheibe die Arbeiten $f_{h @i}$ genauso gro{\ss} sind, wie die Arbeiten $f_i$
+Der FE-Lastfall $\vek p_h$ wird mit Hilfe der $u_i$ so austariert, dass die zugeh\"{o}rigen Knotenkr\"{a}fte $f_{h @i}$ mit den \"{a}quivalenten Knotenkr\"{a}ften aus der Belastung \"{u}bereinstimmen, also im Fall einer Scheibe die Arbeiten $f_{h @i}$ genauso gro{\ss} sind, wie die Arbeiten $f_i$
 \begin{align}\label{Eq123}
 f_{h @i} = \int_{\Omega} \vek p_h^T \dotprod \vek \Np_i\,d\Omega = \int_{\Omega}\,\vek p^T \dotprod \vek \Np_i\,d\Omega = f_i\,.
 \end{align}
-Diese Forderung ist \"{a}quivalent mit dem System $\vek K\,\vek u = \vek f$, denn die linke Seite $\vek K\,\vek u$ (innere Arbeiten $\delta A_i$) ist wegen {\em \glq innen = au{\ss}en\grq{}\/} identisch mit dem Vektor $\vek f_h$ (\"{a}u{\ss}ere Arbeiten $\delta A_a$).
+Diese Forderung ist \"{a}quivalent mit dem System $\vek K\,\vek u = \vek f$, denn der Vektor $\vek K\,\vek u$ (die Eintr\"{a}ge sind innere Arbeiten $\delta A_i$) ist wegen {\em \glq innen = au{\ss}en\grq{}\/} identisch mit dem Vektor $\vek f_h$ der \"{a}u{\ss}eren Arbeiten $\delta A_a$.
 
 Man stelle sich die Scheibe einmal mit der Originalbelastung $\vek p$ vor und daneben mit der FE-Belastung $\vek p_h$. Nun gehe man von Knoten zu Knoten und verschiebe den Knoten probeweise um einen Meter in horizontaler und vertikaler Richtung. Dann wird man finden, dass die Arbeiten immer gleich sind, $f_{h @i} = f_i$. In diesem Sinne gilt:\\
 
@@ -520,7 +520,7 @@ Der FE-Lastfall ist der Lastfall, f\"{u}r den ein Tragwerksplaner das Tragwerk e
 \end{figure}%
 %----------------------------------------------------------------------------------------------------------
 
-In Abb. \ref{U28} b ist ein solcher Vergleich des Originallastfalls und des FE-Lastfalls einmal dargestellt. Zu berechnen waren die Wirkungen einer Einzelkraft von 10 kN, die an der rechten oberen Ecke zieht. Diesen doch einfachen und klar definierten Lastfall ersetzt nun das FE-Programm durch ein sehr konfus wirkendes System von Fl\"{a}chenkr\"{a}ften und Kantenkr\"{a}ften, die den Lastfall $\vek p_h$ darstellen. Weil diese Lasten so \glq merkw\"{u}rdig\grq{} aussehen, werden sie normalerweise von FE-Programmen nicht gezeigt, weil ein Anwender, der mit der Theorie der finiten Elemente nicht vertraut ist, irritiert w\"{a}re.
+In Abb. \ref{U28} b ist ein solcher Vergleich des Originallastfalls und des FE-Lastfalls einmal dargestellt. Zu berechnen waren die Wirkungen einer Einzelkraft von 10 kN, die an der rechten oberen Ecke zieht. Diesen doch eigentlich einfachen Lastfall ersetzt nun das FE-Programm durch ein sehr konfus wirkendes System von Fl\"{a}chenkr\"{a}ften und Kantenkr\"{a}ften, die den Lastfall $\vek p_h$ darstellen. Weil diese Lasten so \glq merkw\"{u}rdig\grq{} aussehen, werden sie normalerweise von FE-Programmen nicht gezeigt, weil ein Anwender, der mit der Theorie der finiten Elemente nicht vertraut ist, irritiert w\"{a}re.
 
 Nur darf man sich davon aber nicht abschrecken lassen, denn den Ingenieur interessieren prim\"{a}r die Schnittgr\"{o}{\ss}en, und es ist Spekulation aus der Differenz $\vek p - \vek p_h$ in den Lasten auf die Differenz in den Schnittgr\"{o}{\ss}en schlie{\ss}en zu wollen. Die Differenz in der Belastung kann man ausrechnen, die Differenz in den Schnittkr\"{a}ften aber leider nicht.
 
@@ -563,7 +563,7 @@ und das ist genau die Steifigkeitsmatrix $\vek K = \vek T\,\vek S$ des {\em CST-
 zeilenweise also
 \begin{align}
 f_{hi} &= \delta A_a(\vek p_h,\vek \Np_i) = \sum_j\,\delta A_a(\vek p_j,\vek \Np_i)\,u_j =  \sum_j\,\delta A_i(\vek \Np_j,\vek \Np_i)\,u_j \nn \\
-&= \sum_j\,k_{ij}\,u_j = \text{Zeile $i$ von $\vek K$ $\dotprod\,\vek u$}\,.
+&= \sum_j\,k_{ij}\,u_j = (\text{Zeile $i$ von $\vek K$) $\dotprod\,\vek u$}\,.
 \end{align}
 
 \hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Die Elemente $k_{ij}$ einer Steifigkeitsmatrix $\vek K$ kann man als virtuelle innere Arbeit wie als virtuelle \"{a}u{\ss}ere Arbeit lesen.}}\\
@@ -653,29 +653,29 @@ Wie sich die einzelnen Elemente eines Netzes zu einem Ganzen f\"{u}gen, kann man
 \end{figure}%
 %-----------------------------------------------------------------
 
-Die beiden Elementmatrizen des Stabes in Abb. \ref{U387} stehen auf der Diagonalen einer $4 \times 4$ Matrix $\vek K_E$\index{$\vek K_E$}
-\begin{align}
-\vek f_E = \left[ \barr{c} f_1^a \\ f_2^a \\ f_1^b \\ f_2^b \earr \right] =  \frac{EA}{\ell_e} \left [
-\barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r @{\hspace{2mm}} r} 1 & -1 & 0 & 0 \\ -1 & 1 & 0 & 0 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & -1 & 1 \\ \earr \right] \left[ \barr{cc} u_1^a \\ u_2^a \\ u_1^b \\ u_2^b \earr \right] = \vek K_E\,\vek u_E\,.
+Die beiden Elementmatrizen des Stabes in Abb. \ref{U387} stehen auf der Diagonalen einer $4 \times 4$ Matrix\footnote{Alle Elementmatrizen einzeln, unverbunden und $\vek u_{loc}$  und $\vek f_{loc}$ ist die Liste der Weg- und Kraftgr\"{o}{\ss}en an den Elementenden } $\vek K_{loc}$\index{$\vek K_{loc}$}
+\begin{align}\label{Eq193}
+\vek f_{loc} = \left[ \barr{c} f_1^a \\ f_2^a \\ f_1^b \\ f_2^b \earr \right] =  \frac{EA}{\ell_e} \left [
+\barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r @{\hspace{2mm}} r} 1 & -1 & 0 & 0 \\ -1 & 1 & 0 & 0 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & -1 & 1 \\ \earr \right] \left[ \barr{cc} u_1^a \\ u_2^a \\ u_1^b \\ u_2^b \earr \right] = \vek K_{loc}\,\vek u_{loc}\,.
 \end{align}
 Die Verschiebungen der Elementenden sind an die Knotenverschiebungen $u_1, u_2, u_3$ gekoppelt
 \begin{align}
-\vek u_E = \left[ \barr{c} u_1^a \\ u_2^a \\ u_1^b \\ u_2^b \earr \right] = \left [
+\vek u_{loc} = \left[ \barr{c} u_1^a \\ u_2^a \\ u_1^b \\ u_2^b \earr \right] = \left [
 \barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r } 1 & 0 & 0  \\ 0 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 &  1 \\ \earr \right] \left[ \barr{cc} u_1 \\ u_2 \\ u_3 \earr \right] = \vek  A\,\vek u\,.
 \end{align}
-Die Kr\"{a}fte $\vek f_E$ und die Knotenkr\"{a}fte $\vek f$ m\"{u}ssen bei einer virtuellen Verr\"{u}ckung $\vek \delta \vek u$ bzw. $\vek \delta \vek u_E = \vek A\,\vek \delta \vek  u$ die gleiche Arbeit leisten
+Die Kr\"{a}fte $\vek f_{loc}$ und die Knotenkr\"{a}fte $\vek f$ m\"{u}ssen bei einer virtuellen Verr\"{u}ckung $\vek \delta \vek u$ bzw. $\vek \delta \vek u_{loc} = \vek A\,\vek \delta \vek  u$ die gleiche Arbeit leisten
 \begin{align}
-\vek f_E^T\,\vek \delta \vek u_E = \vek f^T\,\vek \delta \vek u \qquad \text{oder} \qquad \vek f_E^T\,\vek A\,\vek  \delta\vek u = \vek f^T\,\vek  \delta\vek u\,,
+\vek f_{loc}^T\,\vek \delta \vek u_{loc}^{\vphantom{T}} = \vek f^T\,\vek \delta \vek u \qquad \text{oder} \qquad \vek f_{loc}^T\,\vek A\,\vek  \delta\vek u = \vek f^T\,\vek  \delta\vek u\,,
 \end{align}
-was $\vek f = \vek A^T\,\vek f_E$ ergibt und das sind nat\"{u}rlich gerade die Gleichgewichtsbedingungen zwischen den Stabendkr\"{a}ften und den Knotenkr\"{a}ften $f_i$
+was $\vek f = \vek A^T\,\vek f_{loc}$ ergibt und das sind nat\"{u}rlich gerade die Gleichgewichtsbedingungen zwischen den Stabendkr\"{a}ften und den Knotenkr\"{a}ften $f_i$
 \begin{align}
 \vek f = \left[ \barr{c} f_1 \\ f_2 \\ f_3 \earr \right] = \left [
-\barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r @{\hspace{2mm}} r} 1 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 \earr \right] \left[ \barr{c} f_1^a \\ f_2^a \\ f_1^b \\ f_2^b \earr \right] = \vek A^T\,\vek f_E\,.
+\barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r @{\hspace{2mm}} r} 1 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 \earr \right] \left[ \barr{c} f_1^a \\ f_2^a \\ f_1^b \\ f_2^b \earr \right] = \vek A^T\,\vek f_{loc}\,.
 \end{align}
-Entsprechend erh\"{a}lt man durch Multiplikation der Matrix $\vek K_E$ von links und rechts mit
+Entsprechend erh\"{a}lt man durch Multiplikation der Matrix $\vek K_{loc}$ von links und rechts mit
 $\vek A^T$ bzw. $\vek A$ die Gesamtsteifigkeitsmatrix
 \begin{align}
-\vek K = \vek A^T\,\vek K_E\,\vek A = \frac{EA}{\ell_e} \left [
+\vek K = \vek A^T\,\vek K_{loc}\,\vek A = \frac{EA}{\ell_e} \left [
 \barr {r @{\hspace{2mm}} r @{\hspace{2mm}} r} 1 & -1 & 0  \\ -1 & 2 &-1 \\ 0 &-1 &1\earr \right]\,.
 \end{align}
 
@@ -694,9 +694,9 @@ Die Kopplung von gleichartigen Elementen untereinander stellt also kein Problem 
 
 Die  {\em \"{A}quivalente Spannungs Transformation\/} (EST) von Werkle, \cite{Werkle1}, l\"{o}st dieses Problem auf sehr elegante, ja nat\"{u}rliche Weise. Bei ihr z\"{a}umt man das Pferd sozusagen von hinten auf. Normalerweise geht man bei der Formulierung einer Steifigkeitsmatrix
 \begin{align}
-\vek K = \vek A^T\vek K^{\mathcal{D}} \vek A
+\vek K = \vek A^T\vek K_{loc} \vek A
 \end{align}
-ja so vor\footnote{Auf der Diagonalen von $\vek K^{\mathcal{D}} $ stehen die Elementmatrizen, s. (\ref{Eq24}) }, dass man erst die Kopplung zwischen den Weggr\"{o}{\ss}en beschreibt,
+ja so vor\footnote{Auf der Diagonalen von $\vek K_{loc} $ stehen die Elementmatrizen, s. (\ref{Eq193}) }, dass man erst die Kopplung zwischen den Weggr\"{o}{\ss}en beschreibt,
 \begin{align} \label{Eq186}
 \vek u_{loc} = \vek A\,\vek u_{Knoten}
 \end{align}
