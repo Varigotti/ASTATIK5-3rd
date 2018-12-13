@@ -71,11 +71,11 @@ Steifigkeits\"{a}nderungen f\"{u}hren dazu, dass sich die Steifigkeitsmatrix \"{
 \end{align}
 Durch einfaches Umstellen sieht man, dass diese Gleichung mit dem System
 \beq
-\vek K\,\vek u_c = \vek f - \vek \Delta\,\vek K\,\vek u_c = \vek f + \vek f^+
+\vek K\,\vek u_c = \vek f - \vek \Delta\vek K\,\vek u_c = \vek f + \vek f^+
 \eeq
 identisch ist. Der neue Vektor $\vek u_c$ kann also als L\"{o}sung des urspr\"{u}nglichen Systems gelten, wenn man zu der rechten Seite $\vek f$ den Vektor
 \beq
-\vek f^+ := - \vek \Delta\,\vek K\,\vek u_c
+\vek f^+ := - \vek \Delta\vek K\,\vek u_c
 \eeq
 addiert.
 
@@ -134,7 +134,7 @@ und wir \"{u}berzeugen uns leicht, dass die neuen Knotenverschiebungen $u_i^c $ 
 Diese Ergebnisse nehmen wir nun zum Anlass unsere Strategie wie folgt zu formulieren: Wir \"{a}ndern nicht die Steifigkeitsmatrix, sondern die rechte Seite.
 Wir suchen also eine Erg\"{a}nzung $\vek f^+$ zu dem Knotenkraftvektor $\vek f $ so, dass $\vek  f+ \vek f^+$ an dem System $\vek K $ dieselben Knotenverschiebungen verursacht, wie $\vek f $ an dem System $\vek K_c$.
 
-Die Schwierigkeit dabei ist nat\"{u}rlich, dass der Vektor $\vek f^+ = -\vek \Delta\,\vek K\,\vek u_c$ von dem neuen Vektor $\vek u_c$ abh\"{a}ngt, den wir ja nicht kennen. (N\"{a}herungsweise kann man f\"{u}r $\vek u_c$ den Vektor $\vek u$ setzen).
+Die Schwierigkeit dabei ist nat\"{u}rlich, dass der Vektor $\vek f^+ = -\vek \Delta\vek K\,\vek u_c$ von dem neuen Vektor $\vek u_c$ abh\"{a}ngt, den wir ja nicht kennen. (N\"{a}herungsweise kann man f\"{u}r $\vek u_c$ den Vektor $\vek u$ setzen).
 Aber es geht uns nicht darum, eine neue Rechenmethode zur Nachverfolgung von Steifigkeits\"{a}nderungen in die Praxis einzuf\"{u}hren, sondern es geht uns prim\"{a}r um das statische Verst\"{a}ndnis.
 
 Wir werden sehen, dass alle Steifigkeits\"{a}nderungen verstanden werden k\"{o}nnen, als die Addition von solchen {\em Gleichgewichts\-kr\"{a}ften\/} $\vek f^+$.
@@ -649,7 +649,7 @@ In der Notation der linearen Algebra ist die Herleitung noch einfacher. Bei eine
 \end{align}
 die Gleichung
 \begin{align}
-\vek \delta \vek u^T\,(\vek K + \vek \Delta\,\vek K)\,\vek u_c = \vek \delta \vek u^T\,\vek f\,,
+\vek \delta \vek u^T\,(\vek K + \vek \Delta\vek K)\,\vek u_c = \vek \delta \vek u^T\,\vek f\,,
 \end{align}
 so dass  der Vektor $\vek e = \vek u_c - \vek u$ der Gleichung
 \begin{align}\label{Eq143}
@@ -994,14 +994,14 @@ Schreiben wir die Biegeverformung im Bereich der Pf\"{a}hle elementweise als Tay
 \begin{align}
 w_c(x) = w_c(0) + w_c'(0) \cdot x + \frac{1}{2}\,w_c''(0) \cdot x^2 + \ldots
 \end{align}
-dann liefern nur die quadratischen Terme Beitr\"{a}ge zu $\vek f^+ = -\vek \Delta \vek K\,\vek u_c$, weil in jedem Element die Zeilen von $\vek \Delta\,\vek K_e$ orthogonal zu Starrk\"{o}rperbewegungen sind -- den ersten beiden Termen. Die quadratischen Terme werden jedoch die kleinsten der drei Terme sein, so dass auch $\vek f^+$ relativ klein sein wird. Dazu kommt noch, dass die Pf\"{a}hle relativ weit vom \"{U}berbau entfernt liegen, so dass der Einfluss der Pfahlkr\"{a}fte $\vek f^+$ auf den \"{U}berbau, unabh\"{a}ngig von ihrer Gr\"{o}{\ss}e, relativ klein sein wird. Die Rechenergebnisse best\"{a}tigten das, die Momente $M(x)$ und $M_c(x)$ weichen kaum voneinander ab.
+dann liefern nur die quadratischen Terme Beitr\"{a}ge zu $\vek f^+ = -\vek \Delta \vek K\,\vek u_c$, weil in jedem Element die Zeilen von $\vek \Delta\vek K_e$ orthogonal zu Starrk\"{o}rperbewegungen sind -- den ersten beiden Termen. Die quadratischen Terme werden jedoch die kleinsten der drei Terme sein, so dass auch $\vek f^+$ relativ klein sein wird. Dazu kommt noch, dass die Pf\"{a}hle relativ weit vom \"{U}berbau entfernt liegen, so dass der Einfluss der Pfahlkr\"{a}fte $\vek f^+$ auf den \"{U}berbau, unabh\"{a}ngig von ihrer Gr\"{o}{\ss}e, relativ klein sein wird. Die Rechenergebnisse best\"{a}tigten das, die Momente $M(x)$ und $M_c(x)$ weichen kaum voneinander ab.
 
 Man kann das Ganze auch andersherum aufz\"{a}umen, indem man direkt die \"{A}nderungen $G_2(y,x) \to G_{2c}(y,x)$ verfolgt. Die Knotenwerte $\vek g$ der Einflussfunktion $G_2$ sind die L\"{o}sung des Systems $\vek K\vek g = \vek j$ mit $j_i = M(\Np_i)(x)$ und die Knotenwerte $\vek g_c$ der Einflussfunktion $G_{2 c}$ sind die L\"{o}sung des Systems
 \begin{align}
 \vek K\,\vek g_c = \vek j + \vek j^+
 \end{align}
 mit dem Vektor $\vek j^+ = -\Delta \vek K\,\vek g_c$. Die durch die Spreizung des Aufpunktes $x$  erzeugte Bewegung $g_c(x) = g_c(0) + g_c'(0)\,x + 0.5 * g_c''(0)^2/x\ldots$ (in den Pf\"{a}hlen) d\"{u}rfte aber demselben Argument unterliegen wie oben. Die Eintr\"{a}ge in dem Vektor $\vek j^+ =-
-\vek \Delta\,\vek K\,\vek g_c$ sollten relativ klein sein und weil die Knoten der Pf\"{a}hle vom \"{U}berbau relativ weit weg liegen, sollte der Einfluss der $\vek j^+$ klein sein und somit auch der Unterschied zwischen den Einflussfunktionen $G_2(y,x)$ und $G_{2c}(y,x)$.
+\vek \Delta\vek K\,\vek g_c$ sollten relativ klein sein und weil die Knoten der Pf\"{a}hle vom \"{U}berbau relativ weit weg liegen, sollte der Einfluss der $\vek j^+$ klein sein und somit auch der Unterschied zwischen den Einflussfunktionen $G_2(y,x)$ und $G_{2c}(y,x)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textcolor{sectionTitleBlue}{\section{Klassische Formulierung}}
@@ -1080,7 +1080,7 @@ Brechen wir die Taylor-Entwicklung nach dem ersten Glied ab, dann gilt n\"{a}her
 \vek u_c - \vek u \sim \vek u' \cdot \Delta E_1 = -\vek K^{(-1)}\,\vek K'\,\vek u \cdot \Delta E_1 = -\vek K^{(-1)} \vek \Delta \vek K\,\vek u = -\vek K^{(-1)}\,\tilde{\vek f}^+\,.
 \end{align}
 Wenn hier $\vek \Delta \vek K\,\vek u_c$ st\"{u}nde, dann w\"{a}re $\tilde{\vek f}^+$ der exakte Vektor $\vek f^+$.
-Der naheliegende Vorschlag, dass man $\vek f^+ = \vek \Delta\,\vek K\,\vek u_c$ durch $\vek f^+ \sim \vek \Delta\,\vek K\,\vek u$ ann\"{a}hert, entspricht also einer linearen Interpolation.
+Der naheliegende Vorschlag, dass man $\vek f^+ = \vek \Delta\vek K\,\vek u_c$ durch $\vek f^+ \sim \vek \Delta\vek K\,\vek u$ ann\"{a}hert, entspricht also einer linearen Interpolation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textcolor{sectionTitleBlue}{\section{Berechnung von $\vek u_c$}}\label{Eq59}
@@ -1097,15 +1097,15 @@ Wir multiplizieren die Gleichung
 \end{align}
 von links mit $\vek K^{-1}$
 \begin{align} \label{F7}
-(\vek I + \vek K^{-1}\,\vek \Delta\,\vek K)\,\vek u_c = \vek u
+(\vek I + \vek K^{-1}\,\vek \Delta\vek K)\,\vek u_c = \vek u
 \end{align}
 und schreiben Sie in der Form
 \begin{align}\label{F6}
-\vek u_c = - \vek K^{-1}\,\vek \Delta\,\vek K\,\vek u_c + \vek u
+\vek u_c = - \vek K^{-1}\,\vek \Delta\vek K\,\vek u_c + \vek u
 \end{align}
 was die folgende {\em fixed-point iteration\/} f\"{u}r $\vek u_c$
 \begin{align}
-\vek u_c^{i+1} = - \vek K^{-1}\,\vek \Delta\,\vek K\,\vek u_c^i + \vek u \qquad i = 1,2,\ldots
+\vek u_c^{i+1} = - \vek K^{-1}\,\vek \Delta\vek K\,\vek u_c^i + \vek u \qquad i = 1,2,\ldots
 \end{align}
 mit $\vek u^0 = \vek u$ als Startvektor nahelegt.
 
@@ -1145,10 +1145,10 @@ Aber es ist bemerkenswert, dass bei nicht zu gro{\ss}en St\"{o}rungen die Iterat
 \textcolor{sectionTitleBlue}{\subsection{Direkte Berechnung -- \glq von 2 auf 100\grq{}}}
 Wiederholen wir noch einmal die Gleichung, die zu l\"{o}sen ist
 \begin{align} \label{FX7}
-(\vek I + \vek K^{-1}\,\vek \Delta\,\vek K)\,\vek u_c = \vek u\,.
+(\vek I + \vek K^{-1}\,\vek \Delta\vek K)\,\vek u_c = \vek u\,.
 \end{align}
 Das Produkt $ \label{F1} \vek K^{-1}\,\vek \Delta \vek K $
-ist eine schwach besetzte Matrix, weil die zur vollen Gr\"{o}{\ss}e $n \times n$ erweiterte Elementmatrix $\vek \Delta\,\vek K$ viel \glq Luft\grq{}, viele Nullen enth\"{a}lt. Nehmen wir an, dass die Matrix $\vek \Delta \vek K$ nur vier Eintr\"{a}ge enth\"{a}lt, die nicht null sind
+ist eine schwach besetzte Matrix, weil die zur vollen Gr\"{o}{\ss}e $n \times n$ erweiterte Elementmatrix $\vek \Delta\vek K$ viel \glq Luft\grq{}, viele Nullen enth\"{a}lt. Nehmen wir an, dass die Matrix $\vek \Delta \vek K$ nur vier Eintr\"{a}ge enth\"{a}lt, die nicht null sind
 \begin{align}
 \vek \Delta \vek K = \left[\barr{r r r r r r r r}
 \phantom{0} & \phantom{0}  & \phantom{0}& ... & \phantom{0} &\phantom{0} &\phantom{0}\\
@@ -1227,7 +1227,7 @@ Man kann so auch die ganze Inverse $\vek K_c^{-1} = [\vek c_1^c, \vek c_2^c, \ld
 
 Die \glq offizielle\grq{} Methode um $(\vek K + \vek \Delta \vek K)^{-1}$ aus $\vek K^{-1}$ zu berechnen, ist die {\em Sherman-Morrison-Woodbury\/}-Formel, \cite{Golub},\index{Sherman-Morrison-Woodbury}\label{Korrektur14}
 \begin{align}
-(\vek K + \vek \Delta\,\vek K)^{-1} = \vek K^{-1} - \vek K^{-1} \vek U\,(\vek I + \vek V\,\vek K^{-1}\,\vek U)^{-1} \,\vek V\,\vek K^{-1}
+(\vek K + \vek \Delta\vek K)^{-1} = \vek K^{-1} - \vek K^{-1} \vek U\,(\vek I + \vek V\,\vek K^{-1}\,\vek U)^{-1} \,\vek V\,\vek K^{-1}
 \end{align}
 wobei $\vek \Delta \vek K = \vek U\,\vek V^T$. Sie gleicht einer {\em black box\/}, bei der es schwerf\"{a}llt, den statischen Gehalt hinter der Formel zu entdecken.
 
@@ -1252,7 +1252,7 @@ also eine Skalierung einzelner Elementmatrizen mit unterschiedlichen Faktoren $c
 
 Eine Serie von Modifikationen, etwa \"{A}nderungen der Elemente  5, 7 und 9, bedeutet einfach, dass $\vek \Delta \vek K$ eine Ansammlung von skalierten Elementmatrizen $\vek \Delta \vek K_e$ ist
 \begin{align}
-\vek u_c = - \vek K^{-1}\,(\vek \Delta\,\vek K_5 + \vek \Delta\,\vek K_7 + \vek \Delta\,\vek K_9 )\,\vek u_c + \vek u \qquad \text{(direkte Lsg.)}
+\vek u_c = - \vek K^{-1}\,(\vek \Delta\vek K_5 + \vek \Delta\vek K_7 + \vek \Delta\vek K_9 )\,\vek u_c + \vek u \qquad \text{(direkte Lsg.)}
 \end{align}
 Nat\"{u}rlich k\"{o}nnen auch einzelne Lager entfernt werden, nachtr\"{a}glich Gelenke eingebaut werden (das geht mit Dirac Deltas) und Einflussfunktionen f\"{u}r alle interessierenden Gr\"{o}{\ss}en berechnet werden.
 %-----------------------------------------------------------------

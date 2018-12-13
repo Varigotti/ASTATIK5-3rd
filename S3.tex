@@ -746,7 +746,7 @@ oder
 \end{align}
 Die Berechnung der \"{a}quivalenten Knotenkr\"{a}fte $\vek f_S$ aus den als Linienlasten aufgefassten Spannungen $p_x$ und $p_y$ geschieht, wie es die Regel ist, durch die \"{U}berlagerung der Spannungen mit den {\em shape functions\/}. Das Ergebnis hat formal die Gestalt
 \begin{align}
-\vek f_S = \vek Q\,\vek p\,.
+\vek f_S = \vek Q\,\vek p
 \end{align}
 mit einer Matrix, die wir $\vek Q$ (wie Quadratur) nennen.
 
@@ -915,7 +915,7 @@ So gelingt es den FE-Programmen exakte Einflussfunktionen f\"{u}r Stabtragwerke 
 
 {\textcolor{sectionTitleBlue}{\subsubsection*{Der Schl\"{u}ssel zu den Knotenkr\"{a}ften $ j_i$}}}\index{Schl\"{u}ssel zu den  $j_i$}
 
-Warum sind bei dem obigen Beispiel die \"{a}quivalenten Knotenkr\"{a}fte $j_i$ (= $f_i$) gleich den Werten der Ansatzfunktionen im Aufpunkt, $j_i = \Np_i(2.5)$? Der Schl\"{u}ssel hierzu liegt in der Definition der \"{a}quivalenten Knotenkr\"{a}fte $f_i$.
+Warum sind bei dem obigen Beispiel die \"{a}quivalenten Knotenkr\"{a}fte $j_i$ (= $f_i$) die Werte der Ansatzfunktionen im Aufpunkt, $j_i = \Np_i(2.5)$? Der Schl\"{u}ssel hierzu liegt in der Definition der \"{a}quivalenten Knotenkr\"{a}fte $f_i$.
 
 %----------------------------------------------------------
 \begin{figure}[tbp]
@@ -933,7 +933,7 @@ Bei Einflussfunktionen steht auf der rechten Seite der Differentialgleichung ein
 \begin{align}
 -EA\,\frac{d^2}{dy^2}\,G_0(y,x) = \delta_0(y-x) \qquad \leftarrow \,\,\text{[kN/m]}\,,
 \end{align}
-die eine Einzelkraft im Aufpunkt $x = 2.5$ repr\"{a}sentiert. Sie ist sozusagen das $p$, das zur Einflussfunktion geh\"{o}rt. (Wir differenzieren auf der linken Seite nach $y$, dies ist hier die Laufvariable).
+die eine Einzelkraft im Aufpunkt $x = 2.5$ repr\"{a}sentiert. Sie ist sozusagen das $p$, das zur Einflussfunktion geh\"{o}rt. (Wir differenzieren auf der linken Seite nach $y$, denn das ist hier die Laufvariable).
 
 Jetzt rechnen wir und finden, dass die \"{a}quivalenten Knotenkr\"{a}fte ($[\text{kN} \cdot \text{m}]$)
 \begin{align}
@@ -949,34 +949,23 @@ Wenn wir die Komponente $u_i$ eines Vektors $\vek u$ abfragen, dann werten wir s
 \begin{align}
 J_i(\vek u) = u_i = \vek e_i^T\,\vek u
 \end{align}
-aus, das dem Skalarprodukt zwischen dem Einheitsvektor $\vek e_i$, dem diskreten Dirac Delta, und $\vek u$ entspricht.
-
-Geht es um die Auswertung von Funktionen, dann sind die Funktionale Integrale, wie etwa der Ausdruck
+aus, das dem Skalarprodukt zwischen dem Einheitsvektor $\vek e_i$, dem diskreten Dirac Delta, und $\vek u$ entspricht. Geht es um die Auswertung von Funktionen, dann sind die Funktionale Integrale, wie etwa der Ausdruck
 \begin{align} \label{Eq43}
 J(u) = \int_0^{\,l} u(x)\,dx\,.
 \end{align}
-Der Wert dieses Funktionals ist gleich dem Integral der Funktion $ u(x) $ \"{u}ber das Intervall $(0,l)$.
 Funktionale sind also im allgemeinen Funktionen von Funktionen.
 
-Funktionale wie
-\begin{align}
-J(u) = u(0)
-\end{align}
-nennt man {\em Punktfunktionale\/}\index{Punktfunktionale}, weil sie einen Wert in einem Punkt zur\"{u}ckgeben
-\begin{align}
-J(\sin(x)) = \sin(0) = 0 \quad J(e^x) = e^0 = 1\,.
-\end{align}
-Lineare Funktionale\index{lineares Funktional} wie das Integral einer Funktion
-\begin{align}
-J(u_1 + u_2) &= \int_0^{\,l} (u_1(x) + u_2(x))\,dx \nn \\
-& = \int_0^{\,l} u_1(x)\,dx + \int_0^{\,l} u_2(x)\,dx = J(u_1) + J(u_2)\,,
-\end{align}
-lassen sich \glq superponieren\grq{}.
-
-Jede Lagerkraft, jede Durchbiegung, jedes Moment, etc., ist ein (nat\"{u}rlich jeweils anderes) Funktional $J(w)$
+Die Querkraft, die Durchbiegung, das Moment in einem Punkt, etc.
 \begin{align}\label{Eq20}
-J(w) = V(0) \qquad J(w) = w(x) \qquad J(w) = M(x)\,.
+J(w) = V(0) \qquad J(w) = w(x) \qquad J(w) = M(x)
 \end{align}
+nennt man {\em Punktfunktionale\/}\index{Punktfunktionale}. Diese Funktionale sind linear, sie d\"{u}rfen also superponiert werden
+\begin{align}
+J(w_1 + w_2) &=  J(w_1) + J(w_2)\,.
+\end{align}
+
+\hspace*{-12pt}\colorbox{highlightBlue}{\parbox{0.98\textwidth}{Lineare Statik bedeutet lineare Funktionale}}\\
+
 Der entscheidende Schritt ist nun, dass wir die Auswertung eines linearen Funktionals auf ein Arbeitsintegral, ein $L_2$-Skalarprodukt zur\"{u}ckf\"{u}hren und dabei das Dirac Delta als Vorbild nehmen.
 
 Das Funktional $J(w) = w(x)$, die Durchbiegung des Tr\"{a}gers in einem Punkt $x$, ist im Ergebnis die \"{U}berlagerung von $w$ mit einem Dirac Delta $\delta(y-x)$ (= Punktlast)
@@ -985,11 +974,11 @@ J(w) = 1 \cdot w(x) = \int_0^{\,l} \delta(y-x)\,w(y)\,dy \qquad [\text{kNm}]\,.
 \end{align}
 Das Dirac Delta spielt hier dieselbe Rolle, wie oben der Einheitsvektor $\vek e_i$.
 
-Und diese Interpretation wenden wir jetzt konsequent an. Jedes Funktional ist f\"{u}r uns das Ergebnis der \"{U}berlagerung eines Dirac Deltas mit $w$
+Jedes Funktional ist f\"{u}r uns das Ergebnis der \"{U}berlagerung eines speziellen Dirac Deltas mit der Biegelinie $w$
 \begin{align}
 J(w) = \int_0^{\,l} \delta(y-x)\,w(y)\,dy \,.
 \end{align}
-Wie wir gleich sehen werden, m\"{u}ssen wir gar nicht wissen, wie diese verschiedenen Dirac Deltas aussehen. Wir m\"{u}ssen nur wissen, was das Ergebnis $J(w)$ sein soll. Und weil wir jedes Funktional als Arbeitsintegral lesen, hat jedes so dargestellte Funktional die Dimension einer Arbeit
+Wie wir gleich sehen werden, m\"{u}ssen wir gar nicht wissen, wie diese verschiedenen Dirac Deltas aussehen. Wir m\"{u}ssen nur wissen, was das Ergebnis $J(w)$ sein soll. Und weil wir jedes Funktional als Arbeitsintegral lesen, hat jedes so dargestellte Funktional im Ergebnis die Dimension einer Arbeit
 \begin{align}
 J(w) = 1 \cdot \text{\glq irgendetwas\grq{}}
 \end{align}
@@ -997,15 +986,15 @@ wobei die 1 immer eine solche Dimension hat, dass $1 \cdot\text{\glq irgendetwas
 \begin{alignat}{3}
 J(w) &= V(x) \cdot 1 &&= \text{kN}  \cdot \text{m}\, &&\quad\text{1 = Versetzung} \\
 J(w) &= w(x) \cdot 1 &&= \text{m}   \cdot \text{kN}\,&&\quad\text{1 = Kraft}\\
-J(w) &= M(x) \cdot 1 &&= \text{kNm} \cdot [\,] \,      &&\quad\text{1 = Knick }\,.
+J(w) &= M(x) \cdot 1 &&= \text{kNm} \cdot [\,\,\,] \,      &&\quad\text{1 = Knick }
 \end{alignat}
-Der Knick ist ein Sprung in der Ableitung $w'$ also im Tangens, der ja als Quotient zweier L\"{a}ngen, $dw/dx$, keine Dimension hat. Im Folgenden schreiben wir die $1$ meist nicht mit an, aber wir denken sie dann immer mit.
+Der Knick ist ein Sprung in der Ableitung $w'$, im Tangens, der ja als Quotient zweier L\"{a}ngen, $dw/dx$, keine Dimension hat. Im Folgenden schreiben wir die $1$ meist nicht mit an, aber wir denken sie dann immer mit.
 
-Die Einf\"{u}hrung der Dirac Deltas hat den Vorteil, dass wir die zugeh\"{o}rige Einflussfunktion als die L\"{o}sung der Differentialgleichung (wir bleiben der Einfachheit halber beim Balken) mit dem Dirac Delta auf der rechten Seite interpretieren k\"{o}nnen
+Die Einf\"{u}hrung der Dirac Deltas hat den Vorteil, dass wir die zugeh\"{o}rige Einflussfunktion als die L\"{o}sung der Balkengleichung (wir bleiben der Einfachheit halber beim Balken) mit dem Dirac Delta auf der rechten Seite interpretieren k\"{o}nnen
 \begin{align}
 EI\,\frac{d^4}{dy^4}\,G(y,x) = \delta (y-x)\,.
 \end{align}
-(Weil wir den Aufpunkt mit $x$ bezeichnen, benutzen wir $y$ als Laufvariable und deswegen stehen links Ableitungen nach $y$).
+(Weil wir den Aufpunkt mit $x$ bezeichnen, ist $y$ die eigentliche Laufvariable und deswegen stehen links Ableitungen nach $y$).
 
 Die \"{a}quivalenten Knotenkr\"{a}fte, die die Einflussfunktion generieren, sind dann einfach die Zahlen
 \begin{align}
@@ -1117,7 +1106,7 @@ genau die Knotenwerte der Einflussfunktion sind und sie dazwischen linear verl\"
 %-----------------------------------------------------------------
 
 \begin{remark}
-Die $g_i$ \"{a}ndern sich mit der Lage $x$ des Aufpunktes, sie sind also  Funktionen von $x$, so dass eine FE-Einflussfunktion im allgemeinen eine separierte Gestalt hat
+Die $g_i$ \"{a}ndern sich mit der Lage $x$ des Aufpunktes, sie sind also  Funktionen von $x$, so dass eine FE-Einflussfunktion im allgemeinen eine separierte Gestalt hat wie eben
 \beq
 G(y,x) = g_1(x) \cdot \Np_2(y) + g_2(x) \cdot \Np_2(y) + g_3(x) \cdot \Np_3(y) + g_4(x) \cdot \Np_4(y)\,.
 \eeq
@@ -1175,7 +1164,7 @@ Nur die Knoten des Elements, das den Aufpunkt $x$ enth\"{a}lt, tragen Knotenkr\"
 \end{figure}%%
 %----------------------------------------------------------------------------------------------------------
 
-Die so erzeugten Einflussfunktionen sind au{\ss}erhalb des Elementes, auf dem der Aufpunkt liegt, exakt. Nur im Element m\"{u}ssen sie korrigiert werden. In der Praxis macht man das so, wie oben schon erl\"{a}utert, dass man zu der FE-Einflussfunktion die lokale L\"{o}sung addiert.
+Die so erzeugten Einflussfunktionen sind au{\ss}erhalb des Elementes, auf dem der Aufpunkt liegt, exakt. Nur im Element m\"{u}ssen sie korrigiert werden. In der Praxis macht man das so, wie oben schon erl\"{a}utert, dass man -- wie beim Drehwinkelverfahren -- zu der FE-Einflussfunktion die lokale L\"{o}sung addiert.
 
 Mit den obigen Formeln kann man also Einflussfunktionen f\"{u}r die Momente bzw. Querkr\"{a}fte in einem beliebigen Punkt $0 \leq x \leq l$ eines Elements berechnen. Die Knotenkr\"{a}fte in den beiden Knoten des Elements sind die Momente $M_i(x)$ (EF f\"{u}r $M$) bzw. die Querkr\"{a}fte $V_i(x)$ (EF f\"{u}r $V$) der $\Np_i$ im Aufpunkt $x$. Alle anderen Knoten des Tragwerks sind lastfrei, $f_i = 0$.
 \end{example}
@@ -1465,11 +1454,11 @@ und die ge\"{a}nderte Formulierung haben dieselbe rechte Seite
 \end{align}
 so dass die Differenz der beiden Gleichungen, $\vek e = \vek u_c - \vek u$, den Ausdruck
 \begin{align}
-\vek \delta \vek u^T\,\vek K\,\vek e = - \vek \delta \,\vek u^T\,\vek \Delta\,\vek K\,\vek u_c
+\vek \delta \vek u^T\,\vek K\,\vek e = - \vek \delta \,\vek u^T\,\vek \Delta \vek K\,\vek u_c
 \end{align}
 ergibt. Setzen wir f\"{u}r $\vek  \delta \vek u$ den Vektor $\vek g$ der Einflussfunktion dann folgt
 \begin{align}
-J(\vek e)= -  \vek g^T\,\vek \Delta\,\vek K\,\vek u_c\,,
+J(\vek e)= -  \vek g^T\,\vek \Delta\vek K\,\vek u_c\,,
 \end{align}
 was ein lokales Resultat ist, zumindest so lokal wie die Matrix $\vek \Delta \vek K$, weil wir zur Auswertung von $J(\vek e)$ nur \"{u}ber das ge\"{a}nderte Element $\Omega_e$ integrieren m\"{u}ssen (sinngem\"{a}{\ss} ist die rechte Seite ja so etwas wie das Mohrsche Arbeitsintegral beim Balken).
 
@@ -1477,7 +1466,7 @@ Man stelle sich einen gro{\ss}en ebenen Rahmen vor, in dem ein einzelner Riegel 
 
 Wenn der Rahmen $2\,n$ Freiheitsgrade $u_i$ hat, dann k\"{o}nnten wir theoretisch $2\,n$ Messungen $J_i(\vek e) = u_{ic} - u_i$ mit den $2\,n$ Knotenvektoren $\vek g_i$ an dem gerissenen Element
 \begin{align}
-J_i(\vek e) = u_{ic} - u_i = -\vek g_i^T\,\vek \Delta\,\vek K\,\vek u_c
+J_i(\vek e) = u_{ic} - u_i = -\vek g_i^T\,\vek \Delta\vek K\,\vek u_c
 \end{align}
 vornehmen und so die ge\"{a}nderten Knotenverschiebungen
 \begin{align}
@@ -1485,24 +1474,24 @@ u_{ic} = u_i + J_i(\vek e)
 \end{align}
 -- in Matrizenschreibweise ist das
 \begin{align}\label{Eq161}
-\vek u_c = \vek u + \vek K^{(-1)}\,\vek \Delta\,\vek K\,\vek u_c
+\vek u_c = \vek u + \vek K^{(-1)}\,\vek \Delta\vek K\,\vek u_c
 \end{align}
 berechnen, weil die Spalten der Inversen gerade die Knotenverschiebungsvektoren $\vek g_i$ der Einflussfunktionen f\"{u}r die Knotenverschiebungen $u_i$ sind.
 
 In Kapitel 5 schreiben wir das als
 \begin{align}\label{Eq7}
-\vek K\,\vek u_c = \vek K\,\vek u + \vek \Delta\,\vek K\,\vek u_c = \vek f + \vek f^+\,.
+\vek K\,\vek u_c = \vek K\,\vek u + \vek \Delta\vek K\,\vek u_c = \vek f + \vek f^+\,.
 \end{align}
 Das Problem dabei ist, dass wir nat\"{u}rlich den Vektor $\vek u_c$ nicht kennen, den wir brauchen um $J_i(\vek e)$ zu berechnen. In dieser Situation k\"{o}nnten wir f\"{u}r den Vektor $\vek u_c$ n\"{a}herungsweise den urspr\"{u}nglichen Vektor $\vek u$ setzen
 \begin{align}
-J_i(\vek e)  \simeq \vek g_i^T\,\vek \Delta\,\vek K\,\vek u\,,
+J_i(\vek e)  \simeq \vek g_i^T\,\vek \Delta\vek K\,\vek u\,,
 \end{align}
 oder $\vek u_c$ durch Iteration bzw. eine (stark verk\"{u}rzte) direkte Berechnung bestimmen, s. Kapitel 5, S. \pageref{Eq59}. \\
 
 \begin{remark}
 Das obige Resultat (\ref{Eq7}) impliziert, dass
 \begin{align}\label{Eq162}
-(\vek I + \vek K^{-1}\,\vek \Delta \,\vek K)\,\vek u_c = \vek u
+(\vek I + \vek K^{-1}\,\vek \Delta \vek K)\,\vek u_c = \vek u
 \end{align}
 gelten muss, was bedeutet, dass ein Tragwerk im \"{U}bergang von  $\vek K$ zu \vek K + \vek \Delta \vek K den Zuwachs $\vek \Delta \vek u = \vek u_c - \vek u$ nicht frei w\"{a}hlen kann, sondern dass der neue Zustand $\vek u_c$ mit dem vorherigen Zustand $\vek u$ kompatibel sein muss.
 
@@ -1512,7 +1501,7 @@ Theoretisch  k\"{o}nnte man mit einer ganz einfachen Steifigkeitsmatrix  $\vek K
 \end{align}
 und so w\"{u}rde man eine Kette von L\"{o}sungen $\vek u_i$ produzieren, wo jeder neue Vektor $\vek u_{i + 1}$ mit dem vorhergehenden Vektor verschr\"{a}nkt ist
 \begin{align}\label{Eq163}
-(\vek I + \vek K_i^{-1}\,\vek \Delta \,\vek K_{i + 1})\,\vek u_{i + 1} = \vek u_i\,.
+(\vek I + \vek K_i^{-1}\,\vek \Delta\vek K_{i + 1})\,\vek u_{i + 1} = \vek u_i\,.
 \end{align}
 \end{remark}
 
