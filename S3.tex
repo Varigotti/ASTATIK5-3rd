@@ -1795,7 +1795,7 @@ und die Spalte  $\vek g_k$ von $\vek K^{-1}$ entspricht $G_h(x_k,x)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\textcolor{sectionTitleBlue}{\section{Finite Differenzen und Einflussfunktionen}}}\index{finite Differenzen}
-Im Folgenden konzentrieren wir uns der Einfachheit halber auf einen Stab, aber die Ergebnisse lassen sich nat\"{u}rlich verallgemeinern.
+Im Folgenden konzentrieren wir uns auf einen Stab, aber die Ergebnisse lassen sich nat\"{u}rlich verallgemeinern.
 
 Das erste, was wir notieren wollen, ist, dass die Knotenkr\"{a}fte $f_i$, die die Einflussfunktionen f\"{u}r die Verschiebung im Mittelpunkt eines Elementes erzeugen, immer gleich gro{\ss} sind, $f_i = 1/2$, unabh\"{a}ngig davon, wie lang, $l_e$, das Element ist. Bei der Einflussfunktionen f\"{u}r die Normalkraft $N = EA\,u'$ ist das (in \"{U}bereinstimmung mit dem umgekehrten Gummibandeffekt, S. \pageref{rubberband}) anders
 \begin{align}
@@ -1949,33 +1949,35 @@ Es ist anschaulich klar, dass diese Kommunikation um so \glq wackliger\grq{} wir
 Nachdem wir jetzt auch Einflussfunktionen mit finiten Elementen berechnen k\"{o}nnen, wollen wir hier die wesentlichen Eigenschaften der Spalten der beiden Matrizen $\vek K$ und $\vek K^{-1}$ im Vergleich zusammenstellen.\index{Spalten von $\vek K$}\index{Spalten von $\vek K^{-1}$}
 
 {\textcolor{sectionTitleBlue}{\subsubsection*{Die Spalten von $\vek K$}}}
-Die Matrix $\vek K = [\vek f_1, \vek f_2, \ldots, \vek f_n]$ bildet den Vektor $\vek u$ auf einen Vektor $\vek f_h$ ab
-\begin{align}
-\vek K \vek u = u_1 \cdot \vek f_i + u_2 \cdot \vek f_2 + \ldots + u_n \cdot \vek f_n = \vek f_h\,.
+Schaut man auf die Spalten, dann kann man eine Steifigkeitsmatrix auf zwei Arten lesen
+\begin{align} 
+\vek K = [\underbrace{\vek k_1, \vek k_2, \ldots, \vek k_n}_{\delta A_i}] = [\underbrace{\vek f_1, \vek f_2, \ldots, \vek f_n}_{\delta A_a}]\,.
 \end{align}
-Warum wir den Vektor $\vek f_h$ nennen, wird gleich deutlich.
+Ist $\vek u = \vek e_i $, wird also der Freiheitsgrad $u_i = 1 $ aktiviert und sind alle anderen $u_j = 0 $ null,
+dann sind dazu Kr\"{a}fte n\"{o}tig, die wir den Lastfall $p_i $ nennen und die wir uns hier, der Einfachheit halber als eine Streckenlast $p_i$ vorstellen. Die zu dem Lastfall $p_i$ geh\"{o}rigen \"{a}quivalenten Knotenkr\"{a}fte sind also komponentenweise\footnote{Bitte beachten: die $f_{ij}$ sind nicht die Elemente der Flexibilit\"{a}tsmatrix $\vek F$} ($j$)
+\begin{align}
+f_{ij}    = \int_0^{\,l} p_i\,\Np_j\,dx \qquad (\delta A_a)\,.
+\end{align}
+Das sind die Eintr\"{a}ge in dem Vektor $\vek f_i $. 
+Die Matrix $\vek K = [\vek f_1, \vek f_2, \ldots, \vek f_n]$ bildet also den Vektor $\vek u$ auf einen Vektor $\vek f_h$ ab, s. Abb. \ref{U447} und \ref{U448}.
+\begin{align}
+\vek K \vek u = u_1 \cdot \vek f_1 + u_2 \cdot \vek f_2 + \ldots + u_n \cdot \vek f_n = \vek f_h\,.
+\end{align}
+Wegen der ersten Greenschen Identit\"{a}t, $\text{\normalfont\calligra G\,\,}(\Np_i,\Np_j) = \delta A_a - \delta A_i = 0$, sind die \"{a}u{\ss}eren Arbeiten $f_{ij}$ gleich der inneren Arbeit, also der Wechselwirkungsenergie $f_{ij} = a(\Np_i,\Np_j) = k_{ij}$, und so kann man die Spalte $\vek f_i$ auch mit einem Vektor $\vek k_i $ identifizieren, dessen Eintr\"{a}ge die \"{U}berlagerung der Spannungen, die die Bewegung $\Np_i $ verursacht mit den Spannungen der
+virtuellen Verr\"{u}ckungen $\Np_j $ ist (analog dem Mohrschen Arbeitsintegral).
 
 %---------------------------------------------------------------------------------
 \begin{figure}
 \centering
 \if \bild 2 \sidecaption \fi
 \includegraphics[width=.90\textwidth]{\Fpath/U455}
-\caption{Der Mittenknoten hat den FG $u_y = u_{7}$ \textbf{ a)} Spalte 7 der Steifigkeitsmatrix $\vek K$ in vektorieller Darstellung (je zwei Eintr\"{a}ge ($x$-, $y$-Komponenten)) in Spalte 7 bilden eine Kraft), die Kraft $k_{7, 7}$ in der Mitte lenkt den Knoten um $u_{7} = 1$ aus und die umliegenden Kr\"{a}fte $k_{i,7}$ stoppen die Bewegung an den n\"{a}chsten Knoten ab \textbf{ b)} Spalte 7 der Flexibilit\"{a}tsmatrix $\vek F = \vek K^{-1}$, die Eintr\"{a}ge in der Spalte $\vek f_{7}$ sind die Verschiebungen $u_i$ der Knoten verursacht durch die vertikale Kraft $f_{7} = 1$. Au{\ss}erhalb der Umgebung des belasteten Knotens in Bild a herrscht \glq Windstille\grq{}, die Matrix $\vek K$ ist schwach besetzt, w\"{a}hrend in Bild b die ganze Scheibe \glq durchweht wird\grq{}, die ganze Scheibe sp\"{u}rt die Punktlast, $\vek F$ ist voll besetzt }
+\caption{Nur ein FG wird aktiviert, $u_{7} = 1$ \textbf{ a)} die zugeh\"{o}rigen Kr\"{a}fte stehen in Spalte $\vek f_7$ der Steifigkeitsmatrix. Die Kraft $f_{7, 7}$ lenkt den Knoten aus und die Kr\"{a}fte $f_{i,7}$ (gleiche Spalte) stoppen die Bewegung an den n\"{a}chsten Knoten ab \textbf{ b)} Spalte $\vek g_7$ der Inversen $\vek K^{-1}$. Die Eintr\"{a}ge in der Spalte $\vek g_{7}$ sind die Verschiebungen $u_i$ der Knoten verursacht durch die vertikale Kraft $f_7 = 1$, entsprechend $\vek f = \vek e_7$. Au{\ss}erhalb der Umgebung des belasteten Knotens in Bild a herrscht \glq Windstille\grq{}, $\vek K$ ist schwach besetzt, w\"{a}hrend im Bild darunter die ganze Scheibe die Punktlast sp\"{u}rt, $\vek K^{-1}$ ist voll besetzt }
 \label{U447}%
 \end{figure}%
 %---------------------------------------------------------------------------------
-Die Spalte $\vek f_i$ ist der Vektor der \"{a}quivalenten Knotenkr\"{a}fte, der zur Einheitsverformung $\Np_i$ geh\"{o}rt und die gewichtete ($u_i$) Summe  $\vek f_h$ sind daher die \"{a}quivalenten Knotenkr\"{a}fte, die zur FE-L\"{o}sung $\sum_i u_i\,\Np_i$ geh\"{o}ren, s. Abb. \ref{U447} und \ref{U448}.
-
-Um die Bewegung $\Np_i$ zu erzeugen, sind Kr\"{a}fte n\"{o}tig, die wir den Lastfall $p_i$ nennen und die wir uns hier, der Einfachheit halber als eine Streckenlast $p_i$ vorstellen. Die zu dem Lastfall $p_i$ geh\"{o}rigen \"{a}quivalenten Knotenkr\"{a}fte sind also komponentenweise ($j$)
-\begin{align}
-f_{ij}    = \int_0^{\,l} p_i\,\Np_j\,dx \qquad (\delta A_a)\,.
-\end{align}
-Wegen der ersten Greenschen Identit\"{a}t, $\text{\normalfont\calligra G\,\,}(\Np_i,\Np_j) = \delta A_a - \delta A_i = 0$, sind diese \"{a}u{\ss}eren Arbeiten gleich der inneren Arbeit, also der Wechselwirkungsenergie $f_{ij} = a(\Np_i,\Np_j) = k_{ij}$, und so sind die Spalten von $\vek K$ gerade die \"{a}quivalenten Knotenkr\"{a}ften der Kr\"{a}fte $p_i$, die die $\Np_i$ erzeugen.
-
-Die Grundgleichung $\vek K\,\vek u = \vek f$ der finiten Elemente bedeutet also $\vek f_h = \vek f$.  Das ist die \glq Wackel\"{a}quivalenz\grq{} zwischen dem Originallastfall und dem FE-Lastfall.
 
 {\textcolor{sectionTitleBlue}{\subsubsection*{Die Spalten von $\vek K^{-1}$}}}
-Die Matrix $\vek K^{-1} = [\vek g_1, \vek g_2, \ldots, \vek g_n]$ bildet den Vektor $\vek f$ der \"{a}quivalenten Knotenkr\"{a}fte auf den Vektor $\vek u$ ab
+Die Matrix $\vek K^{-1} = [\vek g_1, \vek g_2, \ldots, \vek g_n]$ bildet den Vektor $\vek f$ der \"{a}quivalenten Knotenkr\"{a}fte\footnote{Uns gehen die Symbole aus. Das $\vek f$ ist hier nat\"{u}rlich der Vektor aus $\vek K\,\vek u = \vek f$} auf den Vektor $\vek u$ ab
 \begin{align}
 \vek K^{-1} \vek f = f_1 \cdot \vek g_1 + f_2 \cdot \vek g_2 + \ldots + f_n \cdot \vek g_n = \vek u\,,
 \end{align}
@@ -1991,7 +1993,7 @@ die Einflussfunktion f\"{u}r $u_i$ ist
 \begin{align}
 u_i = \int_0^{\,l} G_h(y,x_i)\,p(y)\,dy\,.
 \end{align}
-Die $g_{ij}$ sind die Elemente von $\vek K^{-1}$ und die Vektoren $\vek g_i$ sind die Spalten von $\vek K^{-1}$. Normalerweise w\"{u}rde man die Spalten mit $\vek u_i$ bezeichnen, weil es Verschiebungen sind, aber weil die $g_{ij}$ die Knotenwerte der Einflussfunktionen f\"{u}r die Knotenverschiebungen sind,  schreiben wir $\vek g_i$.
+Die $g_{ij}$ sind die Elemente von $\vek K^{-1}$ und die Vektoren $\vek g_i$ sind die Spalten von $\vek K^{-1}$, die ja die Knotenvektoren der Einflussfunktionen sind
 %---------------------------------------------------------------------------------
 \begin{figure}
 \centering
@@ -2008,10 +2010,9 @@ Wir notieren noch
 
 Die Inverse hei{\ss}t wegen der Richtung $\vek K^{-1}\,\vek f = \vek u$ die Flexibilit\"{a}tsmatrix $\vek F = \vek K^{-1}$, aber man k\"{o}nnte sie auch {\em Greensche Matrix\/} $\vek G= \vek K^{-1}$\index{Greensche Matrix}  nennen.
 
-Der Mittenknoten der Scheibe in Abb. \ref{U447} hat in horizontaler Richtung den FG 7, $u_x = u_{7}$\footnote{Realiter wird der FG nat\"{u}rlich eine zwei- oder dreistellige Zahl sein, aber um die Notation einfach zu halten, w\"{a}hlen wir 7 als FG und in Abb. \ref{U448} die Zahl 3}. In Abb. \ref{U447} a sieht man schematisch die Spalte $\vek f_{7}$ der Matrix $\vek K$ und in Bild b die Spalte $\vek g_{7}$ der Matrix $\vek F = \vek K^{-1}$. Die Spalte $\vek f_{7}$ enth\"{a}lt komponentenweise die Kr\"{a}fte in $x$- und $y$-Richtung, die die Auslenkung des FG $u_{7} = 1$ bewirken und zwar so, dass die Verschiebung in den Nachbarknoten zum Stillstand kommt.
+Der Knoten der Scheibe in Abb. \ref{U447} wird in vertikaler Richtung ausgelenkt, $u_7 = 1 $. In Abb. \ref{U447} a sind die zugeh\"{o}rigen Knotenkr\"{a}fte (= Spalte $\vek f_{7}$ der Matrix $\vek K$) angetragen und die Bewegungen in Abb.  \ref{U447} b entsprechend der Spalte $\vek g_{7}$ der Inversen $\vek K^{-1}$. Die Kr\"{a}fte in Spalte $\vek f_{7}$ sind die Kr\"{a}fte, die die Auslenkung $u_{7} = 1$ bewirken und die Bewegung in den Nachbarknoten abstoppen (genauer: die \"{a}quivalenten Knotenkr\"{a}fte dieser Kr\"{a}fte).
 
-Die Spalte $\vek g_{7}$ der Flexibilit\"{a}tsmatrix $\vek F = \vek K^{-1}$ enth\"{a}lt die $x$- und $y$-Verschiebungen, die durch eine horizontale Einzelkraft $f_{7} = 1$ in Richtung von $u_{7}$ verursacht wird. Was hier dicht beieinander liegt, kann nat\"{u}rlich in den beiden Spalten durch L\"{u}cken voneinander getrennt sein, weil die Nummerierung dar\"{u}ber entscheidet, was wo steht.
-
+In Abb. \ref{U448} ist eine \"{a}hnliche Situation bei einem Stockwerkrahmen dargestellt. 
 Die Einheitsverformung $\Np_3$ in Abb. \ref{U448} a ist die Einflusslinie f\"{u}r die \"{a}quivalente Knotenkraft $f_3$ (das Knotenmoment), also das Moment, mit dem die Belastung $p(x)$ den festgehaltenen Knoten zu verdrehen versucht
 \begin{align}
 f_3 = \int_0^{\,l} \Np_3(x)\,p(x)\,dx\,.
